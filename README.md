@@ -1,4 +1,4 @@
-# Measured
+# Measured [![Build Status](https://travis-ci.org/Shopify/measured.svg)](https://travis-ci.org/Shopify/measured)
 
 Encapsulates measruements with their units. Provides easy conversion between units.
 
