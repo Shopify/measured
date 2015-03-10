@@ -195,6 +195,15 @@ Existing alternatives which were considered:
   * Not actively maintained.
   * No ActiveRecord adapter.
 
+### Gem: [unitwise](https://github.com/joshwlewis/unitwise)
+* **Pros**
+  * Well written and maintained.
+  * Conversions done with  Unified Code for Units of Measure (UCUM) so highly accurate and reliable.
+* **Cons**
+  * Lots of code. Good code, but lots of it.
+  * Many modifications to core types.
+  * ActiveRecord adapter exists but is written and maintained by a different person/org.
+
 ## Contributing
 
 1. Fork it ( https://github.com/Shopify/measured/fork )
