@@ -59,6 +59,10 @@ class Measured::Measurable
       conversion.unit_names
     end
 
+    def valid_unit?(unit)
+      conversion.unit_or_alias?(unit)
+    end
+
     def units_with_aliases
       conversion.unit_names_with_aliases
     end
