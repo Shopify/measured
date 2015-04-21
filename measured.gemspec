@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["github@kevinmcphillips.ca"]
   spec.summary       = %q{Encapsulate measurements with their units in Ruby}
   spec.description   = %q{Wrapper objects which encapsulate measurments and their associated units in Ruby.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/Shopify/measured"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "activesupport", ">= 4.0"
 
-  spec.add_development_dependency "bundler", "~> 1.7"
+  spec.add_development_dependency "bundler", "~> 1.8"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.5.1"
   spec.add_development_dependency "mocha", "~> 1.1.0"

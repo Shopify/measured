@@ -102,6 +102,17 @@ Measured::Weight.units
 > ["g", "kg", "lb", "oz"]
 ```
 
+Check if a unit is a valid unit or alias:
+
+```ruby
+Measured::Weight.valid_unit?(:g)
+> true
+Measured::Weight.valid_unit?("gram")
+> true
+Measured::Weight.valid_unit?("stone")
+> false
+```
+
 See all valid units with their aliases:
 
 ```ruby

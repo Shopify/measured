@@ -60,6 +60,13 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal ["arcane", "fire", "fireball", "fireballs", "ice", "magic_missile", "magic_missiles", "ultima"], Magic.units_with_aliases
   end
 
+  test ".valid_unit? looks at the list of units and aliases" do
+    assert Magic.valid_unit?("fire")
+    assert Magic.valid_unit?("fireball")
+    assert Magic.valid_unit?(:ice)
+    refute Magic.valid_unit?("junk")
+  end
+
   test "#convert_to raises on an invalid unit" do
     assert_raises Measured::UnitError do
       @magic.convert_to(:punch)
