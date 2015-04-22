@@ -7,8 +7,14 @@ class Measured::Measurable
   def initialize(value, unit)
     raise Measured::UnitError, "Unit #{ unit } does not exits." unless self.class.conversion.unit_or_alias?(unit)
 
-    @value = value
-    @value = BigDecimal(@value) unless @value.is_a?(BigDecimal)
+    @value = case value
+    when Float
+      BigDecimal(value, self.class.conversion.significant_digits)
+    when BigDecimal
+      value
+    else
+      BigDecimal(value)
+    end
 
     @unit = self.class.conversion.to_unit_name(unit)
   end

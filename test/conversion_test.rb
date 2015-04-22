@@ -98,6 +98,10 @@ class Measured::ConversionTest < ActiveSupport::TestCase
     end
   end
 
+  test "#significatn_digits is fixed for now" do
+    assert_equal 6, @conversion.significant_digits
+  end
+
   test "#convert raises if either unit is not found" do
     assert_raises Measured::UnitError do
       Magic.conversion.convert(1, from: "fire", to: "doesnt_exist")
