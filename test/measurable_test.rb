@@ -41,6 +41,12 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal "fireball", Magic.new(1, :fire).unit
   end
 
+  test "#initialize raises an expected error when initializing with nil" do
+    assert_raises Measured::UnitError do
+      Magic.new(nil, :fire)
+    end
+  end
+
   test "#unit allows you to read the unit string" do
     assert_equal "magic_missile", @magic.unit
   end
