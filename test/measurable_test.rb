@@ -97,6 +97,14 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal "arcane", converted.unit
   end
 
+  test "#to_i is delegated to the value" do
+    assert_equal 10, @magic.to_i
+  end
+
+  test "#to_f is delegated to the value" do
+    assert_equal 10.0, @magic.to_f
+  end
+
   test "#to_s outputs the number and the unit" do
     assert_equal "10 fireball", Magic.new(10, :fire).to_s
     assert_equal "1.234 magic_missile", Magic.new("1.234", :magic_missile).to_s

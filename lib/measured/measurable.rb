@@ -35,6 +35,14 @@ class Measured::Measurable
     self
   end
 
+  def to_i
+    Kernel.Integer(value)
+  end
+
+  def to_f
+    Kernel.Float(value)
+  end
+
   def to_s
     [value.to_f.to_s.gsub(/\.0\Z/, ""), unit].join(" ")
   end
