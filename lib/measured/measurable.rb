@@ -8,6 +8,8 @@ class Measured::Measurable
     raise Measured::UnitError, "Unit #{ unit } does not exits." unless self.class.conversion.unit_or_alias?(unit)
 
     @value = case value
+    when NilClass
+      raise Measured::UnitError, "Unit value cannot be nil"
     when Float
       BigDecimal(value, self.class.conversion.significant_digits)
     when BigDecimal
