@@ -13,6 +13,10 @@ class Measured::WeightTest < ActiveSupport::TestCase
     assert_equal ["g", "kg", "lb", "oz"], Measured::Weight.units
   end
 
+  test ".name" do
+    assert_equal "weight", Measured::Weight.name
+  end
+
   test ".convert_to from g to g" do
     assert_conversion Measured::Weight, "2000 g", "2000 g"
   end

@@ -77,6 +77,16 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     refute Magic.valid_unit?("junk")
   end
 
+  test ".name looks at the class name" do
+    module Example
+      class VeryComplexThing < Measured::Measurable ; end
+    end
+
+    assert_equal "magic", Magic.name
+    assert_equal "measurable", Measured::Measurable.name
+    assert_equal "very complex thing", Example::VeryComplexThing.name
+  end
+
   test "#convert_to raises on an invalid unit" do
     assert_raises Measured::UnitError do
       @magic.convert_to(:punch)
