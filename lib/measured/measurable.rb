@@ -75,5 +75,9 @@ class Measured::Measurable
       conversion.unit_names_with_aliases
     end
 
+    def name
+      to_s.split("::").last.underscore.humanize.downcase
+    end
+
   end
 end

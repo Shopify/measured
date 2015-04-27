@@ -9,6 +9,10 @@ class Measured::LengthTest < ActiveSupport::TestCase
     assert_equal ["cm", "ft", "in", "m", "mm", "yd"], Measured::Length.units
   end
 
+  test ".name" do
+    assert_equal "length", Measured::Length.name
+  end
+
   test ".convert_to from cm to cm" do
     assert_conversion Measured::Length, "2000 cm", "2000 cm"
   end
