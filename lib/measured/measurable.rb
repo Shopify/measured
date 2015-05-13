@@ -58,7 +58,7 @@ class Measured::Measurable
     return false unless other.is_a?(self.class)
 
     other_converted = other.convert_to(unit)
-    unit == other_converted.unit && value == other_converted.value
+    value == other_converted.value
   end
 
   alias_method :eql?, :==
