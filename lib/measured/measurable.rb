@@ -23,6 +23,8 @@ class Measured::Measurable
 
   def convert_to(new_unit)
     new_unit_name = self.class.conversion.to_unit_name(new_unit)
+    return self if new_unit_name == self.class.conversion.to_unit_name(unit)
+
     value = self.class.conversion.convert(@value, from: @unit, to: new_unit_name)
 
     self.class.new(value, new_unit)
@@ -46,13 +48,17 @@ class Measured::Measurable
   end
 
   def <=>(other)
-    if other.is_a?(self.class) && unit == other.unit
-      value <=> other.value
+    if other.is_a?(self.class)
+      other_converted = other.convert_to(unit)
+      value <=> other_converted.value
     end
   end
 
   def ==(other)
-    !!(other.is_a?(self.class) && unit == other.unit && value == other.value)
+    return false unless other.is_a?(self.class)
+
+    other_converted = other.convert_to(unit)
+    value == other_converted.value
   end
 
   alias_method :eql?, :==
