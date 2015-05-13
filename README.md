@@ -85,6 +85,13 @@ Measured::Weight.new(3, :g) * 2
 > #<Measured::Weight 6 g>
 ```
 
+Converts units only as needed for equality comparison:
+
+```ruby
+> Measured::Weight.new(1000, :g) == Measured::Weight.new(1, :kg)
+true
+```
+
 Extract the unit and the value:
 
 ```ruby

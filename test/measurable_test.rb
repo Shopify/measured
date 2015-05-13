@@ -96,11 +96,17 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
   test "#convert_to returns a new object of the same type in the new unit" do
     converted = @magic.convert_to(:arcane)
 
-    refute_equal converted, @magic
+    assert_equal converted, @magic
+    refute_equal converted.object_id, @magic.object_id
     assert_equal BigDecimal(10), @magic.value
     assert_equal "magic_missile", @magic.unit
     assert_equal BigDecimal(1), converted.value
     assert_equal "arcane", converted.unit
+  end
+
+  test "#convert_to from and to the same unit returns the same object" do
+    converted = @magic.convert_to(@magic.unit)
+    assert_equal converted.object_id, @magic.object_id
   end
 
   test "#convert_to! replaces the existing object with a new version in the new unit" do
@@ -123,8 +129,8 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal "#<Magic: 0.1234E1 magic_missile>", Magic.new(1.234, :magic_missile).inspect
   end
 
-  test "#<=> compares only if the class and unit are the same" do
-    assert_nil @magic <=> Magic.new(10, :fire)
+  test "#<=> compares regardless of the unit" do
+    assert_equal -1, @magic <=> Magic.new(10, :fire)
     assert_equal 1, @magic <=> Magic.new(9, :magic_missile)
     assert_equal 0, @magic <=> Magic.new(10, :magic_missile)
     assert_equal -1, @magic <=> Magic.new(11, :magic_missile)
@@ -133,13 +139,29 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
   test "#== should be the same if the classes, unit, and amount match" do
     assert @magic == @magic
     assert Magic.new(10, :magic_missile) == Magic.new("10", "magic_missile")
-    refute Magic.new(1, :arcane) == Magic.new(10, :magic_missile)
+    assert Magic.new(1, :arcane) == Magic.new(10, :magic_missile)
+    refute Magic.new(1, :arcane) == Magic.new(10.1, :magic_missile)
   end
 
-  test "#eql? should be the same if the classes, unit, and amount match" do
+  test "#== should be the same if the classes and amount match but the unit does not so they convert" do
+    assert Magic.new(2, :magic_missile) == Magic.new("1", "ice")
+  end
+
+  test "#> and #< should compare measurements" do
+    assert Magic.new(10, :magic_missile) < Magic.new(20, :magic_missile)
+    refute Magic.new(10, :magic_missile) > Magic.new(20, :magic_missile)
+  end
+
+  test "#> and #< should compare measurements of different units" do
+    assert Magic.new(10, :magic_missile) < Magic.new(100, :ice)
+    refute Magic.new(10, :magic_missile) > Magic.new(100, :ice)
+  end
+
+  test "#eql? should be the same if the classes and amount match, and unit is converted" do
     assert @magic == @magic
     assert Magic.new(10, :magic_missile) == Magic.new("10", "magic_missile")
-    refute Magic.new(1, :arcane) == Magic.new(10, :magic_missile)
+    assert Magic.new(1, :arcane) == Magic.new(10, :magic_missile)
+    refute Magic.new(1, :arcane) == Magic.new(10.1, :magic_missile)
   end
 
 end
