@@ -48,6 +48,18 @@ Seamlessly handles aliases:
 Measured::Weight.new(12, :oz) == Measured::Weight.new("12", :ounce)
 ```
 
+Comparison with zero works without the need to specify units, useful for validations:
+```ruby
+Measured::Weight.new(0.001, :kg) > 0
+> true
+
+Measured::Length.new(-1, :m) < 0
+> true
+
+Measured::Weight.new(0, :oz) == 0
+> true
+```
+
 Raises on unknown units:
 
 ```ruby
