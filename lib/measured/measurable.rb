@@ -51,14 +51,20 @@ class Measured::Measurable
     if other.is_a?(self.class)
       other_converted = other.convert_to(unit)
       value <=> other_converted.value
+    elsif other == 0
+      other_converted = self.class.new(0, unit)
+      value <=> other_converted.value
     end
   end
 
   def ==(other)
-    return false unless other.is_a?(self.class)
-
-    other_converted = other.convert_to(unit)
-    value == other_converted.value
+    if other.is_a?(self.class)
+      other_converted = other.convert_to(unit)
+      value == other_converted.value
+    elsif other == 0
+      other_converted = self.class.new(0, unit)
+      value == other_converted.value
+    end
   end
 
   alias_method :eql?, :==

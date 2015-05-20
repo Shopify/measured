@@ -136,6 +136,13 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal -1, @magic <=> Magic.new(11, :magic_missile)
   end
 
+  test "#<=> compares against zero" do
+    assert_equal 1, @magic <=> 0
+    assert_equal 1, @magic <=> BigDecimal.new(0)
+    assert_equal 1, @magic <=> 0.00
+    assert_equal -1, Magic.new(-1, :magic_missile) <=> 0
+  end
+
   test "#== should be the same if the classes, unit, and amount match" do
     assert @magic == @magic
     assert Magic.new(10, :magic_missile) == Magic.new("10", "magic_missile")
@@ -147,6 +154,15 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert Magic.new(2, :magic_missile) == Magic.new("1", "ice")
   end
 
+  test "#== compares against zero" do
+    assert Magic.new(0, :fire) == 0
+    assert Magic.new(0, :magic_missile) == 0
+    assert Magic.new(0, :fire) == BigDecimal.new(0)
+    assert Magic.new(0, :fire) == 0.00
+    refute @magic == 0
+    refute @magic == BigDecimal.new(0)
+  end
+
   test "#> and #< should compare measurements" do
     assert Magic.new(10, :magic_missile) < Magic.new(20, :magic_missile)
     refute Magic.new(10, :magic_missile) > Magic.new(20, :magic_missile)
@@ -155,6 +171,15 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
   test "#> and #< should compare measurements of different units" do
     assert Magic.new(10, :magic_missile) < Magic.new(100, :ice)
     refute Magic.new(10, :magic_missile) > Magic.new(100, :ice)
+  end
+
+  test "#> and #< should compare against zero" do
+    assert @magic > 0
+    assert @magic > BigDecimal.new(0)
+    assert @magic > 0.00
+    assert Magic.new(-1, :arcane) < 0
+    refute @magic < 0
+    refute Magic.new(-1, :arcane) > 0
   end
 
   test "#eql? should be the same if the classes and amount match, and unit is converted" do
