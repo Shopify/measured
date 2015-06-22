@@ -11,7 +11,7 @@ class Measured::Measurable
     when NilClass
       raise Measured::UnitError, "Unit value cannot be nil"
     when Float
-      BigDecimal(value, self.class.conversion.significant_digits)
+      BigDecimal(value, Float::DIG+1)
     when BigDecimal
       value
     else
