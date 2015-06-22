@@ -50,10 +50,6 @@ class Measured::Conversion
     @conversion_table ||= Measured::ConversionTable.new(@units).to_h
   end
 
-  def significant_digits
-    6
-  end
-
   private
 
   def add_new_unit(unit_name, aliases:, value: nil, base: false)

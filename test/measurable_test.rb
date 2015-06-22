@@ -37,6 +37,11 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal BigDecimal("1.2345"), Magic.new(1.2345, :fire).value
   end
 
+  test "#initialize converts numbers and strings BigDecimal and does not round large numbers" do
+    assert_equal BigDecimal(9.1234572342342, 14), Magic.new(9.1234572342342, :fire).value
+    assert_equal BigDecimal("9.1234572342342"), Magic.new(9.1234572342342, :fire).value
+  end
+
   test "#initialize converts to the base unit name" do
     assert_equal "fireball", Magic.new(1, :fire).unit
   end
