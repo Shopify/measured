@@ -46,10 +46,32 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal "fireball", Magic.new(1, :fire).unit
   end
 
-  test "#initialize raises an expected error when initializing with nil" do
-    assert_raises Measured::UnitError do
+  test "#initialize raises an expected error when initializing with nil value" do
+    exception = assert_raises(Measured::UnitError) do
       Magic.new(nil, :fire)
     end
+    assert_equal "Unit value cannot be nil", exception.message
+  end
+
+  test "#initialize raises an expected error when initializing with nil unit" do
+    exception = assert_raises(Measured::UnitError) do
+      Magic.new(1, nil)
+    end
+    assert_equal "Unit cannot be blank", exception.message
+  end
+
+  test "#initialize raises an expected error when initializing with empty string value" do
+    exception = assert_raises(Measured::UnitError) do
+      Magic.new("", :fire)
+    end
+    assert_equal "Unit value cannot be blank", exception.message
+  end
+
+  test "#initialize raises an expected error when initializing with empty string unit" do
+    exception = assert_raises(Measured::UnitError) do
+      Magic.new(1, "")
+    end
+    assert_equal "Unit cannot be blank", exception.message
   end
 
   test "#unit allows you to read the unit string" do
