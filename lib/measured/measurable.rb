@@ -5,7 +5,8 @@ class Measured::Measurable
   attr_reader :unit, :value
 
   def initialize(value, unit)
-    raise Measured::UnitError, "Unit #{ unit } does not exits." unless self.class.conversion.unit_or_alias?(unit)
+    raise Measured::UnitError, "Unit cannot be blank" if unit.blank?
+    raise Measured::UnitError, "Unit #{ unit } does not exits" unless self.class.conversion.unit_or_alias?(unit)
 
     @value = case value
     when NilClass
@@ -15,7 +16,11 @@ class Measured::Measurable
     when BigDecimal
       value
     else
-      BigDecimal(value)
+      if value.blank?
+        raise Measured::UnitError, "Unit value cannot be blank"
+      else
+        BigDecimal(value)
+      end
     end
 
     @unit = self.class.conversion.to_unit_name(unit)
