@@ -245,3 +245,5 @@ Existing alternatives which were considered:
 ## Authors
 
 * [Kevin McPhillips](https://github.com/kmcphillips) at [Shopify](http://shopify.com/careers)
+* [Sai Warang](https://github.com/cyprusad) at [Shopify](http://shopify.com/careers)
+* [Gareth du Plooy](https://github.com/garethson) at [Shopify](http://shopify.com/careers)
