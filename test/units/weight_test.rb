@@ -13,6 +13,12 @@ class Measured::WeightTest < ActiveSupport::TestCase
     assert_equal ["g", "kg", "lb", "oz"], Measured::Weight.units
   end
 
+
+  test "Measured::Weight() delegates automatically to .new" do
+    assert_equal Measured::Weight.new(1, :lb), Measured::Weight(1, :lb)
+    assert_equal Measured::Weight.new(2000, :g), Measured::Weight(2, :kg)
+  end
+
   test ".name" do
     assert_equal "weight", Measured::Weight.name
   end

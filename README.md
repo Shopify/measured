@@ -162,6 +162,14 @@ You can skip these and only define your own units by doing:
 gem 'measured', require: 'measured/base'
 ```
 
+### Shortcut syntax
+
+There is a shortcut initialization syntax for modules inside the `Measured` namespace, similar to `BigDecimal(123)` vs `BigDecimal.new(123)`:
+
+```ruby
+Measured::Weight(1, :g)
+```
+
 ### Adding new units
 
 Extending this library to support other units is simple. To add a new conversion, subclass `Measured::Measurable`, define your base units, then add your conversion units.
