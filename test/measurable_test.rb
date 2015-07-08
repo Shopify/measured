@@ -152,8 +152,8 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
   end
 
   test "#inspect shows the number and the unit" do
-    assert_equal "#<Magic: 0.1E2 fireball>", Magic.new(10, :fire).inspect
-    assert_equal "#<Magic: 0.1234E1 magic_missile>", Magic.new(1.234, :magic_missile).inspect
+    assert_equal "#<Magic: 10.0 fireball>", Magic.new(10, :fire).inspect
+    assert_equal "#<Magic: 1.234 magic_missile>", Magic.new(1.234, :magic_missile).inspect
   end
 
   test "#<=> compares regardless of the unit" do
