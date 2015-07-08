@@ -1,5 +1,5 @@
 require "measured/version"
-require "active_support"
+require "active_support/all"
 require "bigdecimal"
 
 module Measured
