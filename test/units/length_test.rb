@@ -13,6 +13,11 @@ class Measured::LengthTest < ActiveSupport::TestCase
     assert_equal "length", Measured::Length.name
   end
 
+  test "Measured::Length() delegates automatically to .new" do
+    assert_equal Measured::Length.new(1, :in), Measured::Length(1, :in)
+    assert_equal Measured::Length.new(200, :mm), Measured::Length(20, :cm)
+  end
+
   test ".convert_to from cm to cm" do
     assert_conversion Measured::Length, "2000 cm", "2000 cm"
   end
