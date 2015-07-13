@@ -32,12 +32,10 @@ class Measured::WeightTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from g to lb" do
-    skip
     assert_conversion Measured::Weight, "2000 g", "4.40924524 lb"
   end
 
   test ".convert_to from g to oz" do
-    skip
     assert_conversion Measured::Weight, "2000 g", "70.54792384 oz"
   end
 
@@ -50,13 +48,11 @@ class Measured::WeightTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from kg to lb" do
-    skip
     assert_conversion Measured::Weight, "2000 kg", "4409.24524 lb"
   end
 
   test ".convert_to from kg to oz" do
-    skip
-    assert_conversion Measured::Weight, "2000 kg", "70547.92384 oz"
+    assert_conversion Measured::Weight, "2000 kg", "70547.92390 oz"
   end
 
   test ".convert_to from lb to g" do
@@ -64,7 +60,6 @@ class Measured::WeightTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from lb to kg" do
-    skip
     assert_conversion Measured::Weight, "2000 lb", "907.18474 kg"
   end
 
@@ -77,12 +72,10 @@ class Measured::WeightTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from oz to g" do
-    skip
     assert_conversion Measured::Weight, "2000 oz", "56699.04625 g"
   end
 
   test ".convert_to from oz to kg" do
-    skip
     assert_conversion Measured::Weight, "2000 oz", "56.69904625 kg"
   end
 

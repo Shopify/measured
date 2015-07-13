@@ -23,12 +23,10 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from cm to ft" do
-    skip
     assert_conversion Measured::Length, "2000 cm", "0.656167979E2 ft"
   end
 
   test ".convert_to from cm to in" do
-    skip
     assert_conversion Measured::Length, "2000 cm", "0.7874015748E3 in"
   end
 
@@ -41,7 +39,6 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from cm to yd" do
-    skip
     assert_conversion Measured::Length, "2000 cm", "0.2187226596E2 yd"
   end
 
@@ -54,7 +51,6 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from ft to in" do
-    skip "returns 0.23999999999904E5"
     assert_conversion Measured::Length, "2000 ft", "24000 in"
   end
 
@@ -67,7 +63,6 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from ft to yd" do
-    skip "returns 0.6666666664608E3"
     assert_conversion Measured::Length, "2000 ft", "0.666666667E3 yd"
   end
 
@@ -76,7 +71,6 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from in to ft" do
-    skip
     assert_conversion Measured::Length, "2000 in", "0.166666666666E3 ft"
   end
 
@@ -93,7 +87,6 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from in to yd" do
-    skip
     assert_conversion Measured::Length, "2000 in", "0.555555555384E2 yd"
   end
 
@@ -102,12 +95,10 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from m to ft" do
-    skip
     assert_conversion Measured::Length, "2000 m", "0.656167979E4 ft"
   end
 
   test ".convert_to from m to in" do
-    skip
     assert_conversion Measured::Length, "2000 m", "0.7874015748E5 in"
   end
 
@@ -120,7 +111,6 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from m to yd" do
-    skip
     assert_conversion Measured::Length, "2000 m", "0.2187226596E4 yd"
   end
 
@@ -129,12 +119,10 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from mm to ft" do
-    skip
     assert_conversion Measured::Length, "2000 mm", "0.656167979E1 ft"
   end
 
   test ".convert_to from mm to in" do
-    skip
     assert_conversion Measured::Length, "2000 mm", "0.7874015748E2 in"
   end
 
@@ -147,22 +135,18 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from mm to yd" do
-    skip
     assert_conversion Measured::Length, "2000 mm", "0.2187226596E1 yd"
   end
 
   test ".convert_to from yd to cm" do
-    skip
     assert_conversion Measured::Length, "2000 yd", "0.18288E6 cm"
   end
 
   test ".convert_to from yd to ft" do
-    skip "returns 0.5999999999976E4"
     assert_conversion Measured::Length, "2000 yd", "6000 ft"
   end
 
   test ".convert_to from yd to in" do
-    skip "returns 0.71999999999712E5"
     assert_conversion Measured::Length, "2000 yd", "72000 in"
   end
 
