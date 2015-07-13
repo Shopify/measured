@@ -48,7 +48,7 @@ class Measured::WeightTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from kg to lb" do
-    assert_conversion Measured::Weight, "2000 kg", "4409.24524 lb"
+    assert_conversion Measured::Weight, "2000 kg", "4409.245243 lb"
   end
 
   test ".convert_to from kg to oz" do

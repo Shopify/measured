@@ -1,4 +1,5 @@
 class Measured::Conversion
+  ARBITRARY_CONVERSION_PRECISION = 20
   def initialize
     @base_unit = nil
     @units = []
@@ -43,7 +44,7 @@ class Measured::Conversion
 
     raise Measured::UnitError, "Cannot find conversion entry from #{ from } to #{ to }" unless conversion = conversion_table[from][to]
 
-    value * conversion
+    BigDecimal(value.to_r * conversion,ARBITRARY_CONVERSION_PRECISION)
   end
 
   def conversion_table

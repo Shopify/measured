@@ -44,7 +44,7 @@ class Measured::ConversionTable
   end
 
   def find_tree_traversal_conversion(to:, from:)
-    traverse(from: from, to: to, unit_names: @units.map{|u| u.name }, amount: Rational(1)).to_d(30)
+    traverse(from: from, to: to, unit_names: @units.map{|u| u.name }, amount: Rational(1))
   end
 
   def traverse(from:, to:, unit_names:, amount:)
