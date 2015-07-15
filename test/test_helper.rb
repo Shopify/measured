@@ -25,4 +25,11 @@ class ActiveSupport::TestCase
 
     assert_close_bigdecimal BigDecimal(to_amount), klass.new(from_amount, from_unit).convert_to(to_unit).value
   end
+
+  def assert_exact_conversion(klass, from, to)
+    from_amount, from_unit = from.split(" ")
+    to_amount, to_unit = to.split(" ")
+
+    assert_equal BigDecimal(to_amount), klass.new(from_amount, from_unit).convert_to(to_unit).value
+  end
 end

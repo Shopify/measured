@@ -19,7 +19,7 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from cm to cm" do
-    assert_conversion Measured::Length, "2000 cm", "2000 cm"
+    assert_exact_conversion Measured::Length, "2000 cm", "2000 cm"
   end
 
   test ".convert_to from cm to ft" do
@@ -31,11 +31,11 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from cm to m" do
-    assert_conversion Measured::Length, "2000 cm", "20 m"
+    assert_exact_conversion Measured::Length, "2000 cm", "20 m"
   end
 
   test ".convert_to from cm to mm" do
-    assert_conversion Measured::Length, "2000 cm", "20000 mm"
+    assert_exact_conversion Measured::Length, "2000 cm", "20000 mm"
   end
 
   test ".convert_to from cm to yd" do
@@ -47,15 +47,15 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from ft to ft" do
-    assert_conversion Measured::Length, "2000 ft", "2000 ft"
+    assert_exact_conversion Measured::Length, "2000 ft", "2000 ft"
   end
 
   test ".convert_to from ft to in" do
-    assert_conversion Measured::Length, "2000 ft", "24000 in"
+    assert_exact_conversion Measured::Length, "2000 ft", "24000 in"
   end
 
   test ".convert_to from ft to m" do
-    assert_conversion Measured::Length, "2000 ft", "609.6 m"
+    assert_exact_conversion Measured::Length, "2000 ft", "609.6 m"
   end
 
   test ".convert_to from ft to mm" do
@@ -75,7 +75,7 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from in to in" do
-    assert_conversion Measured::Length, "2000 in", "2000 in"
+    assert_exact_conversion Measured::Length, "2000 in", "2000 in"
   end
 
   test ".convert_to from in to m" do
@@ -103,11 +103,11 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from m to m" do
-    assert_conversion Measured::Length, "2000 m", "2000 m"
+    assert_exact_conversion Measured::Length, "2000 m", "2000 m"
   end
 
   test ".convert_to from m to mm" do
-    assert_conversion Measured::Length, "2000 m", "2000000 mm"
+    assert_exact_conversion Measured::Length, "2000 m", "2000000 mm"
   end
 
   test ".convert_to from m to yd" do
@@ -115,7 +115,7 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from mm to cm" do
-    assert_conversion Measured::Length, "2000 mm", "200 cm"
+    assert_exact_conversion Measured::Length, "2000 mm", "200 cm"
   end
 
   test ".convert_to from mm to ft" do
@@ -127,11 +127,11 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from mm to m" do
-    assert_conversion Measured::Length, "2000 mm", "2 m"
+    assert_exact_conversion Measured::Length, "2000 mm", "2 m"
   end
 
   test ".convert_to from mm to mm" do
-    assert_conversion Measured::Length, "2000 mm", "2000 mm"
+    assert_exact_conversion Measured::Length, "2000 mm", "2000 mm"
   end
 
   test ".convert_to from mm to yd" do
@@ -143,11 +143,11 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from yd to ft" do
-    assert_conversion Measured::Length, "2000 yd", "6000 ft"
+    assert_exact_conversion Measured::Length, "2000 yd", "6000 ft"
   end
 
   test ".convert_to from yd to in" do
-    assert_conversion Measured::Length, "2000 yd", "72000 in"
+    assert_exact_conversion Measured::Length, "2000 yd", "72000 in"
   end
 
   test ".convert_to from yd to m" do
@@ -159,7 +159,7 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from yd to yd" do
-    assert_conversion Measured::Length, "2000 yd", "2000 yd"
+    assert_exact_conversion Measured::Length, "2000 yd", "2000 yd"
   end
 
 end
