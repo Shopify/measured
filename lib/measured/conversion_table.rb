@@ -44,7 +44,7 @@ class Measured::ConversionTable
   end
 
   def find_tree_traversal_conversion(to:, from:)
-    traverse(from: from, to: to, unit_names: @units.map{|u| u.name }, amount: BigDecimal("1"))
+    traverse(from: from, to: to, unit_names: @units.map{|u| u.name }, amount: Rational(1))
   end
 
   def traverse(from:, to:, unit_names:, amount:)
@@ -52,10 +52,11 @@ class Measured::ConversionTable
 
     unit_names.each do |name|
       if conversion = find_direct_conversion(from: from, to: name)
+        new_amount = amount * conversion.to_r
         if name == to
-          return amount * conversion
+          return new_amount
         else
-          result = traverse(from: name, to: to, unit_names: unit_names, amount: amount * conversion)
+          result = traverse(from: name, to: to, unit_names: unit_names, amount: new_amount)
           return result if result
         end
       end

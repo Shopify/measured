@@ -35,11 +35,7 @@ class Measured::Unit
   end
 
   def inverse_conversion_amount
-    if conversion_amount.is_a?(Rational)
-      Rational(conversion_amount.denominator, conversion_amount.numerator)
-    else
-      BigDecimal(1) /  conversion_amount
-    end
+    1 / conversion_amount.to_r
   end
 
   private

@@ -24,74 +24,67 @@ class Measured::WeightTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from g to g" do
-    assert_conversion Measured::Weight, "2000 g", "2000 g"
+    assert_exact_conversion Measured::Weight, "2000 g", "2000 g"
   end
 
   test ".convert_to from g to kg" do
-    assert_conversion Measured::Weight, "2000 g", "2 kg"
+    assert_exact_conversion Measured::Weight, "2000 g", "2 kg"
   end
 
   test ".convert_to from g to lb" do
-    skip
     assert_conversion Measured::Weight, "2000 g", "4.40924524 lb"
   end
 
   test ".convert_to from g to oz" do
-    skip
     assert_conversion Measured::Weight, "2000 g", "70.54792384 oz"
   end
 
   test ".convert_to from kg to g" do
-    assert_conversion Measured::Weight, "2000 kg", "2000000 g"
+    assert_exact_conversion Measured::Weight, "2000 kg", "2000000 g"
   end
 
   test ".convert_to from kg to kg" do
-    assert_conversion Measured::Weight, "2000 kg", "2000 kg"
+    assert_exact_conversion Measured::Weight, "2000 kg", "2000 kg"
   end
 
   test ".convert_to from kg to lb" do
-    skip
-    assert_conversion Measured::Weight, "2000 kg", "4409.24524 lb"
+    assert_conversion Measured::Weight, "2000 kg", "4409.245243 lb"
   end
 
   test ".convert_to from kg to oz" do
-    skip
-    assert_conversion Measured::Weight, "2000 kg", "70547.92384 oz"
+    assert_conversion Measured::Weight, "2000 kg", "70547.92390 oz"
   end
 
   test ".convert_to from lb to g" do
-    assert_conversion Measured::Weight, "2000 lb", "907184.74 g"
+    assert_exact_conversion Measured::Weight, "2000 lb", "907184.74 g"
   end
 
   test ".convert_to from lb to kg" do
-    skip
-    assert_conversion Measured::Weight, "2000 lb", "907.18474 kg"
+    assert_exact_conversion Measured::Weight, "2000 lb", "907.18474 kg"
   end
 
   test ".convert_to from lb to lb" do
-    assert_conversion Measured::Weight, "2000 lb", "2000 lb"
+    assert_exact_conversion Measured::Weight, "2000 lb", "2000 lb"
   end
 
   test ".convert_to from lb to oz" do
-    assert_conversion Measured::Weight, "2000 lb", "32000 oz"
+    assert_exact_conversion Measured::Weight, "2000 lb", "32000 oz"
   end
 
   test ".convert_to from oz to g" do
-    skip
     assert_conversion Measured::Weight, "2000 oz", "56699.04625 g"
   end
 
   test ".convert_to from oz to kg" do
-    skip
     assert_conversion Measured::Weight, "2000 oz", "56.69904625 kg"
   end
 
   test ".convert_to from oz to lb" do
-    assert_conversion Measured::Weight, "2000 oz", "125 lb"
+    assert_exact_conversion Measured::Weight, "2000 oz", "125 lb"
   end
 
   test ".convert_to from oz to oz" do
-    assert_conversion Measured::Weight, "2000 oz", "2000 oz"
+    assert_exact_conversion Measured::Weight, "2000 oz", "2000 oz"
   end
 
 end
