@@ -1,6 +1,6 @@
 # Measured [![Build Status](https://travis-ci.org/Shopify/measured.svg)](https://travis-ci.org/Shopify/measured) [![Gem Version](https://badge.fury.io/rb/measured.svg)](http://badge.fury.io/rb/measured)
 
-Encapsulates measruements with their units. Provides easy conversion between units.
+Encapsulates measurements with their units. Provides easy conversion between units.
 
 Light weight and easily extensible to include other units and conversions. Conversions done with `BigDecimal` for precision.
 
