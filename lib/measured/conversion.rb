@@ -7,12 +7,12 @@ class Measured::Conversion
 
   attr_reader :base_unit, :units
 
-  def set_base(unit_name, aliases: [])
-    add_new_unit(unit_name, aliases: aliases, base: true)
+  def set_base(unit_name, aliases: [], case_sensitive: false)
+    add_new_unit(unit_name, aliases: aliases, case_sensitive: case_sensitive, base: true)
   end
 
-  def add(unit_name, aliases: [], value:)
-    add_new_unit(unit_name, aliases: aliases, value: value)
+  def add(unit_name, aliases: [], case_sensitive: false, value:)
+    add_new_unit(unit_name, aliases: aliases, case_sensitive: case_sensitive, value: value)
   end
 
   def unit_names_with_aliases
@@ -24,11 +24,13 @@ class Measured::Conversion
   end
 
   def unit_or_alias?(name)
-    unit_names_with_aliases.include?(name.to_s)
+    @units.each{|unit| return true if unit.names_include?(name)}
+    false
   end
 
   def unit?(name)
-    unit_names.include?(name.to_s)
+    @units.each{|unit| return true if unit.name_eql?(name)}
+    false
   end
 
   def to_unit_name(name)
@@ -53,7 +55,7 @@ class Measured::Conversion
 
   private
 
-  def add_new_unit(unit_name, aliases:, value: nil, base: false)
+  def add_new_unit(unit_name, aliases:, case_sensitive: false, value: nil, base: false)
     if base && @base_unit
       raise Measured::UnitError, "Can only have one base unit. Adding #{ unit_name } but already defined #{ @base_unit }."
     elsif !base && !@base_unit
@@ -62,7 +64,7 @@ class Measured::Conversion
 
     check_for_duplicate_unit_names([unit_name] + aliases)
 
-    unit = Measured::Unit.new(unit_name, aliases: aliases, value: value)
+    unit = Measured::Unit.new(unit_name, aliases: aliases, case_sensitive: case_sensitive, value: value)
     @units << unit
     @base_unit = unit if base
 
@@ -79,7 +81,7 @@ class Measured::Conversion
 
   def unit_for(name)
     @units.each do |unit|
-      return unit if unit.names.include?(name.to_s)
+      return unit if unit.names_include?(name.to_s)
     end
 
     raise Measured::UnitError, "Cannot find unit for #{ name }."

@@ -66,8 +66,19 @@ class Measured::ConversionTest < ActiveSupport::TestCase
 
     assert @conversion.unit?(:inch)
     assert @conversion.unit?("m")
+    assert @conversion.unit?("M")
     refute @conversion.unit?("in")
     refute @conversion.unit?(:yard)
+  end
+
+  test "#unit? takes into account case_sensitive flag" do
+    @conversion.set_base :m, case_sensitive: true
+    @conversion.add :inch, aliases: [:in], value: "0.0254 meter", case_sensitive: true
+
+    assert @conversion.unit?(:inch)
+    assert @conversion.unit?("m")
+    refute @conversion.unit?("M")
+    refute @conversion.unit?("in")
   end
 
   test "#unit_or_alias? checks if the unit is part of the units but not aliases" do
@@ -76,8 +87,19 @@ class Measured::ConversionTest < ActiveSupport::TestCase
 
     assert @conversion.unit_or_alias?(:inch)
     assert @conversion.unit_or_alias?("m")
+    assert @conversion.unit_or_alias?(:IN)
     assert @conversion.unit_or_alias?("in")
     refute @conversion.unit_or_alias?(:yard)
+  end
+
+  test "#unit_or_alias? takes into account case_sensitive flag" do
+    @conversion.set_base :m, case_sensitive: true
+    @conversion.add :inch, aliases: [:in], value: "0.0254 meter", case_sensitive: true
+
+    assert @conversion.unit_or_alias?(:inch)
+    assert @conversion.unit_or_alias?("m")
+    refute @conversion.unit_or_alias?(:M)
+    refute @conversion.unit_or_alias?("IN")
   end
 
   test "#to_unit_name converts a unit name to its base unit" do
