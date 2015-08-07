@@ -6,7 +6,7 @@ class Measured::Measurable
 
   def initialize(value, unit)
     raise Measured::UnitError, "Unit cannot be blank" if unit.blank?
-    raise Measured::UnitError, "Unit #{ unit } does not exits" unless self.class.conversion.unit_or_alias?(unit)
+    raise Measured::UnitError, "Unit #{ unit } does not exist" unless self.class.conversion.unit_or_alias?(unit)
 
     @value = case value
     when NilClass
