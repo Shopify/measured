@@ -1,6 +1,6 @@
 # Measured [![Build Status](https://travis-ci.org/Shopify/measured.svg)](https://travis-ci.org/Shopify/measured) [![Gem Version](https://badge.fury.io/rb/measured.svg)](http://badge.fury.io/rb/measured)
 
-Encapsulates measruements with their units. Provides easy conversion between units.
+Encapsulates measurements with their units. Provides easy conversion between units.
 
 Light weight and easily extensible to include other units and conversions. Conversions done with `BigDecimal` for precision.
 
@@ -181,6 +181,7 @@ class Measured::Thing < Measured::Measurable
 
   conversion.add :another_unit,             # Add a second unit to the system
     aliases: [:au],                         # All units allow aliases, as long as they are unique
+    case_sensitive: true,                   # Defaults to false; applies to name and aliases
     value: ["1.5 base_unit"]                # The conversion rate to another unit
 
   conversion.add :different_unit
@@ -190,6 +191,8 @@ end
 ```
 
 The base unit takes no value. Values for conversion units can be defined as a string with two tokens `"number unit"` or as an array with two elements. The numbers must be `Rational` or `BigDecimal`, else they will be coerced to `BigDecimal`. Conversion paths don't have to be direct as a conversion table will be built for all possible conversions using tree traversal.
+
+The `case_sensitive` flag, which is false by default, gets taken into account any time you attempt to reference a unit by name or alias.
 
 You can also open up the existing classes and add a new conversion:
 
