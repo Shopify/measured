@@ -13,53 +13,6 @@ class Measured::UnitTest < ActiveSupport::TestCase
     assert_equal ["cake", "pie", "sweets"], Measured::Unit.new(:pie, aliases: ["cake", :sweets]).names
   end
 
-  test "case_sensitive flag default to false" do
-    assert_equal false, @unit.case_sensitive
-  end
-
-  test "#name_eql?" do
-    assert_equal true, @unit.name_eql?("pIe")
-    assert_equal false, @unit.name_eql?("pastry")
-  end
-
-  test "#names_include?" do
-    unit = Measured::Unit.new(:pie, aliases:["cake", "tart"])
-    assert_equal true, unit.names_include?("pie")
-    assert_equal true, unit.names_include?("caKe")
-    assert_equal true, unit.names_include?("taRt")
-    assert_equal false, unit.names_include?("pastry")
-  end
-
-  test "case_sensitive flag set to false" do
-    assert_equal false, Measured::Unit.new(:pie, case_sensitive: false).case_sensitive
-  end
-
-  test "case_sensitive flag set to true, #name_eql?" do
-    unit = Measured::Unit.new(:pie, case_sensitive: true)
-    assert_equal true, unit.name_eql?("pie")
-    assert_equal false, unit.name_eql?("pIe")
-  end
-
-  test "case_sensitive flag set to true, #names_include?" do
-    unit = Measured::Unit.new(:pie, aliases: ["cake", "tart", "pastry"], case_sensitive: true)
-    assert_equal true, unit.names_include?("cake")
-    assert_equal false, unit.names_include?("tArt")
-  end
-
-  test "#add_alias with string" do
-    unit = Measured::Unit.new(:pie, aliases: ["cake"], value: "10 cake")
-    assert_equal ["cake", "pie"], unit.names
-    unit.add_alias("pastry")
-    assert_equal ["cake", "pastry", "pie"], unit.names
-  end
-
-  test "#add_alias with array" do
-    unit = Measured::Unit.new(:pie, aliases: ["cake"], value: "10 cake")
-    assert_equal ["cake", "pie"], unit.names
-    unit.add_alias(["pastry", "tart", "turnover"])
-    assert_equal ["cake", "pastry", "pie", "tart", "turnover"], unit.names
-  end
-
   test "#initialize parses out the unit and the number part" do
     assert_equal BigDecimal(10), @unit.conversion_amount
     assert_equal "cake", @unit.conversion_unit
