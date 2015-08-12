@@ -1,3 +1,3 @@
 module Measured
-  VERSION = "0.0.12"
+  VERSION = "1.0.0"
 end
