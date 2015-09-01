@@ -185,7 +185,7 @@ class Measured::Thing < Measured::Measurable
 
   conversion.add :different_unit
     aliases: [:du],
-    value: [Rational(2/3), "another_unit"]  # Conversion rate can be Rational, otherwise it is coerced to BigDecimal
+    value: [Rational(2,3), "another_unit"]  # Conversion rate can be Rational, otherwise it is coerced to BigDecimal
 end
 ```
 
