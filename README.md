@@ -189,7 +189,18 @@ class Measured::Thing < Measured::Measurable
 end
 ```
 
+By default all names and aliases and case insensitive. If you would like to create a new unit with names and aliases that are case sensitive, you should subclass `Measured::CaseSensitiveMeasurable` instead. Other than case sensitivity, both classes are identical to each other.
+
+```ruby
+class Measured::Thing < Measured::CaseSensitiveMeasurable
+  conversion.set_base :base_unit,
+    aliases: [:bu]
+end
+```
+
 The base unit takes no value. Values for conversion units can be defined as a string with two tokens `"number unit"` or as an array with two elements. The numbers must be `Rational` or `BigDecimal`, else they will be coerced to `BigDecimal`. Conversion paths don't have to be direct as a conversion table will be built for all possible conversions using tree traversal.
+
+The `case_sensitive` flag, which is false by default, gets taken into account any time you attempt to reference a unit by name or alias.
 
 You can also open up the existing classes and add a new conversion:
 

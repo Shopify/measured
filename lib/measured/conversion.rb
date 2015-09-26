@@ -1,11 +1,12 @@
 class Measured::Conversion
   ARBITRARY_CONVERSION_PRECISION = 20
-  def initialize
+  def initialize(case_sensitive: false)
     @base_unit = nil
     @units = []
+    @case_sensitive = case_sensitive
   end
 
-  attr_reader :base_unit, :units
+  attr_reader :base_unit, :units, :case_sensitive
 
   def set_base(unit_name, aliases: [])
     add_new_unit(unit_name, aliases: aliases, base: true)
@@ -24,11 +25,13 @@ class Measured::Conversion
   end
 
   def unit_or_alias?(name)
-    unit_names_with_aliases.include?(name.to_s)
+    @units.each{|unit| return true if unit.names_include?(name, case_sensitive: @case_sensitive)}
+    false
   end
 
   def unit?(name)
-    unit_names.include?(name.to_s)
+    @units.each{|unit| return true if unit.name_eql?(name, case_sensitive: @case_sensitive)}
+    false
   end
 
   def to_unit_name(name)
@@ -79,7 +82,7 @@ class Measured::Conversion
 
   def unit_for(name)
     @units.each do |unit|
-      return unit if unit.names.include?(name.to_s)
+      return unit if unit.names_include?(name, case_sensitive: @case_sensitive)
     end
 
     raise Measured::UnitError, "Cannot find unit for #{ name }."

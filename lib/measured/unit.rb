@@ -10,6 +10,22 @@ class Measured::Unit
 
   attr_reader :name, :names, :conversion_amount, :conversion_unit
 
+  def name_eql?(name_to_compare, case_sensitive: false)
+    return false unless name_to_compare.present?
+    name_to_compare = name_to_compare.to_s
+    case_sensitive ? @name.eql?(name_to_compare) : case_insensitive(@name).include?(name_to_compare.downcase)
+  end
+
+  def names_include?(name_to_compare, case_sensitive: false)
+    return false unless name_to_compare.present?
+    name_to_compare = name_to_compare.to_s
+    case_sensitive ? @names.include?(name_to_compare) : case_insensitive(@names).include?(name_to_compare.downcase)
+  end
+
+  def add_alias(aliases)
+    @names = (@names << aliases).flatten.sort unless aliases.nil? || aliases.empty?
+  end
+
   def to_s
     if conversion_string
       "#{ @name } (#{ conversion_string })"
@@ -39,6 +55,10 @@ class Measured::Unit
   end
 
   private
+
+  def case_insensitive(comparison)
+    [comparison].flatten.map(&:downcase)
+  end
 
   def conversion_string
     "#{ conversion_amount } #{ conversion_unit }" if @conversion_amount || @conversion_unit
