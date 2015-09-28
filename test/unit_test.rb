@@ -13,6 +13,70 @@ class Measured::UnitTest < ActiveSupport::TestCase
     assert_equal ["cake", "pie", "sweets"], Measured::Unit.new(:pie, aliases: ["cake", :sweets]).names
   end
 
+  test "#name_eql?" do
+    assert @unit.name_eql?("pIe")
+    refute @unit.name_eql?("pastry")
+  end
+
+  test "#name_eql? with case_sensitive true" do
+    assert @unit.name_eql?("pie", case_sensitive: true)
+    refute @unit.name_eql?("Pie", case_sensitive: true)
+  end
+
+  test "#name_eql? with empty string" do
+    assert @unit.name_eql?("pie")
+    refute @unit.name_eql?("")
+  end
+
+  test "#names_include?" do
+    unit = Measured::Unit.new(:pie, aliases:["cake", "tart"])
+    assert unit.names_include?("pie")
+    assert unit.names_include?("caKe")
+    assert unit.names_include?("taRt")
+    refute unit.names_include?("pastry")
+  end
+
+  test "#names_include? with case_sensitive true" do
+    unit = Measured::Unit.new(:pie, aliases:["cake", "tart"])
+    assert unit.names_include?("pie", case_sensitive: true)
+    assert unit.names_include?("cake", case_sensitive: true)
+    refute unit.names_include?("TART", case_sensitive: true)
+  end
+
+  test "#names_include? with empty string" do
+    unit = Measured::Unit.new(:pie, aliases: ["cake", "tart"])
+    assert unit.names_include?("cake")
+    refute unit.names_include?("")
+  end
+
+  test "#add_alias with string" do
+    unit = Measured::Unit.new(:pie, aliases: ["cake"], value: "10 cake")
+    assert_equal ["cake", "pie"], unit.names
+    unit.add_alias("pastry")
+    assert_equal ["cake", "pastry", "pie"], unit.names
+  end
+
+  test "#add_alias with array" do
+    unit = Measured::Unit.new(:pie, aliases: ["cake"], value: "10 cake")
+    assert_equal ["cake", "pie"], unit.names
+    unit.add_alias(["pastry", "tart", "turnover"])
+    assert_equal ["cake", "pastry", "pie", "tart", "turnover"], unit.names
+  end
+
+  test "#add_alias with nil" do
+    unit = Measured::Unit.new(:pie, aliases: ["cake"], value: "10 cake")
+    assert_equal ["cake", "pie"], unit.names
+    unit.add_alias(nil)
+    assert_equal ["cake", "pie"], unit.names
+  end
+
+  test "#add_alias with empty string" do
+    unit = Measured::Unit.new(:pie, aliases: ["cake"], value: "10 cake")
+    assert_equal ["cake", "pie"], unit.names
+    unit.add_alias("")
+    assert_equal ["cake", "pie"], unit.names
+  end
+
   test "#initialize parses out the unit and the number part" do
     assert_equal BigDecimal(10), @unit.conversion_amount
     assert_equal "cake", @unit.conversion_unit
