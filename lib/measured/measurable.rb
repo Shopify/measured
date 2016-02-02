@@ -4,6 +4,8 @@ class Measured::Measurable
 
   attr_reader :unit, :value
 
+  delegate :zero?, to: :value
+
   def initialize(value, unit)
     raise Measured::UnitError, "Unit cannot be blank" if unit.blank?
     raise Measured::UnitError, "Unit #{ unit } does not exist" unless self.class.conversion.unit_or_alias?(unit)
