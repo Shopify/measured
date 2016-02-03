@@ -156,6 +156,11 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal "#<Magic: 1.234 magic_missile>", Magic.new(1.234, :magic_missile).inspect
   end
 
+  test "#zero? delegates to the value" do
+    assert Magic.new(0, :fire).zero?
+    refute Magic.new(2, :fire).zero?
+  end
+
   test "#<=> compares regardless of the unit" do
     assert_equal -1, @magic <=> Magic.new(10, :fire)
     assert_equal 1, @magic <=> Magic.new(9, :magic_missile)
