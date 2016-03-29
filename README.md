@@ -4,6 +4,8 @@ Encapsulates measurements with their units. Provides easy conversion between uni
 
 Light weight and easily extensible to include other units and conversions. Conversions done with `BigDecimal` for precision.
 
+The adapter to integrate `measured` with Ruby on Rails is in a separate [`measured-rails`](https://github.com/Shopify/measured-rails) gem.
+
 ## Installation
 
 Using bundler, add to the Gemfile:
