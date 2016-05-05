@@ -1,0 +1,18 @@
+name: measured
+
+up:
+  - ruby:
+      version: 2.2.4
+  - bundler
+
+commands:
+  test:
+    syntax:
+      optional: file args...
+    desc: 'run all tests or a specific test file'
+    run: |
+      if [[ $# -eq 0 ]]; then
+        bundle exec rake test
+      else
+        bundle exec ruby -Itest "$@"
+      fi
