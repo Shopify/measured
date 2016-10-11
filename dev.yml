@@ -2,7 +2,7 @@ name: measured
 
 up:
   - ruby:
-      version: 2.2.4
+      version: 2.3.1
   - bundler
 
 commands:
