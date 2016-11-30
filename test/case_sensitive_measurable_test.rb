@@ -144,16 +144,6 @@ class Measured::CaseSensitiveMeasurableTest < ActiveSupport::TestCase
     assert_equal converted.object_id, @magic.object_id
   end
 
-  test "#convert_to! replaces the existing object with a new version in the new unit" do
-    converted = @magic.convert_to!(:arcane)
-
-    assert_equal converted, @magic
-    assert_equal BigDecimal(1), @magic.value
-    assert_equal "arcane", @magic.unit
-    assert_equal BigDecimal(1), converted.value
-    assert_equal "arcane", converted.unit
-  end
-
   test "#to_s outputs the number and the unit" do
     assert_equal "10 fireball", CaseSensitiveMagic.new(10, :fire).to_s
     assert_equal "1.234 magic_missile", CaseSensitiveMagic.new("1.234", :magic_missile).to_s

@@ -49,34 +49,6 @@ class Measured::UnitTest < ActiveSupport::TestCase
     refute unit.names_include?("")
   end
 
-  test "#add_alias with string" do
-    unit = Measured::Unit.new(:pie, aliases: ["cake"], value: "10 cake")
-    assert_equal ["cake", "pie"], unit.names
-    unit.add_alias("pastry")
-    assert_equal ["cake", "pastry", "pie"], unit.names
-  end
-
-  test "#add_alias with array" do
-    unit = Measured::Unit.new(:pie, aliases: ["cake"], value: "10 cake")
-    assert_equal ["cake", "pie"], unit.names
-    unit.add_alias(["pastry", "tart", "turnover"])
-    assert_equal ["cake", "pastry", "pie", "tart", "turnover"], unit.names
-  end
-
-  test "#add_alias with nil" do
-    unit = Measured::Unit.new(:pie, aliases: ["cake"], value: "10 cake")
-    assert_equal ["cake", "pie"], unit.names
-    unit.add_alias(nil)
-    assert_equal ["cake", "pie"], unit.names
-  end
-
-  test "#add_alias with empty string" do
-    unit = Measured::Unit.new(:pie, aliases: ["cake"], value: "10 cake")
-    assert_equal ["cake", "pie"], unit.names
-    unit.add_alias("")
-    assert_equal ["cake", "pie"], unit.names
-  end
-
   test "#initialize parses out the unit and the number part" do
     assert_equal BigDecimal(10), @unit.conversion_amount
     assert_equal "cake", @unit.conversion_unit

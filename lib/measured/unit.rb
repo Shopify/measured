@@ -22,10 +22,6 @@ class Measured::Unit
     case_sensitive ? @names.include?(name_to_compare) : case_insensitive(@names).include?(name_to_compare.downcase)
   end
 
-  def add_alias(aliases)
-    @names = (@names << aliases).flatten.sort unless aliases.nil? || aliases.empty?
-  end
-
   def to_s
     if conversion_string
       "#{ @name } (#{ conversion_string })"

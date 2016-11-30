@@ -37,15 +37,6 @@ class Measured::Measurable
     self.class.new(value, new_unit)
   end
 
-  def convert_to!(new_unit)
-    converted = convert_to(new_unit)
-
-    @value = converted.value
-    @unit = converted.unit
-
-    self
-  end
-
   def to_s
     [value.to_f.to_s.gsub(/\.0\Z/, ""), unit].join(" ")
   end

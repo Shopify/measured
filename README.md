@@ -32,12 +32,6 @@ Convert to return a new measurement:
 Measured::Weight.new("12", "g").convert_to("kg")
 ```
 
-Or convert inline:
-
-```ruby
-Measured::Weight.new("12", "g").convert_to!("kg")
-```
-
 Agnostic to symbols/strings:
 
 ```ruby
