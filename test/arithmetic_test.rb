@@ -44,7 +44,7 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
 
   test "#- should subtract a number from the value" do
     assert_equal Magic.new(-1, :magic_missile), @two - 3
-    assert_equal Magic.new(1, :magic_missile), 2 - @three
+    assert_equal Magic.new(-1, :magic_missile), 2 - @three
   end
 
   test "#- should raise if different unit system" do
@@ -104,7 +104,7 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
 
   test "#/ should divide a number to the value" do
     assert_equal Magic.new("0.5", :magic_missile), @two / 4
-    assert_equal Magic.new(2, :magic_missile), 2 / @four
+    assert_equal Magic.new(0.5, :magic_missile), 2 / @four
   end
 
   test "#/ should raise if different unit system" do

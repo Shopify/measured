@@ -1,10 +1,7 @@
-class Measured::Measurable
-  include Comparable
+class Measured::Measurable < Numeric
   include Measured::Arithmetic
 
   attr_reader :unit, :value
-
-  delegate :zero?, to: :value
 
   def initialize(value, unit)
     raise Measured::UnitError, "Unit cannot be blank" if unit.blank?
@@ -46,26 +43,13 @@ class Measured::Measurable
   end
 
   def <=>(other)
-    if other.is_a?(self.class)
-      other_converted = other.convert_to(unit)
-      value <=> other_converted.value
-    elsif other == 0
-      other_converted = self.class.new(0, unit)
-      value <=> other_converted.value
+    case other
+    when self.class
+      value <=> other.convert_to(unit).value
+    when 0
+      value <=> 0
     end
   end
-
-  def ==(other)
-    if other.is_a?(self.class)
-      other_converted = other.convert_to(unit)
-      value == other_converted.value
-    elsif other == 0
-      other_converted = self.class.new(0, unit)
-      value == other_converted.value
-    end
-  end
-
-  alias_method :eql?, :==
 
   class << self
 
