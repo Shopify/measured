@@ -130,4 +130,19 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
   test "#-@ returns the negative version" do
     assert_equal Magic.new(-2, :magic_missile), -@two
   end
+
+  test "#coerce should return other as-is when same class" do
+    assert_equal [@two, @three], @three.coerce(@two)
+  end
+
+  test "#coerce should return Fixnum as self's class and same unit" do
+    expected = Magic.new(2, :magic_missile)
+    assert_equal [expected, @three], @three.coerce(2)
+  end
+
+  test "#coerce should raise TypeError when other cannot be coerced" do
+    assert_raises TypeError do
+      @two.coerce(Object.new)
+    end
+  end
 end

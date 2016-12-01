@@ -18,7 +18,7 @@ module Measured::Arithmetic
   def coerce(other)
     case other
     when self.class
-      [other.convert_to(self.unit), self]
+      [other, self]
     when Numeric
       [self.class.new(other, self.unit), self]
     else
@@ -34,6 +34,6 @@ module Measured::Arithmetic
 
   def arithmetic_operation(other, operator)
     other, _ = coerce(other)
-    self.class.new(self.value.public_send(operator, other.value), self.unit)
+    self.class.new(self.value.public_send(operator, other.convert_to(self.unit).value), self.unit)
   end
 end
