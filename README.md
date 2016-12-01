@@ -171,9 +171,7 @@ end
 By default all names and aliases are case insensitive. If you would like to create a new unit with names and aliases that are case sensitive, specify the case sensitive flag when building your unit:
 
 ```ruby
-Measured::Thing = Measured.build do
-  case_sensitive true
-
+Measured::Thing = Measured.build(case_sensitive: true) do
   base :base_unit, aliases: [:bu]
 end
 ```

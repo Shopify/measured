@@ -42,7 +42,7 @@ class Measured::ConversionBuilderTest < ActiveSupport::TestCase
     end
 
     assert_raises Measured::UnitError do
-      Measured.build do
+      Measured.build(case_sensitive: true) do
         base :m
         unit :in, aliases: [:inch], value: "0.0254 m"
         unit :inch, aliases: [:thing], value: "123 m"
@@ -50,8 +50,7 @@ class Measured::ConversionBuilderTest < ActiveSupport::TestCase
     end
 
     assert_raises Measured::UnitError do
-      Measured.build do
-        case_sensitive false
+      Measured.build(case_sensitive: false) do
         base :normal
         unit :bold, aliases: [:strong], value: "10 normal"
         unit :bolder, aliases: [:BOLD], value: "100 normal"
@@ -60,8 +59,7 @@ class Measured::ConversionBuilderTest < ActiveSupport::TestCase
   end
 
   test "#case_sensitive true produces a case-sensitive conversion" do
-    measurable = Measured.build do
-      case_sensitive true
+    measurable = Measured.build(case_sensitive: true) do
       base :normal
       unit :bold, value: "10 normal"
       unit :BOLD, value: "100 normal"
@@ -71,7 +69,7 @@ class Measured::ConversionBuilderTest < ActiveSupport::TestCase
   end
 
   test "case-insensitive conversion is produced by defaul" do
-    measurable = Measured.build do
+    measurable = Measured.build(case_sensitive: false) do
       base :normal
       unit :bold, value: "10 normal"
       unit :bolder, value: "100 normal"
