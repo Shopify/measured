@@ -1,20 +1,14 @@
 class Measured::Conversion
   ARBITRARY_CONVERSION_PRECISION = 20
-  def initialize(case_sensitive: false)
-    @base_unit = nil
-    @units = []
+
+  def initialize(base_unit, units, case_sensitive: false)
     @case_sensitive = case_sensitive
+    @base_unit = base_unit
+    @units = units.dup
+    @units << @base_unit
   end
 
-  attr_reader :base_unit, :units, :case_sensitive
-
-  def set_base(unit_name, aliases: [])
-    add_new_unit(unit_name, aliases: aliases, base: true)
-  end
-
-  def add(unit_name, aliases: [], value:)
-    add_new_unit(unit_name, aliases: aliases, value: value)
-  end
+  attr_reader :base_unit, :units
 
   def unit_names_with_aliases
     @units.map{|u| u.names}.flatten.sort
@@ -56,30 +50,6 @@ class Measured::Conversion
 
   private
 
-  def add_new_unit(unit_name, aliases:, value: nil, base: false)
-    if base && @base_unit
-      raise Measured::UnitError, "Can only have one base unit. Adding #{ unit_name } but already defined #{ @base_unit }."
-    elsif !base && !@base_unit
-      raise Measured::UnitError, "A base unit has not yet been set."
-    end
-
-    check_for_duplicate_unit_names([unit_name] + aliases)
-
-    unit = Measured::Unit.new(unit_name, aliases: aliases, value: value)
-    @units << unit
-    @base_unit = unit if base
-
-    clear_conversion_table
-
-    unit
-  end
-
-  def check_for_duplicate_unit_names(names)
-    names.each do |name|
-      raise Measured::UnitError, "Unit #{ name } has already been added." if unit_or_alias?(name)
-    end
-  end
-
   def unit_for(name)
     @units.each do |unit|
       return unit if unit.names_include?(name, case_sensitive: @case_sensitive)
@@ -87,9 +57,4 @@ class Measured::Conversion
 
     raise Measured::UnitError, "Cannot find unit for #{ name }."
   end
-
-  def clear_conversion_table
-    @conversion_table = nil
-  end
-
 end

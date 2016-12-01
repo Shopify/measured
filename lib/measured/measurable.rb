@@ -54,7 +54,7 @@ class Measured::Measurable < Numeric
   class << self
 
     def conversion
-      @conversion ||= Measured::Conversion.new
+      raise "`Measurable` does not have a `conversion` object. You cannot directly subclass `Measurable`. Instead, build a new unit system by calling `Measured.build`."
     end
 
     def units

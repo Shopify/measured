@@ -1,18 +1,7 @@
-class Measured::Weight < Measured::Measurable
+Measured::Weight = Measured.build do
+  base :g, aliases: [:gram, :grams]
 
-  conversion.set_base :g,
-    aliases: [:gram, :grams]
-
-  conversion.add :kg,
-    aliases: [:kilogram, :kilograms],
-    value: "1000 g"
-
-  conversion.add :lb,
-    aliases: [:lbs, :pound, :pounds],
-    value: [Rational(45359237,1e8), "kg"]
-
-  conversion.add :oz,
-    aliases: [:ounce, :ounces],
-    value: [Rational(1,16), "lb"]
-
+  unit :kg, value: "1000 g", aliases: [:kilogram, :kilograms]
+  unit :oz, value: [Rational(1, 16), "lb"], aliases: [:ounce, :ounces]
+  unit :lb, value: [Rational(45359237, 1e8), "kg"], aliases: [:lbs, :pound, :pounds]
 end

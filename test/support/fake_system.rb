@@ -1,46 +1,23 @@
-class Magic < Measured::Measurable
+Magic = Measured.build do
+  base :magic_missile, aliases: [:magic_missiles]
 
-  conversion.set_base :magic_missile,
-    aliases: [:magic_missiles]
-
-  conversion.add :fireball,
-    aliases: [:fire, :fireballs],
-    value: "2/3 magic_missile"
-
-  conversion.add :ice,
-    value: "2 magic_missile"
-
-  conversion.add :arcane,
-    value: "10 magic_missile"
-
-  conversion.add :ultima,
-    value: "10 arcane"
-
+  unit :fireball, value: "2/3 magic_missile", aliases: [:fire, :fireballs]
+  unit :ice, value: "2 magic_missile"
+  unit :arcane, value: "10 magic_missile"
+  unit :ultima, value: "10 arcane"
 end
 
-class CaseSensitiveMagic < Measured::CaseSensitiveMeasurable
+CaseSensitiveMagic = Measured.build do
+  base :magic_missile, aliases: [:magic_missiles]
 
-  conversion.set_base :magic_missile,
-    aliases: [:magic_missiles]
-
-  conversion.add :fireball,
-    aliases: [:fire, :fireballs],
-    value: "2/3 magic_missile"
-
-  conversion.add :ice,
-    value: "2 magic_missile"
-
-  conversion.add :arcane,
-    value: "10 magic_missile"
-
-  conversion.add :ultima,
-    value: "10 arcane"
-
+  unit :fireball, value: "2/3 magic_missile", aliases: [:fire, :fireballs]
+  unit :ice, value: "2 magic_missile"
+  unit :arcane, value: "10 magic_missile"
+  unit :ultima, value: "10 arcane"
 end
 
-class OtherFakeSystem < Measured::Measurable
+OtherFakeSystem = Measured.build do
+  base :other_fake_base
 
-  conversion.set_base :other_fake_base
-  conversion.add :other_fake1, value: "2 other_fake_base"
-
+  unit :other_fake1, value: "2 other_fake_base"
 end
