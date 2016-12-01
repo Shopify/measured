@@ -15,23 +15,25 @@ module Measured::Arithmetic
     arithmetic_operation(other, :/)
   end
 
-  def -@
-    self.class.new(-self.value, self.unit)
+  def coerce(other)
+    case other
+    when self.class
+      [other, self]
+    when Numeric
+      [self.class.new(other, self.unit), self]
+    else
+      raise TypeError, "Cannot coerce #{other.class} to #{self.class}"
+    end
   end
 
-  def coerce(other)
-    [self, other]
+  def to_i
+    raise TypeError, "#{self.class} cannot be converted to an integer"
   end
 
   private
 
   def arithmetic_operation(other, operator)
-    if other.is_a?(self.class)
-      self.class.new(self.value.send(operator, other.convert_to(self.unit).value), self.unit)
-    elsif other.is_a?(Numeric)
-      self.class.new(self.value.send(operator, other), self.unit)
-    else
-      raise TypeError, "Invalid operation #{ operator } between #{ self.class } to #{ other.class }"
-    end
+    other, _ = coerce(other)
+    self.class.new(self.value.public_send(operator, other.convert_to(self.unit).value), self.unit)
   end
 end
