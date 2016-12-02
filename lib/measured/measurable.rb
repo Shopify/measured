@@ -43,11 +43,10 @@ class Measured::Measurable < Numeric
   end
 
   def <=>(other)
-    case other
-    when self.class
+    if other.is_a?(self.class)
       value <=> other.convert_to(unit).value
-    when 0
-      value <=> 0
+    else
+      nil
     end
   end
 

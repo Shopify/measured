@@ -15,12 +15,13 @@ module Measured::Arithmetic
     arithmetic_operation(other, :/)
   end
 
+  def -@
+    self.class.new(-self.value, self.unit)
+  end
+
   def coerce(other)
-    case other
-    when self.class
+    if other.is_a?(self.class)
       [other, self]
-    when Numeric
-      [self.class.new(other, self.unit), self]
     else
       raise TypeError, "Cannot coerce #{other.class} to #{self.class}"
     end
