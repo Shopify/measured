@@ -45,6 +45,7 @@ Measured::Weight.new(12, :oz) == Measured::Weight.new("12", :ounce)
 ```
 
 Comparison with zero works without the need to specify units, useful for validations:
+
 ```ruby
 Measured::Weight.new(0.001, :kg) > 0
 > true
@@ -168,45 +169,36 @@ Measured::Weight(1, :g)
 
 ### Adding new units
 
-Extending this library to support other units is simple. To add a new conversion, subclass `Measured::Measurable`, define your base units, then add your conversion units.
+Extending this library to support other units is simple. To add a new conversion, use `Measured.build` to define your base unit and conversion units:
 
 ```ruby
-class Measured::Thing < Measured::Measurable
-  conversion.set_base :base_unit,           # Define the basic unit for the system
-    aliases: [:bu]                          # Allow it to be aliased to other names/symbols
+Measured::Thing = Measured.build do
+  base :base_unit,           # Define the basic unit for the system
+    aliases: [:bu]           # Allow it to be aliased to other names/symbols
 
-  conversion.add :another_unit,             # Add a second unit to the system
-    aliases: [:au],                         # All units allow aliases, as long as they are unique
-    value: ["1.5 base_unit"]                # The conversion rate to another unit
+  unit :another_unit,        # Add a second unit to the system
+    aliases: [:au],          # All units allow aliases, as long as they are unique
+    value: ["1.5 bu"]        # The conversion rate to another unit
 
-  conversion.add :different_unit
+  unit :different_unit
     aliases: [:du],
-    value: [Rational(2,3), "another_unit"]  # Conversion rate can be Rational, otherwise it is coerced to BigDecimal
+    value: [Rational(2,3), "au"]  # Conversion rate can be Rational, otherwise it is coerced to BigDecimal
 end
 ```
 
-By default all names and aliases and case insensitive. If you would like to create a new unit with names and aliases that are case sensitive, you should subclass `Measured::CaseSensitiveMeasurable` instead. Other than case sensitivity, both classes are identical to each other.
+By default all names and aliases are case insensitive. If you would like to create a new unit with names and aliases that are case sensitive, specify the case sensitive flag when building your unit:
 
 ```ruby
-class Measured::Thing < Measured::CaseSensitiveMeasurable
-  conversion.set_base :base_unit,
-    aliases: [:bu]
+Measured::Thing = Measured.build do
+  case_sensitive true
+
+  base :base_unit, aliases: [:bu]
 end
 ```
 
-The base unit takes no value. Values for conversion units can be defined as a string with two tokens `"number unit"` or as an array with two elements. The numbers must be `Rational` or `BigDecimal`, else they will be coerced to `BigDecimal`. Conversion paths don't have to be direct as a conversion table will be built for all possible conversions using tree traversal.
+Other than case sensitivity, both classes are identical to each other. The `case_sensitive` flag, which is false by default, gets taken into account any time you attempt to reference a unit by name or alias.
 
-The `case_sensitive` flag, which is false by default, gets taken into account any time you attempt to reference a unit by name or alias.
-
-You can also open up the existing classes and add a new conversion:
-
-```ruby
-class Measured::Length
-  conversion.add :dm,
-    aliases: [:decimeter, :decimetre, :decimeters, :decimetres],
-    value: "0.1 m"
-end
-```
+The base unit takes no value. Values for conversion units can be defined as a string with two tokens `"number unit"` or as an array with two elements. The numbers must be `Rational` or `BigDecimal`, else they will be coerced to `BigDecimal`. Conversion paths don't have to be direct as a conversion table will be built for all possible conversions.
 
 ### Namespaces
 

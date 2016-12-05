@@ -2,84 +2,37 @@ require "test_helper"
 
 class Measured::ConversionTest < ActiveSupport::TestCase
   setup do
-    @conversion = Measured::Conversion.new
-  end
+    @base = Measured::Unit.new(:m)
+    @units = [
+      Measured::Unit.new(:in, aliases: [:inch], value: "0.0254 m"),
+      Measured::Unit.new(:ft, aliases: [:feet, :foot], value: "0.3048 m"),
+    ]
 
-  test "#base sets the base unit" do
-    @conversion.set_base :m, aliases: [:metre]
-    assert_equal ["m", "metre"], @conversion.base_unit.names
-  end
-
-  test "#base doesn't allow a second base to be added" do
-    @conversion.set_base :m, aliases: [:metre]
-
-    assert_raises Measured::UnitError do
-      @conversion.set_base :in
-    end
-  end
-
-  test "#add adds a new unit" do
-    @conversion.set_base :m
-    @conversion.add :in, aliases: [:inch], value: "0.0254 meter"
-
-    assert_equal 2, @conversion.units.count
-  end
-
-  test "#add cannot add duplicate unit names" do
-    @conversion.set_base :m
-    @conversion.add :in, aliases: [:inch], value: "0.0254 meter"
-
-    assert_raises Measured::UnitError do
-      @conversion.add :in, aliases: [:thing], value: "123 m"
-    end
-
-    assert_raises Measured::UnitError do
-      @conversion.add :inch, value: "123 m"
-    end
-  end
-
-  test "#add does not allow you to add a unit before the base" do
-    assert_raises Measured::UnitError do
-      @conversion.add :in, aliases: [:inch], value: "0.0254 meter"
-    end
+    @conversion = Measured::Conversion.new(@base, @units)
+    @case_sensitive_conversion = Measured::Conversion.new(@base, @units, case_sensitive: true)
   end
 
   test "#unit_names_with_aliases lists all allowed unit names" do
-    @conversion.set_base :m
-    @conversion.add :in, aliases: [:inch], value: "0.0254 meter"
-    @conversion.add :ft, aliases: [:feet, :foot], value: "0.3048 meter"
-
     assert_equal ["feet", "foot", "ft", "in", "inch", "m"], @conversion.unit_names_with_aliases
   end
 
   test "#unit_names lists all base unit names without aliases" do
-    @conversion.set_base :m
-    @conversion.add :in, aliases: [:inch], value: "0.0254 meter"
-    @conversion.add :ft, aliases: [:feet, :foot], value: "0.3048 meter"
-
     assert_equal ["ft", "in", "m"], @conversion.unit_names
   end
 
-  test "#unit? checks if the unit is part of the units and aliases" do
-    @conversion.set_base :m
-    @conversion.add :inch, aliases: [:in], value: "0.0254 meter"
-
-    assert @conversion.unit?(:inch)
+  test "#unit? checks if the unit is part of the units but not aliases" do
+    assert @conversion.unit?(:in)
     assert @conversion.unit?("m")
     assert @conversion.unit?("M")
-    refute @conversion.unit?("in")
+    refute @conversion.unit?("inch")
     refute @conversion.unit?(:yard)
   end
 
   test "#unit? takes into account case_sensitive flag" do
-    conversion = Measured::Conversion.new(case_sensitive: true)
-    conversion.set_base :m
-    conversion.add :inch, aliases: [:in], value: "0.0254 meter"
-
-    assert conversion.unit?(:inch)
-    assert conversion.unit?("m")
-    refute conversion.unit?("M")
-    refute conversion.unit?("in")
+    assert @case_sensitive_conversion.unit?(:in)
+    assert @case_sensitive_conversion.unit?("m")
+    refute @case_sensitive_conversion.unit?("M")
+    refute @case_sensitive_conversion.unit?("inch")
   end
 
   test "#unit? with blank and nil arguments" do
@@ -87,10 +40,7 @@ class Measured::ConversionTest < ActiveSupport::TestCase
     refute @conversion.unit?(nil)
   end
 
-  test "#unit_or_alias? checks if the unit is part of the units but not aliases" do
-    @conversion.set_base :m
-    @conversion.add :inch, aliases: [:in], value: "0.0254 meter"
-
+  test "#unit_or_alias? checks if the unit is part of the units or aliases" do
     assert @conversion.unit_or_alias?(:inch)
     assert @conversion.unit_or_alias?("m")
     assert @conversion.unit_or_alias?(:IN)
@@ -99,20 +49,13 @@ class Measured::ConversionTest < ActiveSupport::TestCase
   end
 
   test "#unit_or_alias? takes into account case_sensitive flag" do
-    conversion = Measured::Conversion.new(case_sensitive: true)
-    conversion.set_base :m
-    conversion.add :inch, aliases: [:in], value: "0.0254 meter"
-
-    assert conversion.unit_or_alias?(:inch)
-    assert conversion.unit_or_alias?("m")
-    refute conversion.unit_or_alias?(:M)
-    refute conversion.unit_or_alias?("IN")
+    assert @case_sensitive_conversion.unit_or_alias?(:inch)
+    assert @case_sensitive_conversion.unit_or_alias?("m")
+    refute @case_sensitive_conversion.unit_or_alias?(:M)
+    refute @case_sensitive_conversion.unit_or_alias?("IN")
   end
 
   test "#unit_or_alias? with blank and nil arguments" do
-    @conversion.set_base :m
-    @conversion.add :inch, aliases: [:in], value: "0.0254 meter"
-
     refute @conversion.unit_or_alias?("")
     refute @conversion.unit_or_alias?(nil)
   end
@@ -146,23 +89,19 @@ class Measured::ConversionTest < ActiveSupport::TestCase
   end
 
   test "#convert converts betwen two known units" do
-    @conversion.set_base :m
-    @conversion.add :cm, value: "0.01 m"
-
-    assert_equal BigDecimal("10"), @conversion.convert(BigDecimal("1000"), from: "cm", to: "m")
-    assert_equal BigDecimal("250"), @conversion.convert(BigDecimal("2.5"), from: "m", to: "cm")
+    assert_equal BigDecimal("3"), @conversion.convert(BigDecimal("36"), from: "in", to: "ft")
+    assert_equal BigDecimal("18"), @conversion.convert(BigDecimal("1.5"), from: "ft", to: "in")
   end
 
   test "#convert handles the same unit" do
-    @conversion.set_base :m
-    @conversion.add :cm, value: "0.01 m"
-
-    assert_equal BigDecimal("2"), @conversion.convert(BigDecimal("2"), from: "cm", to: "cm")
+    assert_equal BigDecimal("2"), @conversion.convert(BigDecimal("2"), from: "in", to: "in")
   end
 
   test "#conversion_table returns expected nested hashes with BigDecimal conversion factors in a tiny data set" do
-    @conversion.set_base :m
-    @conversion.add :cm, value: "0.01 m"
+    conversion = Measured::Conversion.new(
+      Measured::Unit.new(:m),
+      [Measured::Unit.new(:cm, value: "0.01 m")]
+    )
 
     expected = {
       "m"  => {
@@ -175,13 +114,14 @@ class Measured::ConversionTest < ActiveSupport::TestCase
       }
     }
 
-    assert_equal expected, @conversion.conversion_table
+    assert_equal expected, conversion.conversion_table
   end
 
   test "#conversion_table returns expected nested hashes with BigDecimal conversion factors" do
-    @conversion.set_base :m
-    @conversion.add :cm, value: "0.01 m"
-    @conversion.add :mm, value: "0.001 m"
+    conversion = Measured::Conversion.new(
+      Measured::Unit.new(:m),
+      [Measured::Unit.new(:cm, value: "0.01 m"), Measured::Unit.new(:mm, value: "0.001 m")]
+    )
 
     expected = {
       "m"  => {
@@ -201,14 +141,18 @@ class Measured::ConversionTest < ActiveSupport::TestCase
       }
     }
 
-    assert_equal expected, @conversion.conversion_table
+    assert_equal expected, conversion.conversion_table
   end
 
   test "#conversion_table returns expected nested hashes with BigDecimal conversion factors in an indrect path" do
-    @conversion.set_base :mm
-    @conversion.add :cm, value: "10 mm"
-    @conversion.add :dm, value: "10 cm"
-    @conversion.add :m, value: "10 dm"
+    conversion = Measured::Conversion.new(
+      Measured::Unit.new(:mm),
+      [
+        Measured::Unit.new(:cm, value: "10 mm"),
+        Measured::Unit.new(:dm, value: "10 cm"),
+        Measured::Unit.new(:m, value: "10 dm"),
+      ]
+    )
 
     expected = {
       "m"  => {
@@ -237,7 +181,7 @@ class Measured::ConversionTest < ActiveSupport::TestCase
       }
     }
 
-    assert_equal expected, @conversion.conversion_table
+    assert_equal expected, conversion.conversion_table
   end
 
 end

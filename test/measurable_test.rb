@@ -106,11 +106,10 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
 
   test ".name looks at the class name" do
     module Example
-      class VeryComplexThing < Measured::Measurable ; end
+      VeryComplexThing = Measured.build { base :foo }
     end
 
     assert_equal "magic", Magic.name
-    assert_equal "measurable", Measured::Measurable.name
     assert_equal "very complex thing", Example::VeryComplexThing.name
   end
 
