@@ -16,7 +16,9 @@ gem 'measured'
 
 Or stand alone:
 
-    $ gem install measured
+```
+$ gem install measured
+```
 
 ## Usage
 
@@ -42,19 +44,6 @@ Seamlessly handles aliases:
 
 ```ruby
 Measured::Weight.new(12, :oz) == Measured::Weight.new("12", :ounce)
-```
-
-Comparison with zero works without the need to specify units, useful for validations:
-
-```ruby
-Measured::Weight.new(0.001, :kg) > 0
-> true
-
-Measured::Length.new(-1, :m) < 0
-> true
-
-Measured::Weight.new(0, :oz) == 0
-> true
 ```
 
 Raises on unknown units:
@@ -85,13 +74,6 @@ In cases of differing units, the left hand side takes precedence:
 ```ruby
 Measured::Weight.new(1000, :g) + Measured::Weight.new(1, :kg)
 > #<Measured::Weight 2000 g>
-```
-
-Also perform mathematical operations against `Numeric` things:
-
-```ruby
-Measured::Weight.new(3, :g) * 2
-> #<Measured::Weight 6 g>
 ```
 
 Converts units only as needed for equality comparison:
