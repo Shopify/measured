@@ -12,9 +12,9 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
     assert_equal Magic.new(5, :magic_missile), @three + @two
   end
 
-  test "#+ should add a number to the value" do
-    assert_equal Magic.new(5, :magic_missile), @two + 3
-    assert_equal Magic.new(5, :magic_missile), 2 + @three
+  test "#+ shouldn't add with a Fixnum" do
+    assert_raises(TypeError) { @two + 3 }
+    assert_raises(TypeError) { 2 + @three }
   end
 
   test "#+ should raise if different unit system" do
@@ -42,9 +42,9 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
     assert_equal Magic.new(1, :magic_missile), @three - @two
   end
 
-  test "#- should subtract a number from the value" do
-    assert_equal Magic.new(-1, :magic_missile), @two - 3
-    assert_equal Magic.new(-1, :magic_missile), 2 - @three
+  test "#- shouldn't subtract with a Fixnum" do
+    assert_raises(TypeError) { @two - 3 }
+    assert_raises(TypeError) { 2 - @three }
   end
 
   test "#- should raise if different unit system" do
@@ -72,9 +72,9 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
     assert_equal Magic.new(6, :magic_missile), @three * @two
   end
 
-  test "#* should multiply a number to the value" do
-    assert_equal Magic.new(6, :magic_missile), @two * 3
-    assert_equal Magic.new(6, :magic_missile), 2 * @three
+  test "#* shouldn't multiply with a Fixnum" do
+    assert_raises(TypeError) { @two * 3 }
+    assert_raises(TypeError) { 2 * @three }
   end
 
   test "#* should raise if different unit system" do
@@ -102,9 +102,9 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
     assert_equal Magic.new(2, :magic_missile), @four / @two
   end
 
-  test "#/ should divide a number to the value" do
-    assert_equal Magic.new("0.5", :magic_missile), @two / 4
-    assert_equal Magic.new(0.5, :magic_missile), 2 / @four
+  test "#/ shouldn't divide with a Fixnum" do
+    assert_raises(TypeError) { @two / 4 }
+    assert_raises(TypeError) { 2 / @four }
   end
 
   test "#/ should raise if different unit system" do
@@ -131,18 +131,23 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
     assert_equal Magic.new(-2, :magic_missile), -@two
   end
 
+  test "arithmetic operations favours unit of left" do
+    left = Magic.new(1, :arcane)
+    right = Magic.new(1, :magic_missile)
+
+    assert_equal "arcane", (left + right).unit
+    assert_equal "arcane", (left - right).unit
+    assert_equal "arcane", (left * right).unit
+    assert_equal "arcane", (left / right).unit
+  end
+
   test "#coerce should return other as-is when same class" do
     assert_equal [@two, @three], @three.coerce(@two)
   end
 
-  test "#coerce should return Fixnum as self's class and same unit" do
-    expected = Magic.new(2, :magic_missile)
-    assert_equal [expected, @three], @three.coerce(2)
-  end
-
   test "#coerce should raise TypeError when other cannot be coerced" do
-    assert_raises TypeError do
-      @two.coerce(Object.new)
-    end
+    assert_raises(TypeError) { @two.coerce(2) }
+    assert_raises(TypeError) { @three.coerce(5.2) }
+    assert_raises(TypeError) { @four.coerce(Object.new) }
   end
 end
