@@ -11,21 +11,19 @@ class Measured::Conversion
   attr_reader :base_unit, :units
 
   def unit_names_with_aliases
-    @units.map{|u| u.names}.flatten.sort
+    @unit_names_with_aliases ||= @units.flat_map(&:names).sort
   end
 
   def unit_names
-    @units.map{|u| u.name}.sort
+    @unit_names ||= @units.map(&:name).sort
   end
 
   def unit_or_alias?(name)
-    @units.each{|unit| return true if unit.names_include?(name, case_sensitive: @case_sensitive)}
-    false
+    @units.any? { |unit| unit.names_include?(name, case_sensitive: @case_sensitive) }
   end
 
   def unit?(name)
-    @units.each{|unit| return true if unit.name_eql?(name, case_sensitive: @case_sensitive)}
-    false
+    @units.any? { |unit| unit.name_eql?(name, case_sensitive: @case_sensitive) }
   end
 
   def to_unit_name(name)
@@ -33,28 +31,23 @@ class Measured::Conversion
   end
 
   def convert(value, from:, to:)
-    raise Measured::UnitError, "Source unit #{ from } does not exits." unless unit?(from)
-    raise Measured::UnitError, "Converted unit #{ to } does not exits." unless unit?(to)
-
     from_unit = unit_for(from)
     to_unit = unit_for(to)
+    conversion = conversion_table[from][to]
 
-    raise Measured::UnitError, "Cannot find conversion entry from #{ from } to #{ to }" unless conversion = conversion_table[from][to]
+    raise Measured::UnitError, "Cannot find conversion entry from #{from} to #{to}" unless conversion
 
     BigDecimal(value.to_r * conversion,ARBITRARY_CONVERSION_PRECISION)
   end
+
+  private
 
   def conversion_table
     @conversion_table ||= Measured::ConversionTable.build(@units)
   end
 
-  private
-
   def unit_for(name)
-    @units.each do |unit|
-      return unit if unit.names_include?(name, case_sensitive: @case_sensitive)
-    end
-
-    raise Measured::UnitError, "Cannot find unit for #{ name }."
+    unit = @units.find { |unit| unit.names_include?(name, case_sensitive: @case_sensitive) }
+    unit or raise Measured::UnitError, "Cannot find unit for #{name}"
   end
 end
