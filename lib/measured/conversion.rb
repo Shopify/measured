@@ -47,10 +47,12 @@ class Measured::Conversion
   end
 
   def unit_for(name)
-    unit = @units.find { |unit| unit.names_include?(name, case_sensitive: @case_sensitive) }
+    @units.find { |unit| unit.names_include?(name, case_sensitive: @case_sensitive) }
   end
 
   def unit_for!(name)
-    unit_for(name) or raise Measured::UnitError, "Cannot find unit for #{name}"
+    unit = unit_for(name)
+    raise Measured::UnitError, "Cannot find unit for #{name}" unless unit
+    unit
   end
 end
