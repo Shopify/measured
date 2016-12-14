@@ -27,12 +27,12 @@ class Measured::Conversion
   end
 
   def to_unit_name(name)
-    unit_for(name).name
+    unit_for!(name).name
   end
 
   def convert(value, from:, to:)
-    from_unit = unit_for(from)
-    to_unit = unit_for(to)
+    from_unit = unit_for!(from)
+    to_unit = unit_for!(to)
     conversion = conversion_table[from][to]
 
     raise Measured::UnitError, "Cannot find conversion entry from #{from} to #{to}" unless conversion
@@ -48,6 +48,9 @@ class Measured::Conversion
 
   def unit_for(name)
     unit = @units.find { |unit| unit.names_include?(name, case_sensitive: @case_sensitive) }
-    unit or raise Measured::UnitError, "Cannot find unit for #{name}"
+  end
+
+  def unit_for!(name)
+    unit_for(name) or raise Measured::UnitError, "Cannot find unit for #{name}"
   end
 end
