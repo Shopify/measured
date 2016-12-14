@@ -2,56 +2,61 @@ require "test_helper"
 
 class Measured::UnitTest < ActiveSupport::TestCase
   setup do
-    @unit = Measured::Unit.new(:pie, value: "10 cake")
+    @unit = Measured::Unit.new(:Pie, value: "10 Cake")
+    @unit_with_aliases = Measured::Unit.new(:Pie, aliases: ["Cake", "Tart"])
   end
 
   test "#initialize converts the name to a string" do
-    assert_equal "pie", @unit.name
+    assert_equal "Pie", @unit.name
   end
 
   test "#initialize converts aliases to strings and makes a list of names which includes the base" do
     assert_equal ["cake", "pie", "sweets"], Measured::Unit.new(:pie, aliases: ["cake", :sweets]).names
   end
 
-  test "#name_eql?" do
-    assert @unit.name_eql?("pIe")
-    refute @unit.name_eql?("pastry")
+  test "#name_eql? true for valid names when case_sensitive: true" do
+    assert @unit.name_eql?("Pie", case_sensitive: true)
+    refute @unit.name_eql?("pie", case_sensitive: true)
+    refute @unit.name_eql?("pastry", case_sensitive: true)
   end
 
-  test "#name_eql? with case_sensitive true" do
-    assert @unit.name_eql?("pie", case_sensitive: true)
-    refute @unit.name_eql?("Pie", case_sensitive: true)
+  test "#name_eql? true for valid names when case_sensitive: false" do
+    assert @unit.name_eql?("Pie", case_sensitive: false)
+    assert @unit.name_eql?("pie", case_sensitive: false)
+    refute @unit.name_eql?("pastry", case_sensitive: false)
   end
 
-  test "#name_eql? with empty string" do
-    assert @unit.name_eql?("pie")
+  test "#name_eql? false with empty string" do
     refute @unit.name_eql?("")
   end
 
-  test "#names_include?" do
-    unit = Measured::Unit.new(:pie, aliases:["cake", "tart"])
-    assert unit.names_include?("pie")
-    assert unit.names_include?("caKe")
-    assert unit.names_include?("taRt")
-    refute unit.names_include?("pastry")
+  test "#names_include? is case insensitive when initialized with case_sensitive: false" do
+    assert @unit_with_aliases.names_include?("Pie", case_sensitive: false)
+    assert @unit_with_aliases.names_include?("Cake", case_sensitive: false)
+    assert @unit_with_aliases.names_include?("Tart", case_sensitive: false)
+    assert @unit_with_aliases.names_include?("pie", case_sensitive: false)
+    assert @unit_with_aliases.names_include?("cake", case_sensitive: false)
+    assert @unit_with_aliases.names_include?("tart", case_sensitive: false)
+    refute @unit_with_aliases.names_include?("pastry", case_sensitive: false)
   end
 
-  test "#names_include? with case_sensitive true" do
-    unit = Measured::Unit.new(:pie, aliases:["cake", "tart"])
-    assert unit.names_include?("pie", case_sensitive: true)
-    assert unit.names_include?("cake", case_sensitive: true)
-    refute unit.names_include?("TART", case_sensitive: true)
+  test "#names_include? is case sensitive when initialized with case_sensitive: true" do
+    assert @unit_with_aliases.names_include?("Pie", case_sensitive: true)
+    assert @unit_with_aliases.names_include?("Cake", case_sensitive: true)
+    assert @unit_with_aliases.names_include?("Tart", case_sensitive: true)
+    refute @unit_with_aliases.names_include?("pie", case_sensitive: true)
+    refute @unit_with_aliases.names_include?("cake", case_sensitive: true)
+    refute @unit_with_aliases.names_include?("tart", case_sensitive: true)
+    refute @unit_with_aliases.names_include?("pastry", case_sensitive: true)
   end
 
-  test "#names_include? with empty string" do
-    unit = Measured::Unit.new(:pie, aliases: ["cake", "tart"])
-    assert unit.names_include?("cake")
-    refute unit.names_include?("")
+  test "#names_include? false with empty string" do
+    refute @unit_with_aliases.names_include?("")
   end
 
   test "#initialize parses out the unit and the number part" do
     assert_equal BigDecimal(10), @unit.conversion_amount
-    assert_equal "cake", @unit.conversion_unit
+    assert_equal "Cake", @unit.conversion_unit
 
     unit = Measured::Unit.new(:pie, value: "5.5 sweets")
     assert_equal BigDecimal("5.5"), unit.conversion_amount
@@ -72,7 +77,7 @@ class Measured::UnitTest < ActiveSupport::TestCase
     end
   end
 
-  test "#to_s" do
+  test "#to_s returns an expected string" do
     assert_equal "pie", Measured::Unit.new(:pie).to_s
     assert_equal "pie (1/2 sweet)", Measured::Unit.new(:pie, aliases: ["cake"], value: [Rational(1,2), "sweet"]).to_s
   end
@@ -82,28 +87,29 @@ class Measured::UnitTest < ActiveSupport::TestCase
     assert_equal "#<Measured::Unit: pie (cake, pie) 1/2 sweet>", Measured::Unit.new(:pie, aliases: ["cake"], value: [Rational(1,2), "sweet"]).inspect
   end
 
-  test "is comparable" do
+  test "includes Comparable mixin" do
     assert Measured::Unit.ancestors.include?(Comparable)
   end
 
-  test "#<=> delegates down to name for non Unit comparisons" do
-    assert_equal 1, @unit <=> "anything"
+  test "#<=> compares non-Unit classes against name" do
+    assert_equal 1, @unit <=> "Pap"
+    assert_equal -1, @unit <=> "Pop"
   end
 
-  test "#<=> is equal for same values" do
-    assert_equal 0, @unit <=> Measured::Unit.new(:pie, value: "10 cake")
-    assert_equal 0, @unit <=> Measured::Unit.new("pie", value: "10 cake")
-    assert_equal 0, @unit <=> Measured::Unit.new("pie", value: [10, :cake])
+  test "#<=> is 0 for Unit instances that should be equivalent" do
+    assert_equal 0, @unit <=> Measured::Unit.new(:Pie, value: "10 cake")
+    assert_equal 0, @unit <=> Measured::Unit.new("Pie", value: "10 cake")
+    assert_equal 0, @unit <=> Measured::Unit.new("Pie", value: [10, :cake])
   end
 
-  test "#<=> is slightly different" do
-    assert_equal 1, @unit <=> Measured::Unit.new(:pies, value: "10 cake")
-    assert_equal 1, @unit <=> Measured::Unit.new("pie", aliases: ["pies"], value: "10 cake")
-    assert_equal 1, @unit <=> Measured::Unit.new(:pie, value: [11, :cake])
+  test "#<=> is 1 for units with names that come after Pie lexicographically" do
+    assert_equal 1, @unit <=> Measured::Unit.new(:Pigs, value: "10 bacon")
+    assert_equal 1, @unit <=> Measured::Unit.new("Pig", aliases: %w(Pigs), value: "10 bacon")
+    assert_equal 1, @unit <=> Measured::Unit.new(:Pig, value: [11, :bacon])
   end
 
   test "#inverse_conversion_amount returns 1/amount for BigDecimal" do
-    assert_equal BigDecimal(1)/BigDecimal(10), @unit.inverse_conversion_amount
+    assert_equal BigDecimal(1) / 10, @unit.inverse_conversion_amount
   end
 
   test "#inverse_conversion_amount swaps the numerator and denominator for Rational" do
