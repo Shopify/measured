@@ -83,10 +83,10 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
   end
 
   test ".conversion is set and cached" do
-    conversion = Magic.conversion
+    conversion = CaseSensitiveMagic.conversion
 
     assert_instance_of Measured::Conversion, conversion
-    assert_equal conversion, Magic.conversion
+    assert_equal conversion.__id__, CaseSensitiveMagic.conversion.__id__
   end
 
   test ".units returns just the base units" do

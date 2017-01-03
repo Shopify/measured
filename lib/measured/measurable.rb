@@ -8,10 +8,12 @@ class Measured::Measurable < Numeric
     raise Measured::UnitError, "Unit #{ unit } does not exist" unless self.class.conversion.unit_or_alias?(unit)
 
     @value = case value
-    when NilClass
-      raise Measured::UnitError, "Unit value cannot be nil"
     when Float
       BigDecimal(value, Float::DIG+1)
+    when Fixnum, Bignum
+      BigDecimal(value)
+    when NilClass
+      raise Measured::UnitError, "Unit value cannot be nil"
     when BigDecimal
       value
     else
