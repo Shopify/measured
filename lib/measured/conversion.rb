@@ -23,7 +23,7 @@ class Measured::Conversion
 
   def unit?(name)
     unit = unit_for(name)
-    unit ? unit.name_eql?(name) : false
+    unit ? unit.name == name.to_s : false
   end
 
   def to_unit_name(name)

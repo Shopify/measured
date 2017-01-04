@@ -14,30 +14,6 @@ class Measured::CaseInsensitiveUnitTest < ActiveSupport::TestCase
     assert_equal %w(cake pie sweets), Measured::CaseInsensitiveUnit.new(:pie, aliases: ["Cake", :Sweets]).names
   end
 
-  test "#name_eql? true for valid names" do
-    assert @unit.name_eql?("Pie")
-    assert @unit.name_eql?("pie")
-    refute @unit.name_eql?("pastry")
-  end
-
-  test "#name_eql? false with empty string" do
-    refute @unit.name_eql?("")
-  end
-
-  test "#names_include? is case insensitive" do
-    assert @unit_with_aliases.names_include?("Pie")
-    assert @unit_with_aliases.names_include?("Cake")
-    assert @unit_with_aliases.names_include?("Tart")
-    assert @unit_with_aliases.names_include?("pie")
-    assert @unit_with_aliases.names_include?("cake")
-    assert @unit_with_aliases.names_include?("tart")
-    refute @unit_with_aliases.names_include?("pastry")
-  end
-
-  test "#names_include? false with empty string" do
-    refute @unit_with_aliases.names_include?("")
-  end
-
   test "#initialize parses out the unit and the number part" do
     assert_equal BigDecimal(10), @unit.conversion_amount
     assert_equal "Cake", @unit.conversion_unit
