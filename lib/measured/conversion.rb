@@ -18,11 +18,12 @@ class Measured::Conversion
   end
 
   def unit_or_alias?(name)
-    @units.any? { |unit| unit.names_include?(name) }
+    !!unit_for(name)
   end
 
   def unit?(name)
-    @units.any? { |unit| unit.name_eql?(name) }
+    unit = unit_for(name)
+    unit ? unit.name_eql?(name) : false
   end
 
   def to_unit_name(name)
@@ -39,14 +40,21 @@ class Measured::Conversion
     BigDecimal(value.to_r * conversion, ARBITRARY_CONVERSION_PRECISION)
   end
 
-  private
+  protected
 
   def conversion_table
     @conversion_table ||= Measured::ConversionTable.build(@units)
   end
 
+  def unit_name_to_unit
+    @unit_name_to_unit ||= @units.inject({}) do |hash, unit|
+      unit.names.each { |name| hash[name.to_s] = unit }
+      hash
+    end
+  end
+
   def unit_for(name)
-    @units.find { |unit| unit.names_include?(name) }
+    unit_name_to_unit[name.to_s]
   end
 
   def unit_for!(name)

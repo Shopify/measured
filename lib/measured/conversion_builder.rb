@@ -18,7 +18,7 @@ class Measured::ConversionBuilder
 
   def conversion
     raise Measured::UnitError, "A base unit has not been set." unless @base_unit
-    Measured::Conversion.new(@base_unit, @units)
+    conversion_class.new(@base_unit, @units)
   end
 
   private
@@ -31,6 +31,10 @@ class Measured::ConversionBuilder
 
   def unit_class
     @case_sensitive ? Measured::Unit : Measured::CaseInsensitiveUnit
+  end
+
+  def conversion_class
+    @case_sensitive ? Measured::Conversion : Measured::CaseInsensitiveConversion
   end
 
   def check_for_duplicate_unit_names!(unit)

@@ -7,7 +7,7 @@ Magic = Measured.build do
   unit :ultima, value: "10 arcane"
 end
 
-CaseSensitiveMagic = Measured.build do
+CaseSensitiveMagic = Measured.build(case_sensitive: true) do
   base :magic_missile, aliases: [:magic_missiles]
 
   unit :fireball, value: "2/3 magic_missile", aliases: [:fire, :fireballs]
