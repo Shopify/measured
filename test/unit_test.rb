@@ -10,44 +10,28 @@ class Measured::UnitTest < ActiveSupport::TestCase
     assert_equal "Pie", @unit.name
   end
 
-  test "#initialize converts aliases to strings and makes a list of names which includes the base" do
-    assert_equal ["cake", "pie", "sweets"], Measured::Unit.new(:pie, aliases: ["cake", :sweets]).names
+  test "#initialize converts aliases to strings and makes a list of sorted names which includes the base" do
+    assert_equal %w(Cake pie sweets), Measured::Unit.new(:pie, aliases: ["Cake", :sweets]).names
   end
 
-  test "#name_eql? true for valid names when case_sensitive: true" do
-    assert @unit.name_eql?("Pie", case_sensitive: true)
-    refute @unit.name_eql?("pie", case_sensitive: true)
-    refute @unit.name_eql?("pastry", case_sensitive: true)
-  end
-
-  test "#name_eql? true for valid names when case_sensitive: false" do
-    assert @unit.name_eql?("Pie", case_sensitive: false)
-    assert @unit.name_eql?("pie", case_sensitive: false)
-    refute @unit.name_eql?("pastry", case_sensitive: false)
+  test "#name_eql? true for valid names" do
+    assert @unit.name_eql?("Pie")
+    refute @unit.name_eql?("pie")
+    refute @unit.name_eql?("pastry")
   end
 
   test "#name_eql? false with empty string" do
     refute @unit.name_eql?("")
   end
 
-  test "#names_include? is case insensitive when initialized with case_sensitive: false" do
-    assert @unit_with_aliases.names_include?("Pie", case_sensitive: false)
-    assert @unit_with_aliases.names_include?("Cake", case_sensitive: false)
-    assert @unit_with_aliases.names_include?("Tart", case_sensitive: false)
-    assert @unit_with_aliases.names_include?("pie", case_sensitive: false)
-    assert @unit_with_aliases.names_include?("cake", case_sensitive: false)
-    assert @unit_with_aliases.names_include?("tart", case_sensitive: false)
-    refute @unit_with_aliases.names_include?("pastry", case_sensitive: false)
-  end
-
-  test "#names_include? is case sensitive when initialized with case_sensitive: true" do
-    assert @unit_with_aliases.names_include?("Pie", case_sensitive: true)
-    assert @unit_with_aliases.names_include?("Cake", case_sensitive: true)
-    assert @unit_with_aliases.names_include?("Tart", case_sensitive: true)
-    refute @unit_with_aliases.names_include?("pie", case_sensitive: true)
-    refute @unit_with_aliases.names_include?("cake", case_sensitive: true)
-    refute @unit_with_aliases.names_include?("tart", case_sensitive: true)
-    refute @unit_with_aliases.names_include?("pastry", case_sensitive: true)
+  test "#names_include? is case sensitive" do
+    assert @unit_with_aliases.names_include?("Pie")
+    assert @unit_with_aliases.names_include?("Cake")
+    assert @unit_with_aliases.names_include?("Tart")
+    refute @unit_with_aliases.names_include?("pie")
+    refute @unit_with_aliases.names_include?("cake")
+    refute @unit_with_aliases.names_include?("tart")
+    refute @unit_with_aliases.names_include?("pastry")
   end
 
   test "#names_include? false with empty string" do

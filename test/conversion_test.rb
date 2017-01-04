@@ -2,14 +2,13 @@ require "test_helper"
 
 class Measured::ConversionTest < ActiveSupport::TestCase
   setup do
-    @base = Measured::Unit.new(:m)
+    @base = Measured::CaseInsensitiveUnit.new(:m)
     @units = [
-      Measured::Unit.new(:in, aliases: [:inch], value: "0.0254 m"),
-      Measured::Unit.new(:ft, aliases: [:feet, :foot], value: "0.3048 m"),
+      Measured::CaseInsensitiveUnit.new(:in, aliases: [:inch], value: "0.0254 m"),
+      Measured::CaseInsensitiveUnit.new(:ft, aliases: [:feet, :foot], value: "0.3048 m"),
     ]
 
     @conversion = Measured::Conversion.new(@base, @units)
-    @case_sensitive_conversion = Measured::Conversion.new(@base, @units, case_sensitive: true)
   end
 
   test "#unit_names_with_aliases lists all allowed unit names" do
@@ -28,13 +27,6 @@ class Measured::ConversionTest < ActiveSupport::TestCase
     refute @conversion.unit?(:yard)
   end
 
-  test "#unit? takes into account case_sensitive flag" do
-    assert @case_sensitive_conversion.unit?(:in)
-    assert @case_sensitive_conversion.unit?("m")
-    refute @case_sensitive_conversion.unit?("M")
-    refute @case_sensitive_conversion.unit?("inch")
-  end
-
   test "#unit? with blank and nil arguments" do
     refute @conversion.unit?("")
     refute @conversion.unit?(nil)
@@ -46,13 +38,6 @@ class Measured::ConversionTest < ActiveSupport::TestCase
     assert @conversion.unit_or_alias?(:IN)
     assert @conversion.unit_or_alias?("in")
     refute @conversion.unit_or_alias?(:yard)
-  end
-
-  test "#unit_or_alias? takes into account case_sensitive flag" do
-    assert @case_sensitive_conversion.unit_or_alias?(:inch)
-    assert @case_sensitive_conversion.unit_or_alias?("m")
-    refute @case_sensitive_conversion.unit_or_alias?(:M)
-    refute @case_sensitive_conversion.unit_or_alias?("IN")
   end
 
   test "#unit_or_alias? with blank and nil arguments" do

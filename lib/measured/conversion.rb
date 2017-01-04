@@ -1,14 +1,13 @@
 class Measured::Conversion
   ARBITRARY_CONVERSION_PRECISION = 20
 
-  def initialize(base_unit, units, case_sensitive: false)
-    @case_sensitive = case_sensitive
+  attr_reader :base_unit, :units
+
+  def initialize(base_unit, units)
     @base_unit = base_unit
     @units = units.dup
     @units << @base_unit
   end
-
-  attr_reader :base_unit, :units
 
   def unit_names_with_aliases
     @unit_names_with_aliases ||= @units.flat_map(&:names).sort
@@ -19,11 +18,11 @@ class Measured::Conversion
   end
 
   def unit_or_alias?(name)
-    @units.any? { |unit| unit.names_include?(name, case_sensitive: @case_sensitive) }
+    @units.any? { |unit| unit.names_include?(name) }
   end
 
   def unit?(name)
-    @units.any? { |unit| unit.name_eql?(name, case_sensitive: @case_sensitive) }
+    @units.any? { |unit| unit.name_eql?(name) }
   end
 
   def to_unit_name(name)
@@ -37,7 +36,7 @@ class Measured::Conversion
 
     raise Measured::UnitError, "Cannot find conversion entry from #{from} to #{to}" unless conversion
 
-    BigDecimal(value.to_r * conversion,ARBITRARY_CONVERSION_PRECISION)
+    BigDecimal(value.to_r * conversion, ARBITRARY_CONVERSION_PRECISION)
   end
 
   private
@@ -47,7 +46,7 @@ class Measured::Conversion
   end
 
   def unit_for(name)
-    @units.find { |unit| unit.names_include?(name, case_sensitive: @case_sensitive) }
+    @units.find { |unit| unit.names_include?(name) }
   end
 
   def unit_for!(name)

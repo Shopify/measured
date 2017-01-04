@@ -1,8 +1,8 @@
 class Measured::ConversionBuilder
-  def initialize
+  def initialize(case_sensitive: false)
     @base_unit = nil
     @units = []
-    @case_sensitive = false
+    @case_sensitive = case_sensitive
   end
 
   def base(unit_name, aliases: [])
@@ -16,29 +16,28 @@ class Measured::ConversionBuilder
     nil
   end
 
-  def case_sensitive(value)
-    @case_sensitive = !!value
-    nil
-  end
-
   def conversion
     raise Measured::UnitError, "A base unit has not been set." unless @base_unit
-    Measured::Conversion.new(@base_unit, @units, case_sensitive: @case_sensitive)
+    Measured::Conversion.new(@base_unit, @units)
   end
 
   private
 
   def build_unit(name, aliases: [], value: nil)
-    unit = Measured::Unit.new(name, aliases: aliases, value: value)
+    unit = unit_class.new(name, aliases: aliases, value: value)
     check_for_duplicate_unit_names!(unit)
     unit
+  end
+
+  def unit_class
+    @case_sensitive ? Measured::Unit : Measured::CaseInsensitiveUnit
   end
 
   def check_for_duplicate_unit_names!(unit)
     names = @units.flat_map(&:names)
     names += @base_unit.names if @base_unit
-    
-    if names.any? { |name| unit.names_include?(name, case_sensitive: @case_sensitive) }
+
+    if names.any? { |name| unit.names_include?(name) }
       raise Measured::UnitError, "Unit #{unit.name} has already been added."
     end
   end
