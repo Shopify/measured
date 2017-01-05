@@ -56,7 +56,7 @@ rescue Measured::UnitError
 end
 ```
 
-Perform addition / sctraction against other units, all represented internally as `BigDecimal`:
+Perform addition / subtraction against other units, all represented internally as `BigDecimal`:
 
 ```ruby
 Measured::Weight.new(1, :g) + Measured::Weight.new(2, :g)
