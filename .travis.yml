@@ -4,7 +4,8 @@ cache: bundler
 rvm:
   - 2.1.8
   - 2.2.4
-  - 2.3.0
+  - 2.3.1
+  - 2.4.0
 gemfile:
   - Gemfile
   - gemfiles/activesupport-4.2.gemfile
@@ -12,3 +13,5 @@ matrix:
   exclude:
     - gemfile: Gemfile
       rvm: 2.1.8
+    - gemfile: gemfiles/activesupport-4.2.gemfile
+      rvm: 2.4.0
