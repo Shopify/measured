@@ -7,16 +7,12 @@ module Measured::Arithmetic
     arithmetic_operation(other, :-)
   end
 
-  def *(other)
-    arithmetic_operation(other, :*)
-  end
-
-  def /(other)
-    arithmetic_operation(other, :/)
-  end
-
   def -@
     self.class.new(-self.value, self.unit)
+  end
+
+  def scale(other)
+    self.class.new(self.value * other, self.unit)
   end
 
   def coerce(other)
