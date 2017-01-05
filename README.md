@@ -56,16 +56,21 @@ rescue Measured::UnitError
 end
 ```
 
-Perform mathematical operations against other units, all represented internally as `BigDecimal`:
+Perform addition / subtraction against other units, all represented internally as `BigDecimal`:
 
 ```ruby
 Measured::Weight.new(1, :g) + Measured::Weight.new(2, :g)
 > #<Measured::Weight 3 g>
 Measured::Weight.new(2, :g) - Measured::Weight.new(1, :g)
 > #<Measured::Weight 1 g>
-Measured::Weight.new(10, :g) / Measured::Weight.new(2, :g)
+```
+
+Multiplication and division by units is not supported, but the actual value can be scaled by a scalar:
+
+```ruby
+Measured::Weight.new(10, :g).scale(0.5)
 > #<Measured::Weight 5 g>
-Measured::Weight.new(2, :g) * Measured::Weight.new(3, :g)
+Measured::Weight.new(2, :g).scale(3)
 > #<Measured::Weight 6 g>
 ```
 

@@ -67,68 +67,13 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
     end
   end
 
-  test "#* should multiply together same units" do
-    assert_equal Magic.new(6, :magic_missile), @two * @three
-    assert_equal Magic.new(6, :magic_missile), @three * @two
-  end
-
-  test "#* shouldn't multiply with a Integer" do
-    assert_raises(TypeError) { @two * 3 }
-    assert_raises(TypeError) { 2 * @three }
-  end
-
-  test "#* should raise if different unit system" do
-    assert_raises TypeError do
-      OtherFakeSystem.new(1, :other_fake_base) * @two
-    end
-
-    assert_raises TypeError do
-      @two * OtherFakeSystem.new(1, :other_fake_base)
-    end
-  end
-
-  test "#* should raise if multiplying something nonsense" do
-    assert_raises TypeError do
-      @two * "thing"
-    end
-
-    assert_raises TypeError do
-      "thing" * @two
-    end
-  end
-
-  test "#/ should divide together same units" do
-    assert_equal Magic.new("0.5", :magic_missile), @two / @four
-    assert_equal Magic.new(2, :magic_missile), @four / @two
-  end
-
-  test "#/ shouldn't divide with a Integer" do
-    assert_raises(TypeError) { @two / 4 }
-    assert_raises(TypeError) { 2 / @four }
-  end
-
-  test "#/ should raise if different unit system" do
-    assert_raises TypeError do
-      OtherFakeSystem.new(1, :other_fake_base) / @two
-    end
-
-    assert_raises TypeError do
-      @two / OtherFakeSystem.new(1, :other_fake_base)
-    end
-  end
-
-  test "#/ should raise if dividing something nonsense" do
-    assert_raises TypeError do
-      @two / "thing"
-    end
-
-    assert_raises NoMethodError do
-      "thing" / @two
-    end
-  end
-
   test "#-@ returns the negative version" do
     assert_equal Magic.new(-2, :magic_missile), -@two
+  end
+
+  test "#scale should multiply the value by a given scalar" do
+    assert_equal Magic.new(-2, :magic_missile), @two.scale(-1)
+    assert_equal Magic.new(5, :magic_missile), @two.scale(2.5)
   end
 
   test "arithmetic operations favours unit of left" do
@@ -137,8 +82,6 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
 
     assert_equal "arcane", (left + right).unit
     assert_equal "arcane", (left - right).unit
-    assert_equal "arcane", (left * right).unit
-    assert_equal "arcane", (left / right).unit
   end
 
   test "#coerce should return other as-is when same class" do
