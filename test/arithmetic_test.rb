@@ -12,7 +12,7 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
     assert_equal Magic.new(5, :magic_missile), @three + @two
   end
 
-  test "#+ shouldn't add with a Fixnum" do
+  test "#+ shouldn't add with a Integer" do
     assert_raises(TypeError) { @two + 3 }
     assert_raises(TypeError) { 2 + @three }
   end
@@ -42,7 +42,7 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
     assert_equal Magic.new(1, :magic_missile), @three - @two
   end
 
-  test "#- shouldn't subtract with a Fixnum" do
+  test "#- shouldn't subtract with a Integer" do
     assert_raises(TypeError) { @two - 3 }
     assert_raises(TypeError) { 2 - @three }
   end
@@ -72,7 +72,7 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
     assert_equal Magic.new(6, :magic_missile), @three * @two
   end
 
-  test "#* shouldn't multiply with a Fixnum" do
+  test "#* shouldn't multiply with a Integer" do
     assert_raises(TypeError) { @two * 3 }
     assert_raises(TypeError) { 2 * @three }
   end
@@ -102,7 +102,7 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
     assert_equal Magic.new(2, :magic_missile), @four / @two
   end
 
-  test "#/ shouldn't divide with a Fixnum" do
+  test "#/ shouldn't divide with a Integer" do
     assert_raises(TypeError) { @two / 4 }
     assert_raises(TypeError) { 2 / @four }
   end

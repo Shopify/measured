@@ -10,7 +10,7 @@ class Measured::Measurable < Numeric
     @value = case value
     when Float
       BigDecimal(value, Float::DIG+1)
-    when Fixnum, Bignum
+    when Integer
       BigDecimal(value)
     when NilClass
       raise Measured::UnitError, "Unit value cannot be nil"
