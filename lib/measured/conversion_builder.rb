@@ -41,7 +41,7 @@ class Measured::ConversionBuilder
     names = @units.flat_map(&:names)
     names += @base_unit.names if @base_unit
 
-    if names.any? { |name| unit.names_include?(name) }
+    if names.any? { |name| unit.names.include?(name) }
       raise Measured::UnitError, "Unit #{unit.name} has already been added."
     end
   end

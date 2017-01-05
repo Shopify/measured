@@ -9,16 +9,6 @@ class Measured::Unit
     @conversion_amount, @conversion_unit = parse_value(value) if value
   end
 
-  def name_eql?(name_to_compare)
-    return false unless name_to_compare.present?
-    @name.eql?(name_to_compare.to_s)
-  end
-
-  def names_include?(name_to_compare)
-    return false unless name_to_compare.present?
-    @names.include?(name_to_compare.to_s)
-  end
-
   def to_s
     if conversion_string
       "#{ @name } (#{ conversion_string })"
