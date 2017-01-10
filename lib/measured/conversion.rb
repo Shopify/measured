@@ -1,12 +1,10 @@
 class Measured::Conversion
   ARBITRARY_CONVERSION_PRECISION = 20
 
-  attr_reader :base_unit, :units
+  attr_reader :units
 
-  def initialize(base_unit, units)
-    @base_unit = base_unit
+  def initialize(units)
     @units = units.dup
-    @units << @base_unit
   end
 
   def unit_names_with_aliases

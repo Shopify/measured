@@ -1,6 +1,5 @@
 Magic = Measured.build do
-  base :magic_missile, aliases: [:magic_missiles]
-
+  unit :magic_missile, aliases: [:magic_missiles]
   unit :fireball, value: "2/3 magic_missile", aliases: [:fire, :fireballs]
   unit :ice, value: "2 magic_missile"
   unit :arcane, value: "10 magic_missile"
@@ -8,8 +7,7 @@ Magic = Measured.build do
 end
 
 CaseSensitiveMagic = Measured.build(case_sensitive: true) do
-  base :magic_missile, aliases: [:magic_missiles]
-
+  unit :magic_missile, aliases: [:magic_missiles]
   unit :fireball, value: "2/3 magic_missile", aliases: [:fire, :fireballs]
   unit :ice, value: "2 magic_missile"
   unit :arcane, value: "10 magic_missile"
@@ -17,7 +15,6 @@ CaseSensitiveMagic = Measured.build(case_sensitive: true) do
 end
 
 OtherFakeSystem = Measured.build do
-  base :other_fake_base
-
+  unit :other_fake_base
   unit :other_fake1, value: "2 other_fake_base"
 end

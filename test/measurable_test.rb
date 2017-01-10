@@ -89,7 +89,7 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal conversion.__id__, CaseSensitiveMagic.conversion.__id__
   end
 
-  test ".units returns just the base units" do
+  test ".units returns just the base unit names" do
     assert_equal ["arcane", "fireball", "ice", "magic_missile", "ultima"], Magic.units
   end
 
@@ -106,7 +106,7 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
 
   test ".name looks at the class name" do
     module Example
-      VeryComplexThing = Measured.build { base :foo }
+      VeryComplexThing = Measured.build { unit :foo }
     end
 
     assert_equal "magic", Magic.name

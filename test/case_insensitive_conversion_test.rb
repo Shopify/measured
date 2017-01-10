@@ -2,13 +2,11 @@ require "test_helper"
 
 class Measured::CaseInsensitiveConversionTest < ActiveSupport::TestCase
   setup do
-    @base = Measured::CaseInsensitiveUnit.new(:m)
-    @units = [
+    @conversion = Measured::CaseInsensitiveConversion.new([
+      Measured::CaseInsensitiveUnit.new(:m),
       Measured::CaseInsensitiveUnit.new(:in, aliases: [:inch], value: "0.0254 m"),
       Measured::CaseInsensitiveUnit.new(:ft, aliases: [:feet, :foot], value: "0.3048 m"),
-    ]
-
-    @conversion = Measured::CaseInsensitiveConversion.new(@base, @units)
+    ])
   end
 
   test "#unit_names_with_aliases lists all allowed unit names" do

@@ -10,7 +10,7 @@ class Measured::UnitTest < ActiveSupport::TestCase
     assert_equal "Pie", @unit.name
   end
 
-  test "#initialize converts aliases to strings and makes a list of sorted names which includes the base" do
+  test "#initialize converts aliases to strings and makes a list of sorted names" do
     assert_equal %w(Cake pie sweets), Measured::Unit.new(:pie, aliases: ["Cake", :sweets]).names
   end
 

@@ -2,20 +2,18 @@ require "test_helper"
 
 class Measured::ConversionTest < ActiveSupport::TestCase
   setup do
-    @base = Measured::Unit.new(:m)
-    @units = [
+    @conversion = Measured::Conversion.new([
+      Measured::Unit.new(:m),
       Measured::Unit.new(:in, aliases: [:Inch], value: "0.0254 m"),
       Measured::Unit.new(:ft, aliases: [:Feet, :Foot], value: "0.3048 m"),
-    ]
-
-    @conversion = Measured::Conversion.new(@base, @units)
+    ])
   end
 
   test "#unit_names_with_aliases lists all allowed unit names" do
     assert_equal ["Feet", "Foot", "Inch", "ft", "in", "m"], @conversion.unit_names_with_aliases
   end
 
-  test "#unit_names lists all base unit names without aliases" do
+  test "#unit_names lists all unit names without aliases" do
     assert_equal ["ft", "in", "m"], @conversion.unit_names
   end
 

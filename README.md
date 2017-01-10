@@ -160,7 +160,7 @@ Extending this library to support other units is simple. To add a new conversion
 
 ```ruby
 Measured::Thing = Measured.build do
-  base :base_unit,           # Define the basic unit for the system
+  unit :base_unit,           # Add a unit to the system
     aliases: [:bu]           # Allow it to be aliased to other names/symbols
 
   unit :another_unit,        # Add a second unit to the system
@@ -177,13 +177,13 @@ By default all names and aliases are case insensitive. If you would like to crea
 
 ```ruby
 Measured::Thing = Measured.build(case_sensitive: true) do
-  base :base_unit, aliases: [:bu]
+  unit :base_unit, aliases: [:bu]
 end
 ```
 
 Other than case sensitivity, both classes are identical to each other. The `case_sensitive` flag, which is false by default, gets taken into account any time you attempt to reference a unit by name or alias.
 
-The base unit takes no value. Values for conversion units can be defined as a string with two tokens `"number unit"` or as an array with two elements. The numbers must be `Rational` or `BigDecimal`, else they will be coerced to `BigDecimal`. Conversion paths don't have to be direct as a conversion table will be built for all possible conversions.
+Values for conversion units can be defined as a string with two tokens `"number unit"` or as an array with two elements. The numbers must be `Rational` or `BigDecimal`, else they will be coerced to `BigDecimal`. Conversion paths don't have to be direct as a conversion table will be built for all possible conversions.
 
 ### Namespaces
 
