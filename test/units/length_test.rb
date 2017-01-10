@@ -5,7 +5,7 @@ class Measured::LengthTest < ActiveSupport::TestCase
     assert_equal ["centimeter", "centimeters", "centimetre", "centimetres", "cm", "feet", "foot", "ft", "in", "inch", "inches", "m", "meter", "meters", "metre", "metres", "millimeter", "millimeters", "millimetre", "millimetres", "mm", "yard", "yards", "yd"], Measured::Length.units_with_aliases
   end
 
-  test ".units should be the list of base units" do
+  test ".units should be the list of base unit names" do
     assert_equal ["cm", "ft", "in", "m", "mm", "yd"], Measured::Length.units
   end
 

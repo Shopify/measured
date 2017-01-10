@@ -10,7 +10,7 @@ class Measured::CaseInsensitiveUnitTest < ActiveSupport::TestCase
     assert_equal "pie", @unit.name
   end
 
-  test "#initialize converts aliases to strings and makes a list of sorted, downcased names which includes the base" do
+  test "#initialize converts aliases to strings and makes a list of sorted, downcased names" do
     assert_equal %w(cake pie sweets), Measured::CaseInsensitiveUnit.new(:pie, aliases: ["Cake", :Sweets]).names
   end
 

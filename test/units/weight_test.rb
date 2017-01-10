@@ -9,7 +9,7 @@ class Measured::WeightTest < ActiveSupport::TestCase
     assert_equal ["g", "gram", "grams", "kg", "kilogram", "kilograms", "lb", "lbs", "ounce", "ounces", "oz", "pound", "pounds"], Measured::Weight.units_with_aliases
   end
 
-  test ".units should be the list of base units" do
+  test ".units should be the list of base unit names" do
     assert_equal ["g", "kg", "lb", "oz"], Measured::Weight.units
   end
 
