@@ -4,26 +4,10 @@ class Measured::Measurable < Numeric
   attr_reader :unit, :value
 
   def initialize(value, unit)
-    raise Measured::UnitError, "Unit cannot be blank" if unit.blank?
-    raise Measured::UnitError, "Unit #{ unit } does not exist" unless self.class.conversion.unit_or_alias?(unit)
+    raise Measured::UnitError, "Unit '#{unit}' does not exist" unless self.class.conversion.unit_or_alias?(unit)
+    raise Measured::UnitError, "Unit value cannot be blank" if value.blank?
 
-    @value = case value
-    when Float
-      BigDecimal(value, Float::DIG+1)
-    when Integer
-      BigDecimal(value)
-    when NilClass
-      raise Measured::UnitError, "Unit value cannot be nil"
-    when BigDecimal
-      value
-    else
-      if value.blank?
-        raise Measured::UnitError, "Unit value cannot be blank"
-      else
-        BigDecimal(value)
-      end
-    end
-
+    @value = BigDecimal(value, value.is_a?(Float) : Float::DIG + 1 : 0)
     @unit = self.class.conversion.to_unit_name(unit)
   end
 
