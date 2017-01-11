@@ -7,7 +7,7 @@ class Measured::Measurable < Numeric
     raise Measured::UnitError, "Unit '#{unit}' does not exist" unless self.class.conversion.unit_or_alias?(unit)
     raise Measured::UnitError, "Unit value cannot be blank" if value.blank?
 
-    @value = BigDecimal(value, value.is_a?(Float) : Float::DIG + 1 : 0)
+    @value = BigDecimal(value, value.is_a?(Float) ? Float::DIG + 1 : 0)
     @unit = self.class.conversion.to_unit_name(unit)
   end
 
