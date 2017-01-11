@@ -50,14 +50,14 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     exception = assert_raises(Measured::UnitError) do
       Magic.new(nil, :fire)
     end
-    assert_equal "Unit value cannot be nil", exception.message
+    assert_equal "Unit value cannot be blank", exception.message
   end
 
   test "#initialize raises an expected error when initializing with nil unit" do
     exception = assert_raises(Measured::UnitError) do
       Magic.new(1, nil)
     end
-    assert_equal "Unit cannot be blank", exception.message
+    assert_equal "Unit '' does not exist", exception.message
   end
 
   test "#initialize raises an expected error when initializing with empty string value" do
@@ -71,7 +71,7 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     exception = assert_raises(Measured::UnitError) do
       Magic.new(1, "")
     end
-    assert_equal "Unit cannot be blank", exception.message
+    assert_equal "Unit '' does not exist", exception.message
   end
 
   test "#unit allows you to read the unit string" do
