@@ -89,19 +89,22 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal conversion.__id__, CaseSensitiveMagic.unit_system.__id__
   end
 
-  test ".units returns just the base unit names" do
-    assert_equal ["arcane", "fireball", "ice", "magic_missile", "ultima"], Magic.units
+  test ".unit_names returns just the base unit names" do
+    assert_equal %w(arcane fireball ice magic_missile ultima), Magic.unit_names
   end
 
-  test ".units_with_aliases returns all units" do
-    assert_equal ["arcane", "fire", "fireball", "fireballs", "ice", "magic_missile", "magic_missiles", "ultima"], Magic.units_with_aliases
+  test ".unit_names_with_aliases returns all units" do
+    assert_equal(
+      %w(arcane fire fireball fireballs ice magic_missile magic_missiles ultima),
+      Magic.unit_names_with_aliases
+    )
   end
 
-  test ".valid_unit? looks at the list of units and aliases" do
-    assert Magic.valid_unit?("fire")
-    assert Magic.valid_unit?("fireball")
-    assert Magic.valid_unit?(:ice)
-    refute Magic.valid_unit?("junk")
+  test ".unit_or_alias? looks at the list of units and aliases" do
+    assert Magic.unit_or_alias?("fire")
+    assert Magic.unit_or_alias?("fireball")
+    assert Magic.unit_or_alias?(:ice)
+    refute Magic.unit_or_alias?("junk")
   end
 
   test ".name looks at the class name" do

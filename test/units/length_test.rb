@@ -1,12 +1,19 @@
 require "test_helper"
 
 class Measured::LengthTest < ActiveSupport::TestCase
-  test ".units_with_aliases should be the expected list of valid units" do
-    assert_equal ["centimeter", "centimeters", "centimetre", "centimetres", "cm", "feet", "foot", "ft", "in", "inch", "inches", "m", "meter", "meters", "metre", "metres", "millimeter", "millimeters", "millimetre", "millimetres", "mm", "yard", "yards", "yd"], Measured::Length.units_with_aliases
+  test ".unit_names_with_aliases should be the expected list of valid units" do
+    assert_equal(
+      %w(
+        centimeter centimeters centimetre centimetres cm feet foot ft
+        in inch inches m meter meters metre metres millimeter
+        millimeters millimetre millimetres mm yard yards yd
+      ),
+      Measured::Length.unit_names_with_aliases
+    )
   end
 
-  test ".units should be the list of base unit names" do
-    assert_equal ["cm", "ft", "in", "m", "mm", "yd"], Measured::Length.units
+  test ".unit_names should be the list of base unit names" do
+    assert_equal %w(cm ft in m mm yd), Measured::Length.unit_names
   end
 
   test ".name" do
