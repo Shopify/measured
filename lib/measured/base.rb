@@ -7,15 +7,15 @@ module Measured
 
   class << self
     def build(**kwargs, &block)
-      builder = ConversionBuilder.new(**kwargs)
+      builder = UnitSystemBuilder.new(**kwargs)
       builder.instance_eval(&block)
 
       Class.new(Measurable) do
         class << self
-          attr_reader :conversion
+          attr_reader :unit_system
         end
 
-        @conversion = builder.conversion
+        @unit_system = builder.build
       end
     end
 
@@ -39,9 +39,9 @@ end
 
 require "measured/arithmetic"
 require "measured/unit"
+require "measured/unit_system"
 require "measured/case_insensitive_unit"
-require "measured/conversion"
-require "measured/case_insensitive_conversion"
-require "measured/conversion_builder"
+require "measured/case_insensitive_unit_system"
+require "measured/unit_system_builder"
 require "measured/conversion_table"
 require "measured/measurable"

@@ -1,6 +1,6 @@
 require "test_helper"
 
-class Measured::ConversionBuilderTest < ActiveSupport::TestCase
+class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
   test "#unit adds a new unit" do
     measurable = Measured.build do
       unit :m
