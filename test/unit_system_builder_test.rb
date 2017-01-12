@@ -7,7 +7,7 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
       unit :in, aliases: [:inch], value: "0.0254 m"
     end
 
-    assert_equal 2, measurable.units.count
+    assert_equal 2, measurable.unit_names.count
   end
 
   test "#unit cannot add duplicate unit names" do

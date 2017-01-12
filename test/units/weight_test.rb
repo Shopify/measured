@@ -5,12 +5,15 @@ class Measured::WeightTest < ActiveSupport::TestCase
     @weight = Measured::Weight.new(1, "g")
   end
 
-  test ".units_with_aliases should be the expected list of valid units" do
-    assert_equal ["g", "gram", "grams", "kg", "kilogram", "kilograms", "lb", "lbs", "ounce", "ounces", "oz", "pound", "pounds"], Measured::Weight.units_with_aliases
+  test ".unit_names_with_aliases should be the expected list of valid units" do
+    assert_equal(
+      %w(g gram grams kg kilogram kilograms lb lbs ounce ounces oz pound pounds),
+      Measured::Weight.unit_names_with_aliases
+    )
   end
 
-  test ".units should be the list of base unit names" do
-    assert_equal ["g", "kg", "lb", "oz"], Measured::Weight.units
+  test ".unit_names should be the list of base unit names" do
+    assert_equal %w(g kg lb oz), Measured::Weight.unit_names
   end
 
 
