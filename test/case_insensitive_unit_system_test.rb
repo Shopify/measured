@@ -1,8 +1,8 @@
 require "test_helper"
 
-class Measured::CaseInsensitiveConversionTest < ActiveSupport::TestCase
+class Measured::CaseInsensitiveUnitSystemTest < ActiveSupport::TestCase
   setup do
-    @conversion = Measured::CaseInsensitiveConversion.new([
+    @conversion = Measured::CaseInsensitiveUnitSystem.new([
       Measured::CaseInsensitiveUnit.new(:m),
       Measured::CaseInsensitiveUnit.new(:in, aliases: [:inch], value: "0.0254 m"),
       Measured::CaseInsensitiveUnit.new(:ft, aliases: [:feet, :foot], value: "0.3048 m"),

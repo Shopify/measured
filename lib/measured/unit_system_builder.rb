@@ -1,4 +1,4 @@
-class Measured::ConversionBuilder
+class Measured::UnitSystemBuilder
   def initialize(case_sensitive: false)
     @units = []
     @case_sensitive = case_sensitive
@@ -9,8 +9,8 @@ class Measured::ConversionBuilder
     nil
   end
 
-  def conversion
-    conversion_class.new(@units)
+  def build
+    unit_system_class.new(@units)
   end
 
   private
@@ -25,8 +25,8 @@ class Measured::ConversionBuilder
     @case_sensitive ? Measured::Unit : Measured::CaseInsensitiveUnit
   end
 
-  def conversion_class
-    @case_sensitive ? Measured::Conversion : Measured::CaseInsensitiveConversion
+  def unit_system_class
+    @case_sensitive ? Measured::UnitSystem : Measured::CaseInsensitiveUnitSystem
   end
 
   def check_for_duplicate_unit_names!(unit)

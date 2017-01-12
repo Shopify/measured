@@ -7,7 +7,7 @@ module Measured
 
   class << self
     def build(**kwargs, &block)
-      builder = ConversionBuilder.new(**kwargs)
+      builder = UnitSystemBuilder.new(**kwargs)
       builder.instance_eval(&block)
 
       Class.new(Measurable) do
@@ -15,7 +15,7 @@ module Measured
           attr_reader :conversion
         end
 
-        @conversion = builder.conversion
+        @conversion = builder.build
       end
     end
 

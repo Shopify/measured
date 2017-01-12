@@ -1,8 +1,8 @@
 require "test_helper"
 
-class Measured::ConversionTest < ActiveSupport::TestCase
+class Measured::UnitSystemTest < ActiveSupport::TestCase
   setup do
-    @conversion = Measured::Conversion.new([
+    @conversion = Measured::UnitSystem.new([
       Measured::Unit.new(:m),
       Measured::Unit.new(:in, aliases: [:Inch], value: "0.0254 m"),
       Measured::Unit.new(:ft, aliases: [:Feet, :Foot], value: "0.3048 m"),

@@ -1,4 +1,4 @@
-class Measured::Conversion
+class Measured::UnitSystem
   ARBITRARY_CONVERSION_PRECISION = 20
 
   attr_reader :units
