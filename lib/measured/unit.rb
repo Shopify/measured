@@ -45,10 +45,9 @@ class Measured::Unit
 
   def parse_value(tokens)
     tokens = tokens.split(" ") if tokens.is_a?(String)
-    raise Measured::UnitError, "Cannot parse 'number unit' or [number, unit] formatted tokens from #{ tokens }." unless tokens.size == 2
 
-    tokens[0] = BigDecimal(tokens[0]) unless tokens[0].is_a?(BigDecimal) || tokens[0].is_a?(Rational)
+    raise Measured::UnitError, "Cannot parse 'number unit' or [number, unit] formatted tokens from #{tokens}." unless tokens.size == 2
 
-    tokens
+    [tokens[0].to_r, tokens[1]]
   end
 end
