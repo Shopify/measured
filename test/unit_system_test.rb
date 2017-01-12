@@ -56,9 +56,25 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
     assert_equal "fireball", CaseSensitiveMagic.unit_system.to_unit_name("fireball")
   end
 
-  test "#to_unit_name raises if not found" do
+  test "#to_unit_name returns nil if not found" do
+    assert_nil CaseSensitiveMagic.unit_system.to_unit_name("thunder")
+  end
+
+  test "#to_unit_name! converts a unit name to its base unit" do
+    assert_equal "fireball", CaseSensitiveMagic.unit_system.to_unit_name!("fire")
+  end
+
+  test "#to_unit_name! does not care about string or symbol" do
+    assert_equal "fireball", CaseSensitiveMagic.unit_system.to_unit_name!(:fire)
+  end
+
+  test "#to_unit_name! passes through if already base unit name" do
+    assert_equal "fireball", CaseSensitiveMagic.unit_system.to_unit_name!("fireball")
+  end
+
+  test "#to_unit_name! raises if not found" do
     assert_raises Measured::UnitError do
-      CaseSensitiveMagic.unit_system.to_unit_name("thunder")
+      CaseSensitiveMagic.unit_system.to_unit_name!("thunder")
     end
   end
 
