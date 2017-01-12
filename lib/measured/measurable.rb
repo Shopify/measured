@@ -11,8 +11,10 @@ class Measured::Measurable < Numeric
     @value = case value
     when Float
       BigDecimal(value, Float::DIG + 1)
-    when BigDecimal
+    when BigDecimal, Rational
       value
+    when Integer
+      Rational(value)
     else
       BigDecimal(value)
     end
@@ -28,11 +30,11 @@ class Measured::Measurable < Numeric
   end
 
   def to_s
-    [value.to_f.to_s.gsub(/\.0\Z/, ""), unit].join(" ")
+    @to_s ||= "#{value_string} #{unit}"
   end
 
   def inspect
-    "#<#{ self.class }: #{ value } #{ unit }>"
+    @inspect ||= "#<#{self.class}: #{value_string} #{unit}>"
   end
 
   def <=>(other)
@@ -65,5 +67,21 @@ class Measured::Measurable < Numeric
       to_s.split("::").last.underscore.humanize.downcase
     end
 
+  end
+
+  private
+
+  def value_string
+    @value_string ||= begin
+      str = case value
+      when Rational
+        value.denominator == 1 ? value.numerator.to_s : value.to_f.to_s
+      when BigDecimal
+        value.to_s("F")
+      else
+        value.to_f.to_s
+      end
+      str.gsub(/\.0*\Z/, "")
+    end
   end
 end

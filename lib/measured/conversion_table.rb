@@ -41,7 +41,7 @@ module Measured::ConversionTable
   end
 
   def find_tree_traversal_conversion(units, to:, from:)
-    traverse(units, from: from, to: to, unit_names: units.map{|u| u.name }, amount: Rational(1))
+    traverse(units, from: from, to: to, unit_names: units.map(&:name), amount: 1)
   end
 
   def traverse(units, from:, to:, unit_names:, amount:)
@@ -49,7 +49,7 @@ module Measured::ConversionTable
 
     unit_names.each do |name|
       if conversion = find_direct_conversion(units, from: from, to: name)
-        new_amount = amount * conversion.to_r
+        new_amount = amount * conversion
         if name == to
           return new_amount
         else

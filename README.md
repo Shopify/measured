@@ -2,7 +2,7 @@
 
 Encapsulates measurements with their units. Provides easy conversion between units.
 
-Light weight and easily extensible to include other units and conversions. Conversions done with `BigDecimal` for precision.
+Lightweight and easily extensible to include other units and conversions. Conversions done with `Rational` for precision.
 
 The adapter to integrate `measured` with Ruby on Rails is in a separate [`measured-rails`](https://github.com/Shopify/measured-rails) gem.
 
@@ -56,13 +56,13 @@ rescue Measured::UnitError
 end
 ```
 
-Perform addition / subtraction against other units, all represented internally as `BigDecimal`:
+Perform addition / subtraction against other units, all represented internally as `Rational` or `BigDecimal`:
 
 ```ruby
 Measured::Weight.new(1, :g) + Measured::Weight.new(2, :g)
 > #<Measured::Weight 3 g>
-Measured::Weight.new(2, :g) - Measured::Weight.new(1, :g)
-> #<Measured::Weight 1 g>
+Measured::Weight.new("2.1", :g) - Measured::Weight.new(1, :g)
+> #<Measured::Weight 1.1 g>
 ```
 
 Multiplication and division by units is not supported, but the actual value can be scaled by a scalar:
@@ -166,10 +166,6 @@ Measured::Thing = Measured.build do
   unit :another_unit,        # Add a second unit to the system
     aliases: [:au],          # All units allow aliases, as long as they are unique
     value: ["1.5 bu"]        # The conversion rate to another unit
-
-  unit :different_unit
-    aliases: [:du],
-    value: [Rational(2,3), "au"]  # Conversion rate can be Rational, otherwise it is coerced to BigDecimal
 end
 ```
 
@@ -183,7 +179,7 @@ end
 
 Other than case sensitivity, both classes are identical to each other. The `case_sensitive` flag, which is false by default, gets taken into account any time you attempt to reference a unit by name or alias.
 
-Values for conversion units can be defined as a string with two tokens `"number unit"` or as an array with two elements. The numbers must be `Rational` or `BigDecimal`, else they will be coerced to `BigDecimal`. Conversion paths don't have to be direct as a conversion table will be built for all possible conversions.
+Values for conversion units can be defined as a string with two tokens `"number unit"` or as an array with two elements. All values will be parsed as / coerced to `Rational`. Conversion paths don't have to be direct as a conversion table will be built for all possible conversions.
 
 ### Namespaces
 
@@ -209,7 +205,7 @@ Existing alternatives which were considered:
 
 ### Gem: [quantified](https://github.com/Shopify/quantified)
 * **Pros**
-  * Light weight.
+  * Lightweight.
   * Included with ActiveShipping/ActiveUtils.
 * **Cons**
   * All math done with floats making it highly lossy.
