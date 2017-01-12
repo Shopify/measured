@@ -25,7 +25,9 @@ class Measured::UnitSystem
   end
 
   def to_unit_name(name)
-    to_unit_name!(name) rescue nil
+    to_unit_name!(name)
+  rescue Measured::UnitError
+    nil
   end
 
   def to_unit_name!(name)
