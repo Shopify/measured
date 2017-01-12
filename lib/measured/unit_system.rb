@@ -1,6 +1,4 @@
 class Measured::UnitSystem
-  ARBITRARY_CONVERSION_PRECISION = 20
-
   attr_reader :units
 
   def initialize(units)
@@ -35,7 +33,7 @@ class Measured::UnitSystem
 
     raise Measured::UnitError, "Cannot find conversion entry from #{from} to #{to}" unless conversion
 
-    BigDecimal(value.to_r * conversion, ARBITRARY_CONVERSION_PRECISION)
+    value.to_r * conversion
   end
 
   protected
