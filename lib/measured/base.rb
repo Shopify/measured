@@ -39,9 +39,9 @@ end
 
 require "measured/arithmetic"
 require "measured/unit"
+require "measured/unit_system"
 require "measured/case_insensitive_unit"
-require "measured/conversion"
-require "measured/case_insensitive_conversion"
-require "measured/conversion_builder"
+require "measured/case_insensitive_unit_system"
+require "measured/unit_system_builder"
 require "measured/conversion_table"
 require "measured/measurable"
