@@ -4,10 +4,10 @@ class Measured::Measurable < Numeric
   attr_reader :unit, :value
 
   def initialize(value, unit)
-    raise Measured::UnitError, "Unit '#{unit}' does not exist" unless self.class.conversion.unit_or_alias?(unit)
+    raise Measured::UnitError, "Unit '#{unit}' does not exist" unless self.class.valid_unit?(unit)
     raise Measured::UnitError, "Unit value cannot be blank" if value.blank?
 
-    @unit = self.class.conversion.to_unit_name(unit)
+    @unit = self.class.unit_system.to_unit_name(unit)
     @value = case value
     when Float
       BigDecimal(value, Float::DIG + 1)
@@ -21,10 +21,10 @@ class Measured::Measurable < Numeric
   end
 
   def convert_to(new_unit)
-    new_unit_name = self.class.conversion.to_unit_name(new_unit)
-    return self if new_unit_name == self.class.conversion.to_unit_name(unit)
+    new_unit_name = self.class.unit_system.to_unit_name(new_unit)
+    return self if new_unit_name == @unit
 
-    value = self.class.conversion.convert(@value, from: @unit, to: new_unit_name)
+    value = self.class.unit_system.convert(@value, from: @unit, to: new_unit_name)
 
     self.class.new(value, new_unit)
   end
@@ -47,20 +47,20 @@ class Measured::Measurable < Numeric
 
   class << self
 
-    def conversion
-      raise "`Measurable` does not have a `conversion` object. You cannot directly subclass `Measurable`. Instead, build a new unit system by calling `Measured.build`."
+    def unit_system
+      raise "`Measurable` does not have a `unit_system` object. You cannot directly subclass `Measurable`. Instead, build a new unit system by calling `Measured.build`."
     end
 
     def units
-      conversion.unit_names
+      unit_system.unit_names
     end
 
     def valid_unit?(unit)
-      conversion.unit_or_alias?(unit)
+      unit_system.unit_or_alias?(unit)
     end
 
     def units_with_aliases
-      conversion.unit_names_with_aliases
+      unit_system.unit_names_with_aliases
     end
 
     def name

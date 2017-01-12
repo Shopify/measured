@@ -12,10 +12,10 @@ module Measured
 
       Class.new(Measurable) do
         class << self
-          attr_reader :conversion
+          attr_reader :unit_system
         end
 
-        @conversion = builder.build
+        @unit_system = builder.build
       end
     end
 

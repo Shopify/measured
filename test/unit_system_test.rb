@@ -45,30 +45,30 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   end
 
   test "#to_unit_name converts a unit name to its base unit" do
-    assert_equal "fireball", CaseSensitiveMagic.conversion.to_unit_name("fire")
+    assert_equal "fireball", CaseSensitiveMagic.unit_system.to_unit_name("fire")
   end
 
   test "#to_unit_name does not care about string or symbol" do
-    assert_equal "fireball", CaseSensitiveMagic.conversion.to_unit_name(:fire)
+    assert_equal "fireball", CaseSensitiveMagic.unit_system.to_unit_name(:fire)
   end
 
   test "#to_unit_name passes through if already base unit name" do
-    assert_equal "fireball", CaseSensitiveMagic.conversion.to_unit_name("fireball")
+    assert_equal "fireball", CaseSensitiveMagic.unit_system.to_unit_name("fireball")
   end
 
   test "#to_unit_name raises if not found" do
     assert_raises Measured::UnitError do
-      CaseSensitiveMagic.conversion.to_unit_name("thunder")
+      CaseSensitiveMagic.unit_system.to_unit_name("thunder")
     end
   end
 
   test "#convert raises if either unit is not found" do
     assert_raises Measured::UnitError do
-      CaseSensitiveMagic.conversion.convert(1, from: "fire", to: "doesnt_exist")
+      CaseSensitiveMagic.unit_system.convert(1, from: "fire", to: "doesnt_exist")
     end
 
     assert_raises Measured::UnitError do
-      CaseSensitiveMagic.conversion.convert(1, from: "doesnt_exist", to: "fire")
+      CaseSensitiveMagic.unit_system.convert(1, from: "doesnt_exist", to: "fire")
     end
   end
 
