@@ -73,7 +73,7 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   end
 
   test "#to_unit_name! raises if not found" do
-    assert_raises Measured::UnitError do
+    assert_raises_with_message(Measured::UnitError, "Unit 'thunder' does not exist") do
       CaseSensitiveMagic.unit_system.to_unit_name!("thunder")
     end
   end
