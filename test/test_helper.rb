@@ -32,4 +32,9 @@ class ActiveSupport::TestCase
 
     assert_equal BigDecimal(to_amount), klass.new(from_amount, from_unit).convert_to(to_unit).value
   end
+
+  def assert_raises_with_message(exception, expected_message)
+    error = assert_raise(exception) { yield }
+    assert_equal expected_message, error.message, "Exception #{exception} raised but messages are not equal"
+  end
 end

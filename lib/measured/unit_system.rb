@@ -25,6 +25,12 @@ class Measured::UnitSystem
   end
 
   def to_unit_name(name)
+    to_unit_name!(name)
+  rescue Measured::UnitError
+    nil
+  end
+
+  def to_unit_name!(name)
     unit_for!(name).name
   end
 
@@ -57,7 +63,7 @@ class Measured::UnitSystem
 
   def unit_for!(name)
     unit = unit_for(name)
-    raise Measured::UnitError, "Cannot find unit for #{name}" unless unit
+    raise Measured::UnitError, "Unit '#{name}' does not exist" unless unit
     unit
   end
 end
