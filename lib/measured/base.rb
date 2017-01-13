@@ -9,14 +9,7 @@ module Measured
     def build(**kwargs, &block)
       builder = UnitSystemBuilder.new(**kwargs)
       builder.instance_eval(&block)
-
-      Class.new(Measurable) do
-        class << self
-          attr_reader :unit_system
-        end
-
-        @unit_system = builder.build
-      end
+      builder.build
     end
 
     def method_missing(method, *args)
