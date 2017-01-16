@@ -3,9 +3,9 @@ require "test_helper"
 class Measured::MeasurableTest < ActiveSupport::TestCase
 
   setup do
-    @arcane = Magic.unit_system.unit_for!(:arcane)
-    @fireball = Magic.unit_system.unit_for!(:fireball)
-    @magic_missile = Magic.unit_system.unit_for!(:magic_missile)
+    @arcane = Magic.unit_for!(:arcane)
+    @fireball = Magic.unit_for!(:fireball)
+    @magic_missile = Magic.unit_for!(:magic_missile)
     @magic = Magic.new(10, @magic_missile)
   end
 
@@ -86,10 +86,10 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
   end
 
   test ".conversion is set and cached" do
-    conversion = CaseSensitiveMagic.unit_system
+    conversion = CaseSensitiveMagic
 
     assert_instance_of Measured::UnitSystem, conversion
-    assert_equal conversion.__id__, CaseSensitiveMagic.unit_system.__id__
+    assert_equal conversion.__id__, CaseSensitiveMagic.__id__
   end
 
   test ".unit_names returns just the base unit names" do

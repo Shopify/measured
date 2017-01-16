@@ -79,7 +79,7 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
   test "arithmetic operations favours unit of left" do
     left = Magic.new(1, :arcane)
     right = Magic.new(1, :magic_missile)
-    arcane = Magic.unit_system.unit_for!(:arcane)
+    arcane = Magic.unit_for!(:arcane)
 
     assert_equal arcane, (left + right).unit
     assert_equal arcane, (left - right).unit
