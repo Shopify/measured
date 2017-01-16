@@ -85,13 +85,6 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal BigDecimal(10), @magic.value
   end
 
-  test ".conversion is set and cached" do
-    conversion = CaseSensitiveMagic
-
-    assert_instance_of Measured::UnitSystem, conversion
-    assert_equal conversion.__id__, CaseSensitiveMagic.__id__
-  end
-
   test ".unit_names returns just the base unit names" do
     assert_equal %w(arcane fireball ice magic_missile ultima), Magic.unit_names
   end
