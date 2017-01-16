@@ -4,6 +4,10 @@ class Measured::UnitSystem
       raise "`UnitSystem` does not have a `units` object. You cannot directly subclass `UnitSystem`. Instead, build a new unit system by calling `Measured.build`."
     end
 
+    def new(value, unit)
+      Measured::Measurable.new(value, unit, self)
+    end
+
     def unit_names_with_aliases
       @unit_names_with_aliases ||= units.flat_map(&:names).sort
     end

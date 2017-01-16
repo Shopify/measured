@@ -1,12 +1,13 @@
 class Measured::Measurable < Numeric
   include Measured::Arithmetic
 
-  attr_reader :unit, :value
+  attr_reader :unit, :value, :unit_system
 
-  def initialize(value, unit)
+  def initialize(value, unit, unit_system)
     raise Measured::UnitError, "Unit value cannot be blank" if value.blank?
 
     @unit = unit_from_unit_or_name!(unit)
+    @unit_system = unit_system
     @value = case value
     when Float
       BigDecimal(value, Float::DIG + 1)
@@ -33,7 +34,7 @@ class Measured::Measurable < Numeric
   end
 
   def inspect
-    @inspect ||= "#<#{self.class}: #{value_string} #{unit}>"
+    @inspect ||= "#<#{unit_system}: #{value_string} #{unit}>"
   end
 
   def <=>(other)

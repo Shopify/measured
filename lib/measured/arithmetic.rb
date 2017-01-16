@@ -8,11 +8,11 @@ module Measured::Arithmetic
   end
 
   def -@
-    self.class.new(-self.value, self.unit)
+    self.class.new(-self.value, self.unit, self.unit_system)
   end
 
   def scale(other)
-    self.class.new(self.value * other, self.unit)
+    self.class.new(self.value * other, self.unit, self.unit_system)
   end
 
   def coerce(other)
@@ -31,6 +31,6 @@ module Measured::Arithmetic
 
   def arithmetic_operation(other, operator)
     other, _ = coerce(other)
-    self.class.new(self.value.public_send(operator, other.convert_to(self.unit).value), self.unit)
+    self.class.new(self.value.public_send(operator, other.convert_to(self.unit).value), self.unit, self.unit_system)
   end
 end
