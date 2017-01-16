@@ -44,22 +44,6 @@ class Measured::Measurable < Numeric
     end
   end
 
-  class << self
-    extend Forwardable
-
-    def unit_system
-      raise "`Measurable` does not have a `unit_system` object. You cannot directly subclass `Measurable`. Instead, build a new unit system by calling `Measured.build`."
-    end
-
-    delegate unit_names: :unit_system
-    delegate unit_names_with_aliases: :unit_system
-    delegate unit_or_alias?: :unit_system
-
-    def name
-      to_s.split("::").last.underscore.humanize.downcase
-    end
-  end
-
   private
 
   def unit_from_unit_or_name!(value)

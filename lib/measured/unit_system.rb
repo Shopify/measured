@@ -39,6 +39,10 @@ class Measured::UnitSystem
       value.to_r * conversion
     end
 
+    def name
+      to_s.split("::").last.underscore.humanize.downcase
+    end
+
     protected
 
     def conversion_table
