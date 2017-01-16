@@ -2,11 +2,12 @@ require "test_helper"
 
 class Measured::CaseInsensitiveUnitSystemTest < ActiveSupport::TestCase
   setup do
-    @conversion = Measured::CaseInsensitiveUnitSystem.new([
-      Measured::CaseInsensitiveUnit.new(:m),
-      Measured::CaseInsensitiveUnit.new(:in, aliases: [:inch], value: "0.0254 m"),
-      Measured::CaseInsensitiveUnit.new(:ft, aliases: [:feet, :foot], value: "0.3048 m"),
-    ])
+    @unit_fireball = Magic.unit_system.unit_for!(:fireball)
+
+    @unit_m = Measured::CaseInsensitiveUnit.new(:m)
+    @unit_in = Measured::CaseInsensitiveUnit.new(:in, aliases: [:inch], value: "0.0254 m")
+    @unit_ft = Measured::CaseInsensitiveUnit.new(:ft, aliases: [:feet, :foot], value: "0.3048 m")
+    @conversion = Measured::CaseInsensitiveUnitSystem.new([@unit_m, @unit_in, @unit_ft])
   end
 
   test "#unit_names_with_aliases lists all allowed unit names" do
@@ -43,56 +44,58 @@ class Measured::CaseInsensitiveUnitSystemTest < ActiveSupport::TestCase
     refute @conversion.unit_or_alias?(nil)
   end
 
-  test "#to_unit_name converts a unit name to its base unit" do
-    assert_equal "fireball", Magic.unit_system.to_unit_name("fire")
+  test "#unit_for converts a unit name to its base unit" do
+    assert_equal @unit_fireball, Magic.unit_system.unit_for("fire")
   end
 
-  test "#to_unit_name does not care about string or symbol" do
-    assert_equal "fireball", Magic.unit_system.to_unit_name(:fire)
+  test "#unit_for does not care about string or symbol" do
+    assert_equal @unit_fireball, Magic.unit_system.unit_for(:fire)
   end
 
-  test "#to_unit_name passes through if already base unit name" do
-    assert_equal "fireball", Magic.unit_system.to_unit_name("fireball")
+  test "#unit_for passes through if already base unit name" do
+    assert_equal @unit_fireball, Magic.unit_system.unit_for("fireball")
   end
 
-  test "#to_unit_name returns nil if not found" do
-    assert_nil Magic.unit_system.to_unit_name("thunder")
+  test "#unit_for returns nil if not found" do
+    assert_nil Magic.unit_system.unit_for("thunder")
   end
 
-  test "#to_unit_name! converts a unit name to its base unit" do
-    assert_equal "fireball", Magic.unit_system.to_unit_name!("fire")
+  test "#unit_for! converts a unit name to its base unit" do
+    assert_equal @unit_fireball, Magic.unit_system.unit_for!("fire")
   end
 
-  test "#to_unit_name! does not care about string or symbol" do
-    assert_equal "fireball", Magic.unit_system.to_unit_name!(:fire)
+  test "#unit_for! does not care about string or symbol" do
+    assert_equal @unit_fireball, Magic.unit_system.unit_for!(:fire)
   end
 
-  test "#to_unit_name! passes through if already base unit name" do
-    assert_equal "fireball", Magic.unit_system.to_unit_name!("fireball")
+  test "#unit_for! passes through if already base unit name" do
+    assert_equal @unit_fireball, Magic.unit_system.unit_for!("fireball")
   end
 
-  test "#to_unit_name! raises if not found" do
+  test "#unit_for! raises if not found" do
     assert_raises_with_message(Measured::UnitError, "Unit 'thunder' does not exist") do
-      Magic.unit_system.to_unit_name!("thunder")
+      Magic.unit_system.unit_for!("thunder")
     end
   end
 
   test "#convert raises if either unit is not found" do
+    unit_bad = Measured::Unit.new(:doesnt_exist)
+
     assert_raises Measured::UnitError do
-      Magic.unit_system.convert(1, from: "fire", to: "doesnt_exist")
+      Magic.unit_system.convert(1, from: @unit_fireball, to: unit_bad)
     end
 
     assert_raises Measured::UnitError do
-      Magic.unit_system.convert(1, from: "doesnt_exist", to: "fire")
+      Magic.unit_system.convert(1, from: unit_bad, to: @unit_fireball)
     end
   end
 
   test "#convert converts between two known units" do
-    assert_equal BigDecimal("3"), @conversion.convert(BigDecimal("36"), from: "in", to: "ft")
-    assert_equal BigDecimal("18"), @conversion.convert(BigDecimal("1.5"), from: "ft", to: "in")
+    assert_equal BigDecimal("3"), @conversion.convert(BigDecimal("36"), from: @unit_in, to: @unit_ft)
+    assert_equal BigDecimal("18"), @conversion.convert(BigDecimal("1.5"), from: @unit_ft, to: @unit_in)
   end
 
   test "#convert handles the same unit" do
-    assert_equal BigDecimal("2"), @conversion.convert(BigDecimal("2"), from: "in", to: "in")
+    assert_equal BigDecimal("2"), @conversion.convert(BigDecimal("2"), from: @unit_in, to: @unit_in)
   end
 end

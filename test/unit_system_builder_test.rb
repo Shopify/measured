@@ -43,7 +43,7 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
       unit :BOLD, value: "100 normal"
     end
 
-    assert_equal 2, measurable.new(200, :normal).convert_to(:BOLD).value
+    assert_equal 'BOLD', measurable.unit_system.unit_for!(:BOLD).name
   end
 
   test "case-insensitive conversion is produced by default" do
@@ -53,6 +53,6 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
       unit :bolder, value: "100 normal"
     end
 
-    assert_equal 20, measurable.new(200, :normal).convert_to(:bOlD).value
+    assert_equal 'bold', measurable.unit_system.unit_for!(:bOlD).name
   end
 end

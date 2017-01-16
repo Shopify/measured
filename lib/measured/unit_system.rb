@@ -22,20 +22,18 @@ class Measured::UnitSystem
     unit ? unit.name == name.to_s : false
   end
 
-  def to_unit_name(name)
-    to_unit_name!(name)
-  rescue Measured::UnitError
-    nil
+  def unit_for(name)
+    unit_name_to_unit[name.to_s]
   end
 
-  def to_unit_name!(name)
-    unit_for!(name).name
+  def unit_for!(name)
+    unit = unit_for(name)
+    raise Measured::UnitError, "Unit '#{name}' does not exist" unless unit
+    unit
   end
 
   def convert(value, from:, to:)
-    from_unit = unit_for!(from)
-    to_unit = unit_for!(to)
-    conversion = conversion_table[from][to]
+    conversion = conversion_table.fetch(from.name, {})[to.name]
 
     raise Measured::UnitError, "Cannot find conversion entry from #{from} to #{to}" unless conversion
 
@@ -53,15 +51,5 @@ class Measured::UnitSystem
       unit.names.each { |name| hash[name.to_s] = unit }
       hash
     end
-  end
-
-  def unit_for(name)
-    unit_name_to_unit[name.to_s]
-  end
-
-  def unit_for!(name)
-    unit = unit_for(name)
-    raise Measured::UnitError, "Unit '#{name}' does not exist" unless unit
-    unit
   end
 end
