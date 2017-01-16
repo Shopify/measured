@@ -17,7 +17,11 @@ module Measured::Arithmetic
 
   def coerce(other)
     if other.is_a?(self.class)
-      [other, self]
+      if self.unit_system == other.unit_system
+        [other, self]
+      else
+        raise TypeError, "Cannot coerce #{other.unit_system} values to #{self.unit_system}"
+      end
     else
       raise TypeError, "Cannot coerce #{other.class} to #{self.class}"
     end
