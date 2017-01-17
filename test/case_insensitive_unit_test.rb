@@ -62,10 +62,15 @@ class Measured::CaseInsensitiveUnitTest < ActiveSupport::TestCase
     assert_equal 0, @unit <=> Measured::CaseInsensitiveUnit.new("Pie", value: [10, :cake])
   end
 
-  test "#<=> is 1 for " do
-    assert_equal 1, @unit <=> Measured::CaseInsensitiveUnit.new(:pies, value: "10 cake")
-    assert_equal 1, @unit <=> Measured::CaseInsensitiveUnit.new("pie", aliases: ["pies"], value: "10 cake")
-    assert_equal 1, @unit <=> Measured::CaseInsensitiveUnit.new(:pie, value: [11, :cake])
+  test "#<=> is 1 for units with names that come after Pie lexicographically" do
+    assert_equal 1, @unit <=> Measured::CaseInsensitiveUnit.new(:pancake, value: "10 cake")
+    assert_equal 1, @unit <=> Measured::CaseInsensitiveUnit.new("pie", aliases: ["pancakes"], value: "10 cake")
+  end
+
+  test "#<=> compares #conversion_amount when unit names the same" do
+    assert_equal -1, @unit <=> Measured::CaseInsensitiveUnit.new(:pie, value: [11, :pancake])
+    assert_equal 0, @unit <=> Measured::CaseInsensitiveUnit.new(:pie, value: [10, :foo])
+    assert_equal 1, @unit <=> Measured::CaseInsensitiveUnit.new(:pie, value: [9, :pancake])
   end
 
   test "#inverse_conversion_amount returns 1/amount for BigDecimal" do

@@ -62,10 +62,15 @@ class Measured::UnitTest < ActiveSupport::TestCase
     assert_equal 0, @unit <=> Measured::Unit.new("Pie", value: [10, :cake])
   end
 
-  test "#<=> is 1 for units with names that come after Pie lexicographically" do
-    assert_equal 1, @unit <=> Measured::Unit.new(:Pigs, value: "10 bacon")
-    assert_equal 1, @unit <=> Measured::Unit.new("Pig", aliases: %w(Pigs), value: "10 bacon")
-    assert_equal 1, @unit <=> Measured::Unit.new(:Pig, value: [11, :bacon])
+  test "#<=> is -1 for units with names that come after Pie lexicographically" do
+    assert_equal -1, @unit <=> Measured::Unit.new(:Pigs, value: "10 bacon")
+    assert_equal -1, @unit <=> Measured::Unit.new("Pig", aliases: %w(Pigs), value: "10 bacon")
+  end
+  
+  test "#<=> compares #conversion_amount when unit names the same" do
+    assert_equal -1, @unit <=> Measured::Unit.new(:Pie, value: [11, :pancake])
+    assert_equal 0, @unit <=> Measured::Unit.new(:Pie, value: [10, :foo])
+    assert_equal 1, @unit <=> Measured::Unit.new(:Pie, value: [9, :pancake])
   end
 
   test "#inverse_conversion_amount returns 1/amount for BigDecimal" do

@@ -23,10 +23,11 @@ class Measured::Unit
 
   def <=>(other)
     if self.class == other.class
-      if other.names != @names
-        other.names <=> @names
+      names_comparison = @names <=> other.names
+      if names_comparison != 0
+        names_comparison
       else
-        other.conversion_amount <=> @conversion_amount
+        @conversion_amount <=> other.conversion_amount
       end
     else
       @name <=> other
