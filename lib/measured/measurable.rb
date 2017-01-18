@@ -23,9 +23,9 @@ class Measured::Measurable < Numeric
     new_unit = unit_from_unit_or_name!(new_unit)
     return self if new_unit == unit
 
-    value = self.class.unit_system.convert(self.value, from: unit, to: new_unit)
+    new_value = unit.unit_system.convert(value, from: unit, to: new_unit)
 
-    self.class.new(value, new_unit)
+    self.class.new(new_value, new_unit)
   end
 
   def to_s

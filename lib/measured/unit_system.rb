@@ -2,7 +2,7 @@ class Measured::UnitSystem
   attr_reader :units
 
   def initialize(units)
-    @units = units.dup
+    @units = units.map { |unit| unit.with_unit_system(self) }
   end
 
   def unit_names_with_aliases
