@@ -79,7 +79,7 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
   test "arithmetic operations favours unit of left" do
     left = Magic.new(1, :arcane)
     right = Magic.new(1, :magic_missile)
-    arcane = Magic.unit_system.unit_for!(:arcane)
+    arcane = Magic.unit_for!(:arcane)
 
     assert_equal arcane, (left + right).unit
     assert_equal arcane, (left - right).unit
@@ -87,6 +87,12 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
 
   test "#coerce should return other as-is when same class" do
     assert_equal [@two, @three], @three.coerce(@two)
+  end
+
+  test "#coerce should raise TypeError when trying to coerce Measurables in two different unit systems" do
+    exception = assert_raises(TypeError) { @two.coerce(CaseSensitiveMagic.new(1, :magic_missile)) }
+
+    assert_equal "Cannot coerce 'case sensitive magic' values to 'magic'", exception.message
   end
 
   test "#coerce should raise TypeError when other cannot be coerced" do

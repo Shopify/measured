@@ -9,20 +9,14 @@ module Measured
     def build(**kwargs, &block)
       builder = UnitSystemBuilder.new(**kwargs)
       builder.instance_eval(&block)
-
-      Class.new(Measurable) do
-        class << self
-          attr_reader :unit_system
-        end
-
-        @unit_system = builder.build
-      end
+      builder.build
     end
 
     def method_missing(method, *args)
       class_name = "Measured::#{ method }"
 
-      if Measurable.subclasses.map(&:to_s).include?(class_name)
+      subclasses = (UnitSystem.subclasses + CaseInsensitiveUnitSystem.subclasses).map(&:to_s)
+      if subclasses.include?(class_name)
         klass = class_name.constantize
 
         Measured.define_singleton_method(method) do |value, unit|

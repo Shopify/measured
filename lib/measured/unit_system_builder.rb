@@ -10,7 +10,13 @@ class Measured::UnitSystemBuilder
   end
 
   def build
-    unit_system_class.new(@units)
+    clazz = Class.new(unit_system_class) do
+      class << self
+        attr_reader :units
+      end
+    end
+    clazz.instance_variable_set(:@units, @units.map { |unit| unit.with_unit_system(clazz) })
+    clazz
   end
 
   private
