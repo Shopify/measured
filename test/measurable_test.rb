@@ -19,9 +19,9 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     end
   end
 
-  test "#initialize converts unit to string from symbol" do
-    magic = Magic.new(1, :arcane)
-    assert_equal @arcane, magic.unit
+  test "#initialize converts unit string and symbol to Unit instance" do
+    assert_equal @arcane, Magic.new(1, "arcane").unit
+    assert_equal @arcane, Magic.new(1, :arcane).unit
   end
 
   test "#initialize raises if it is an unknown unit" do
@@ -30,19 +30,15 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     end
   end
 
-  test "#initialize converts numbers and strings into BigDecimal" do
-    assert_equal BigDecimal(1), Magic.new(1, :arcane).value
-    assert_equal BigDecimal("2.3"), Magic.new("2.3", :arcane).value
-    assert_equal BigDecimal("5"), Magic.new("5", :arcane).value
+  test "#initialize keeps Rationals, BigDecimals, and Integers as-is" do
+    assert_equal 10, Magic.new(10, :fire).value
+    assert_equal Rational(1, 3), Magic.new(Rational(1, 3), :fire).value
+    assert_equal BigDecimal("123.887788"), Magic.new(BigDecimal("123.887788"), :fire).value
   end
 
-  test "#initialize converts floats to strings and then to BigDecimal so it does not raise" do
-    assert_equal BigDecimal("1.2345"), Magic.new(1.2345, :fire).value
-  end
-
-  test "#initialize converts numbers and strings BigDecimal and does not round large numbers" do
+  test "#initialize converts floats and strings to BigDecimal and does not round large numbers" do
     assert_equal BigDecimal(9.1234572342342, 14), Magic.new(9.1234572342342, :fire).value
-    assert_equal BigDecimal("9.1234572342342"), Magic.new(9.1234572342342, :fire).value
+    assert_equal BigDecimal("9.1234572342342"), Magic.new("9.1234572342342", :fire).value
   end
 
   test "#initialize converts to the base unit" do
@@ -77,19 +73,19 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal "Unit '' does not exist", exception.message
   end
 
-  test "#unit allows you to read the unit string" do
+  test "#unit allows you to read the unit" do
     assert_equal @magic_missile, @magic.unit
   end
 
   test "#value allows you to read the numeric value" do
-    assert_equal BigDecimal(10), @magic.value
+    assert_equal 10, @magic.value
   end
 
-  test ".conversion is set and cached" do
-    conversion = CaseSensitiveMagic.unit_system
+  test ".unit_system is set and cached" do
+    unit_system = CaseSensitiveMagic.unit_system
 
-    assert_instance_of Measured::UnitSystem, conversion
-    assert_equal conversion.__id__, CaseSensitiveMagic.unit_system.__id__
+    assert_instance_of Measured::UnitSystem, unit_system
+    assert_equal unit_system.__id__, CaseSensitiveMagic.unit_system.__id__
   end
 
   test ".unit_names returns just the base unit names" do
@@ -205,13 +201,6 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_raises(ArgumentError) { @magic < 0 }
     assert_raises(ArgumentError) { @magic < BigDecimal.new(0) }
     assert_raises(ArgumentError) { @magic < 0.00 }
-  end
-
-  test "#eql? should be the same if the classes and amount match, and unit is converted" do
-    assert @magic == @magic
-    assert Magic.new(10, :magic_missile) == Magic.new("10", "magic_missile")
-    assert Magic.new(1, :arcane) == Magic.new(10, :magic_missile)
-    refute Magic.new(1, :arcane) == Magic.new(10.1, :magic_missile)
   end
 
 end

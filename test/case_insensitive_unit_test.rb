@@ -3,7 +3,7 @@ require "test_helper"
 class Measured::CaseInsensitiveUnitTest < ActiveSupport::TestCase
   setup do
     @unit = Measured::CaseInsensitiveUnit.new(:Pie, value: "10 Cake")
-    @unit_with_aliases = Measured::CaseInsensitiveUnit.new(:Pie, aliases: ["Cake", "Tart"])
+    @unit_with_aliases = Measured::CaseInsensitiveUnit.new(:Pie, aliases: %w(Cake Tart))
   end
 
   test "#initialize converts the name to a downcased string" do
@@ -15,7 +15,7 @@ class Measured::CaseInsensitiveUnitTest < ActiveSupport::TestCase
   end
 
   test "#initialize parses out the unit and the number part" do
-    assert_equal BigDecimal(10), @unit.conversion_amount
+    assert_equal 10, @unit.conversion_amount
     assert_equal "Cake", @unit.conversion_unit
 
     unit = Measured::CaseInsensitiveUnit.new(:pie, value: "5.5 sweets")
@@ -39,12 +39,12 @@ class Measured::CaseInsensitiveUnitTest < ActiveSupport::TestCase
 
   test "#to_s returns an expected string" do
     assert_equal "pie", Measured::CaseInsensitiveUnit.new(:pie).to_s
-    assert_equal "pie (1/2 sweet)", Measured::CaseInsensitiveUnit.new(:pie, aliases: ["cake"], value: [Rational(1,2), "sweet"]).to_s
+    assert_equal "pie (1/2 sweet)", Measured::CaseInsensitiveUnit.new(:pie, aliases: ["cake"], value: "0.5 sweet").to_s
   end
 
   test "#inspect returns an expected string" do
     assert_equal "#<Measured::Unit: pie (pie) >", Measured::CaseInsensitiveUnit.new(:pie).inspect
-    assert_equal "#<Measured::Unit: pie (cake, pie) 1/2 sweet>", Measured::CaseInsensitiveUnit.new(:pie, aliases: ["cake"], value: [Rational(1,2), "sweet"]).inspect
+    assert_equal "#<Measured::Unit: pie (cake, pie) 1/2 sweet>", Measured::CaseInsensitiveUnit.new(:pie, aliases: ["cake"], value: "1/2 sweet").inspect
   end
 
   test "includes Comparable mixin" do
@@ -73,12 +73,7 @@ class Measured::CaseInsensitiveUnitTest < ActiveSupport::TestCase
     assert_equal 1, @unit <=> Measured::CaseInsensitiveUnit.new(:pie, value: [9, :pancake])
   end
 
-  test "#inverse_conversion_amount returns 1/amount for BigDecimal" do
-    assert_equal BigDecimal(1) / 10, @unit.inverse_conversion_amount
-  end
-
-  test "#inverse_conversion_amount swaps the numerator and denominator for Rational" do
-    unit = Measured::CaseInsensitiveUnit.new(:pie, value: [Rational(3, 7), "cake"])
-    assert_equal Rational(7, 3), unit.inverse_conversion_amount
+  test "#inverse_conversion_amount returns 1/amount" do
+    assert_equal Rational(1, 10), @unit.inverse_conversion_amount
   end
 end
