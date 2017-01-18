@@ -6,7 +6,7 @@ class Measured::Measurable < Numeric
   def initialize(value, unit)
     raise Measured::UnitError, "Unit value cannot be blank" if value.blank?
 
-    @unit = unit.is_a?(Measured::Unit) ? unit : self.class.unit_system.unit_for!(unit)
+    @unit = unit_from_unit_or_name!(unit)
     @value = case value
     when Float
       BigDecimal(value, Float::DIG + 1)
@@ -20,6 +20,7 @@ class Measured::Measurable < Numeric
   end
 
   def convert_to(new_unit)
+    new_unit = unit_from_unit_or_name!(new_unit)
     return self if new_unit == unit
 
     value = self.class.unit_system.convert(self.value, from: unit, to: new_unit)
@@ -60,6 +61,10 @@ class Measured::Measurable < Numeric
   end
 
   private
+
+  def unit_from_unit_or_name!(value)
+    value.is_a?(Measured::Unit) ? value : self.class.unit_system.unit_for!(value)
+  end
 
   def value_string
     @value_string ||= begin
