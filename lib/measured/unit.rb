@@ -1,12 +1,22 @@
 class Measured::Unit
   include Comparable
 
-  attr_reader :name, :names, :conversion_amount, :conversion_unit
+  attr_reader :name, :names, :conversion_amount, :conversion_unit, :unit_system
 
-  def initialize(name, aliases: [], value: nil)
+  def initialize(name, aliases: [], value: nil, unit_system: nil)
     @name = name.to_s
     @names = ([@name] + aliases.map(&:to_s)).sort
     @conversion_amount, @conversion_unit = parse_value(value) if value
+    @unit_system = unit_system
+  end
+
+  def with_unit_system(unit_system)
+    self.class.new(
+      name,
+      aliases: names - [name],
+      value: conversion_string,
+      unit_system: unit_system
+    )
   end
 
   def to_s

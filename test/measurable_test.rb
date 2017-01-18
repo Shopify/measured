@@ -3,10 +3,10 @@ require "test_helper"
 class Measured::MeasurableTest < ActiveSupport::TestCase
 
   setup do
-    @magic = Magic.new(10, :magic_missile)
     @arcane = Magic.unit_system.unit_for!(:arcane)
     @fireball = Magic.unit_system.unit_for!(:fireball)
     @magic_missile = Magic.unit_system.unit_for!(:magic_missile)
+    @magic = Magic.new(10, @magic_missile)
   end
 
   test "#initialize requires two params, the amount and the unit" do
