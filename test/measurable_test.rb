@@ -4,6 +4,9 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
 
   setup do
     @magic = Magic.new(10, :magic_missile)
+    @arcane = Magic.unit_system.unit_for!(:arcane)
+    @fireball = Magic.unit_system.unit_for!(:fireball)
+    @magic_missile = Magic.unit_system.unit_for!(:magic_missile)
   end
 
   test "#initialize requires two params, the amount and the unit" do
@@ -18,7 +21,7 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
 
   test "#initialize converts unit to string from symbol" do
     magic = Magic.new(1, :arcane)
-    assert_equal "arcane", magic.unit
+    assert_equal @arcane, magic.unit
   end
 
   test "#initialize raises if it is an unknown unit" do
@@ -42,8 +45,8 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal BigDecimal("9.1234572342342"), Magic.new(9.1234572342342, :fire).value
   end
 
-  test "#initialize converts to the base unit name" do
-    assert_equal "fireball", Magic.new(1, :fire).unit
+  test "#initialize converts to the base unit" do
+    assert_equal @fireball, Magic.new(1, :fire).unit
   end
 
   test "#initialize raises an expected error when initializing with nil value" do
@@ -75,7 +78,7 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
   end
 
   test "#unit allows you to read the unit string" do
-    assert_equal "magic_missile", @magic.unit
+    assert_equal @magic_missile, @magic.unit
   end
 
   test "#value allows you to read the numeric value" do
@@ -118,19 +121,19 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
 
   test "#convert_to raises on an invalid unit" do
     assert_raises Measured::UnitError do
-      @magic.convert_to(:punch)
+      @magic.convert_to(Measured::Unit.new(:punch))
     end
   end
 
   test "#convert_to returns a new object of the same type in the new unit" do
-    converted = @magic.convert_to(:arcane)
+    converted = @magic.convert_to(@arcane)
 
     assert_equal converted, @magic
     refute_equal converted.object_id, @magic.object_id
     assert_equal BigDecimal(10), @magic.value
-    assert_equal "magic_missile", @magic.unit
+    assert_equal @magic_missile, @magic.unit
     assert_equal BigDecimal(1), converted.value
-    assert_equal "arcane", converted.unit
+    assert_equal @arcane, converted.unit
   end
 
   test "#convert_to from and to the same unit returns the same object" do
@@ -139,12 +142,12 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
   end
 
   test "#to_s outputs the number and the unit" do
-    assert_equal "10 fireball", Magic.new(10, :fire).to_s
+    assert_equal "10 fireball (2/3 magic_missile)", Magic.new(10, :fire).to_s
     assert_equal "1.234 magic_missile", Magic.new("1.234", :magic_missile).to_s
   end
 
   test "#inspect shows the number and the unit" do
-    assert_equal "#<Magic: 10 fireball>", Magic.new(10, :fire).inspect
+    assert_equal "#<Magic: 10 fireball (2/3 magic_missile)>", Magic.new(10, :fire).inspect
     assert_equal "#<Magic: 1.234 magic_missile>", Magic.new(1.234, :magic_missile).inspect
   end
 

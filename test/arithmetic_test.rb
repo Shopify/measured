@@ -79,9 +79,10 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
   test "arithmetic operations favours unit of left" do
     left = Magic.new(1, :arcane)
     right = Magic.new(1, :magic_missile)
+    arcane = Magic.unit_system.unit_for!(:arcane)
 
-    assert_equal "arcane", (left + right).unit
-    assert_equal "arcane", (left - right).unit
+    assert_equal arcane, (left + right).unit
+    assert_equal arcane, (left - right).unit
   end
 
   test "#coerce should return other as-is when same class" do

@@ -23,6 +23,7 @@ class ActiveSupport::TestCase
     from_amount, from_unit = from.split(" ")
     to_amount, to_unit = to.split(" ")
 
+    to_unit = klass.unit_system.unit_for!(to_unit)
     assert_close_bigdecimal BigDecimal(to_amount), klass.new(from_amount, from_unit).convert_to(to_unit).value
   end
 
@@ -30,6 +31,7 @@ class ActiveSupport::TestCase
     from_amount, from_unit = from.split(" ")
     to_amount, to_unit = to.split(" ")
 
+    to_unit = klass.unit_system.unit_for!(to_unit)
     assert_equal BigDecimal(to_amount), klass.new(from_amount, from_unit).convert_to(to_unit).value
   end
 
