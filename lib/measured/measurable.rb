@@ -1,13 +1,13 @@
 class Measured::Measurable < Numeric
   include Measured::Arithmetic
 
-  attr_reader :unit, :value, :unit_system
+  attr_reader :unit, :value
 
-  def initialize(value, unit, unit_system)
+  def initialize(value, unit)
+    raise Measured::UnitError, "Unit must be a Measurable::Unit instance" unless unit.is_a?(Measured::Unit)
     raise Measured::UnitError, "Unit value cannot be blank" if value.blank?
 
-    @unit = unit_from_unit_or_name!(unit)
-    @unit_system = unit_system
+    @unit = unit
     @value = case value
     when Float
       BigDecimal(value, Float::DIG + 1)
@@ -21,7 +21,7 @@ class Measured::Measurable < Numeric
   end
 
   def convert_to(new_unit)
-    new_unit = unit_from_unit_or_name!(new_unit)
+    new_unit = unit.unit_system.unit_from_unit_or_name!(new_unit)
     return self if new_unit == unit
 
     new_value = unit.unit_system.convert(value, from: unit, to: new_unit)
@@ -34,7 +34,7 @@ class Measured::Measurable < Numeric
   end
 
   def inspect
-    @inspect ||= "#<#{unit_system}: #{value_string} #{unit}>"
+    @inspect ||= "#<#{unit.unit_system}: #{value_string} #{unit}>"
   end
 
   def <=>(other)
@@ -46,10 +46,6 @@ class Measured::Measurable < Numeric
   end
 
   private
-
-  def unit_from_unit_or_name!(value)
-    value.is_a?(Measured::Unit) ? value : self.class.unit_system.unit_for!(value)
-  end
 
   def value_string
     @value_string ||= begin

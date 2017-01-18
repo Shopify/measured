@@ -5,7 +5,7 @@ class Measured::UnitSystem
     end
 
     def new(value, unit)
-      Measured::Measurable.new(value, unit, self)
+      Measured::Measurable.new(value, unit_from_unit_or_name!(unit))
     end
 
     def unit_names_with_aliases
@@ -33,6 +33,10 @@ class Measured::UnitSystem
       unit = unit_for(name)
       raise Measured::UnitError, "Unit '#{name}' does not exist" unless unit
       unit
+    end
+
+    def unit_from_unit_or_name!(value)
+      value.is_a?(Measured::Unit) ? value : unit_for!(value)
     end
 
     def convert(value, from:, to:)

@@ -89,6 +89,12 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
     assert_equal [@two, @three], @three.coerce(@two)
   end
 
+  test "#coerce should raise TypeError when trying to coerce Measurables in two different unit systems" do
+    exception = assert_raises(TypeError) { @two.coerce(CaseSensitiveMagic.new(1, :magic_missile)) }
+
+    assert_equal "Cannot coerce 'case sensitive magic' values to 'magic'", exception.message
+  end
+
   test "#coerce should raise TypeError when other cannot be coerced" do
     assert_raises(TypeError) { @two.coerce(2) }
     assert_raises(TypeError) { @three.coerce(5.2) }
