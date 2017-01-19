@@ -6,16 +6,16 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
 
     @unit_m = Measured::Unit.new(:m)
     @unit_in = Measured::Unit.new(:in, aliases: [:Inch], value: "0.0254 m")
-    @unit_ft = Measured::Unit.new(:ft, aliases: [:Feet, :Foot], value: "0.3048 m")
+    @unit_ft = Measured::Unit.new(:ft, aliases: %w(Feet Foot), value: "0.3048 m")
     @conversion = Measured::UnitSystem.new([@unit_m, @unit_in, @unit_ft])
   end
 
   test "#unit_names_with_aliases lists all allowed unit names" do
-    assert_equal ["Feet", "Foot", "Inch", "ft", "in", "m"], @conversion.unit_names_with_aliases
+    assert_equal %w(Feet Foot Inch ft in m), @conversion.unit_names_with_aliases
   end
 
   test "#unit_names lists all unit names without aliases" do
-    assert_equal ["ft", "in", "m"], @conversion.unit_names
+    assert_equal %w(ft in m), @conversion.unit_names
   end
 
   test "#unit? checks if the unit is part of the units but not aliases" do
@@ -92,11 +92,11 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   end
 
   test "#convert converts between two known units" do
-    assert_equal BigDecimal("3"), @conversion.convert(BigDecimal("36"), from: @unit_in, to: @unit_ft)
-    assert_equal BigDecimal("18"), @conversion.convert(BigDecimal("1.5"), from: @unit_ft, to: @unit_in)
+    assert_equal 3, @conversion.convert(36, from: @unit_in, to: @unit_ft)
+    assert_equal 18, @conversion.convert(Rational(3, 2), from: @unit_ft, to: @unit_in)
   end
 
   test "#convert handles the same unit" do
-    assert_equal BigDecimal("2"), @conversion.convert(BigDecimal("2"), from: @unit_in, to: @unit_in)
+    assert_equal 2, @conversion.convert(2, from: @unit_in, to: @unit_in)
   end
 end
