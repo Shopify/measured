@@ -16,7 +16,7 @@ class Measured::CaseInsensitiveUnitTest < ActiveSupport::TestCase
 
   test "#initialize parses out the unit and the number part" do
     assert_equal 10, @unit.conversion_amount
-    assert_equal "Cake", @unit.conversion_unit
+    assert_equal "cake", @unit.conversion_unit
 
     unit = Measured::CaseInsensitiveUnit.new(:pie, value: "5.5 sweets")
     assert_equal BigDecimal("5.5"), unit.conversion_amount
