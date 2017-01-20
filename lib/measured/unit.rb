@@ -54,7 +54,7 @@ class Measured::Unit
   end
 
   def inverse_conversion_amount
-    @inverse_conversion_amount ||= 1 / conversion_amount.to_r
+    @inverse_conversion_amount ||= 1 / conversion_amount
   end
 
   private
