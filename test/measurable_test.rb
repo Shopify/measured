@@ -138,13 +138,26 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
   end
 
   test "#to_s outputs the number and the unit" do
-    assert_equal "10 fireball (2/3 magic_missile)", Magic.new(10, :fire).to_s
+    assert_equal "1 fireball", Magic.new("1", :fire).to_s
+    assert_equal "10 fireball", Magic.new(10, :fire).to_s
     assert_equal "1.234 magic_missile", Magic.new("1.234", :magic_missile).to_s
+    assert_equal "0.125 magic_missile", Magic.new(Rational(1, 8), :magic_missile).to_s
+    assert_equal "0.375 magic_missile", Magic.new(Rational(3, 8), :magic_missile).to_s
+    assert_equal "5 fireball", Magic.new(Rational(5, 1), :fire).to_s
+  end
+
+  test "#humanize outputs the number and the unit properly pluralized" do
+    assert_equal "1 fireball", Magic.new("1", :fire).humanize
+    assert_equal "10 fireballs", Magic.new(10, :fire).humanize
+    assert_equal "1.234 magic_missiles", Magic.new("1.234", :magic_missile).humanize
+    assert_equal "0.125 magic_missiles", Magic.new(Rational(1, 8), :magic_missile).humanize
+    assert_equal "0.375 magic_missiles", Magic.new(Rational(3, 8), :magic_missile).humanize
+    assert_equal "5 fireballs", Magic.new(Rational(5, 1), :fire).humanize
   end
 
   test "#inspect shows the number and the unit" do
-    assert_equal "#<Magic: 10 fireball (2/3 magic_missile)>", Magic.new(10, :fire).inspect
-    assert_equal "#<Magic: 1.234 magic_missile>", Magic.new(1.234, :magic_missile).inspect
+    assert_equal "#<Magic: 10 #<Measured::CaseInsensitiveUnit: fireball (fire, fireballs) 2/3 magic_missile>>", Magic.new(10, :fire).inspect
+    assert_equal "#<Magic: 1.234 #<Measured::CaseInsensitiveUnit: magic_missile (magic_missiles)>>", Magic.new(1.234, :magic_missile).inspect
   end
 
   test "#zero? always returns false" do

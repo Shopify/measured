@@ -29,11 +29,18 @@ class Measured::Measurable < Numeric
   end
 
   def to_s
-    @to_s ||= "#{value_string} #{unit}"
+    @to_s ||= "#{value_string} #{unit.name}"
+  end
+
+  def humanize
+    @humanize ||= begin
+      unit_string = value == 1 ? unit.name : ActiveSupport::Inflector.pluralize(unit.name)
+      "#{value_string} #{unit_string}"
+    end
   end
 
   def inspect
-    @inspect ||= "#<#{self.class}: #{value_string} #{unit}>"
+    @inspect ||= "#<#{self.class}: #{value_string} #{unit.inspect}>"
   end
 
   def <=>(other)
