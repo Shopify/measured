@@ -32,7 +32,12 @@ class Measured::Unit
   end
 
   def inspect
-    @inspect ||= "#<Measured::Unit: #{@name} (#{names.join(", ")}) #{conversion_string}>"
+    @inspect ||= begin
+      pieces = [@name]
+      pieces << "(#{aliases.join})" if aliases.any?
+      pieces << conversion_string if conversion_string
+      "#<#{self.class.name}: #{pieces.join(" ")}>"
+    end
   end
 
   def <=>(other)
