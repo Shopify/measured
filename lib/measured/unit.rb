@@ -4,8 +4,8 @@ class Measured::Unit
   attr_reader :name, :aliases, :conversion_amount, :conversion_unit, :unit_system
 
   def initialize(name, aliases: [], value: nil, unit_system: nil)
-    @name = name.to_s
-    @aliases = aliases.map(&:to_s)
+    @name = name.to_s.freeze
+    @aliases = aliases.map(&:to_s).map(&:freeze).freeze
     @conversion_amount, @conversion_unit = parse_value(value) if value
     @unit_system = unit_system
   end
@@ -20,12 +20,12 @@ class Measured::Unit
   end
 
   def names
-    @names ||= ([name] + aliases).sort!
+    @names ||= ([name] + aliases).sort!.freeze
   end
 
   def to_s
     @to_s ||= if conversion_string
-      "#{name} (#{conversion_string})"
+      "#{name} (#{conversion_string})".freeze
     else
       name
     end
@@ -36,7 +36,7 @@ class Measured::Unit
       pieces = [name]
       pieces << "(#{aliases.join(", ")})" if aliases.any?
       pieces << conversion_string if conversion_string
-      "#<#{self.class.name}: #{pieces.join(" ")}>"
+      "#<#{self.class.name}: #{pieces.join(" ")}>".freeze
     end
   end
 
@@ -68,6 +68,6 @@ class Measured::Unit
 
     raise Measured::UnitError, "Cannot parse 'number unit' or [number, unit] formatted tokens from #{tokens}." unless tokens.size == 2
 
-    [tokens[0].to_r, tokens[1]]
+    [tokens[0].to_r, tokens[1].freeze]
   end
 end
