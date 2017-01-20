@@ -24,7 +24,7 @@ class Measured::Unit
   end
 
   def to_s
-    if conversion_string
+    @to_s ||= if conversion_string
       "#{ @name } (#{ conversion_string })"
     else
       @name
@@ -32,7 +32,7 @@ class Measured::Unit
   end
 
   def inspect
-    "#<Measured::Unit: #{ @name } (#{ names.join(", ") }) #{ conversion_string }>"
+    @inspect ||= "#<Measured::Unit: #{ @name } (#{ names.join(", ") }) #{ conversion_string }>"
   end
 
   def <=>(other)
@@ -49,13 +49,13 @@ class Measured::Unit
   end
 
   def inverse_conversion_amount
-    1 / conversion_amount.to_r
+    @inverse_conversion_amount ||= 1 / conversion_amount.to_r
   end
 
   private
 
   def conversion_string
-    "#{ conversion_amount } #{ conversion_unit }" if @conversion_amount || @conversion_unit
+    @conversion_string ||= ("#{ conversion_amount } #{ conversion_unit }" if @conversion_amount || @conversion_unit)
   end
 
   def parse_value(tokens)
