@@ -21,15 +21,15 @@ class Measured::CaseInsensitiveUnitTest < ActiveSupport::TestCase
     unit = Measured::CaseInsensitiveUnit.new(:pie, value: "5.5 sweets")
     assert_equal BigDecimal("5.5"), unit.conversion_amount
     assert_equal "sweets", unit.conversion_unit
+
+    unit = Measured::CaseInsensitiveUnit.new(:pie, value: "1/3 Bitter Pies")
+    assert_equal Rational(1, 3), unit.conversion_amount
+    assert_equal "bitter pies", unit.conversion_unit
   end
 
   test "#initialize raises if the format of the value is incorrect" do
     assert_raises Measured::UnitError do
       Measured::CaseInsensitiveUnit.new(:pie, value: "hello")
-    end
-
-    assert_raises Measured::UnitError do
-      Measured::CaseInsensitiveUnit.new(:pie, value: "pie is delicious")
     end
 
     assert_raises Measured::UnitError do
