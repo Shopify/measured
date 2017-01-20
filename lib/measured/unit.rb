@@ -20,20 +20,20 @@ class Measured::Unit
   end
 
   def names
-    @names ||= ([@name] + @aliases).sort!
+    @names ||= ([name] + aliases).sort!
   end
 
   def to_s
     @to_s ||= if conversion_string
-      "#{@name} (#{conversion_string})"
+      "#{name} (#{conversion_string})"
     else
-      @name
+      name
     end
   end
 
   def inspect
     @inspect ||= begin
-      pieces = [@name]
+      pieces = [name]
       pieces << "(#{aliases.join})" if aliases.any?
       pieces << conversion_string if conversion_string
       "#<#{self.class.name}: #{pieces.join(" ")}>"
@@ -46,10 +46,10 @@ class Measured::Unit
       if names_comparison != 0
         names_comparison
       else
-        @conversion_amount <=> other.conversion_amount
+        conversion_amount <=> other.conversion_amount
       end
     else
-      @name <=> other
+      name <=> other
     end
   end
 
@@ -60,7 +60,7 @@ class Measured::Unit
   private
 
   def conversion_string
-    @conversion_string ||= ("#{conversion_amount} #{conversion_unit}" if @conversion_amount || @conversion_unit)
+    @conversion_string ||= ("#{conversion_amount} #{conversion_unit}" if conversion_amount || conversion_unit)
   end
 
   def parse_value(tokens)
