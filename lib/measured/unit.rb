@@ -1,11 +1,11 @@
 class Measured::Unit
   include Comparable
 
-  attr_reader :name, :names, :conversion_amount, :conversion_unit, :unit_system
+  attr_reader :name, :aliases, :conversion_amount, :conversion_unit, :unit_system
 
   def initialize(name, aliases: [], value: nil, unit_system: nil)
     @name = name.to_s
-    @names = ([@name] + aliases.map(&:to_s)).sort
+    @aliases = aliases.map(&:to_s)
     @conversion_amount, @conversion_unit = parse_value(value) if value
     @unit_system = unit_system
   end
@@ -13,10 +13,14 @@ class Measured::Unit
   def with_unit_system(unit_system)
     self.class.new(
       name,
-      aliases: names - [name],
+      aliases: aliases,
       value: conversion_string,
       unit_system: unit_system
     )
+  end
+
+  def names
+    @names ||= ([@name] + @aliases).sort!
   end
 
   def to_s
@@ -28,12 +32,12 @@ class Measured::Unit
   end
 
   def inspect
-    "#<Measured::Unit: #{ @name } (#{ @names.join(", ") }) #{ conversion_string }>"
+    "#<Measured::Unit: #{ @name } (#{ names.join(", ") }) #{ conversion_string }>"
   end
 
   def <=>(other)
     if self.class == other.class
-      names_comparison = @names <=> other.names
+      names_comparison = names <=> other.names
       if names_comparison != 0
         names_comparison
       else
