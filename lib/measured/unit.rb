@@ -34,7 +34,7 @@ class Measured::Unit
   def inspect
     @inspect ||= begin
       pieces = [name]
-      pieces << "(#{aliases.join})" if aliases.any?
+      pieces << "(#{aliases.join(", ")})" if aliases.any?
       pieces << conversion_string if conversion_string
       "#<#{self.class.name}: #{pieces.join(" ")}>"
     end
