@@ -43,8 +43,10 @@ class Measured::CaseInsensitiveUnitTest < ActiveSupport::TestCase
   end
 
   test "#inspect returns an expected string" do
-    assert_equal "#<Measured::Unit: pie (pie) >", Measured::CaseInsensitiveUnit.new(:pie).inspect
-    assert_equal "#<Measured::Unit: pie (cake, pie) 1/2 sweet>", Measured::CaseInsensitiveUnit.new(:pie, aliases: ["cake"], value: "1/2 sweet").inspect
+    assert_equal "#<Measured::CaseInsensitiveUnit: pie>", Measured::CaseInsensitiveUnit.new(:pie).inspect
+    assert_equal "#<Measured::CaseInsensitiveUnit: pie (cake)>", Measured::CaseInsensitiveUnit.new(:pie, aliases: ["CAKE"]).inspect
+    assert_equal "#<Measured::CaseInsensitiveUnit: pie 1/2 sweet>", Measured::CaseInsensitiveUnit.new(:Pie, value: "1/2 sweet").inspect
+    assert_equal "#<Measured::CaseInsensitiveUnit: pie (cake) 1/2 sweet>", Measured::CaseInsensitiveUnit.new(:pie, aliases: ["cake"], value: "1/2 sweet").inspect
   end
 
   test "includes Comparable mixin" do

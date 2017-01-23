@@ -43,8 +43,10 @@ class Measured::UnitTest < ActiveSupport::TestCase
   end
 
   test "#inspect returns an expected string" do
-    assert_equal "#<Measured::Unit: pie (pie) >", Measured::Unit.new(:pie).inspect
-    assert_equal "#<Measured::Unit: pie (cake, pie) 1/2 sweet>", Measured::Unit.new(:pie, aliases: ["cake"], value: "1/2 sweet").inspect
+    assert_equal "#<Measured::Unit: pie>", Measured::Unit.new(:pie).inspect
+    assert_equal "#<Measured::Unit: pie (cake, semi-sweet)>", Measured::Unit.new(:pie, aliases: ["cake", "semi-sweet"]).inspect
+    assert_equal "#<Measured::Unit: pie 1/2 sweet>", Measured::Unit.new(:pie, value: "1/2 sweet").inspect
+    assert_equal "#<Measured::Unit: pie (cake) 1/2 sweet>", Measured::Unit.new(:pie, aliases: ["cake"], value: "1/2 sweet").inspect
   end
 
   test "includes Comparable mixin" do
