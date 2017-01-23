@@ -18,18 +18,18 @@ class Measured::UnitTest < ActiveSupport::TestCase
     assert_equal 10, @unit.conversion_amount
     assert_equal "Cake", @unit.conversion_unit
 
-    unit = Measured::Unit.new(:pie, value: "5.5 sweets")
+    unit = Measured::Unit.new(:pie, value: ["5.5", "sweets"])
     assert_equal BigDecimal("5.5"), unit.conversion_amount
     assert_equal "sweets", unit.conversion_unit
+
+    unit = Measured::Unit.new(:pie, value: "1/3 bitter pie")
+    assert_equal Rational(1, 3), unit.conversion_amount
+    assert_equal "bitter pie", unit.conversion_unit
   end
 
   test "#initialize raises if the format of the value is incorrect" do
     assert_raises Measured::UnitError do
       Measured::Unit.new(:pie, value: "hello")
-    end
-
-    assert_raises Measured::UnitError do
-      Measured::Unit.new(:pie, value: "pie is delicious")
     end
 
     assert_raises Measured::UnitError do
