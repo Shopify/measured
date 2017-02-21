@@ -38,7 +38,7 @@ module Measured
 end
 
 require "measured/arithmetic"
-require "measured/unit"
+require "measured/base_unit"
 require "measured/unit_system"
 require "measured/case_insensitive_unit"
 require "measured/case_insensitive_unit_system"

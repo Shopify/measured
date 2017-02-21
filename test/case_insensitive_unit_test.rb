@@ -50,7 +50,7 @@ class Measured::CaseInsensitiveUnitTest < ActiveSupport::TestCase
   end
 
   test "includes Comparable mixin" do
-    assert Measured::Unit.ancestors.include?(Comparable)
+    assert Measured::BaseUnit.ancestors.include?(Comparable)
   end
 
   test "#<=> compares non-Unit classes against name" do

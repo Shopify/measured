@@ -4,9 +4,9 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   setup do
     @unit_fireball = CaseSensitiveMagic.unit_system.unit_for!(:fireball)
 
-    @unit_m = Measured::Unit.new(:m)
-    @unit_in = Measured::Unit.new(:in, aliases: [:Inch], value: "0.0254 m")
-    @unit_ft = Measured::Unit.new(:ft, aliases: %w(Feet Foot), value: "0.3048 m")
+    @unit_m = Measured::BaseUnit.new(:m)
+    @unit_in = Measured::BaseUnit.new(:in, aliases: [:Inch], value: "0.0254 m")
+    @unit_ft = Measured::BaseUnit.new(:ft, aliases: %w(Feet Foot), value: "0.3048 m")
     @conversion = Measured::UnitSystem.new([@unit_m, @unit_in, @unit_ft])
   end
 
@@ -80,7 +80,7 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   end
 
   test "#convert raises if either unit is not found" do
-    unit_bad = Measured::Unit.new(:doesnt_exist)
+    unit_bad = Measured::BaseUnit.new(:doesnt_exist)
 
     assert_raises Measured::UnitError do
       CaseSensitiveMagic.unit_system.convert(1, from: @unit_fireball, to: unit_bad)

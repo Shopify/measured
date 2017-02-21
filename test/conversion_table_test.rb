@@ -6,13 +6,13 @@ class Measured::ConversionTableTest < ActiveSupport::TestCase
       "test" => {"test" => BigDecimal("1")}
     }
 
-    assert_equal expected, Measured::ConversionTable.build([Measured::Unit.new(:test)])
+    assert_equal expected, Measured::ConversionTable.build([Measured::BaseUnit.new(:test)])
   end
 
   test ".build returns expected nested hashes with BigDecimal conversion factors in a tiny data set" do
     conversion_table = Measured::ConversionTable.build([
-      Measured::Unit.new(:m),
-      Measured::Unit.new(:cm, value: "0.01 m"),
+      Measured::BaseUnit.new(:m),
+      Measured::BaseUnit.new(:cm, value: "0.01 m"),
     ])
 
     expected = {
@@ -31,9 +31,9 @@ class Measured::ConversionTableTest < ActiveSupport::TestCase
 
   test ".build returns expected nested hashes with BigDecimal conversion factors" do
     conversion_table = Measured::ConversionTable.build([
-      Measured::Unit.new(:m),
-      Measured::Unit.new(:cm, value: "0.01 m"),
-      Measured::Unit.new(:mm, value: "0.001 m"),
+      Measured::BaseUnit.new(:m),
+      Measured::BaseUnit.new(:cm, value: "0.01 m"),
+      Measured::BaseUnit.new(:mm, value: "0.001 m"),
     ])
 
     expected = {
@@ -59,10 +59,10 @@ class Measured::ConversionTableTest < ActiveSupport::TestCase
 
   test ".build returns expected nested hashes with BigDecimal conversion factors in an indrect path" do
     conversion_table = Measured::ConversionTable.build([
-      Measured::Unit.new(:mm),
-      Measured::Unit.new(:cm, value: "10 mm"),
-      Measured::Unit.new(:dm, value: "10 cm"),
-      Measured::Unit.new(:m, value: "10 dm"),
+      Measured::BaseUnit.new(:mm),
+      Measured::BaseUnit.new(:cm, value: "10 mm"),
+      Measured::BaseUnit.new(:dm, value: "10 cm"),
+      Measured::BaseUnit.new(:m, value: "10 dm"),
     ])
 
     expected = {

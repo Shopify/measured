@@ -1,4 +1,4 @@
-class Measured::Unit
+class Measured::BaseUnit
   include Comparable
 
   attr_reader :name, :aliases, :conversion_amount, :conversion_unit, :unit_system

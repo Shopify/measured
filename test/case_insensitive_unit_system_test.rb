@@ -79,7 +79,7 @@ class Measured::CaseInsensitiveUnitSystemTest < ActiveSupport::TestCase
   end
 
   test "#convert raises if either unit is not found" do
-    unit_bad = Measured::Unit.new(:doesnt_exist)
+    unit_bad = Measured::BaseUnit.new(:doesnt_exist)
 
     assert_raises Measured::UnitError do
       Magic.unit_system.convert(1, from: @unit_fireball, to: unit_bad)

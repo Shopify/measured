@@ -117,7 +117,7 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
 
   test "#convert_to raises on an invalid unit" do
     assert_raises Measured::UnitError do
-      @magic.convert_to(Measured::Unit.new(:punch))
+      @magic.convert_to(Measured::BaseUnit.new(:punch))
     end
   end
 
