@@ -26,7 +26,7 @@ class Measured::UnitSystemBuilder
   end
 
   def unit_system_class
-    @case_sensitive ? Measured::CaseSensitiveUnitSystem : Measured::CaseInsensitiveUnitSystem
+    @case_sensitive ? Measured::CaseSensitiveUnitSystem : Measured::UnitSystem
   end
 
   def check_for_duplicate_unit_names!(unit)
