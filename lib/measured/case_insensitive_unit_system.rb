@@ -1,4 +1,4 @@
-class Measured::CaseInsensitiveUnitSystem < Measured::UnitSystem
+class Measured::CaseInsensitiveUnitSystem < Measured::BaseUnitSystem
   def unit?(name)
     super(name.to_s.downcase)
   end

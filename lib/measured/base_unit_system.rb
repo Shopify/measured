@@ -1,4 +1,4 @@
-class Measured::UnitSystem
+class Measured::BaseUnitSystem
   attr_reader :units
 
   def initialize(units)

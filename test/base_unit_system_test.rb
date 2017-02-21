@@ -1,13 +1,13 @@
 require "test_helper"
 
-class Measured::UnitSystemTest < ActiveSupport::TestCase
+class Measured::BaseUnitSystemTest < ActiveSupport::TestCase
   setup do
     @unit_fireball = CaseSensitiveMagic.unit_system.unit_for!(:fireball)
 
     @unit_m = Measured::BaseUnit.new(:m)
     @unit_in = Measured::BaseUnit.new(:in, aliases: [:Inch], value: "0.0254 m")
     @unit_ft = Measured::BaseUnit.new(:ft, aliases: %w(Feet Foot), value: "0.3048 m")
-    @conversion = Measured::UnitSystem.new([@unit_m, @unit_in, @unit_ft])
+    @conversion = Measured::BaseUnitSystem.new([@unit_m, @unit_in, @unit_ft])
   end
 
   test "#unit_names_with_aliases lists all allowed unit names" do

@@ -84,7 +84,7 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
   test ".unit_system is set and cached" do
     unit_system = CaseSensitiveMagic.unit_system
 
-    assert_instance_of Measured::UnitSystem, unit_system
+    assert_instance_of Measured::BaseUnitSystem, unit_system
     assert_equal unit_system.__id__, CaseSensitiveMagic.unit_system.__id__
   end
 

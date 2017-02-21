@@ -39,7 +39,7 @@ end
 
 require "measured/arithmetic"
 require "measured/base_unit"
-require "measured/unit_system"
+require "measured/base_unit_system"
 require "measured/case_insensitive_unit"
 require "measured/case_insensitive_unit_system"
 require "measured/unit_system_builder"
