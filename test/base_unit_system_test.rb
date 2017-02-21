@@ -1,27 +1,27 @@
 require "test_helper"
 
-class Measured::CaseInsensitiveUnitSystemTest < ActiveSupport::TestCase
+class Measured::BaseUnitSystemTest < ActiveSupport::TestCase
   setup do
-    @unit_fireball = Magic.unit_system.unit_for!(:fireball)
+    @unit_fireball = CaseSensitiveMagic.unit_system.unit_for!(:fireball)
 
-    @unit_m = Measured::CaseInsensitiveUnit.new(:m)
-    @unit_in = Measured::CaseInsensitiveUnit.new(:in, aliases: [:inch], value: "0.0254 m")
-    @unit_ft = Measured::CaseInsensitiveUnit.new(:ft, aliases: %w(Feet FOOT), value: "0.3048 m")
-    @conversion = Measured::CaseInsensitiveUnitSystem.new([@unit_m, @unit_in, @unit_ft])
+    @unit_m = Measured::BaseUnit.new(:m)
+    @unit_in = Measured::BaseUnit.new(:in, aliases: [:Inch], value: "0.0254 m")
+    @unit_ft = Measured::BaseUnit.new(:ft, aliases: %w(Feet Foot), value: "0.3048 m")
+    @conversion = Measured::BaseUnitSystem.new([@unit_m, @unit_in, @unit_ft])
   end
 
-  test "#unit_names_with_aliases lists all allowed unit names in lowercase" do
-    assert_equal %w(feet foot ft in inch m), @conversion.unit_names_with_aliases
+  test "#unit_names_with_aliases lists all allowed unit names" do
+    assert_equal %w(Feet Foot Inch ft in m), @conversion.unit_names_with_aliases
   end
 
-  test "#unit_names lists all base unit names without aliases in lowercase" do
+  test "#unit_names lists all unit names without aliases" do
     assert_equal %w(ft in m), @conversion.unit_names
   end
 
   test "#unit? checks if the unit is part of the units but not aliases" do
     assert @conversion.unit?(:in)
     assert @conversion.unit?("m")
-    assert @conversion.unit?("M")
+    refute @conversion.unit?("M")
     refute @conversion.unit?("inch")
     refute @conversion.unit?(:yard)
   end
@@ -32,10 +32,11 @@ class Measured::CaseInsensitiveUnitSystemTest < ActiveSupport::TestCase
   end
 
   test "#unit_or_alias? checks if the unit is part of the units or aliases" do
-    assert @conversion.unit_or_alias?(:inch)
+    assert @conversion.unit_or_alias?(:Inch)
     assert @conversion.unit_or_alias?("m")
-    assert @conversion.unit_or_alias?(:IN)
     assert @conversion.unit_or_alias?("in")
+    refute @conversion.unit_or_alias?(:inch)
+    refute @conversion.unit_or_alias?(:IN)
     refute @conversion.unit_or_alias?(:yard)
   end
 
@@ -45,48 +46,48 @@ class Measured::CaseInsensitiveUnitSystemTest < ActiveSupport::TestCase
   end
 
   test "#unit_for converts a unit name to its base unit" do
-    assert_equal @unit_fireball, Magic.unit_system.unit_for("fire")
+    assert_equal @unit_fireball, CaseSensitiveMagic.unit_system.unit_for("fire")
   end
 
   test "#unit_for does not care about string or symbol" do
-    assert_equal @unit_fireball, Magic.unit_system.unit_for(:fire)
+    assert_equal @unit_fireball, CaseSensitiveMagic.unit_system.unit_for(:fire)
   end
 
   test "#unit_for passes through if already base unit name" do
-    assert_equal @unit_fireball, Magic.unit_system.unit_for("fireball")
+    assert_equal @unit_fireball, CaseSensitiveMagic.unit_system.unit_for("fireball")
   end
 
   test "#unit_for returns nil if not found" do
-    assert_nil Magic.unit_system.unit_for("thunder")
+    assert_nil CaseSensitiveMagic.unit_system.unit_for("thunder")
   end
 
   test "#unit_for! converts a unit name to its base unit" do
-    assert_equal @unit_fireball, Magic.unit_system.unit_for!("fire")
+    assert_equal @unit_fireball, CaseSensitiveMagic.unit_system.unit_for!("fire")
   end
 
   test "#unit_for! does not care about string or symbol" do
-    assert_equal @unit_fireball, Magic.unit_system.unit_for!(:fire)
+    assert_equal @unit_fireball, CaseSensitiveMagic.unit_system.unit_for!(:fire)
   end
 
   test "#unit_for! passes through if already base unit name" do
-    assert_equal @unit_fireball, Magic.unit_system.unit_for!("fireball")
+    assert_equal @unit_fireball, CaseSensitiveMagic.unit_system.unit_for!("fireball")
   end
 
   test "#unit_for! raises if not found" do
     assert_raises_with_message(Measured::UnitError, "Unit 'thunder' does not exist") do
-      Magic.unit_system.unit_for!("thunder")
+      CaseSensitiveMagic.unit_system.unit_for!("thunder")
     end
   end
 
   test "#convert raises if either unit is not found" do
-    unit_bad = Measured::Unit.new(:doesnt_exist)
+    unit_bad = Measured::BaseUnit.new(:doesnt_exist)
 
     assert_raises Measured::UnitError do
-      Magic.unit_system.convert(1, from: @unit_fireball, to: unit_bad)
+      CaseSensitiveMagic.unit_system.convert(1, from: @unit_fireball, to: unit_bad)
     end
 
     assert_raises Measured::UnitError do
-      Magic.unit_system.convert(1, from: unit_bad, to: @unit_fireball)
+      CaseSensitiveMagic.unit_system.convert(1, from: unit_bad, to: @unit_fireball)
     end
   end
 

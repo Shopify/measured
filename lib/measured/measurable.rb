@@ -70,7 +70,7 @@ class Measured::Measurable < Numeric
   private
 
   def unit_from_unit_or_name!(value)
-    value.is_a?(Measured::Unit) ? value : self.class.unit_system.unit_for!(value)
+    value.is_a?(Measured::BaseUnit) ? value : self.class.unit_system.unit_for!(value)
   end
 
   def value_string
