@@ -22,7 +22,7 @@ class Measured::UnitSystemBuilder
   end
 
   def unit_class
-    @case_sensitive ? Measured::BaseUnit : Measured::CaseInsensitiveUnit
+    @case_sensitive ? Measured::CaseSensitiveUnit : Measured::CaseInsensitiveUnit
   end
 
   def unit_system_class
