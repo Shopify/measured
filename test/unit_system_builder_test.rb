@@ -20,39 +20,21 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
     end
 
     assert_raises Measured::UnitError do
-      Measured.build(case_sensitive: true) do
+      Measured.build do
         unit :m
         unit :in, aliases: [:inch], value: "0.0254 m"
         unit :inch, aliases: [:thing], value: "123 m"
       end
     end
-
-    assert_raises Measured::UnitError do
-      Measured.build(case_sensitive: false) do
-        unit :normal
-        unit :bold, aliases: [:strong], value: "10 normal"
-        unit :bolder, aliases: [:BOLD], value: "100 normal"
-      end
-    end
   end
 
-  test "#case_sensitive true produces a case-sensitive conversion" do
-    measurable = Measured.build(case_sensitive: true) do
+  test "#unit is case sensitive" do
+    measurable = Measured.build do
       unit :normal
       unit :bold, value: "10 normal"
       unit :BOLD, value: "100 normal"
     end
 
     assert_equal 'BOLD', measurable.unit_system.unit_for!(:BOLD).name
-  end
-
-  test "case-insensitive conversion is produced by default" do
-    measurable = Measured.build(case_sensitive: false) do
-      unit :normal
-      unit :bold, value: "10 normal"
-      unit :bolder, value: "100 normal"
-    end
-
-    assert_equal 'bold', measurable.unit_system.unit_for!(:bOlD).name
   end
 end
