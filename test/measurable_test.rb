@@ -156,8 +156,8 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
   end
 
   test "#inspect shows the number and the unit" do
-    assert_equal "#<Magic: 10 #<Measured::CaseInsensitiveUnit: fireball (fire, fireballs) 2/3 magic_missile>>", Magic.new(10, :fire).inspect
-    assert_equal "#<Magic: 1.234 #<Measured::CaseInsensitiveUnit: magic_missile (magic_missiles)>>", Magic.new(1.234, :magic_missile).inspect
+    assert_equal "#<Magic: 10 #<Measured::Unit: fireball (fire, fireballs) 2/3 magic_missile>>", Magic.new(10, :fire).inspect
+    assert_equal "#<Magic: 1.234 #<Measured::Unit: magic_missile (magic_missiles)>>", Magic.new(1.234, :magic_missile).inspect
   end
 
   test "#zero? always returns false" do

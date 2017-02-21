@@ -1,4 +1,4 @@
-class Measured::CaseInsensitiveUnit < Measured::BaseUnit
+class Measured::Unit < Measured::BaseUnit
   def initialize(name, aliases: [], value: nil, unit_system: nil)
     super(
       name.to_s.downcase,
