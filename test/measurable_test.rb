@@ -129,6 +129,20 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal "Cannot parse blank measurement", exception.message
   end
 
+  test ".parse raises on a single incorrect string" do
+    exception = assert_raises(Measured::UnitError) do
+      Magic.parse("arcane")
+    end
+    assert_equal "Cannot parse measurement from 'arcane'", exception.message
+  end
+
+  test ".parse raises on a single incorrect number" do
+    exception = assert_raises(Measured::UnitError) do
+      Magic.parse("1234")
+    end
+    assert_equal "Cannot parse measurement from '1234'", exception.message
+  end
+
   test ".parse takes input with a space between" do
     assert_equal Magic.new(1, :arcane), Magic.parse("1 arcane")
   end
@@ -153,11 +167,15 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     exception = assert_raises(Measured::UnitError) do
       Magic.parse("12.34.56 ice")
     end
-    assert_equal "Cannot parse measurement", exception.message
+    assert_equal "Cannot parse measurement from '12.34.56 ice'", exception.message
   end
 
   test ".parse parses negative numbers" do
     assert_equal Magic.new(-12.34, :arcane), Magic.parse("-12.34 arcane")
+  end
+
+  test ".parse parses rational numbers" do
+    assert_equal Magic.new(1.5, :magic_missile), Magic.parse("3/2magic missile")
   end
 
   test ".parse raises on unknown unit" do

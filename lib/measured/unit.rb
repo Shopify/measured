@@ -64,9 +64,14 @@ class Measured::Unit
   end
 
   def parse_value(tokens)
-    tokens = tokens.split(" ", 2) if tokens.is_a?(String)
-
-    raise Measured::UnitError, "Cannot parse 'number unit' or [number, unit] formatted tokens from #{tokens}." unless tokens.size == 2
+    case tokens
+    when String
+      tokens = Measured::Parser.parse_string(tokens)
+    when Array
+      raise Measured::UnitError, "Cannot parse [number, unit] formatted tokens from #{tokens}." unless tokens.size == 2
+    else
+      raise Measured::UnitError, "Unit must be defined as string or array, but received #{tokens}"
+    end
 
     [tokens[0].to_r, tokens[1].freeze]
   end
