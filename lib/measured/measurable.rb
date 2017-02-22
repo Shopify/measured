@@ -1,6 +1,26 @@
 class Measured::Measurable < Numeric
   include Measured::Arithmetic
 
+  PARSE_REGEX = /
+    \A         # beginning of input
+    \s*        # optionally any whitespace
+    (          # capture the value
+      -?       # number can be negative
+      \d+      # must have some digits
+      (?:      # do not capture
+        \.     # period to split fractional part
+        \d+    # some digits after it
+      )?       # fractional part is optional
+    )
+    \s*        # optionally any space between number and unit
+    (          # capture the unit
+      [\w\s-]  # any word or space or dash to
+      +?       # capture it lazily to not take trailing whitespace
+    )
+    \s*        # optionally any whitespace
+    \Z         # end of unit
+  /x
+
   attr_reader :unit, :value
 
   def initialize(value, unit)
@@ -64,6 +84,16 @@ class Measured::Measurable < Numeric
 
     def name
       to_s.split("::").last.underscore.humanize.downcase
+    end
+
+    def parse(string)
+      raise Measured::UnitError, "Cannot parse blank measurement" if string.blank?
+
+      result = PARSE_REGEX.match(string)
+
+      raise Measured::UnitError, "Cannot parse measurement" unless result
+
+      new(*result.captures)
     end
   end
 

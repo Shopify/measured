@@ -56,6 +56,20 @@ rescue Measured::UnitError
 end
 ```
 
+Parse from string without having to split out the value and unit first:
+
+```ruby
+Measured::Weight.parse("123 grams")
+> #<Measured::Weight 123 g>
+```
+
+Parse can scrub extra whitespace and split number from unit:
+
+```ruby
+Measured::Weight.parse(" 2kg ")
+> #<Measured::Weight 2 kg>
+```
+
 Perform addition / subtraction against other units, all represented internally as `Rational` or `BigDecimal`:
 
 ```ruby
