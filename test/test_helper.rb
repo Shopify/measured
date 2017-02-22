@@ -1,9 +1,12 @@
 require "measured"
+require "minitest/reporters"
 require "minitest/autorun"
 require "mocha/setup"
 require "pry"
 
 ActiveSupport.test_order = :random
+
+Minitest::Reporters.use! [Minitest::Reporters::ProgressReporter.new(color: true)]
 
 require "support/fake_system"
 
