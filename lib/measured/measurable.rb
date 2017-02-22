@@ -65,6 +65,10 @@ class Measured::Measurable < Numeric
     def name
       to_s.split("::").last.underscore.humanize.downcase
     end
+
+    def parse(string)
+      new(*Measured::Parser.parse_string(string))
+    end
   end
 
   private

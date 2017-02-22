@@ -38,6 +38,7 @@ module Measured
 end
 
 require "measured/arithmetic"
+require "measured/parser"
 require "measured/unit"
 require "measured/unit_system"
 require "measured/unit_system_builder"

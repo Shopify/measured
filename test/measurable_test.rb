@@ -94,7 +94,7 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
 
   test ".unit_names_with_aliases returns all units" do
     assert_equal(
-      %w(arcane fire fireball fireballs ice magic_missile magic_missiles ultima),
+      %w(arcane fire fireball fireballs ice magic\ missile magic_missile magic_missiles ultima),
       Magic.unit_names_with_aliases
     )
   end
@@ -113,6 +113,76 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
 
     assert_equal "magic", Magic.name
     assert_equal "very complex thing", Example::VeryComplexThing.name
+  end
+
+  test ".parse raises on nil input" do
+    exception = assert_raises(Measured::UnitError) do
+      Magic.parse(nil)
+    end
+    assert_equal "Cannot parse blank measurement", exception.message
+  end
+
+  test ".parse raises on blank string input" do
+    exception = assert_raises(Measured::UnitError) do
+      Magic.parse("")
+    end
+    assert_equal "Cannot parse blank measurement", exception.message
+  end
+
+  test ".parse raises on a single incorrect string" do
+    exception = assert_raises(Measured::UnitError) do
+      Magic.parse("arcane")
+    end
+    assert_equal "Cannot parse measurement from 'arcane'", exception.message
+  end
+
+  test ".parse raises on a single incorrect number" do
+    exception = assert_raises(Measured::UnitError) do
+      Magic.parse("1234")
+    end
+    assert_equal "Cannot parse measurement from '1234'", exception.message
+  end
+
+  test ".parse takes input with a space between" do
+    assert_equal Magic.new(1, :arcane), Magic.parse("1 arcane")
+  end
+
+  test ".parse takes input without a space" do
+    assert_equal Magic.new(99, :ice), Magic.parse("99ice")
+  end
+
+  test ".parse takes float with a space" do
+    assert_equal Magic.new(12.345, :arcane), Magic.parse("12.345 arcane")
+  end
+
+  test ".parse takes float without a space" do
+    assert_equal Magic.new(9.9, :magic_missile), Magic.parse("9.9magic_missile")
+  end
+
+  test ".parse truncates any space before and after" do
+    assert_equal Magic.new(8765, :arcane), Magic.parse("   8765     arcane    ")
+  end
+
+  test ".parse raises with multiple periods in fractional numbers" do
+    exception = assert_raises(Measured::UnitError) do
+      Magic.parse("12.34.56 ice")
+    end
+    assert_equal "Cannot parse measurement from '12.34.56 ice'", exception.message
+  end
+
+  test ".parse parses negative numbers" do
+    assert_equal Magic.new(-12.34, :arcane), Magic.parse("-12.34 arcane")
+  end
+
+  test ".parse parses rational numbers" do
+    assert_equal Magic.new(1.5, :magic_missile), Magic.parse("3/2magic missile")
+  end
+
+  test ".parse raises on unknown unit" do
+    exception = assert_raises(Measured::UnitError) do
+      Magic.parse("1 fake")
+    end
+    assert_equal "Unit 'fake' does not exist", exception.message
   end
 
   test "#convert_to raises on an invalid unit" do
@@ -157,7 +227,7 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
 
   test "#inspect shows the number and the unit" do
     assert_equal "#<Magic: 10 #<Measured::Unit: fireball (fire, fireballs) 2/3 magic_missile>>", Magic.new(10, :fire).inspect
-    assert_equal "#<Magic: 1.234 #<Measured::Unit: magic_missile (magic_missiles)>>", Magic.new(1.234, :magic_missile).inspect
+    assert_equal "#<Magic: 1.234 #<Measured::Unit: magic_missile (magic_missiles, magic missile)>>", Magic.new(1.234, :magic_missile).inspect
   end
 
   test "#zero? always returns false" do
@@ -215,5 +285,4 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_raises(ArgumentError) { @magic < BigDecimal.new(0) }
     assert_raises(ArgumentError) { @magic < 0.00 }
   end
-
 end
