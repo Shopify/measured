@@ -1,7 +1,6 @@
 class Measured::UnitSystemBuilder
-  def initialize(case_sensitive: false)
+  def initialize
     @units = []
-    @case_sensitive = case_sensitive
   end
 
   def unit(unit_name, aliases: [], value: nil)
@@ -10,23 +9,15 @@ class Measured::UnitSystemBuilder
   end
 
   def build
-    unit_system_class.new(@units)
+    Measured::UnitSystem.new(@units)
   end
 
   private
 
   def build_unit(name, aliases: [], value: nil)
-    unit = unit_class.new(name, aliases: aliases, value: value)
+    unit = Measured::Unit.new(name, aliases: aliases, value: value)
     check_for_duplicate_unit_names!(unit)
     unit
-  end
-
-  def unit_class
-    @case_sensitive ? Measured::Unit : Measured::CaseInsensitiveUnit
-  end
-
-  def unit_system_class
-    @case_sensitive ? Measured::UnitSystem : Measured::CaseInsensitiveUnitSystem
   end
 
   def check_for_duplicate_unit_names!(unit)

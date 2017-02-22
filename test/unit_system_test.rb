@@ -2,7 +2,7 @@ require "test_helper"
 
 class Measured::UnitSystemTest < ActiveSupport::TestCase
   setup do
-    @unit_fireball = CaseSensitiveMagic.unit_system.unit_for!(:fireball)
+    @unit_fireball = Magic.unit_system.unit_for!(:fireball)
 
     @unit_m = Measured::Unit.new(:m)
     @unit_in = Measured::Unit.new(:in, aliases: [:Inch], value: "0.0254 m")
@@ -46,36 +46,36 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   end
 
   test "#unit_for converts a unit name to its base unit" do
-    assert_equal @unit_fireball, CaseSensitiveMagic.unit_system.unit_for("fire")
+    assert_equal @unit_fireball, Magic.unit_system.unit_for("fire")
   end
 
   test "#unit_for does not care about string or symbol" do
-    assert_equal @unit_fireball, CaseSensitiveMagic.unit_system.unit_for(:fire)
+    assert_equal @unit_fireball, Magic.unit_system.unit_for(:fire)
   end
 
   test "#unit_for passes through if already base unit name" do
-    assert_equal @unit_fireball, CaseSensitiveMagic.unit_system.unit_for("fireball")
+    assert_equal @unit_fireball, Magic.unit_system.unit_for("fireball")
   end
 
   test "#unit_for returns nil if not found" do
-    assert_nil CaseSensitiveMagic.unit_system.unit_for("thunder")
+    assert_nil Magic.unit_system.unit_for("thunder")
   end
 
   test "#unit_for! converts a unit name to its base unit" do
-    assert_equal @unit_fireball, CaseSensitiveMagic.unit_system.unit_for!("fire")
+    assert_equal @unit_fireball, Magic.unit_system.unit_for!("fire")
   end
 
   test "#unit_for! does not care about string or symbol" do
-    assert_equal @unit_fireball, CaseSensitiveMagic.unit_system.unit_for!(:fire)
+    assert_equal @unit_fireball, Magic.unit_system.unit_for!(:fire)
   end
 
   test "#unit_for! passes through if already base unit name" do
-    assert_equal @unit_fireball, CaseSensitiveMagic.unit_system.unit_for!("fireball")
+    assert_equal @unit_fireball, Magic.unit_system.unit_for!("fireball")
   end
 
   test "#unit_for! raises if not found" do
     assert_raises_with_message(Measured::UnitError, "Unit 'thunder' does not exist") do
-      CaseSensitiveMagic.unit_system.unit_for!("thunder")
+      Magic.unit_system.unit_for!("thunder")
     end
   end
 
@@ -83,11 +83,11 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
     unit_bad = Measured::Unit.new(:doesnt_exist)
 
     assert_raises Measured::UnitError do
-      CaseSensitiveMagic.unit_system.convert(1, from: @unit_fireball, to: unit_bad)
+      Magic.unit_system.convert(1, from: @unit_fireball, to: unit_bad)
     end
 
     assert_raises Measured::UnitError do
-      CaseSensitiveMagic.unit_system.convert(1, from: unit_bad, to: @unit_fireball)
+      Magic.unit_system.convert(1, from: unit_bad, to: @unit_fireball)
     end
   end
 

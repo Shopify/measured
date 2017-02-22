@@ -169,15 +169,7 @@ Measured::Thing = Measured.build do
 end
 ```
 
-By default all names and aliases are case insensitive. If you would like to create a new unit with names and aliases that are case sensitive, specify the case sensitive flag when building your unit:
-
-```ruby
-Measured::Thing = Measured.build(case_sensitive: true) do
-  unit :base_unit, aliases: [:bu]
-end
-```
-
-Other than case sensitivity, both classes are identical to each other. The `case_sensitive` flag, which is false by default, gets taken into account any time you attempt to reference a unit by name or alias.
+All unit names are case sensitive.
 
 Values for conversion units can be defined as a string with two tokens `"number unit"` or as an array with two elements. All values will be parsed as / coerced to `Rational`. Conversion paths don't have to be direct as a conversion table will be built for all possible conversions.
 

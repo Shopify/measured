@@ -82,10 +82,10 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
   end
 
   test ".unit_system is set and cached" do
-    unit_system = CaseSensitiveMagic.unit_system
+    unit_system = Magic.unit_system
 
     assert_instance_of Measured::UnitSystem, unit_system
-    assert_equal unit_system.__id__, CaseSensitiveMagic.unit_system.__id__
+    assert_equal unit_system.__id__, Magic.unit_system.__id__
   end
 
   test ".unit_names returns just the base unit names" do
@@ -156,8 +156,8 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
   end
 
   test "#inspect shows the number and the unit" do
-    assert_equal "#<Magic: 10 #<Measured::CaseInsensitiveUnit: fireball (fire, fireballs) 2/3 magic_missile>>", Magic.new(10, :fire).inspect
-    assert_equal "#<Magic: 1.234 #<Measured::CaseInsensitiveUnit: magic_missile (magic_missiles)>>", Magic.new(1.234, :magic_missile).inspect
+    assert_equal "#<Magic: 10 #<Measured::Unit: fireball (fire, fireballs) 2/3 magic_missile>>", Magic.new(10, :fire).inspect
+    assert_equal "#<Magic: 1.234 #<Measured::Unit: magic_missile (magic_missiles)>>", Magic.new(1.234, :magic_missile).inspect
   end
 
   test "#zero? always returns false" do

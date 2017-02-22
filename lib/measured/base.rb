@@ -6,8 +6,8 @@ module Measured
   class UnitError < StandardError ; end
 
   class << self
-    def build(**kwargs, &block)
-      builder = UnitSystemBuilder.new(**kwargs)
+    def build(&block)
+      builder = UnitSystemBuilder.new
       builder.instance_eval(&block)
 
       Class.new(Measurable) do
@@ -40,8 +40,6 @@ end
 require "measured/arithmetic"
 require "measured/unit"
 require "measured/unit_system"
-require "measured/case_insensitive_unit"
-require "measured/case_insensitive_unit_system"
 require "measured/unit_system_builder"
 require "measured/conversion_table"
 require "measured/measurable"
