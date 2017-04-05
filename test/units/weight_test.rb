@@ -7,13 +7,13 @@ class Measured::WeightTest < ActiveSupport::TestCase
 
   test ".unit_names_with_aliases should be the expected list of valid units" do
     assert_equal(
-      %w(g gram grams kg kilogram kilograms lb lbs ounce ounces oz pound pounds),
+      %w(N T g gram grams kg kilogram kilograms lb lbs newton newtons ounce ounces oz pound pounds slug slugs t ton tonne tonnes tons),
       Measured::Weight.unit_names_with_aliases
     )
   end
 
   test ".unit_names should be the list of base unit names" do
-    assert_equal %w(g kg lb oz), Measured::Weight.unit_names
+    assert_equal %w(N T g kg lb oz slug t), Measured::Weight.unit_names
   end
 
 
