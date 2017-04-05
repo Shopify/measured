@@ -26,24 +26,28 @@ Initialize a measurement:
 
 ```ruby
 Measured::Weight.new("12", "g")
+> #<Measured::Weight: 12 #<Measured::Unit: g (gram, grams)>>
 ```
 
 Convert to return a new measurement:
 
 ```ruby
 Measured::Weight.new("12", "g").convert_to("kg")
+> #<Measured::Weight: 0.012 #<Measured::Unit: kg (kilogram, kilograms) 1000/1 g>>
 ```
 
 Agnostic to symbols/strings:
 
 ```ruby
 Measured::Weight.new(1, "kg") == Measured::Weight.new(1, :kg)
+> true
 ```
 
 Seamlessly handles aliases:
 
 ```ruby
 Measured::Weight.new(12, :oz) == Measured::Weight.new("12", :ounce)
+> true
 ```
 
 Raises on unknown units:
@@ -60,39 +64,39 @@ Parse from string without having to split out the value and unit first:
 
 ```ruby
 Measured::Weight.parse("123 grams")
-> #<Measured::Weight 123 g>
+> #<Measured::Weight: 123 #<Measured::Unit: g (gram, grams)>>
 ```
 
 Parse can scrub extra whitespace and split number from unit:
 
 ```ruby
 Measured::Weight.parse(" 2kg ")
-> #<Measured::Weight 2 kg>
+> #<Measured::Weight: 2 #<Measured::Unit: kg (kilogram, kilograms) 1000/1 g>>
 ```
 
 Perform addition / subtraction against other units, all represented internally as `Rational` or `BigDecimal`:
 
 ```ruby
 Measured::Weight.new(1, :g) + Measured::Weight.new(2, :g)
-> #<Measured::Weight 3 g>
+> #<Measured::Weight: 3 #<Measured::Unit: g (gram, grams)>>
 Measured::Weight.new("2.1", :g) - Measured::Weight.new(1, :g)
-> #<Measured::Weight 1.1 g>
+> #<Measured::Weight: 1.1 #<Measured::Unit: g (gram, grams)>>
 ```
 
 Multiplication and division by units is not supported, but the actual value can be scaled by a scalar:
 
 ```ruby
 Measured::Weight.new(10, :g).scale(0.5)
-> #<Measured::Weight 5 g>
+> #<Measured::Weight: 5 #<Measured::Unit: g (gram, grams)>>
 Measured::Weight.new(2, :g).scale(3)
-> #<Measured::Weight 6 g>
+> #<Measured::Weight: 6 #<Measured::Unit: g (gram, grams)>>
 ```
 
 In cases of differing units, the left hand side takes precedence:
 
 ```ruby
 Measured::Weight.new(1000, :g) + Measured::Weight.new(1, :kg)
-> #<Measured::Weight 2000 g>
+> #<Measured::Weight: 2000 #<Measured::Unit: g (gram, grams)>>
 ```
 
 Converts units only as needed for equality comparison:
@@ -107,33 +111,33 @@ Extract the unit and the value:
 ```ruby
 weight = Measured::Weight.new("1.2", "grams")
 weight.value
-> #<BigDecimal 1.2>
+> #<BigDecimal:7fabf6c1d0a0,'0.12E1',18(18)>
 weight.unit
-> "g"
+> #<Measured::Unit: g (gram, grams)>
 ```
 
 See all valid units:
 
 ```ruby
-Measured::Weight.units
+Measured::Weight.unit_names
 > ["g", "kg", "lb", "oz"]
 ```
 
 Check if a unit is a valid unit or alias:
 
 ```ruby
-Measured::Weight.valid_unit?(:g)
+Measured::Weight.unit_or_alias?(:g)
 > true
-Measured::Weight.valid_unit?("gram")
+Measured::Weight.unit_or_alias?("gram")
 > true
-Measured::Weight.valid_unit?("stone")
+Measured::Weight.unit_or_alias?("stone")
 > false
 ```
 
 See all valid units with their aliases:
 
 ```ruby
-Measured::Weight.units_with_aliases
+Measured::Weight.unit_names_with_aliases
 > ["g", "gram", "grams", "kg", "kilogram", "kilograms", "lb", "lbs", "ounce", "ounces", "oz", "pound", "pounds"]
 ```
 
@@ -166,6 +170,7 @@ There is a shortcut initialization syntax for modules inside the `Measured` name
 
 ```ruby
 Measured::Weight(1, :g)
+> #<Measured::Weight: 1 #<Measured::Unit: g (gram, grams)>>
 ```
 
 ### Adding new units
@@ -212,7 +217,6 @@ Existing alternatives which were considered:
 ### Gem: [quantified](https://github.com/Shopify/quantified)
 * **Pros**
   * Lightweight.
-  * Included with ActiveShipping/ActiveUtils.
 * **Cons**
   * All math done with floats making it highly lossy.
   * All units assumed to be pluralized, meaning using unit abbreviations is not possible.
@@ -222,7 +226,7 @@ Existing alternatives which were considered:
 ### Gem: [unitwise](https://github.com/joshwlewis/unitwise)
 * **Pros**
   * Well written and maintained.
-  * Conversions done with  Unified Code for Units of Measure (UCUM) so highly accurate and reliable.
+  * Conversions done with Unified Code for Units of Measure (UCUM) so highly accurate and reliable.
 * **Cons**
   * Lots of code. Good code, but lots of it.
   * Many modifications to core types.
