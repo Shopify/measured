@@ -19,6 +19,29 @@ class Measured::UnitSystemBuilder
 
   private
 
+  PREFIXES = [
+    ['y', 'yocto', -24],
+    ['z', 'zepto', -21],
+    ['a', 'atto', -18],
+    ['f', 'femto', -15],
+    ['p', 'pico', -12],
+    ['n', 'nano', -9],
+    ['μ', 'micro', -6],
+    ['m', 'milli', -3],
+    ['c', 'centi', -2],
+    ['d', 'deci', -1],
+    ['da', 'deca', 1],
+    ['h', 'hecto', 2],
+    ['k', 'kilo', 3],
+    ['M', 'mega', 6],
+    ['G', 'giga', 9],
+    ['T', 'tera', 12],
+    ['P', 'peta', 15],
+    ['E', 'exa', 18],
+    ['Z', 'zetta', 21],
+    ['Y', 'yotta', 24]
+  ]
+
   def build_si_units(name, aliases: [], value: nil)
     si_units = []
     get_positive_prefixes(range).each_with_index do |prefix, index|
@@ -49,18 +72,6 @@ class Measured::UnitSystemBuilder
     if names.any? { |name| unit.names.include?(name) }
       raise Measured::UnitError, "Unit #{unit.name} has already been added."
     end
-  end
-
-  def get_positive_prefixes(range)
-    [:k, :M, :G, :T, :P, :E].first(range)
-  end
-
-  def get_negative_prefixes(range)
-    [:m, :μ, :n, :p, :f, :a].first(range)
-  end
-
-  def power(value, sign = 1)
-    10 ** (value * 3 * sign)
   end
 
   def concat_prefixes(aliases: [], prefix: prefix = nil)
