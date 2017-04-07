@@ -8,8 +8,8 @@ class Measured::UnitSystemBuilder
     nil
   end
 
-  def si_unit(unit_name, aliases: [], value: nil, range: range = 3)
-    @units += build_si_units(unit_name, aliases: aliases, value: value, range: range)
+  def si_unit(unit_name, aliases: [], value: nil)
+    @units += build_si_units(unit_name, aliases: aliases, value: value)
     nil
   end
 
@@ -43,22 +43,13 @@ class Measured::UnitSystemBuilder
   ]
 
   def build_si_units(name, aliases: [], value: nil)
+    value ||= 1
     si_units = []
-    get_positive_prefixes(range).each_with_index do |prefix, index|
-      si_units << build_si_unit(prefix + name, concat_prefixes(aliases, prefix), value * power(index))
+    PREFIXES.each do |short, long, exp|
+      long_names = aliases.map {|suffix| "#{long}#{suffix}"}
+      si_units << build_unit("#{short}#{name}", aliases: long_names, value: value * 10 ** exp)
     end
-
-    get_negative_prefixes(range).each_with_index do |prefix, index|
-      si_units << build_si_unit(prefix + name, concat_prefixes(aliases, prefix), value * power(index, -1))
-    end
-
     si_units
-  end
-
-  def build_si_unit(name, aliases: [], value: nil)
-    unit = Measured::Unit.new(name, aliases: aliases, value: value)
-    check_for_duplicate_unit_names!(unit)
-    unit
   end
 
   def build_unit(name, aliases: [], value: nil)
@@ -72,9 +63,5 @@ class Measured::UnitSystemBuilder
     if names.any? { |name| unit.names.include?(name) }
       raise Measured::UnitError, "Unit #{unit.name} has already been added."
     end
-  end
-
-  def concat_prefixes(aliases: [], prefix: prefix = nil)
-    aliases.map {|name| prefix + name}
   end
 end
