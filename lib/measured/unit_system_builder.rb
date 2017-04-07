@@ -9,7 +9,7 @@ class Measured::UnitSystemBuilder
   end
 
   def si_unit(unit_name, aliases: [], value: nil, range: range = 3)
-    @units.concat build_si_units(unit_name, aliases: aliases, value: value, range: range)
+    @units += build_si_units(unit_name, aliases: aliases, value: value, range: range)
     nil
   end
 
