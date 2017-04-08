@@ -37,4 +37,13 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
 
     assert_equal 'BOLD', measurable.unit_system.unit_for!(:BOLD).name
   end
+
+  test "#si_unit adds 20 new units" do
+    measurable = Measured.build do
+      unit :ft
+      si_unit :in, value: "12 ft", aliases: [:ins]
+    end
+
+    assert_equal 21, measurable.unit_names.count
+  end
 end
