@@ -31,7 +31,6 @@ class Measured::UnitSystemBuilder
       ['m', 'milli', -3],
       ['c', 'centi', -2],
       ['d', 'deci', -1],
-      ['', '', 0],
       ['da', 'deca', 1],
       ['h', 'hecto', 2],
       ['k', 'kilo', 3],
@@ -48,7 +47,7 @@ class Measured::UnitSystemBuilder
   def build_si_units(name, aliases: [], value: nil)
     size = value.split(' ')[0] unless !value
     size ||= 1
-    si_units = []
+    si_units = [build_unit(name, aliases: aliases, value: value)]
     self.class.prefixes.each do |short, long, exp|
       long_names = aliases.map {|suffix| "#{long}#{suffix}"}
       si_units << build_unit("#{short}#{name}", aliases: long_names, value: "#{size.to_r * 10 ** exp} #{name}")
