@@ -31,6 +31,7 @@ class Measured::UnitSystemBuilder
       ['m', 'milli', -3],
       ['c', 'centi', -2],
       ['d', 'deci', -1],
+      ['', '', 0],
       ['da', 'deca', 1],
       ['h', 'hecto', 2],
       ['k', 'kilo', 3],

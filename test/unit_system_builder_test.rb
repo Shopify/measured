@@ -44,7 +44,7 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
       si_unit :in, value: "12 ft", aliases: [:ins]
     end
 
-    assert_equal 21, measurable.unit_names.count
+    assert_equal 22, measurable.unit_names.count
   end
 
   test "#si_unit creates units with proper prefixes" do
@@ -55,5 +55,17 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
 
     prefixes = Measured::UnitSystemBuilder.prefixes.map {|short, long, exp| "#{short}ft"}.push('in')
     assert_equal prefixes.sort, measurable.unit_names
+  end
+
+  test "#si_unit is case sensitive" do
+    measurable = Measured.build do
+      unit :normal
+      si_unit :bold, value: "10 normal"
+      si_unit :BOLD, value: "100 normal"
+    end
+
+    assert_equal 'yBOLD', measurable.unit_system.unit_for!(:yBOLD).name
+    assert_equal 'YBOLD', measurable.unit_system.unit_for!(:YBOLD).name
+    assert_equal 'BOLD', measurable.unit_system.unit_for!(:BOLD).name
   end
 end
