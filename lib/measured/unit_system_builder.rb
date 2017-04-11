@@ -46,6 +46,7 @@ class Measured::UnitSystemBuilder
   end
 
   def build_si_units(name, aliases: [], value: nil)
+    value = "1 #{name}" if !value
     size, unit = value.split(' ')
     size ||= 1
     si_units = []

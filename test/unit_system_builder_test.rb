@@ -86,4 +86,19 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
     assert_equal 'YBOLD', measurable.unit_system.unit_for!(:YBOLD).name
     assert_equal 'BOLD', measurable.unit_system.unit_for!(:BOLD).name
   end
+
+  test "#si_unit generates base unit properly" do
+    measurable = ''
+    assert_nothing_raised do
+      measurable = Measured.build do
+        si_unit :g, aliases: [:gram, :grams]
+        unit :bigg, value: "1000 g"
+      end
+    end
+
+    assert_equal (1000/1), measurable.unit_system.unit_for!(:bigg).conversion_amount
+    assert_equal "g", measurable.unit_system.unit_for!(:bigg).conversion_unit
+    assert_equal (1000/1), measurable.unit_system.unit_for!(:kg).conversion_amount
+    assert_equal "g", measurable.unit_system.unit_for!(:kg).conversion_unit
+  end
 end
