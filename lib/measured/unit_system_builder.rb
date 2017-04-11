@@ -46,14 +46,12 @@ class Measured::UnitSystemBuilder
   end
 
   def build_si_units(name, aliases: [], value: nil)
-    value = "1 #{name}" if !value
-    size, unit = value.split(' ')
+    size = value.split(' ')[0] unless !value
     size ||= 1
     si_units = []
     self.class.prefixes.each do |short, long, exp|
       long_names = aliases.map {|suffix| "#{long}#{suffix}"}
-      value_with_exp = size.to_r * 10 ** exp
-      si_units << build_unit("#{short}#{name}", aliases: long_names, value: "#{value_with_exp} #{unit}")
+      si_units << build_unit("#{short}#{name}", aliases: long_names, value: "#{size.to_r * 10 ** exp} #{name}")
     end
     si_units
   end
