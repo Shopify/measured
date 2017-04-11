@@ -57,6 +57,24 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
     assert_equal prefixes.sort, measurable.unit_names
   end
 
+  test "#si_unit cannot add duplicate unit names" do
+    assert_raises Measured::UnitError do
+      Measured.build do
+        unit :m
+        si_unit :in, aliases: [:inch], value: "0.0254 m"
+        si_unit :in, aliases: [:thing], value: "123 m"
+      end
+    end
+
+    assert_raises Measured::UnitError do
+      Measured.build do
+        unit :m
+        si_unit :in, aliases: [:inch], value: "0.0254 m"
+        si_unit :inch, aliases: [:thing], value: "123 m"
+      end
+    end
+  end
+
   test "#si_unit is case sensitive" do
     measurable = Measured.build do
       unit :normal
