@@ -83,13 +83,13 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
       si_unit :BOLD, value: "100 normal"
     end
 
-    assert_equal 'yBOLD', measurable.unit_system.unit_for!(:yBOLD).name
-    assert_equal 'YBOLD', measurable.unit_system.unit_for!(:YBOLD).name
-    assert_equal 'BOLD', measurable.unit_system.unit_for!(:BOLD).name
+    assert_equal "yBOLD", measurable.unit_system.unit_for!(:yBOLD).name
+    assert_equal "YBOLD", measurable.unit_system.unit_for!(:YBOLD).name
+    assert_equal "BOLD", measurable.unit_system.unit_for!(:BOLD).name
   end
 
   test "#si_unit generates base unit properly" do
-    measurable = ''
+    measurable = ""
     assert_nothing_raised do
       measurable = Measured.build do
         si_unit :g, aliases: [:gram, :grams]
@@ -99,7 +99,17 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
 
     assert_equal (1000/1), measurable.unit_system.unit_for!(:bigg).conversion_amount
     assert_equal "g", measurable.unit_system.unit_for!(:bigg).conversion_unit
-    assert_equal (1000/1), measurable.unit_system.unit_for!('kg').conversion_amount
-    assert_equal "g", measurable.unit_system.unit_for!('kg').conversion_unit
+    assert_equal (1000/1), measurable.unit_system.unit_for!(:kg).conversion_amount
+    assert_equal "g", measurable.unit_system.unit_for!(:kg).conversion_unit
+
+    assert_nothing_raised do
+      measurable = Measured.build do
+        unit :lb
+        si_unit :long_ton, value: "2240 lb", aliases: ["long ton", "long tons"]
+      end
+    end
+
+    assert_equal (2240/1), measurable.unit_system.unit_for!(:long_ton).conversion_amount
+    assert_equal "lb", measurable.unit_system.unit_for!(:long_ton).conversion_unit
   end
 end
