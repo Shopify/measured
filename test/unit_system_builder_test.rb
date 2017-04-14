@@ -99,7 +99,7 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
 
     assert_equal (1000/1), measurable.unit_system.unit_for!(:bigg).conversion_amount
     assert_equal "g", measurable.unit_system.unit_for!(:bigg).conversion_unit
-    assert_equal (1000/1), measurable.unit_system.unit_for!(:kg).conversion_amount
-    assert_equal "g", measurable.unit_system.unit_for!(:kg).conversion_unit
+    assert_equal (1000/1), measurable.unit_system.unit_for!('kg').conversion_amount
+    assert_equal "g", measurable.unit_system.unit_for!('kg').conversion_unit
   end
 end
