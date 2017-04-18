@@ -38,7 +38,7 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
     assert_equal 'BOLD', measurable.unit_system.unit_for!(:BOLD).name
   end
 
-  test "#si_unit adds 20 new units" do
+  test "#si_unit adds 21 new units" do
     measurable = Measured.build do
       unit :ft
       si_unit :in, value: "12 ft", aliases: [:ins]
@@ -47,13 +47,13 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
     assert_equal 22, measurable.unit_names.count
   end
 
-  test "#si_unit creates units with proper prefixes" do
+  test "#si_unit creates units with si prefixes" do
     measurable = Measured.build do
       unit :in
       si_unit :ft, value: "12 in", aliases: [:fts]
     end
 
-    prefixes = Measured::UnitSystemBuilder.prefixes.map {|short, long, exp| "#{short}ft"}
+    prefixes = Measured::UnitSystemBuilder::SI_PREFIXES.map {|short, _, _| "#{short}ft"}
     prefixes += ['in', 'ft']
     assert_equal prefixes.sort, measurable.unit_names
   end
@@ -88,28 +88,25 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
     assert_equal "BOLD", measurable.unit_system.unit_for!(:BOLD).name
   end
 
-  test "#si_unit generates base unit properly" do
-    measurable = ""
-    assert_nothing_raised do
-      measurable = Measured.build do
-        si_unit :g, aliases: [:gram, :grams]
-        unit :bigg, value: "1000 g"
-      end
+  test "#si_unit generates working units when given base unit" do
+    measurable = Measured.build do
+      si_unit :g, aliases: [:gram, :grams]
+      unit :bigg, value: "1000 g"
     end
 
-    assert_equal (1000/1), measurable.unit_system.unit_for!(:bigg).conversion_amount
+    assert_equal 1000, measurable.unit_system.unit_for!(:bigg).conversion_amount
     assert_equal "g", measurable.unit_system.unit_for!(:bigg).conversion_unit
-    assert_equal (1000/1), measurable.unit_system.unit_for!(:kg).conversion_amount
+    assert_equal 1000, measurable.unit_system.unit_for!(:kg).conversion_amount
     assert_equal "g", measurable.unit_system.unit_for!(:kg).conversion_unit
+  end
 
-    assert_nothing_raised do
-      measurable = Measured.build do
-        unit :lb
-        si_unit :long_ton, value: "2240 lb", aliases: ["long ton", "long tons"]
-      end
+  test "#si_unit generates working units when given non base unit" do
+    measurable = Measured.build do
+      unit :lb
+      si_unit :long_ton, value: "2240 lb", aliases: ["long ton", "long tons"]
     end
 
-    assert_equal (2240/1), measurable.unit_system.unit_for!(:long_ton).conversion_amount
+    assert_equal (2240), measurable.unit_system.unit_for!(:long_ton).conversion_amount
     assert_equal "lb", measurable.unit_system.unit_for!(:long_ton).conversion_unit
   end
 end
