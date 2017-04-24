@@ -53,8 +53,8 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
       si_unit :ft, value: "12 in", aliases: [:fts]
     end
 
-    prefixes = Measured::UnitSystemBuilder::SI_PREFIXES.map {|short, _, _| "#{short}ft"}
-    prefixes += ['in', 'ft']
+    prefixes = Measured::UnitSystemBuilder::SI_PREFIXES.map { |short, _, _| "#{short}ft" }
+    prefixes += %w(in ft) 
     assert_equal prefixes.sort, measurable.unit_names
   end
 
