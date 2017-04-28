@@ -1,4 +1,5 @@
 require "test_helper"
+require "measured/units/length"
 
 class Measured::LengthTest < ActiveSupport::TestCase
   test ".unit_names_with_aliases should be the expected list of valid units" do

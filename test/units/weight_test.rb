@@ -1,4 +1,5 @@
 require "test_helper"
+require "measured/units/weight"
 
 class Measured::WeightTest < ActiveSupport::TestCase
   setup do
