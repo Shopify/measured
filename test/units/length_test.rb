@@ -2,18 +2,18 @@ require "test_helper"
 
 class Measured::LengthTest < ActiveSupport::TestCase
   test ".unit_names_with_aliases should be the expected list of valid units" do
-    assert_equal(
-      %w(
-        centimeter centimeters centimetre centimetres cm feet foot ft
-        in inch inches kilometer kilometers kilometre kilometres km m meter meters metre metres mi mile miles millimeter
-        millimeters millimetre millimetres mm yard yards yd
-      ),
-      Measured::Length.unit_names_with_aliases
-    )
+    expected_units = %w(m meter metre meters metres feet foot ft in inch inches mi mile miles yard yards yd)
+    expected_units += Measured::UnitSystemBuilder::SI_PREFIXES.flat_map do |short, long, _|
+      ["#{short}m", "#{long}meter", "#{long}metre", "#{long}meters", "#{long}metres"]
+    end
+
+    assert_equal expected_units.sort, Measured::Length.unit_names_with_aliases
   end
 
   test ".unit_names should be the list of base unit names" do
-    assert_equal %w(cm ft in km m mi mm yd), Measured::Length.unit_names
+    expected_units = %w(m ft in mi yd)
+    expected_units += Measured::UnitSystemBuilder::SI_PREFIXES.map { |short, _, _| "#{short}m" }
+    assert_equal expected_units.sort, Measured::Length.unit_names
   end
 
   test ".name" do
