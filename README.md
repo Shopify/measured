@@ -143,20 +143,46 @@ Measured::Weight.unit_names_with_aliases
 
 ## Units and conversions
 
+### SI units support
+
+There is support for SI units through the use of `si_unit`. Units declared through it will have automatic support for all SI prefixes:
+
+| Multiplying Factor                | SI Prefix | Scientific Notation   |
+| --------------------------------- | --------- | --------------------- |
+| 1 000 000 000 000 000 000 000 000 | yotta (Y) | 10^24                 |
+| 1 000 000 000 000 000 000 000     | zetta (Z) | 10^21                 |
+| 1 000 000 000 000 000 000         | exa (E)   | 10^18                 |
+| 1 000 000 000 000 000             | peta (P)  | 10^15                 |
+| 1 000 000 000 000                 | tera (T)  | 10^12                 |
+| 1 000 000 000                     | giga (G)  | 10^9                  |
+| 1 000 000                         | mega (M)  | 10^6                  |
+| 1 000                             | kilo (k)  | 10^3                  |
+| 0.001                             | milli (m) | 10^-3                 |
+| 0.000 001                         | micro (µ) | 10^-6                 |
+| 0.000 000 001                     | nano (n)  | 10^-9                 |
+| 0.000 000 000 001                 | pico (p)  | 10^-12                |
+| 0.000 000 000 000 001             | femto (f) | 10^-15                |
+| 0.000 000 000 000 000 001         | atto (a)  | 10^-18                |
+| 0.000 000 000 000 000 000 001     | zepto (z) | 10^-21                |
+| 0.000 000 000 000 000 000 000 001 | yocto (y) | 10^-24                |
+
 ### Bundled unit conversion
 
 * `Measured::Weight`
-  * g, gram, grams
-  * kg, kilogram, kilograms
+  * g, gram, grams, and all SI prefixes
+  * t, metric_ton, metric_tons
+  * slug, slugs
+  * N, newtons, newton
+  * long_ton, long_tons, weight_ton, weight_tons, 'W/T', imperial_ton, imperial_tons, displacement_ton, displacement_tons
+  * short_ton, short_tons
   * lb, lbs, pound, pounds
   * oz, ounce, ounces
 * `Measured::Length`
-  * m, meter, metre, meters, metres
-  * cm, centimeter, centimetre, centimeters, centimetres
-  * mm, millimeter, millimetre, millimeters, millimetres
+  * m, meter, metre, meters, metres, and all SI prefixes
   * in, inch, inches
   * ft, foot, feet
   * yd, yard, yards
+  * mi, mile, miles
 
 You can skip these and only define your own units by doing:
 
