@@ -152,11 +152,13 @@ Measured::Weight.unit_names_with_aliases
   * oz, ounce, ounces
 * `Measured::Length`
   * m, meter, metre, meters, metres
+  * km, kilometer, kilometre, kilometers, kilometres
   * cm, centimeter, centimetre, centimeters, centimetres
   * mm, millimeter, millimetre, millimeters, millimetres
   * in, inch, inches
   * ft, foot, feet
   * yd, yard, yards
+  * mi, mile, miles
 
 You can skip these and only define your own units by doing:
 
