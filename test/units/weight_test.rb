@@ -6,14 +6,48 @@ class Measured::WeightTest < ActiveSupport::TestCase
   end
 
   test ".unit_names_with_aliases should be the expected list of valid units" do
-    assert_equal(
-      %w(N W/T displacement_ton displacement_tons g gram grams imperial_ton imperial_tons kg kilogram kilograms lb lbs long_ton long_tons metric_ton metric_tons newton newtons ounce ounces oz pound pounds short_ton short_tons slug slugs t weight_ton weight_tons),
-      Measured::Weight.unit_names_with_aliases
+    expected_units = %w(
+      N
+      W/T
+      displacement_ton
+      displacement_tons
+      g
+      gram
+      grams
+      imperial_ton
+      imperial_tons
+      lb
+      lbs
+      long_ton
+      long_tons
+      metric_ton
+      metric_tons
+      newton
+      newtons
+      ounce
+      ounces
+      oz
+      pound
+      pounds
+      short_ton
+      short_tons
+      slug
+      slugs
+      t
+      weight_ton
+      weight_tons
     )
+    expected_units += Measured::UnitSystemBuilder::SI_PREFIXES.flat_map do |short, long, _|
+      ["#{short}g", "#{long}gram", "#{long}grams"]
+    end
+
+    assert_equal expected_units.sort, Measured::Weight.unit_names_with_aliases
   end
 
   test ".unit_names should be the list of base unit names" do
-    assert_equal %w(N g kg lb long_ton oz short_ton slug t), Measured::Weight.unit_names
+    expected_units = %w(N g lb long_ton oz short_ton slug t)
+    expected_units += Measured::UnitSystemBuilder::SI_PREFIXES.map { |short, _, _| "#{short}g" }
+    assert_equal expected_units.sort, Measured::Weight.unit_names
   end
 
   test "Measured::Weight() delegates automatically to .new" do
