@@ -55,7 +55,7 @@ class Measured::UnitTest < ActiveSupport::TestCase
 
   test "#<=> compares non-Unit classes against name" do
     assert_equal 1, @unit <=> "Pap"
-    assert_equal -1, @unit <=> "Pop"
+    assert_equal (-1), @unit <=> "Pop"
   end
 
   test "#<=> is 0 for Unit instances that should be equivalent" do
@@ -65,12 +65,12 @@ class Measured::UnitTest < ActiveSupport::TestCase
   end
 
   test "#<=> is -1 for units with names that come after Pie lexicographically" do
-    assert_equal -1, @unit <=> Measured::Unit.new(:Pigs, value: "10 bacon")
-    assert_equal -1, @unit <=> Measured::Unit.new("Pig", aliases: %w(Pigs), value: "10 bacon")
+    assert_equal (-1), @unit <=> Measured::Unit.new(:Pigs, value: "10 bacon")
+    assert_equal (-1), @unit <=> Measured::Unit.new("Pig", aliases: %w(Pigs), value: "10 bacon")
   end
-  
+
   test "#<=> compares #conversion_amount when unit names the same" do
-    assert_equal -1, @unit <=> Measured::Unit.new(:Pie, value: [11, :pancake])
+    assert_equal (-1), @unit <=> Measured::Unit.new(:Pie, value: [11, :pancake])
     assert_equal 0, @unit <=> Measured::Unit.new(:Pie, value: [10, :foo])
     assert_equal 1, @unit <=> Measured::Unit.new(:Pie, value: [9, :pancake])
   end
