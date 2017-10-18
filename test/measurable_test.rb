@@ -237,10 +237,10 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
   end
 
   test "#<=> compares regardless of the unit" do
-    assert_equal -1, @magic <=> Magic.new(20, :fire)
+    assert_equal (-1), @magic <=> Magic.new(20, :fire)
     assert_equal 1, @magic <=> Magic.new(9, :magic_missile)
     assert_equal 0, @magic <=> Magic.new(Rational(30, 2), :fire)
-    assert_equal -1, @magic <=> Magic.new(11, :magic_missile)
+    assert_equal (-1), @magic <=> Magic.new(11, :magic_missile)
   end
 
   test "#<=> doesn't compare against zero" do
