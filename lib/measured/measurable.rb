@@ -9,7 +9,7 @@ class Measured::Measurable < Numeric
     @unit = unit_from_unit_or_name!(unit)
     @value = case value
     when Float
-      BigDecimal(value, Float::DIG + 1)
+      BigDecimal(value, Float::DIG)
     when BigDecimal, Rational
       value
     when Integer
