@@ -216,6 +216,10 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal "5 fireball", Magic.new(Rational(5, 1), :fire).to_s
   end
 
+  test "#to_s outputs the correct number of decimals" do
+    assert_equal "9.3 fireball", Magic.new(9.3, :fire).to_s
+  end
+
   test "#humanize outputs the number and the unit properly pluralized" do
     assert_equal "1 fireball", Magic.new("1", :fire).humanize
     assert_equal "10 fireballs", Magic.new(10, :fire).humanize
