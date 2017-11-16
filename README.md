@@ -184,9 +184,8 @@ There is support for SI units through the use of `si_unit`. Units declared throu
   * yd, yard, yards
   * mi, mile, miles
 * `Measured::Volume`
-  * l, liter, litre, liters, litres
+  * l, liter, litre, liters, litres, and all SI prefixes
   * m3, cubic_meter, cubic_meters, cubic_metre, cubic_metres
-  * ml, milliliter, millilitre, milliliters, millilitres
   * ft3, cubic_foot, cubic_feet
   * in3, cubic_inch, cubic_inches
   * gal, imp_gal, imperial_gallon, imp_gals, imperial_gallons
