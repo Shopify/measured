@@ -220,6 +220,12 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal "9.3 fireball", Magic.new(9.3, :fire).to_s
   end
 
+  test "#to_s rounds when passed a rounding optional argument" do
+    assert_equal "0.333 fireball", Magic.new(1/3.0, :fire).to_s(round: 3)
+    assert_equal "0.333333 fireball", Magic.new(1/3.0, :fire).to_s(round: 6)
+    assert_equal "0.333333333333333 fireball", Magic.new(1/3.0, :fire).to_s(round: nil)
+  end
+
   test "#humanize outputs the number and the unit properly pluralized" do
     assert_equal "1 fireball", Magic.new("1", :fire).humanize
     assert_equal "10 fireballs", Magic.new(10, :fire).humanize
