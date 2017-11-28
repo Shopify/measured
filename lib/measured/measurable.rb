@@ -1,4 +1,6 @@
 class Measured::Measurable < Numeric
+  DEFAULT_FORMAT_STRING = '%.2<value>f %<unit>s'
+
   include Measured::Arithmetic
 
   attr_reader :unit, :value
@@ -28,12 +30,12 @@ class Measured::Measurable < Numeric
     self.class.new(new_value, new_unit)
   end
 
-  def format(format_string)
+  def format(format_string=nil)
     kwargs = {
       value: self.value,
       unit: self.unit,
     }
-    format_string % kwargs
+    (format_string || DEFAULT_FORMAT_STRING) % kwargs
   end
 
   def to_s

@@ -141,6 +141,14 @@ Measured::Weight.unit_names_with_aliases
 > ["g", "gram", "grams", "kg", "kilogram", "kilograms", "lb", "lbs", "ounce", "ounces", "oz", "pound", "pounds"]
 ```
 
+String formatting:
+```ruby
+weight = Measured::Weight.new("3.14", "grams")
+weight.format("%.1<value>f %<unit>s")
+> "3.1 g"
+
+If no formatting string is passed, it uses `'%.2<value>f %<unit>s'`.
+```
 ## Units and conversions
 
 ### SI units support
