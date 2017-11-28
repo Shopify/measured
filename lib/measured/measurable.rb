@@ -28,6 +28,14 @@ class Measured::Measurable < Numeric
     self.class.new(new_value, new_unit)
   end
 
+  def format(format_string)
+    kwargs = {
+      value: self.value,
+      unit: self.unit,
+    }
+    format_string % kwargs
+  end
+
   def to_s
     @to_s ||= "#{value_string} #{unit.name}"
   end

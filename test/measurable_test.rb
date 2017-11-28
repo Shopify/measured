@@ -220,6 +220,14 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal "9.3 fireball", Magic.new(9.3, :fire).to_s
   end
 
+  test "#format outputs a formatted string" do
+    measured_object = Magic.new(9.342, :magic_missile)
+    assert_equal "9.3", measured_object.format("%.1<value>f")
+    assert_equal "magic_missile", measured_object.format("%<unit>s")
+    assert_equal "9.34 magic_missile", measured_object.format("%.2<value>f %<unit>s")
+    assert_equal "9.342000 magic_missile", measured_object.format("%<value>f %<unit>s")
+  end
+
   test "#humanize outputs the number and the unit properly pluralized" do
     assert_equal "1 fireball", Magic.new("1", :fire).humanize
     assert_equal "10 fireballs", Magic.new(10, :fire).humanize
