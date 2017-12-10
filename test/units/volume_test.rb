@@ -131,11 +131,11 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from ml to ft3" do
-    assert_conversion Measured::Volume, "2000 ml", "0.07067137809 ft3"
+    assert_conversion Measured::Volume, "2000 ml", "0.07062933344 ft3"
   end
 
   test ".convert_to from ml to in3" do
-    assert_conversion Measured::Volume, "2000 ml", "122.1200788173 in3"
+    assert_conversion Measured::Volume, "2000 ml", "122.0474881895 in3"
   end
 
   test ".convert_to from ml to gal" do
@@ -159,7 +159,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from ml to us_pt" do
-    assert_conversion Measured::Volume, "2000 ml", "4.2267548297 us_pt"
+    assert_conversion Measured::Volume, "2000 ml", "4.2267528377 us_pt"
   end
 
   test ".convert_to from ml to oz" do
@@ -167,15 +167,15 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from ml to us_oz" do
-    assert_conversion Measured::Volume, "2000 ml", "67.6280772756 us_oz"
+    assert_conversion Measured::Volume, "2000 ml", "67.6280454037 us_oz"
   end
 
   test ".convert_to from m3 to ft3" do
-    assert_conversion Measured::Volume, "2 m3", "70.6713780919 ft3"
+    assert_conversion Measured::Volume, "2 m3", "70.629333443 ft3"
   end
 
   test ".convert_to from m3 to in3" do
-    assert_conversion Measured::Volume, "2 m3", "122120.078817276 in3"
+    assert_conversion Measured::Volume, "2 m3", "122047.488189465 in3"
   end
 
   test ".convert_to from m3 to gal" do
@@ -183,7 +183,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from m3 to us_gal" do
-    assert_conversion Measured::Volume, "2 m3", "528.344353716 us_gal"
+    assert_conversion Measured::Volume, "2 m3", "528.3441047163 us_gal"
   end
 
   test ".convert_to from m3 to qt" do
@@ -191,7 +191,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from m3 to us_qt" do
-    assert_conversion Measured::Volume, "2 m3", "2113.3774148639 us_qt"
+    assert_conversion Measured::Volume, "2 m3", "2113.3764188652 us_qt"
   end
 
   test ".convert_to from m3 to pt" do
@@ -199,7 +199,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from m3 to us_pt" do
-    assert_conversion Measured::Volume, "2 m3", "4226.7548297278 us_pt"
+    assert_conversion Measured::Volume, "2 m3", "4226.7528377304 us_pt"
   end
 
   test ".convert_to from m3 to oz" do
@@ -207,79 +207,79 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from m3 to us_oz" do
-    assert_conversion Measured::Volume, "2 m3", "67628.0772756452 us_oz"
+    assert_conversion Measured::Volume, "2 m3", "67628.045403686 us_oz"
   end
 
   test ".convert_to from ft3 to in3" do
-    assert_conversion Measured::Volume, "2 ft3", "3455.9982305289 in3"
+    assert_conversion Measured::Volume, "2 ft3", "3456 in3"
   end
 
   test ".convert_to from ft3 to gal" do
-    assert_conversion Measured::Volume, "2 ft3", "12.4502594537 gal"
+    assert_conversion Measured::Volume, "2 ft3", "12.4576709181 gal"
   end
 
   test ".convert_to from ft3 to us_gal" do
-    assert_conversion Measured::Volume, "2 ft3", "14.9521452102 us_gal"
+    assert_conversion Measured::Volume, "2 ft3", "14.961038961 us_gal"
   end
 
   test ".convert_to from ft3 to qt" do
-    assert_conversion Measured::Volume, "2 ft3", "49.8010378149 qt"
+    assert_conversion Measured::Volume, "2 ft3", "49.8306836723 qt"
   end
 
   test ".convert_to from ft3 to us_qt" do
-    assert_conversion Measured::Volume, "2 ft3", "59.8085808406 us_qt"
+    assert_conversion Measured::Volume, "2 ft3", "59.8441558442 us_qt"
   end
 
   test ".convert_to from ft3 to pt" do
-    assert_conversion Measured::Volume, "2 ft3", "99.6020756298 pt"
+    assert_conversion Measured::Volume, "2 ft3", "99.6613673447 pt"
   end
 
   test ".convert_to from ft3 to us_pt" do
-    assert_conversion Measured::Volume, "2 ft3", "119.6171616813 us_pt"
+    assert_conversion Measured::Volume, "2 ft3", "119.6883116883 us_pt"
   end
 
   test ".convert_to from ft3 to oz" do
-    assert_conversion Measured::Volume, "2 ft3", "1992.0415125965 oz"
+    assert_conversion Measured::Volume, "2 ft3", "1993.2273468937 oz"
   end
 
   test ".convert_to from ft3 to us_oz" do
-    assert_conversion Measured::Volume, "2 ft3", "1913.8745869008 us_oz"
+    assert_conversion Measured::Volume, "2 ft3", "1915.012987013 us_oz"
   end
 
   test ".convert_to from in3 to gal" do
-    assert_conversion Measured::Volume, "2 in3", "0.007205014947 gal"
+    assert_conversion Measured::Volume, "2 in3", "0.0072093003 gal"
   end
 
   test ".convert_to from in3 to us_gal" do
-    assert_conversion Measured::Volume, "2 in3", "0.008652866242 us_gal"
+    assert_conversion Measured::Volume, "2 in3", "0.008658008658 us_gal"
   end
 
   test ".convert_to from in3 to qt" do
-    assert_conversion Measured::Volume, "2 in3", "0.02882005979 qt"
+    assert_conversion Measured::Volume, "2 in3", "0.0288372012 qt"
   end
 
   test ".convert_to from in3 to us_qt" do
-    assert_conversion Measured::Volume, "2 in3", "0.03461146497 us_qt"
+    assert_conversion Measured::Volume, "2 in3", "0.03463203463 us_qt"
   end
 
   test ".convert_to from in3 to pt" do
-    assert_conversion Measured::Volume, "2 in3", "0.05764011958 pt"
+    assert_conversion Measured::Volume, "2 in3", "0.0576744024 pt"
   end
 
   test ".convert_to from in3 to us_pt" do
-    assert_conversion Measured::Volume, "2 in3", "0.06922292993 us_pt"
+    assert_conversion Measured::Volume, "2 in3", "0.06926406926 us_pt"
   end
 
   test ".convert_to from in3 to oz" do
-    assert_conversion Measured::Volume, "2 in3", "1.1528023915 oz"
+    assert_conversion Measured::Volume, "2 in3", "1.153488048 oz"
   end
 
   test ".convert_to from in3 to us_oz" do
-    assert_conversion Measured::Volume, "2 in3", "1.1075668789 us_oz"
+    assert_conversion Measured::Volume, "2 in3", "1.1082251082 us_oz"
   end
 
   test ".convert_to from gal to us_gal" do
-    assert_conversion Measured::Volume, "2 gal", "2.401900983 us_gal"
+    assert_conversion Measured::Volume, "2 gal", "2.401899851 us_gal"
   end
 
   test ".convert_to from gal to qt" do
@@ -287,7 +287,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from gal to us_qt" do
-    assert_conversion Measured::Volume, "2 gal", "9.6076039319 us_qt"
+    assert_conversion Measured::Volume, "2 gal", "9.607599404 us_qt"
   end
 
   test ".convert_to from gal to pt" do
@@ -295,7 +295,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from gal to us_pt" do
-    assert_conversion Measured::Volume, "2 gal", "19.2152078639 us_pt"
+    assert_conversion Measured::Volume, "2 gal", "19.2151988081 us_pt"
   end
 
   test ".convert_to from gal to oz" do
@@ -303,11 +303,11 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from gal to us_oz" do
-    assert_conversion Measured::Volume, "2 gal", "307.443325822 us_oz"
+    assert_conversion Measured::Volume, "2 gal", "307.4431809292 us_oz"
   end
   
   test ".convert_to from us_gal to qt" do
-    assert_conversion Measured::Volume, "2 us_gal", "6.6613903376 qt"
+    assert_conversion Measured::Volume, "2 us_gal", "6.661393477 qt"
   end
 
   test ".convert_to from us_gal to us_qt" do
@@ -315,7 +315,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from us_gal to pt" do
-    assert_conversion Measured::Volume, "2 us_gal", "13.3227806753 pt"
+    assert_conversion Measured::Volume, "2 us_gal", "13.3227869541 pt"
   end
 
   test ".convert_to from us_gal to us_pt" do
@@ -323,7 +323,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from us_gal to oz" do
-    assert_conversion Measured::Volume, "2 us_gal", "266.4556135052 oz"
+    assert_conversion Measured::Volume, "2 us_gal", "266.4557390813 oz"
   end
 
   test ".convert_to from us_gal to us_oz" do
@@ -331,7 +331,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from qt to us_qt" do
-    assert_conversion Measured::Volume, "2 qt", "2.401900983 us_qt"
+    assert_conversion Measured::Volume, "2 qt", "2.401899851 us_qt"
   end
 
   test ".convert_to from qt to pt" do
@@ -339,7 +339,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from qt to us_pt" do
-    assert_conversion Measured::Volume, "2 qt", "4.803801966 us_pt"
+    assert_conversion Measured::Volume, "2 qt", "4.803799702 us_pt"
   end
 
   test ".convert_to from qt to oz" do
@@ -347,11 +347,11 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from qt to us_oz" do
-    assert_conversion Measured::Volume, "2 qt", "76.8608314555 us_oz"
+    assert_conversion Measured::Volume, "2 qt", "76.8607952323 us_oz"
   end
 
   test ".convert_to from us_qt to pt" do
-    assert_conversion Measured::Volume, "2 us_qt", "3.3306951688 pt"
+    assert_conversion Measured::Volume, "2 us_qt", "3.3306967385 pt"
   end
 
   test ".convert_to from us_qt to us_pt" do
@@ -359,7 +359,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from us_qt to oz" do
-    assert_conversion Measured::Volume, "2 us_qt", "66.6139033763 oz"
+    assert_conversion Measured::Volume, "2 us_qt", "66.6139347703 oz"
   end
 
   test ".convert_to from us_qt to us_oz" do
@@ -367,7 +367,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from pt to us_pt" do
-    assert_conversion Measured::Volume, "2 pt", "2.401900983 us_pt"
+    assert_conversion Measured::Volume, "2 pt", "2.401899851 us_pt"
   end
 
   test ".convert_to from pt to oz" do
@@ -375,11 +375,11 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from pt to us_oz" do
-    assert_conversion Measured::Volume, "2 pt", "38.4304157278 us_oz"
+    assert_conversion Measured::Volume, "2 pt", "38.4303976162 us_oz"
   end
 
   test ".convert_to from us_pt to oz" do
-    assert_conversion Measured::Volume, "2 us_pt", "33.3069516882 oz"
+    assert_conversion Measured::Volume, "2 us_pt", "33.3069673852 oz"
   end
 
   test ".convert_to from us_pt to us_oz" do
