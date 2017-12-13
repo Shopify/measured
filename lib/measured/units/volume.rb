@@ -4,7 +4,7 @@ Measured::Volume = Measured.build do
   unit :m3, value: "1000 l", aliases: [:cubic_meter, :cubic_metre, :cubic_meters, :cubic_metres]
   unit :in3, value: "0.016387064 l", aliases: [:cubic_inch, :cubic_inches]
   unit :ft3, value: "1728 in3", aliases: [:cubic_foot, :cubic_feet]
-  unit :gal, value: "4.54609 l", aliases: [:imp_gal, :imperial_gallon, :imp_gals,:imperial_gallons]
+  unit :gal, value: "4.54609 l", aliases: [:imp_gal, :imperial_gallon, :imp_gals, :imperial_gallons]
   unit :us_gal, value: "231 in3", aliases: [:us_gallon, :us_gals, :us_gallons]
   unit :qt, value: "0.25 gal", aliases: [:imp_qt, :imperial_quart, :imp_qts, :imperial_quarts]
   unit :us_qt, value: "0.25 us_gal", aliases: [:us_quart, :us_quarts]
