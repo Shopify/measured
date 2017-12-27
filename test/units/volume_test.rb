@@ -51,9 +51,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
       oz
       fl_oz
       imp_fl_oz
-      fluid_ounce
       imperial_fluid_ounce
-      fluid_ounces
       imperial_fluid_ounces
       us_oz
       us_fl_oz
