@@ -191,6 +191,19 @@ There is support for SI units through the use of `si_unit`. Units declared throu
   * ft, foot, feet
   * yd, yard, yards
   * mi, mile, miles
+* `Measured::Volume`
+  * l, liter, litre, liters, litres, and all SI prefixes
+  * m3, cubic_meter, cubic_meters, cubic_metre, cubic_metres
+  * ft3, cubic_foot, cubic_feet
+  * in3, cubic_inch, cubic_inches
+  * gal, imp_gal, imperial_gallon, imp_gals, imperial_gallons
+  * us_gal, us_gallon, us_gals, us_gallons
+  * qt, imp_qt, imperial_quart, imp_qts, imperial_quarts
+  * us_qt, us_quart, us_quarts
+  * pt, imp_pt, imperial_pint, imp_pts, imperial_pints
+  * us_pt, us_pint, us_pints
+  * oz, fl_oz, imp_fl_oz, imperial_fluid_ounce, imperial_fluid_ounces
+  * us_oz, us_fl_oz, us_fluid_ounce, us_fluid_ounces 
 
 You can skip these and only define your own units by doing:
 
