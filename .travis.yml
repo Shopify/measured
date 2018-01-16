@@ -6,9 +6,12 @@ rvm:
   - 2.2.4
   - 2.3.1
   - 2.4.0
+  - 2.5.0
 gemfile:
   - Gemfile
   - gemfiles/activesupport-4.2.gemfile
+before_script:
+  - gem update --system
 matrix:
   exclude:
     - gemfile: Gemfile
