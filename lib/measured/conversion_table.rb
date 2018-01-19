@@ -8,8 +8,9 @@ module Measured::ConversionTable
       to_table = {to_unit => BigDecimal("1")}
 
       table.each do |from_unit, from_table|
-        to_table[from_unit] = find_conversion(units, to: from_unit, from: to_unit)
-        from_table[to_unit] = find_conversion(units, to: to_unit, from: from_unit)
+        conversion = find_conversion(units, to: from_unit, from: to_unit)
+        to_table[from_unit] = conversion
+        from_table[to_unit] = 1 / conversion
       end
 
       table[to_unit] = to_table
@@ -31,9 +32,6 @@ module Measured::ConversionTable
   def find_direct_conversion(units, to:, from:)
     units.each do |unit|
       return unit.conversion_amount if unit.name == from && unit.conversion_unit == to
-    end
-
-    units.each do |unit|
       return unit.inverse_conversion_amount if unit.name == to && unit.conversion_unit == from
     end
 
