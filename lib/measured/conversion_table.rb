@@ -1,7 +1,11 @@
-module Measured::ConversionTable
-  extend self
+class Measured::ConversionTable
+  attr_reader :units
 
-  def build(units)
+  def initialize(units)
+    @units = units
+  end
+
+  def to_h
     table = {}
 
     units.map{|u| u.name}.each do |to_unit|
