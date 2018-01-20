@@ -43,19 +43,21 @@ class Measured::ConversionTable
   end
 
   def find_tree_traversal_conversion(to:, from:)
-    traverse(from: from, to: to, unit_names: units.map(&:name), amount: 1)
+    traverse(from: from, to: to, units_remaining: units.map(&:name), amount: 1)
   end
 
-  def traverse(from:, to:, unit_names:, amount:)
-    unit_names = unit_names - [from]
+  def traverse(from:, to:, units_remaining:, amount:)
+    units_remaining = units_remaining - [from]
 
-    unit_names.each do |name|
-      if conversion = find_direct_conversion(from: from, to: name)
+    units_remaining.each do |name|
+      conversion = find_direct_conversion(from: from, to: name)
+
+      if conversion
         new_amount = amount * conversion
         if name == to
           return new_amount
         else
-          result = traverse(from: name, to: to, unit_names: unit_names, amount: new_amount)
+          result = traverse(from: name, to: to, units_remaining: units_remaining, amount: new_amount)
           return result if result
         end
       end
