@@ -12,7 +12,7 @@ class Measured::ConversionTable
       to_table = {to_unit => BigDecimal("1")}
 
       table.each do |from_unit, from_table|
-        conversion = find_conversion(units, to: from_unit, from: to_unit)
+        conversion = find_conversion(to: from_unit, from: to_unit)
         to_table[from_unit] = conversion
         from_table[to_unit] = 1 / conversion
       end
@@ -25,15 +25,15 @@ class Measured::ConversionTable
 
   private
 
-  def find_conversion(units, to:, from:)
-    conversion = find_direct_conversion(units, to: to, from: from) || find_tree_traversal_conversion(units, to: to, from: from)
+  def find_conversion(to:, from:)
+    conversion = find_direct_conversion(to: to, from: from) || find_tree_traversal_conversion(to: to, from: from)
 
     raise Measured::UnitError, "Cannot find conversion path from #{ from } to #{ to }." unless conversion
 
     conversion
   end
 
-  def find_direct_conversion(units, to:, from:)
+  def find_direct_conversion(to:, from:)
     units.each do |unit|
       return unit.conversion_amount if unit.name == from && unit.conversion_unit == to
       return unit.inverse_conversion_amount if unit.name == to && unit.conversion_unit == from
@@ -42,20 +42,20 @@ class Measured::ConversionTable
     nil
   end
 
-  def find_tree_traversal_conversion(units, to:, from:)
-    traverse(units, from: from, to: to, unit_names: units.map(&:name), amount: 1)
+  def find_tree_traversal_conversion(to:, from:)
+    traverse(from: from, to: to, unit_names: units.map(&:name), amount: 1)
   end
 
-  def traverse(units, from:, to:, unit_names:, amount:)
+  def traverse(from:, to:, unit_names:, amount:)
     unit_names = unit_names - [from]
 
     unit_names.each do |name|
-      if conversion = find_direct_conversion(units, from: from, to: name)
+      if conversion = find_direct_conversion(from: from, to: name)
         new_amount = amount * conversion
         if name == to
           return new_amount
         else
-          result = traverse(units, from: name, to: to, unit_names: unit_names, amount: new_amount)
+          result = traverse(from: name, to: to, unit_names: unit_names, amount: new_amount)
           return result if result
         end
       end
