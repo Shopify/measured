@@ -9,7 +9,7 @@ class Measured::ConversionTable
     table = {}
 
     units.map{|u| u.name}.each do |to_unit|
-      to_table = {to_unit => BigDecimal("1")}
+      to_table = {to_unit => Rational(1, 1)}
 
       table.each do |from_unit, from_table|
         conversion = find_conversion(to: from_unit, from: to_unit)
