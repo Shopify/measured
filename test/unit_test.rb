@@ -78,4 +78,8 @@ class Measured::UnitTest < ActiveSupport::TestCase
   test "#inverse_conversion_amount returns 1/amount" do
     assert_equal Rational(1, 10), @unit.inverse_conversion_amount
   end
+
+  test "#inverse_conversion_amount handles nil for base unit" do
+    assert_nil Measured::Unit.new(:pie).inverse_conversion_amount
+  end
 end
