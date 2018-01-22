@@ -1,4 +1,4 @@
-class Measured::ConversionTable
+class Measured::ConversionTableBuilder
   attr_reader :units
 
   def initialize(units)

@@ -3,6 +3,7 @@ class Measured::UnitSystem
 
   def initialize(units)
     @units = units.map { |unit| unit.with_unit_system(self) }
+    @conversion_table_builder = Measured::ConversionTableBuilder.new(@units)
   end
 
   def unit_names_with_aliases
@@ -43,7 +44,7 @@ class Measured::UnitSystem
   protected
 
   def conversion_table
-    @conversion_table ||= Measured::ConversionTable.new(@units).to_h
+    @conversion_table ||= @conversion_table_builder.to_h
   end
 
   def unit_name_to_unit
