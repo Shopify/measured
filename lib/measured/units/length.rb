@@ -5,4 +5,6 @@ Measured::Length = Measured.build do
   unit :ft, value: "12 in", aliases: [:foot, :feet]
   unit :yd, value: "3 ft", aliases: [:yard, :yards]
   unit :mi, value: "5280 ft", aliases: [:mile, :miles]
+
+  cache Measured::Cache::Json, "length.json"
 end
