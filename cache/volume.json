@@ -1,0 +1,4163 @@
+// Do not modify this file directly. Regenerate it with 'rake cache:write'.
+{
+  "l": {
+    "l": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "yl": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "cl": {
+      "numerator": 100,
+      "denominator": 1
+    },
+    "dl": {
+      "numerator": 10,
+      "denominator": 1
+    },
+    "dal": {
+      "numerator": 1,
+      "denominator": 10
+    },
+    "hl": {
+      "numerator": 1,
+      "denominator": 100
+    },
+    "kl": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "m3": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "in3": {
+      "numerator": 125000000,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 1953125,
+      "denominator": 55306341
+    },
+    "gal": {
+      "numerator": 100000,
+      "denominator": 454609
+    },
+    "us_gal": {
+      "numerator": 125000000,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 400000,
+      "denominator": 454609
+    },
+    "us_qt": {
+      "numerator": 500000000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 800000,
+      "denominator": 454609
+    },
+    "us_pt": {
+      "numerator": 1000000000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 16000000,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 16000000000,
+      "denominator": 473176473
+    }
+  },
+  "yl": {
+    "yl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "zl": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "al": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "fl": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "pl": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "nl": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "μl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "ml": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "cl": {
+      "numerator": 1,
+      "denominator": 10000000000000000000000
+    },
+    "dl": {
+      "numerator": 1,
+      "denominator": 100000000000000000000000
+    },
+    "dal": {
+      "numerator": 1,
+      "denominator": 10000000000000000000000000
+    },
+    "hl": {
+      "numerator": 1,
+      "denominator": 100000000000000000000000000
+    },
+    "kl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "in3": {
+      "numerator": 1,
+      "denominator": 16387064000000000000000
+    },
+    "ft3": {
+      "numerator": 1,
+      "denominator": 28316846592000000000000000
+    },
+    "gal": {
+      "numerator": 1,
+      "denominator": 4546090000000000000000000
+    },
+    "us_gal": {
+      "numerator": 1,
+      "denominator": 3785411784000000000000000
+    },
+    "qt": {
+      "numerator": 1,
+      "denominator": 1136522500000000000000000
+    },
+    "us_qt": {
+      "numerator": 1,
+      "denominator": 946352946000000000000000
+    },
+    "pt": {
+      "numerator": 1,
+      "denominator": 568261250000000000000000
+    },
+    "us_pt": {
+      "numerator": 1,
+      "denominator": 473176473000000000000000
+    },
+    "oz": {
+      "numerator": 1,
+      "denominator": 28413062500000000000000
+    },
+    "us_oz": {
+      "numerator": 1,
+      "denominator": 29573529562500000000000
+    }
+  },
+  "zl": {
+    "zl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "yl": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "fl": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "pl": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "nl": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "μl": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "ml": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "cl": {
+      "numerator": 1,
+      "denominator": 10000000000000000000
+    },
+    "dl": {
+      "numerator": 1,
+      "denominator": 100000000000000000000
+    },
+    "dal": {
+      "numerator": 1,
+      "denominator": 10000000000000000000000
+    },
+    "hl": {
+      "numerator": 1,
+      "denominator": 100000000000000000000000
+    },
+    "kl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "in3": {
+      "numerator": 1,
+      "denominator": 16387064000000000000
+    },
+    "ft3": {
+      "numerator": 1,
+      "denominator": 28316846592000000000000
+    },
+    "gal": {
+      "numerator": 1,
+      "denominator": 4546090000000000000000
+    },
+    "us_gal": {
+      "numerator": 1,
+      "denominator": 3785411784000000000000
+    },
+    "qt": {
+      "numerator": 1,
+      "denominator": 1136522500000000000000
+    },
+    "us_qt": {
+      "numerator": 1,
+      "denominator": 946352946000000000000
+    },
+    "pt": {
+      "numerator": 1,
+      "denominator": 568261250000000000000
+    },
+    "us_pt": {
+      "numerator": 1,
+      "denominator": 473176473000000000000
+    },
+    "oz": {
+      "numerator": 1,
+      "denominator": 28413062500000000000
+    },
+    "us_oz": {
+      "numerator": 1,
+      "denominator": 29573529562500000000
+    }
+  },
+  "al": {
+    "al": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "yl": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "pl": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "nl": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "μl": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "ml": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "cl": {
+      "numerator": 1,
+      "denominator": 10000000000000000
+    },
+    "dl": {
+      "numerator": 1,
+      "denominator": 100000000000000000
+    },
+    "dal": {
+      "numerator": 1,
+      "denominator": 10000000000000000000
+    },
+    "hl": {
+      "numerator": 1,
+      "denominator": 100000000000000000000
+    },
+    "kl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "in3": {
+      "numerator": 1,
+      "denominator": 16387064000000000
+    },
+    "ft3": {
+      "numerator": 1,
+      "denominator": 28316846592000000000
+    },
+    "gal": {
+      "numerator": 1,
+      "denominator": 4546090000000000000
+    },
+    "us_gal": {
+      "numerator": 1,
+      "denominator": 3785411784000000000
+    },
+    "qt": {
+      "numerator": 1,
+      "denominator": 1136522500000000000
+    },
+    "us_qt": {
+      "numerator": 1,
+      "denominator": 946352946000000000
+    },
+    "pt": {
+      "numerator": 1,
+      "denominator": 568261250000000000
+    },
+    "us_pt": {
+      "numerator": 1,
+      "denominator": 473176473000000000
+    },
+    "oz": {
+      "numerator": 1,
+      "denominator": 28413062500000000
+    },
+    "us_oz": {
+      "numerator": 1,
+      "denominator": 29573529562500000
+    }
+  },
+  "fl": {
+    "fl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "yl": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "nl": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "μl": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "ml": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "cl": {
+      "numerator": 1,
+      "denominator": 10000000000000
+    },
+    "dl": {
+      "numerator": 1,
+      "denominator": 100000000000000
+    },
+    "dal": {
+      "numerator": 1,
+      "denominator": 10000000000000000
+    },
+    "hl": {
+      "numerator": 1,
+      "denominator": 100000000000000000
+    },
+    "kl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "in3": {
+      "numerator": 1,
+      "denominator": 16387064000000
+    },
+    "ft3": {
+      "numerator": 1,
+      "denominator": 28316846592000000
+    },
+    "gal": {
+      "numerator": 1,
+      "denominator": 4546090000000000
+    },
+    "us_gal": {
+      "numerator": 1,
+      "denominator": 3785411784000000
+    },
+    "qt": {
+      "numerator": 1,
+      "denominator": 1136522500000000
+    },
+    "us_qt": {
+      "numerator": 1,
+      "denominator": 946352946000000
+    },
+    "pt": {
+      "numerator": 1,
+      "denominator": 568261250000000
+    },
+    "us_pt": {
+      "numerator": 1,
+      "denominator": 473176473000000
+    },
+    "oz": {
+      "numerator": 1,
+      "denominator": 28413062500000
+    },
+    "us_oz": {
+      "numerator": 1,
+      "denominator": 29573529562500
+    }
+  },
+  "pl": {
+    "pl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "yl": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "μl": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "ml": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "cl": {
+      "numerator": 1,
+      "denominator": 10000000000
+    },
+    "dl": {
+      "numerator": 1,
+      "denominator": 100000000000
+    },
+    "dal": {
+      "numerator": 1,
+      "denominator": 10000000000000
+    },
+    "hl": {
+      "numerator": 1,
+      "denominator": 100000000000000
+    },
+    "kl": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "in3": {
+      "numerator": 1,
+      "denominator": 16387064000
+    },
+    "ft3": {
+      "numerator": 1,
+      "denominator": 28316846592000
+    },
+    "gal": {
+      "numerator": 1,
+      "denominator": 4546090000000
+    },
+    "us_gal": {
+      "numerator": 1,
+      "denominator": 3785411784000
+    },
+    "qt": {
+      "numerator": 1,
+      "denominator": 1136522500000
+    },
+    "us_qt": {
+      "numerator": 1,
+      "denominator": 946352946000
+    },
+    "pt": {
+      "numerator": 1,
+      "denominator": 568261250000
+    },
+    "us_pt": {
+      "numerator": 1,
+      "denominator": 473176473000
+    },
+    "oz": {
+      "numerator": 1,
+      "denominator": 28413062500
+    },
+    "us_oz": {
+      "numerator": 2,
+      "denominator": 59147059125
+    }
+  },
+  "nl": {
+    "nl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "yl": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "ml": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "cl": {
+      "numerator": 1,
+      "denominator": 10000000
+    },
+    "dl": {
+      "numerator": 1,
+      "denominator": 100000000
+    },
+    "dal": {
+      "numerator": 1,
+      "denominator": 10000000000
+    },
+    "hl": {
+      "numerator": 1,
+      "denominator": 100000000000
+    },
+    "kl": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "in3": {
+      "numerator": 1,
+      "denominator": 16387064
+    },
+    "ft3": {
+      "numerator": 1,
+      "denominator": 28316846592
+    },
+    "gal": {
+      "numerator": 1,
+      "denominator": 4546090000
+    },
+    "us_gal": {
+      "numerator": 1,
+      "denominator": 3785411784
+    },
+    "qt": {
+      "numerator": 1,
+      "denominator": 1136522500
+    },
+    "us_qt": {
+      "numerator": 1,
+      "denominator": 946352946
+    },
+    "pt": {
+      "numerator": 1,
+      "denominator": 568261250
+    },
+    "us_pt": {
+      "numerator": 1,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 2,
+      "denominator": 56826125
+    },
+    "us_oz": {
+      "numerator": 16,
+      "denominator": 473176473
+    }
+  },
+  "μl": {
+    "μl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "yl": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "cl": {
+      "numerator": 1,
+      "denominator": 10000
+    },
+    "dl": {
+      "numerator": 1,
+      "denominator": 100000
+    },
+    "dal": {
+      "numerator": 1,
+      "denominator": 10000000
+    },
+    "hl": {
+      "numerator": 1,
+      "denominator": 100000000
+    },
+    "kl": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "in3": {
+      "numerator": 125,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 125,
+      "denominator": 3539605824
+    },
+    "gal": {
+      "numerator": 1,
+      "denominator": 4546090
+    },
+    "us_gal": {
+      "numerator": 125,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 2,
+      "denominator": 2273045
+    },
+    "us_qt": {
+      "numerator": 500,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 4,
+      "denominator": 2273045
+    },
+    "us_pt": {
+      "numerator": 1000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 16,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 16000,
+      "denominator": 473176473
+    }
+  },
+  "ml": {
+    "ml": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "yl": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "cl": {
+      "numerator": 1,
+      "denominator": 10
+    },
+    "dl": {
+      "numerator": 1,
+      "denominator": 100
+    },
+    "dal": {
+      "numerator": 1,
+      "denominator": 10000
+    },
+    "hl": {
+      "numerator": 1,
+      "denominator": 100000
+    },
+    "kl": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "in3": {
+      "numerator": 125000,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 15625,
+      "denominator": 442450728
+    },
+    "gal": {
+      "numerator": 100,
+      "denominator": 454609
+    },
+    "us_gal": {
+      "numerator": 125000,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 400,
+      "denominator": 454609
+    },
+    "us_qt": {
+      "numerator": 500000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 800,
+      "denominator": 454609
+    },
+    "us_pt": {
+      "numerator": 1000000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 16000,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 16000000,
+      "denominator": 473176473
+    }
+  },
+  "cl": {
+    "cl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1,
+      "denominator": 100
+    },
+    "yl": {
+      "numerator": 10000000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 10000000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 10000000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 10000000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 10000000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 10000000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 10000,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 10,
+      "denominator": 1
+    },
+    "dl": {
+      "numerator": 1,
+      "denominator": 10
+    },
+    "dal": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "hl": {
+      "numerator": 1,
+      "denominator": 10000
+    },
+    "kl": {
+      "numerator": 1,
+      "denominator": 100000
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 100000000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 100000000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 100000000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 100000000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 100000000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 100000000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 100000000000000000000000000
+    },
+    "m3": {
+      "numerator": 1,
+      "denominator": 100000
+    },
+    "in3": {
+      "numerator": 1250000,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 78125,
+      "denominator": 221225364
+    },
+    "gal": {
+      "numerator": 1000,
+      "denominator": 454609
+    },
+    "us_gal": {
+      "numerator": 1250000,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 4000,
+      "denominator": 454609
+    },
+    "us_qt": {
+      "numerator": 5000000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 8000,
+      "denominator": 454609
+    },
+    "us_pt": {
+      "numerator": 10000000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 160000,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 160000000,
+      "denominator": 473176473
+    }
+  },
+  "dl": {
+    "dl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1,
+      "denominator": 10
+    },
+    "yl": {
+      "numerator": 100000000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 100000000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 100000000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 100000000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 100000000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 100000000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 100000,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 100,
+      "denominator": 1
+    },
+    "cl": {
+      "numerator": 10,
+      "denominator": 1
+    },
+    "dal": {
+      "numerator": 1,
+      "denominator": 100
+    },
+    "hl": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "kl": {
+      "numerator": 1,
+      "denominator": 10000
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 10000000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 10000000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 10000000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 10000000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 10000000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 10000000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 10000000000000000000000000
+    },
+    "m3": {
+      "numerator": 1,
+      "denominator": 10000
+    },
+    "in3": {
+      "numerator": 12500000,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 390625,
+      "denominator": 110612682
+    },
+    "gal": {
+      "numerator": 10000,
+      "denominator": 454609
+    },
+    "us_gal": {
+      "numerator": 12500000,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 40000,
+      "denominator": 454609
+    },
+    "us_qt": {
+      "numerator": 50000000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 80000,
+      "denominator": 454609
+    },
+    "us_pt": {
+      "numerator": 100000000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 1600000,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 1600000000,
+      "denominator": 473176473
+    }
+  },
+  "dal": {
+    "dal": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 10,
+      "denominator": 1
+    },
+    "yl": {
+      "numerator": 10000000000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 10000000000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 10000000000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 10000000000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 10000000000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 10000000000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 10000000,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 10000,
+      "denominator": 1
+    },
+    "cl": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "dl": {
+      "numerator": 100,
+      "denominator": 1
+    },
+    "hl": {
+      "numerator": 1,
+      "denominator": 10
+    },
+    "kl": {
+      "numerator": 1,
+      "denominator": 100
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 100000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 100000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 100000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 100000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 100000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 100000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 100000000000000000000000
+    },
+    "m3": {
+      "numerator": 1,
+      "denominator": 100
+    },
+    "in3": {
+      "numerator": 1250000000,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 19531250,
+      "denominator": 55306341
+    },
+    "gal": {
+      "numerator": 1000000,
+      "denominator": 454609
+    },
+    "us_gal": {
+      "numerator": 1250000000,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 4000000,
+      "denominator": 454609
+    },
+    "us_qt": {
+      "numerator": 5000000000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 8000000,
+      "denominator": 454609
+    },
+    "us_pt": {
+      "numerator": 10000000000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 160000000,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 160000000000,
+      "denominator": 473176473
+    }
+  },
+  "hl": {
+    "hl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 100,
+      "denominator": 1
+    },
+    "yl": {
+      "numerator": 100000000000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 100000000000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 100000000000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 100000000000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 100000000000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 100000000000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 100000000,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 100000,
+      "denominator": 1
+    },
+    "cl": {
+      "numerator": 10000,
+      "denominator": 1
+    },
+    "dl": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "dal": {
+      "numerator": 10,
+      "denominator": 1
+    },
+    "kl": {
+      "numerator": 1,
+      "denominator": 10
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 10000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 10000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 10000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 10000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 10000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 10000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 10000000000000000000000
+    },
+    "m3": {
+      "numerator": 1,
+      "denominator": 10
+    },
+    "in3": {
+      "numerator": 12500000000,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 195312500,
+      "denominator": 55306341
+    },
+    "gal": {
+      "numerator": 10000000,
+      "denominator": 454609
+    },
+    "us_gal": {
+      "numerator": 12500000000,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 40000000,
+      "denominator": 454609
+    },
+    "us_qt": {
+      "numerator": 50000000000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 80000000,
+      "denominator": 454609
+    },
+    "us_pt": {
+      "numerator": 100000000000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 1600000000,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 1600000000000,
+      "denominator": 473176473
+    }
+  },
+  "kl": {
+    "kl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "yl": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "cl": {
+      "numerator": 100000,
+      "denominator": 1
+    },
+    "dl": {
+      "numerator": 10000,
+      "denominator": 1
+    },
+    "dal": {
+      "numerator": 100,
+      "denominator": 1
+    },
+    "hl": {
+      "numerator": 10,
+      "denominator": 1
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "m3": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "in3": {
+      "numerator": 125000000000,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 1953125000,
+      "denominator": 55306341
+    },
+    "gal": {
+      "numerator": 100000000,
+      "denominator": 454609
+    },
+    "us_gal": {
+      "numerator": 125000000000,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 400000000,
+      "denominator": 454609
+    },
+    "us_qt": {
+      "numerator": 500000000000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 800000000,
+      "denominator": 454609
+    },
+    "us_pt": {
+      "numerator": 1000000000000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 16000000000,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 16000000000000,
+      "denominator": 473176473
+    }
+  },
+  "Ml": {
+    "Ml": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "yl": {
+      "numerator": 1000000000000000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "cl": {
+      "numerator": 100000000,
+      "denominator": 1
+    },
+    "dl": {
+      "numerator": 10000000,
+      "denominator": 1
+    },
+    "dal": {
+      "numerator": 100000,
+      "denominator": 1
+    },
+    "hl": {
+      "numerator": 10000,
+      "denominator": 1
+    },
+    "kl": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "m3": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "in3": {
+      "numerator": 125000000000000,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 1953125000000,
+      "denominator": 55306341
+    },
+    "gal": {
+      "numerator": 100000000000,
+      "denominator": 454609
+    },
+    "us_gal": {
+      "numerator": 125000000000000,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 400000000000,
+      "denominator": 454609
+    },
+    "us_qt": {
+      "numerator": 500000000000000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 800000000000,
+      "denominator": 454609
+    },
+    "us_pt": {
+      "numerator": 1000000000000000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 16000000000000,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 16000000000000000,
+      "denominator": 473176473
+    }
+  },
+  "Gl": {
+    "Gl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "yl": {
+      "numerator": 1000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000000000000000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "cl": {
+      "numerator": 100000000000,
+      "denominator": 1
+    },
+    "dl": {
+      "numerator": 10000000000,
+      "denominator": 1
+    },
+    "dal": {
+      "numerator": 100000000,
+      "denominator": 1
+    },
+    "hl": {
+      "numerator": 10000000,
+      "denominator": 1
+    },
+    "kl": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "Ml": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "m3": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "in3": {
+      "numerator": 125000000000000000,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 1953125000000000,
+      "denominator": 55306341
+    },
+    "gal": {
+      "numerator": 100000000000000,
+      "denominator": 454609
+    },
+    "us_gal": {
+      "numerator": 125000000000000000,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 400000000000000,
+      "denominator": 454609
+    },
+    "us_qt": {
+      "numerator": 500000000000000000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 800000000000000,
+      "denominator": 454609
+    },
+    "us_pt": {
+      "numerator": 1000000000000000000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 16000000000000000,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 16000000000000000000,
+      "denominator": 473176473
+    }
+  },
+  "Tl": {
+    "Tl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "yl": {
+      "numerator": 1000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000000000000000000000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "cl": {
+      "numerator": 100000000000000,
+      "denominator": 1
+    },
+    "dl": {
+      "numerator": 10000000000000,
+      "denominator": 1
+    },
+    "dal": {
+      "numerator": 100000000000,
+      "denominator": 1
+    },
+    "hl": {
+      "numerator": 10000000000,
+      "denominator": 1
+    },
+    "kl": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "Ml": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "Gl": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "m3": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "in3": {
+      "numerator": 125000000000000000000,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 1953125000000000000,
+      "denominator": 55306341
+    },
+    "gal": {
+      "numerator": 100000000000000000,
+      "denominator": 454609
+    },
+    "us_gal": {
+      "numerator": 125000000000000000000,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 400000000000000000,
+      "denominator": 454609
+    },
+    "us_qt": {
+      "numerator": 500000000000000000000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 800000000000000000,
+      "denominator": 454609
+    },
+    "us_pt": {
+      "numerator": 1000000000000000000000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 16000000000000000000,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 16000000000000000000000,
+      "denominator": 473176473
+    }
+  },
+  "Pl": {
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "yl": {
+      "numerator": 1000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1000000000000000000000000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "cl": {
+      "numerator": 100000000000000000,
+      "denominator": 1
+    },
+    "dl": {
+      "numerator": 10000000000000000,
+      "denominator": 1
+    },
+    "dal": {
+      "numerator": 100000000000000,
+      "denominator": 1
+    },
+    "hl": {
+      "numerator": 10000000000000,
+      "denominator": 1
+    },
+    "kl": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "Ml": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "Gl": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "Tl": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "m3": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "in3": {
+      "numerator": 125000000000000000000000,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 1953125000000000000000,
+      "denominator": 55306341
+    },
+    "gal": {
+      "numerator": 100000000000000000000,
+      "denominator": 454609
+    },
+    "us_gal": {
+      "numerator": 125000000000000000000000,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 400000000000000000000,
+      "denominator": 454609
+    },
+    "us_qt": {
+      "numerator": 500000000000000000000000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 800000000000000000000,
+      "denominator": 454609
+    },
+    "us_pt": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 16000000000000000000000,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 16000000000000000000000000,
+      "denominator": 473176473
+    }
+  },
+  "El": {
+    "El": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "yl": {
+      "numerator": 1000000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1000000000000000000000000000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "cl": {
+      "numerator": 100000000000000000000,
+      "denominator": 1
+    },
+    "dl": {
+      "numerator": 10000000000000000000,
+      "denominator": 1
+    },
+    "dal": {
+      "numerator": 100000000000000000,
+      "denominator": 1
+    },
+    "hl": {
+      "numerator": 10000000000000000,
+      "denominator": 1
+    },
+    "kl": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "Ml": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "Gl": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "Tl": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "Pl": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "m3": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "in3": {
+      "numerator": 125000000000000000000000000,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 1953125000000000000000000,
+      "denominator": 55306341
+    },
+    "gal": {
+      "numerator": 100000000000000000000000,
+      "denominator": 454609
+    },
+    "us_gal": {
+      "numerator": 125000000000000000000000000,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 400000000000000000000000,
+      "denominator": 454609
+    },
+    "us_qt": {
+      "numerator": 500000000000000000000000000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 800000000000000000000000,
+      "denominator": 454609
+    },
+    "us_pt": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 16000000000000000000000000,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 16000000000000000000000000000,
+      "denominator": 473176473
+    }
+  },
+  "Zl": {
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "yl": {
+      "numerator": 1000000000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 1000000000000000000000000000000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "cl": {
+      "numerator": 100000000000000000000000,
+      "denominator": 1
+    },
+    "dl": {
+      "numerator": 10000000000000000000000,
+      "denominator": 1
+    },
+    "dal": {
+      "numerator": 100000000000000000000,
+      "denominator": 1
+    },
+    "hl": {
+      "numerator": 10000000000000000000,
+      "denominator": 1
+    },
+    "kl": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "Ml": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "Gl": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "Tl": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "Pl": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "El": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "m3": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "in3": {
+      "numerator": 125000000000000000000000000000,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 1953125000000000000000000000,
+      "denominator": 55306341
+    },
+    "gal": {
+      "numerator": 100000000000000000000000000,
+      "denominator": 454609
+    },
+    "us_gal": {
+      "numerator": 125000000000000000000000000000,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 400000000000000000000000000,
+      "denominator": 454609
+    },
+    "us_qt": {
+      "numerator": 500000000000000000000000000000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 800000000000000000000000000,
+      "denominator": 454609
+    },
+    "us_pt": {
+      "numerator": 1000000000000000000000000000000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 16000000000000000000000000000,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 16000000000000000000000000000000,
+      "denominator": 473176473
+    }
+  },
+  "Yl": {
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "yl": {
+      "numerator": 1000000000000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 1000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 1000000000000000000000000000000,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "cl": {
+      "numerator": 100000000000000000000000000,
+      "denominator": 1
+    },
+    "dl": {
+      "numerator": 10000000000000000000000000,
+      "denominator": 1
+    },
+    "dal": {
+      "numerator": 100000000000000000000000,
+      "denominator": 1
+    },
+    "hl": {
+      "numerator": 10000000000000000000000,
+      "denominator": 1
+    },
+    "kl": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "Ml": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "Gl": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "Tl": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "Pl": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "El": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "Zl": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "m3": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "in3": {
+      "numerator": 125000000000000000000000000000000,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 1953125000000000000000000000000,
+      "denominator": 55306341
+    },
+    "gal": {
+      "numerator": 100000000000000000000000000000,
+      "denominator": 454609
+    },
+    "us_gal": {
+      "numerator": 125000000000000000000000000000000,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 400000000000000000000000000000,
+      "denominator": 454609
+    },
+    "us_qt": {
+      "numerator": 500000000000000000000000000000000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 800000000000000000000000000000,
+      "denominator": 454609
+    },
+    "us_pt": {
+      "numerator": 1000000000000000000000000000000000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 16000000000000000000000000000000,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 16000000000000000000000000000000000,
+      "denominator": 473176473
+    }
+  },
+  "m3": {
+    "m3": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "yl": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "cl": {
+      "numerator": 100000,
+      "denominator": 1
+    },
+    "dl": {
+      "numerator": 10000,
+      "denominator": 1
+    },
+    "dal": {
+      "numerator": 100,
+      "denominator": 1
+    },
+    "hl": {
+      "numerator": 10,
+      "denominator": 1
+    },
+    "kl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "in3": {
+      "numerator": 125000000000,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 1953125000,
+      "denominator": 55306341
+    },
+    "gal": {
+      "numerator": 100000000,
+      "denominator": 454609
+    },
+    "us_gal": {
+      "numerator": 125000000000,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 400000000,
+      "denominator": 454609
+    },
+    "us_qt": {
+      "numerator": 500000000000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 800000000,
+      "denominator": 454609
+    },
+    "us_pt": {
+      "numerator": 1000000000000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 16000000000,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 16000000000000,
+      "denominator": 473176473
+    }
+  },
+  "in3": {
+    "in3": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 2048383,
+      "denominator": 125000000
+    },
+    "yl": {
+      "numerator": 16387064000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 16387064000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 16387064000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 16387064000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 16387064000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 16387064,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 2048383,
+      "denominator": 125
+    },
+    "ml": {
+      "numerator": 2048383,
+      "denominator": 125000
+    },
+    "cl": {
+      "numerator": 2048383,
+      "denominator": 1250000
+    },
+    "dl": {
+      "numerator": 2048383,
+      "denominator": 12500000
+    },
+    "dal": {
+      "numerator": 2048383,
+      "denominator": 1250000000
+    },
+    "hl": {
+      "numerator": 2048383,
+      "denominator": 12500000000
+    },
+    "kl": {
+      "numerator": 2048383,
+      "denominator": 125000000000
+    },
+    "Ml": {
+      "numerator": 2048383,
+      "denominator": 125000000000000
+    },
+    "Gl": {
+      "numerator": 2048383,
+      "denominator": 125000000000000000
+    },
+    "Tl": {
+      "numerator": 2048383,
+      "denominator": 125000000000000000000
+    },
+    "Pl": {
+      "numerator": 2048383,
+      "denominator": 125000000000000000000000
+    },
+    "El": {
+      "numerator": 2048383,
+      "denominator": 125000000000000000000000000
+    },
+    "Zl": {
+      "numerator": 2048383,
+      "denominator": 125000000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 2048383,
+      "denominator": 125000000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 2048383,
+      "denominator": 125000000000
+    },
+    "ft3": {
+      "numerator": 1,
+      "denominator": 1728
+    },
+    "gal": {
+      "numerator": 2048383,
+      "denominator": 568261250
+    },
+    "us_gal": {
+      "numerator": 1,
+      "denominator": 231
+    },
+    "qt": {
+      "numerator": 4096766,
+      "denominator": 284130625
+    },
+    "us_qt": {
+      "numerator": 4,
+      "denominator": 231
+    },
+    "pt": {
+      "numerator": 8193532,
+      "denominator": 284130625
+    },
+    "us_pt": {
+      "numerator": 8,
+      "denominator": 231
+    },
+    "oz": {
+      "numerator": 32774128,
+      "denominator": 56826125
+    },
+    "us_oz": {
+      "numerator": 128,
+      "denominator": 231
+    }
+  },
+  "ft3": {
+    "ft3": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 55306341,
+      "denominator": 1953125
+    },
+    "yl": {
+      "numerator": 28316846592000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 28316846592000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 28316846592000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 28316846592000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 28316846592000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 28316846592,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 3539605824,
+      "denominator": 125
+    },
+    "ml": {
+      "numerator": 442450728,
+      "denominator": 15625
+    },
+    "cl": {
+      "numerator": 221225364,
+      "denominator": 78125
+    },
+    "dl": {
+      "numerator": 110612682,
+      "denominator": 390625
+    },
+    "dal": {
+      "numerator": 55306341,
+      "denominator": 19531250
+    },
+    "hl": {
+      "numerator": 55306341,
+      "denominator": 195312500
+    },
+    "kl": {
+      "numerator": 55306341,
+      "denominator": 1953125000
+    },
+    "Ml": {
+      "numerator": 55306341,
+      "denominator": 1953125000000
+    },
+    "Gl": {
+      "numerator": 55306341,
+      "denominator": 1953125000000000
+    },
+    "Tl": {
+      "numerator": 55306341,
+      "denominator": 1953125000000000000
+    },
+    "Pl": {
+      "numerator": 55306341,
+      "denominator": 1953125000000000000000
+    },
+    "El": {
+      "numerator": 55306341,
+      "denominator": 1953125000000000000000000
+    },
+    "Zl": {
+      "numerator": 55306341,
+      "denominator": 1953125000000000000000000000
+    },
+    "Yl": {
+      "numerator": 55306341,
+      "denominator": 1953125000000000000000000000000
+    },
+    "m3": {
+      "numerator": 55306341,
+      "denominator": 1953125000
+    },
+    "in3": {
+      "numerator": 1728,
+      "denominator": 1
+    },
+    "gal": {
+      "numerator": 1769802912,
+      "denominator": 284130625
+    },
+    "us_gal": {
+      "numerator": 576,
+      "denominator": 77
+    },
+    "qt": {
+      "numerator": 7079211648,
+      "denominator": 284130625
+    },
+    "us_qt": {
+      "numerator": 2304,
+      "denominator": 77
+    },
+    "pt": {
+      "numerator": 14158423296,
+      "denominator": 284130625
+    },
+    "us_pt": {
+      "numerator": 4608,
+      "denominator": 77
+    },
+    "oz": {
+      "numerator": 56633693184,
+      "denominator": 56826125
+    },
+    "us_oz": {
+      "numerator": 73728,
+      "denominator": 77
+    }
+  },
+  "gal": {
+    "gal": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 454609,
+      "denominator": 100000
+    },
+    "yl": {
+      "numerator": 4546090000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 4546090000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 4546090000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 4546090000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 4546090000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 4546090000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 4546090,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 454609,
+      "denominator": 100
+    },
+    "cl": {
+      "numerator": 454609,
+      "denominator": 1000
+    },
+    "dl": {
+      "numerator": 454609,
+      "denominator": 10000
+    },
+    "dal": {
+      "numerator": 454609,
+      "denominator": 1000000
+    },
+    "hl": {
+      "numerator": 454609,
+      "denominator": 10000000
+    },
+    "kl": {
+      "numerator": 454609,
+      "denominator": 100000000
+    },
+    "Ml": {
+      "numerator": 454609,
+      "denominator": 100000000000
+    },
+    "Gl": {
+      "numerator": 454609,
+      "denominator": 100000000000000
+    },
+    "Tl": {
+      "numerator": 454609,
+      "denominator": 100000000000000000
+    },
+    "Pl": {
+      "numerator": 454609,
+      "denominator": 100000000000000000000
+    },
+    "El": {
+      "numerator": 454609,
+      "denominator": 100000000000000000000000
+    },
+    "Zl": {
+      "numerator": 454609,
+      "denominator": 100000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 454609,
+      "denominator": 100000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 454609,
+      "denominator": 100000000
+    },
+    "in3": {
+      "numerator": 568261250,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 284130625,
+      "denominator": 1769802912
+    },
+    "us_gal": {
+      "numerator": 568261250,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 4,
+      "denominator": 1
+    },
+    "us_qt": {
+      "numerator": 2273045000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 8,
+      "denominator": 1
+    },
+    "us_pt": {
+      "numerator": 4546090000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 160,
+      "denominator": 1
+    },
+    "us_oz": {
+      "numerator": 72737440000,
+      "denominator": 473176473
+    }
+  },
+  "us_gal": {
+    "us_gal": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 473176473,
+      "denominator": 125000000
+    },
+    "yl": {
+      "numerator": 3785411784000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 3785411784000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 3785411784000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 3785411784000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 3785411784000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 3785411784,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 473176473,
+      "denominator": 125
+    },
+    "ml": {
+      "numerator": 473176473,
+      "denominator": 125000
+    },
+    "cl": {
+      "numerator": 473176473,
+      "denominator": 1250000
+    },
+    "dl": {
+      "numerator": 473176473,
+      "denominator": 12500000
+    },
+    "dal": {
+      "numerator": 473176473,
+      "denominator": 1250000000
+    },
+    "hl": {
+      "numerator": 473176473,
+      "denominator": 12500000000
+    },
+    "kl": {
+      "numerator": 473176473,
+      "denominator": 125000000000
+    },
+    "Ml": {
+      "numerator": 473176473,
+      "denominator": 125000000000000
+    },
+    "Gl": {
+      "numerator": 473176473,
+      "denominator": 125000000000000000
+    },
+    "Tl": {
+      "numerator": 473176473,
+      "denominator": 125000000000000000000
+    },
+    "Pl": {
+      "numerator": 473176473,
+      "denominator": 125000000000000000000000
+    },
+    "El": {
+      "numerator": 473176473,
+      "denominator": 125000000000000000000000000
+    },
+    "Zl": {
+      "numerator": 473176473,
+      "denominator": 125000000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 473176473,
+      "denominator": 125000000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 473176473,
+      "denominator": 125000000000
+    },
+    "in3": {
+      "numerator": 231,
+      "denominator": 1
+    },
+    "ft3": {
+      "numerator": 77,
+      "denominator": 576
+    },
+    "gal": {
+      "numerator": 473176473,
+      "denominator": 568261250
+    },
+    "qt": {
+      "numerator": 946352946,
+      "denominator": 284130625
+    },
+    "us_qt": {
+      "numerator": 4,
+      "denominator": 1
+    },
+    "pt": {
+      "numerator": 1892705892,
+      "denominator": 284130625
+    },
+    "us_pt": {
+      "numerator": 8,
+      "denominator": 1
+    },
+    "oz": {
+      "numerator": 7570823568,
+      "denominator": 56826125
+    },
+    "us_oz": {
+      "numerator": 128,
+      "denominator": 1
+    }
+  },
+  "qt": {
+    "qt": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 454609,
+      "denominator": 400000
+    },
+    "yl": {
+      "numerator": 1136522500000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1136522500000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1136522500000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1136522500000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1136522500000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 1136522500,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 2273045,
+      "denominator": 2
+    },
+    "ml": {
+      "numerator": 454609,
+      "denominator": 400
+    },
+    "cl": {
+      "numerator": 454609,
+      "denominator": 4000
+    },
+    "dl": {
+      "numerator": 454609,
+      "denominator": 40000
+    },
+    "dal": {
+      "numerator": 454609,
+      "denominator": 4000000
+    },
+    "hl": {
+      "numerator": 454609,
+      "denominator": 40000000
+    },
+    "kl": {
+      "numerator": 454609,
+      "denominator": 400000000
+    },
+    "Ml": {
+      "numerator": 454609,
+      "denominator": 400000000000
+    },
+    "Gl": {
+      "numerator": 454609,
+      "denominator": 400000000000000
+    },
+    "Tl": {
+      "numerator": 454609,
+      "denominator": 400000000000000000
+    },
+    "Pl": {
+      "numerator": 454609,
+      "denominator": 400000000000000000000
+    },
+    "El": {
+      "numerator": 454609,
+      "denominator": 400000000000000000000000
+    },
+    "Zl": {
+      "numerator": 454609,
+      "denominator": 400000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 454609,
+      "denominator": 400000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 454609,
+      "denominator": 400000000
+    },
+    "in3": {
+      "numerator": 284130625,
+      "denominator": 4096766
+    },
+    "ft3": {
+      "numerator": 284130625,
+      "denominator": 7079211648
+    },
+    "gal": {
+      "numerator": 1,
+      "denominator": 4
+    },
+    "us_gal": {
+      "numerator": 284130625,
+      "denominator": 946352946
+    },
+    "us_qt": {
+      "numerator": 568261250,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 2,
+      "denominator": 1
+    },
+    "us_pt": {
+      "numerator": 1136522500,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 40,
+      "denominator": 1
+    },
+    "us_oz": {
+      "numerator": 18184360000,
+      "denominator": 473176473
+    }
+  },
+  "us_qt": {
+    "us_qt": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 473176473,
+      "denominator": 500000000
+    },
+    "yl": {
+      "numerator": 946352946000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 946352946000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 946352946000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 946352946000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 946352946000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 946352946,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 473176473,
+      "denominator": 500
+    },
+    "ml": {
+      "numerator": 473176473,
+      "denominator": 500000
+    },
+    "cl": {
+      "numerator": 473176473,
+      "denominator": 5000000
+    },
+    "dl": {
+      "numerator": 473176473,
+      "denominator": 50000000
+    },
+    "dal": {
+      "numerator": 473176473,
+      "denominator": 5000000000
+    },
+    "hl": {
+      "numerator": 473176473,
+      "denominator": 50000000000
+    },
+    "kl": {
+      "numerator": 473176473,
+      "denominator": 500000000000
+    },
+    "Ml": {
+      "numerator": 473176473,
+      "denominator": 500000000000000
+    },
+    "Gl": {
+      "numerator": 473176473,
+      "denominator": 500000000000000000
+    },
+    "Tl": {
+      "numerator": 473176473,
+      "denominator": 500000000000000000000
+    },
+    "Pl": {
+      "numerator": 473176473,
+      "denominator": 500000000000000000000000
+    },
+    "El": {
+      "numerator": 473176473,
+      "denominator": 500000000000000000000000000
+    },
+    "Zl": {
+      "numerator": 473176473,
+      "denominator": 500000000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 473176473,
+      "denominator": 500000000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 473176473,
+      "denominator": 500000000000
+    },
+    "in3": {
+      "numerator": 231,
+      "denominator": 4
+    },
+    "ft3": {
+      "numerator": 77,
+      "denominator": 2304
+    },
+    "gal": {
+      "numerator": 473176473,
+      "denominator": 2273045000
+    },
+    "us_gal": {
+      "numerator": 1,
+      "denominator": 4
+    },
+    "qt": {
+      "numerator": 473176473,
+      "denominator": 568261250
+    },
+    "pt": {
+      "numerator": 473176473,
+      "denominator": 284130625
+    },
+    "us_pt": {
+      "numerator": 2,
+      "denominator": 1
+    },
+    "oz": {
+      "numerator": 1892705892,
+      "denominator": 56826125
+    },
+    "us_oz": {
+      "numerator": 32,
+      "denominator": 1
+    }
+  },
+  "pt": {
+    "pt": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 454609,
+      "denominator": 800000
+    },
+    "yl": {
+      "numerator": 568261250000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 568261250000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 568261250000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 568261250000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 568261250000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 568261250,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 2273045,
+      "denominator": 4
+    },
+    "ml": {
+      "numerator": 454609,
+      "denominator": 800
+    },
+    "cl": {
+      "numerator": 454609,
+      "denominator": 8000
+    },
+    "dl": {
+      "numerator": 454609,
+      "denominator": 80000
+    },
+    "dal": {
+      "numerator": 454609,
+      "denominator": 8000000
+    },
+    "hl": {
+      "numerator": 454609,
+      "denominator": 80000000
+    },
+    "kl": {
+      "numerator": 454609,
+      "denominator": 800000000
+    },
+    "Ml": {
+      "numerator": 454609,
+      "denominator": 800000000000
+    },
+    "Gl": {
+      "numerator": 454609,
+      "denominator": 800000000000000
+    },
+    "Tl": {
+      "numerator": 454609,
+      "denominator": 800000000000000000
+    },
+    "Pl": {
+      "numerator": 454609,
+      "denominator": 800000000000000000000
+    },
+    "El": {
+      "numerator": 454609,
+      "denominator": 800000000000000000000000
+    },
+    "Zl": {
+      "numerator": 454609,
+      "denominator": 800000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 454609,
+      "denominator": 800000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 454609,
+      "denominator": 800000000
+    },
+    "in3": {
+      "numerator": 284130625,
+      "denominator": 8193532
+    },
+    "ft3": {
+      "numerator": 284130625,
+      "denominator": 14158423296
+    },
+    "gal": {
+      "numerator": 1,
+      "denominator": 8
+    },
+    "us_gal": {
+      "numerator": 284130625,
+      "denominator": 1892705892
+    },
+    "qt": {
+      "numerator": 1,
+      "denominator": 2
+    },
+    "us_qt": {
+      "numerator": 284130625,
+      "denominator": 473176473
+    },
+    "us_pt": {
+      "numerator": 568261250,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 20,
+      "denominator": 1
+    },
+    "us_oz": {
+      "numerator": 9092180000,
+      "denominator": 473176473
+    }
+  },
+  "us_pt": {
+    "us_pt": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 473176473,
+      "denominator": 1000000000
+    },
+    "yl": {
+      "numerator": 473176473000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 473176473000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 473176473000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 473176473000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 473176473000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 473176473,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 473176473,
+      "denominator": 1000
+    },
+    "ml": {
+      "numerator": 473176473,
+      "denominator": 1000000
+    },
+    "cl": {
+      "numerator": 473176473,
+      "denominator": 10000000
+    },
+    "dl": {
+      "numerator": 473176473,
+      "denominator": 100000000
+    },
+    "dal": {
+      "numerator": 473176473,
+      "denominator": 10000000000
+    },
+    "hl": {
+      "numerator": 473176473,
+      "denominator": 100000000000
+    },
+    "kl": {
+      "numerator": 473176473,
+      "denominator": 1000000000000
+    },
+    "Ml": {
+      "numerator": 473176473,
+      "denominator": 1000000000000000
+    },
+    "Gl": {
+      "numerator": 473176473,
+      "denominator": 1000000000000000000
+    },
+    "Tl": {
+      "numerator": 473176473,
+      "denominator": 1000000000000000000000
+    },
+    "Pl": {
+      "numerator": 473176473,
+      "denominator": 1000000000000000000000000
+    },
+    "El": {
+      "numerator": 473176473,
+      "denominator": 1000000000000000000000000000
+    },
+    "Zl": {
+      "numerator": 473176473,
+      "denominator": 1000000000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 473176473,
+      "denominator": 1000000000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 473176473,
+      "denominator": 1000000000000
+    },
+    "in3": {
+      "numerator": 231,
+      "denominator": 8
+    },
+    "ft3": {
+      "numerator": 77,
+      "denominator": 4608
+    },
+    "gal": {
+      "numerator": 473176473,
+      "denominator": 4546090000
+    },
+    "us_gal": {
+      "numerator": 1,
+      "denominator": 8
+    },
+    "qt": {
+      "numerator": 473176473,
+      "denominator": 1136522500
+    },
+    "us_qt": {
+      "numerator": 1,
+      "denominator": 2
+    },
+    "pt": {
+      "numerator": 473176473,
+      "denominator": 568261250
+    },
+    "oz": {
+      "numerator": 946352946,
+      "denominator": 56826125
+    },
+    "us_oz": {
+      "numerator": 16,
+      "denominator": 1
+    }
+  },
+  "oz": {
+    "oz": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 454609,
+      "denominator": 16000000
+    },
+    "yl": {
+      "numerator": 28413062500000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 28413062500000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 28413062500000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 28413062500000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 28413062500,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 56826125,
+      "denominator": 2
+    },
+    "μl": {
+      "numerator": 454609,
+      "denominator": 16
+    },
+    "ml": {
+      "numerator": 454609,
+      "denominator": 16000
+    },
+    "cl": {
+      "numerator": 454609,
+      "denominator": 160000
+    },
+    "dl": {
+      "numerator": 454609,
+      "denominator": 1600000
+    },
+    "dal": {
+      "numerator": 454609,
+      "denominator": 160000000
+    },
+    "hl": {
+      "numerator": 454609,
+      "denominator": 1600000000
+    },
+    "kl": {
+      "numerator": 454609,
+      "denominator": 16000000000
+    },
+    "Ml": {
+      "numerator": 454609,
+      "denominator": 16000000000000
+    },
+    "Gl": {
+      "numerator": 454609,
+      "denominator": 16000000000000000
+    },
+    "Tl": {
+      "numerator": 454609,
+      "denominator": 16000000000000000000
+    },
+    "Pl": {
+      "numerator": 454609,
+      "denominator": 16000000000000000000000
+    },
+    "El": {
+      "numerator": 454609,
+      "denominator": 16000000000000000000000000
+    },
+    "Zl": {
+      "numerator": 454609,
+      "denominator": 16000000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 454609,
+      "denominator": 16000000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 454609,
+      "denominator": 16000000000
+    },
+    "in3": {
+      "numerator": 56826125,
+      "denominator": 32774128
+    },
+    "ft3": {
+      "numerator": 56826125,
+      "denominator": 56633693184
+    },
+    "gal": {
+      "numerator": 1,
+      "denominator": 160
+    },
+    "us_gal": {
+      "numerator": 56826125,
+      "denominator": 7570823568
+    },
+    "qt": {
+      "numerator": 1,
+      "denominator": 40
+    },
+    "us_qt": {
+      "numerator": 56826125,
+      "denominator": 1892705892
+    },
+    "pt": {
+      "numerator": 1,
+      "denominator": 20
+    },
+    "us_pt": {
+      "numerator": 56826125,
+      "denominator": 946352946
+    },
+    "us_oz": {
+      "numerator": 454609000,
+      "denominator": 473176473
+    }
+  },
+  "us_oz": {
+    "us_oz": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 473176473,
+      "denominator": 16000000000
+    },
+    "yl": {
+      "numerator": 29573529562500000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 29573529562500000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 29573529562500000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 29573529562500,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 59147059125,
+      "denominator": 2
+    },
+    "nl": {
+      "numerator": 473176473,
+      "denominator": 16
+    },
+    "μl": {
+      "numerator": 473176473,
+      "denominator": 16000
+    },
+    "ml": {
+      "numerator": 473176473,
+      "denominator": 16000000
+    },
+    "cl": {
+      "numerator": 473176473,
+      "denominator": 160000000
+    },
+    "dl": {
+      "numerator": 473176473,
+      "denominator": 1600000000
+    },
+    "dal": {
+      "numerator": 473176473,
+      "denominator": 160000000000
+    },
+    "hl": {
+      "numerator": 473176473,
+      "denominator": 1600000000000
+    },
+    "kl": {
+      "numerator": 473176473,
+      "denominator": 16000000000000
+    },
+    "Ml": {
+      "numerator": 473176473,
+      "denominator": 16000000000000000
+    },
+    "Gl": {
+      "numerator": 473176473,
+      "denominator": 16000000000000000000
+    },
+    "Tl": {
+      "numerator": 473176473,
+      "denominator": 16000000000000000000000
+    },
+    "Pl": {
+      "numerator": 473176473,
+      "denominator": 16000000000000000000000000
+    },
+    "El": {
+      "numerator": 473176473,
+      "denominator": 16000000000000000000000000000
+    },
+    "Zl": {
+      "numerator": 473176473,
+      "denominator": 16000000000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 473176473,
+      "denominator": 16000000000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 473176473,
+      "denominator": 16000000000000
+    },
+    "in3": {
+      "numerator": 231,
+      "denominator": 128
+    },
+    "ft3": {
+      "numerator": 77,
+      "denominator": 73728
+    },
+    "gal": {
+      "numerator": 473176473,
+      "denominator": 72737440000
+    },
+    "us_gal": {
+      "numerator": 1,
+      "denominator": 128
+    },
+    "qt": {
+      "numerator": 473176473,
+      "denominator": 18184360000
+    },
+    "us_qt": {
+      "numerator": 1,
+      "denominator": 32
+    },
+    "pt": {
+      "numerator": 473176473,
+      "denominator": 9092180000
+    },
+    "us_pt": {
+      "numerator": 1,
+      "denominator": 16
+    },
+    "oz": {
+      "numerator": 473176473,
+      "denominator": 454609000
+    }
+  }
+}
