@@ -26,11 +26,22 @@ class Measured::ConversionTableBuilder
   private
 
   def find_conversion(to:, from:)
-    conversion = find_direct_conversion(to: to, from: from) || find_tree_traversal_conversion(to: to, from: from)
+    conversion = find_direct_conversion_cached(to: to, from: from) || find_tree_traversal_conversion(to: to, from: from)
 
     raise Measured::UnitError, "Cannot find conversion path from #{ from } to #{ to }." unless conversion
 
     conversion
+  end
+
+  def find_direct_conversion_cached(to:, from:)
+    @cache ||= {}
+    @cache[to] ||= {}
+
+    if @cache[to].key?(from)
+       @cache[to][from]
+    else
+      @cache[to][from] = find_direct_conversion(to: to, from: from)
+    end
   end
 
   def find_direct_conversion(to:, from:)
@@ -50,7 +61,7 @@ class Measured::ConversionTableBuilder
     units_remaining = units_remaining - [from]
 
     units_remaining.each do |name|
-      conversion = find_direct_conversion(from: from, to: name)
+      conversion = find_direct_conversion_cached(from: from, to: name)
 
       if conversion
         new_amount = amount * conversion
