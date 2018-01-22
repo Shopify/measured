@@ -8,11 +8,14 @@ class Measured::ConversionTableTest < ActiveSupport::TestCase
   end
 
   test "#to_h should return a hash for the simple case" do
+    conversion_table = Measured::ConversionTable.new([Measured::Unit.new(:test)]).to_h
+
     expected = {
-      "test" => {"test" => BigDecimal("1")}
+      "test" => {"test" => Rational(1, 1)}
     }
 
-    assert_equal expected, Measured::ConversionTable.new([Measured::Unit.new(:test)]).to_h
+    assert_equal expected, conversion_table
+    assert_instance_of Rational, conversion_table.values.first.values.first
   end
 
   test "#to_h returns expected nested hashes with BigDecimal conversion factors in a tiny data set" do
@@ -23,19 +26,23 @@ class Measured::ConversionTableTest < ActiveSupport::TestCase
 
     expected = {
       "m" => {
-        "m" => BigDecimal("1"),
-        "cm" => BigDecimal("100"),
+        "m" => Rational(1, 1),
+        "cm" => Rational(100, 1),
       },
       "cm" => {
-        "m" => BigDecimal("0.01"),
-        "cm" => BigDecimal("1"),
+        "m" => Rational(1, 100),
+        "cm" => Rational(1, 1),
       }
     }
 
     assert_equal expected, conversion_table
+
+    conversion_table.values.map(&:values).flatten.each do |value|
+      assert_instance_of Rational, value
+    end
   end
 
-  test "#to_h returns expected nested hashes with BigDecimal conversion factors" do
+  test "#to_h returns expected nested hashes factors" do
     conversion_table = Measured::ConversionTable.new([
       Measured::Unit.new(:m),
       Measured::Unit.new(:cm, value: "0.01 m"),
@@ -44,26 +51,30 @@ class Measured::ConversionTableTest < ActiveSupport::TestCase
 
     expected = {
       "m" => {
-        "m" => BigDecimal("1"),
-        "cm" => BigDecimal("100"),
-        "mm" => BigDecimal("1000"),
+        "m" => Rational(1, 1),
+        "cm" => Rational(100, 1),
+        "mm" => Rational(1000, 1),
       },
       "cm" => {
-        "m" => BigDecimal("0.01"),
-        "cm" => BigDecimal("1"),
-        "mm" => BigDecimal("10"),
+        "m" => Rational(1, 100),
+        "cm" => Rational(1, 1),
+        "mm" => Rational(10, 1),
       },
       "mm" => {
-        "m" => BigDecimal("0.001"),
-        "cm" => BigDecimal("0.1"),
-        "mm" => BigDecimal("1"),
+        "m" => Rational(1, 1000),
+        "cm" => Rational(1, 10),
+        "mm" => Rational(1, 1),
       }
     }
 
     assert_equal expected, conversion_table
+
+    conversion_table.values.map(&:values).flatten.each do |value|
+      assert_instance_of Rational, value
+    end
   end
 
-  test "#to_h returns expected nested hashes with BigDecimal conversion factors in an indrect path" do
+  test "#to_h returns expected nested hashes in an indrect path" do
     conversion_table = Measured::ConversionTable.new([
       Measured::Unit.new(:mm),
       Measured::Unit.new(:cm, value: "10 mm"),
@@ -73,31 +84,35 @@ class Measured::ConversionTableTest < ActiveSupport::TestCase
 
     expected = {
       "m" => {
-        "m" => BigDecimal("1"),
-        "dm" => BigDecimal("10"),
-        "cm" => BigDecimal("100"),
-        "mm" => BigDecimal("1000"),
+        "m" => Rational(1, 1),
+        "dm" => Rational(10, 1),
+        "cm" => Rational(100, 1),
+        "mm" => Rational(1000, 1),
       },
       "cm" => {
-        "m" => BigDecimal("0.01"),
-        "dm" => BigDecimal("0.1"),
-        "cm" => BigDecimal("1"),
-        "mm" => BigDecimal("10"),
+        "m" => Rational(1, 100),
+        "dm" => Rational(1, 10),
+        "cm" => Rational(1, 1),
+        "mm" => Rational(10, 1),
       },
       "dm" => {
-        "m" => BigDecimal("0.1"),
-        "cm" => BigDecimal("10"),
-        "dm" => BigDecimal("1"),
-        "mm" => BigDecimal("100"),
+        "m" => Rational(1, 10),
+        "cm" => Rational(10, 1),
+        "dm" => Rational(1, 1),
+        "mm" => Rational(100, 1),
       },
       "mm" => {
-        "m" => BigDecimal("0.001"),
-        "dm" => BigDecimal("0.01"),
-        "cm" => BigDecimal("0.1"),
-        "mm" => BigDecimal("1"),
+        "m" => Rational(1, 1000),
+        "dm" => Rational(1, 100),
+        "cm" => Rational(1, 10),
+        "mm" => Rational(1, 1),
       }
     }
 
     assert_equal expected, conversion_table
+
+    conversion_table.values.map(&:values).flatten.each do |value|
+      assert_instance_of Rational, value
+    end
   end
 end
