@@ -54,7 +54,7 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
     end
 
     prefixes = Measured::UnitSystemBuilder::SI_PREFIXES.map { |short, _, _| "#{short}ft" }
-    prefixes += %w(in ft) 
+    prefixes += %w(in ft)
     assert_equal prefixes.sort, measurable.unit_names
   end
 
@@ -108,5 +108,25 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
 
     assert_equal (2240), measurable.unit_system.unit_for!(:long_ton).conversion_amount
     assert_equal "lb", measurable.unit_system.unit_for!(:long_ton).conversion_unit
+  end
+
+  test "#cache sets no cache by default" do
+    measurable = Measured.build do
+      unit :m
+      unit :km, value: "1000 m"
+    end
+
+    refute_predicate measurable.unit_system, :cached?
+  end
+
+  test "#cache sets the class and args" do
+    measurable = Measured.build do
+      unit :m
+      unit :km, value: "1000 m"
+
+      cache AlwaysTrueCache
+    end
+
+    assert_predicate measurable.unit_system, :cached?
   end
 end

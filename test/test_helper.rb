@@ -8,10 +8,11 @@ ActiveSupport.test_order = :random
 
 Minitest::Reporters.use! [Minitest::Reporters::ProgressReporter.new(color: true)]
 
+require "support/subclasses"
 require "support/fake_system"
+require "support/always_true_cache"
 
 class ActiveSupport::TestCase
-
   protected
 
   def assert_close_bigdecimal exp, act, delta = BigDecimal('0.000001')

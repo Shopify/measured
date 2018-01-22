@@ -115,4 +115,22 @@ class Measured::ConversionTableBuilderTest < ActiveSupport::TestCase
       assert_instance_of Rational, value
     end
   end
+
+  test "#cached? returns true if there's a cache" do
+    builder = Measured::ConversionTableBuilder.new([Measured::Unit.new(:test)], cache: { class: AlwaysTrueCache })
+    assert_predicate builder, :cached?
+  end
+
+  test "#cached? returns false if there is not a cache" do
+    builder = Measured::ConversionTableBuilder.new([Measured::Unit.new(:test)])
+    refute_predicate builder, :cached?
+  end
+
+  test "#write_cache pushes the generated table into the cache and writes it" do
+    builder = Measured::ConversionTableBuilder.new([Measured::Unit.new(:test)], cache: { class: AlwaysTrueCache })
+    AlwaysTrueCache.any_instance.expects(:exist?).returns(false)
+    table = builder.to_h
+    AlwaysTrueCache.any_instance.expects(:write).with(table).returns(123)
+    assert_equal 123, builder.update_cache
+  end
 end
