@@ -1,3 +1,4 @@
+require "forwardable"
 require "measured/version"
 require "active_support/all"
 require "bigdecimal"
