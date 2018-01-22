@@ -8,9 +8,12 @@ task default: :test
 
 desc 'Run the test stuite'
 Rake::TestTask.new do |t|
+  files = ARGV[1..-1]
+  files = "test/**/*_test.rb" if !files || files.length == 0
+
   t.libs << "test"
   t.libs << "lib/**/*"
-  t.test_files = FileList['test/**/*_test.rb']
+  t.test_files = FileList[files]
   t.verbose = true
 end
 
