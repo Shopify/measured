@@ -1,14 +1,28 @@
 class Measured::ConversionTableBuilder
   attr_reader :units
 
-  def initialize(units)
+  def initialize(units, cache_file: nil)
     @units = units
+    @cache = Measured::ConversionTableCache.new(cache_file)
   end
 
   def to_h
-    table = {}
+    return @cache.read if @cache.exists?
+    generate_table
+  end
 
-    units.map{|u| u.name}.each do |to_unit|
+  def update_cache
+    @cache.write(generate_table)
+  end
+
+  def cached?
+    @cache.exists?
+  end
+
+  private
+
+  def generate_table
+    units.map{|u| u.name}.each_with_object({}) do |to_unit, table|
       to_table = {to_unit => Rational(1, 1)}
 
       table.each do |from_unit, from_table|
@@ -19,11 +33,7 @@ class Measured::ConversionTableBuilder
 
       table[to_unit] = to_table
     end
-
-    table
   end
-
-  private
 
   def find_conversion(to:, from:)
     conversion = find_direct_conversion_cached(to: to, from: from) || find_tree_traversal_conversion(to: to, from: from)

@@ -2,6 +2,7 @@ require "forwardable"
 require "measured/version"
 require "active_support/all"
 require "bigdecimal"
+require "json"
 
 module Measured
   class UnitError < StandardError ; end
@@ -44,4 +45,5 @@ require "measured/unit"
 require "measured/unit_system"
 require "measured/unit_system_builder"
 require "measured/conversion_table_builder"
+require "measured/conversion_table_cache"
 require "measured/measurable"

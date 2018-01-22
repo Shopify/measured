@@ -99,4 +99,12 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   test "#convert handles the same unit" do
     assert_equal 2, @conversion.convert(2, from: @unit_in, to: @unit_in)
   end
+
+  test "#update_cache delegates to the builder" do
+    skip
+  end
+
+  test "#cached? delegates to the builder" do
+    skip
+  end
 end

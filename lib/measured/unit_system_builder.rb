@@ -1,6 +1,7 @@
 class Measured::UnitSystemBuilder
   def initialize
     @units = []
+    @cache_file = nil
   end
 
   def unit(unit_name, aliases: [], value: nil)
@@ -13,8 +14,13 @@ class Measured::UnitSystemBuilder
     nil
   end
 
+  def cache_file(filename)
+    @cache_file = filename
+    nil
+  end
+
   def build
-    Measured::UnitSystem.new(@units)
+    Measured::UnitSystem.new(@units, cache_file: @cache_file)
   end
 
   private

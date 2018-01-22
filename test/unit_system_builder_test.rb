@@ -54,7 +54,7 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
     end
 
     prefixes = Measured::UnitSystemBuilder::SI_PREFIXES.map { |short, _, _| "#{short}ft" }
-    prefixes += %w(in ft) 
+    prefixes += %w(in ft)
     assert_equal prefixes.sort, measurable.unit_names
   end
 
@@ -108,5 +108,13 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
 
     assert_equal (2240), measurable.unit_system.unit_for!(:long_ton).conversion_amount
     assert_equal "lb", measurable.unit_system.unit_for!(:long_ton).conversion_unit
+  end
+
+  test "#cache_file is nil by default" do
+    skip
+  end
+
+  test "#cache_file sets the filename" do
+    skip
   end
 end

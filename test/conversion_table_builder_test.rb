@@ -115,4 +115,17 @@ class Measured::ConversionTableBuilderTest < ActiveSupport::TestCase
       assert_instance_of Rational, value
     end
   end
+
+  test "#cached? returns true if there's a cache" do
+    skip
+  end
+
+  test "#cached? returns false if there is not a cache" do
+    skip
+  end
+
+  test "#write_cache pushes the generated table into the cache and writes it" do
+    skip
+    # TODO: Check return value is not nil
+  end
 end
