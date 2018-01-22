@@ -1,14 +1,14 @@
 require "test_helper"
 
-class Measured::ConversionTableTest < ActiveSupport::TestCase
+class Measured::ConversionTableBuilderTest < ActiveSupport::TestCase
   test "#initialize creates a new object with the units" do
     units = [Measured::Unit.new(:test)]
 
-    assert_equal units, Measured::ConversionTable.new(units).units
+    assert_equal units, Measured::ConversionTableBuilder.new(units).units
   end
 
   test "#to_h should return a hash for the simple case" do
-    conversion_table = Measured::ConversionTable.new([Measured::Unit.new(:test)]).to_h
+    conversion_table = Measured::ConversionTableBuilder.new([Measured::Unit.new(:test)]).to_h
 
     expected = {
       "test" => {"test" => Rational(1, 1)}
@@ -19,7 +19,7 @@ class Measured::ConversionTableTest < ActiveSupport::TestCase
   end
 
   test "#to_h returns expected nested hashes with BigDecimal conversion factors in a tiny data set" do
-    conversion_table = Measured::ConversionTable.new([
+    conversion_table = Measured::ConversionTableBuilder.new([
       Measured::Unit.new(:m),
       Measured::Unit.new(:cm, value: "0.01 m"),
     ]).to_h
@@ -43,7 +43,7 @@ class Measured::ConversionTableTest < ActiveSupport::TestCase
   end
 
   test "#to_h returns expected nested hashes factors" do
-    conversion_table = Measured::ConversionTable.new([
+    conversion_table = Measured::ConversionTableBuilder.new([
       Measured::Unit.new(:m),
       Measured::Unit.new(:cm, value: "0.01 m"),
       Measured::Unit.new(:mm, value: "0.001 m"),
@@ -75,7 +75,7 @@ class Measured::ConversionTableTest < ActiveSupport::TestCase
   end
 
   test "#to_h returns expected nested hashes in an indrect path" do
-    conversion_table = Measured::ConversionTable.new([
+    conversion_table = Measured::ConversionTableBuilder.new([
       Measured::Unit.new(:mm),
       Measured::Unit.new(:cm, value: "10 mm"),
       Measured::Unit.new(:dm, value: "10 cm"),
