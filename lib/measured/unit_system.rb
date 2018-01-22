@@ -43,7 +43,7 @@ class Measured::UnitSystem
   protected
 
   def conversion_table
-    @conversion_table ||= Measured::ConversionTable.build(@units)
+    @conversion_table ||= Measured::ConversionTable.new(@units).to_h
   end
 
   def unit_name_to_unit
