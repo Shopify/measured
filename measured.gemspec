@@ -6,8 +6,8 @@ require 'measured/version'
 Gem::Specification.new do |spec|
   spec.name          = "measured"
   spec.version       = Measured::VERSION
-  spec.authors       = ["Kevin McPhillips"]
-  spec.email         = ["github@kevinmcphillips.ca"]
+  spec.authors       = ["Kevin McPhillips", "Jason Gedge", "Javier Honduvilla Coto"]
+  spec.email         = ["gems@shopify.com"]
   spec.summary       = %q{Encapsulate measurements with their units in Ruby}
   spec.description   = %q{Wrapper objects which encapsulate measurments and their associated units in Ruby.}
   spec.homepage      = "https://github.com/Shopify/measured"
