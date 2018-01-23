@@ -14,5 +14,5 @@ commands:
       if [[ $# -eq 0 ]]; then
         bundle exec rake test
       else
-        bundle exec ruby -Itest "$@"
+        bundle exec rake test "$@"
       fi
