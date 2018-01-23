@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Kevin McPhillips"]
   spec.email         = ["github@kevinmcphillips.ca"]
   spec.summary       = %q{Encapsulate measurements with their units in Ruby}
-  spec.description   = %q{Wrapper objects which encapsulate measurments and their associated units in Ruby.}
+  spec.description   = %q{Wrapper objects which encapsulate measurements and their associated units in Ruby.}
   spec.homepage      = "https://github.com/Shopify/measured"
   spec.license       = "MIT"
 
