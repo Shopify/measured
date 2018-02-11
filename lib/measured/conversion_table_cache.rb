@@ -29,6 +29,9 @@ class Measured::ConversionTableCache
 
   private
 
+  # JSON dump and load of Rational objects exists, but it changes the behaviour of JSON globally if required.
+  # Instead, the same marhalling technique is rewritten here to prevent changing this behaviour project wide.
+  # https://github.com/ruby/ruby/blob/trunk/ext/json/lib/json/add/rational.rb
   def encode(table)
     encoded = table.dup
 
