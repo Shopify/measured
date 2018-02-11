@@ -1,10 +1,10 @@
 module Measured::Cache
   class Json
-    attr_reader :filename
+    attr_reader :filename, :path
 
     def initialize(filename)
       @filename = filename
-      @path = Pathname.new(File.join(File.dirname(__FILE__), "../../../cache", @filename)).cleanpath
+      @path = Pathname.new(File.join(File.dirname(__FILE__), "../../../cache", @filename)).cleanpath.to_s
     end
 
     def exist?

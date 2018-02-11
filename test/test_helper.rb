@@ -3,6 +3,7 @@ require "measured"
 require "minitest/reporters"
 require "minitest/autorun"
 require "mocha/setup"
+require "memfs"
 
 ActiveSupport.test_order = :random
 
