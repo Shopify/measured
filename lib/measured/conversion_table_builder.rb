@@ -3,11 +3,8 @@ class Measured::ConversionTableBuilder
 
   def initialize(units, cache: nil)
     @units = units
-    @cache = if cache
-      cache[:class].new(cache[:args])
-    else
-      Measured::Cache::Null.new
-    end
+    cache ||= { class: Measured::Cache::Null }
+    @cache = cache[:class].new(*cache[:args])
   end
 
   def to_h

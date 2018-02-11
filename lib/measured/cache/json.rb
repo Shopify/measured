@@ -2,10 +2,9 @@ module Measured::Cache
   class Json
     attr_reader :filename
 
-    def initialize(args)
-      @filename = args.first
+    def initialize(filename)
+      @filename = filename
       @path = File.join(File.dirname(__FILE__), "../../../cache", @filename) if @filename
-
     end
 
     def exist?

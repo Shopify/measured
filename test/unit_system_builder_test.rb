@@ -1,6 +1,20 @@
 require "test_helper"
 
 class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
+  class AlwaysTrueCache
+    def exist?
+      true
+    end
+
+    def read
+      {}
+    end
+
+    def write(*)
+      nil
+    end
+  end
+
   test "#unit adds a new unit" do
     measurable = Measured.build do
       unit :m
@@ -110,11 +124,23 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
     assert_equal "lb", measurable.unit_system.unit_for!(:long_ton).conversion_unit
   end
 
-  test "#cache_file is nil by default" do
-    skip
+  test "#cache is nil by default" do
+    measurable = Measured.build do
+      unit :m
+      unit :km, value: "1000 m"
+    end
+
+    refute_predicate measurable.unit_system, :cached?
   end
 
-  test "#cache_file sets the filename" do
-    skip
+  test "#cache sets the class and args" do
+    measurable = Measured.build do
+      unit :m
+      unit :km, value: "1000 m"
+
+      cache AlwaysTrueCache
+    end
+
+    assert_predicate measurable.unit_system, :cached?
   end
 end
