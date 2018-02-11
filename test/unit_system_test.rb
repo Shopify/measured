@@ -101,7 +101,8 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   end
 
   test "#update_cache delegates to the builder" do
-    skip
+    Measured::ConversionTableBuilder.any_instance.expects(:update_cache)
+    @conversion.update_cache
   end
 
   test "#cached? delegates to the builder and is false" do

@@ -127,7 +127,10 @@ class Measured::ConversionTableBuilderTest < ActiveSupport::TestCase
   end
 
   test "#write_cache pushes the generated table into the cache and writes it" do
-    skip
-    # TODO: Check return value is not nil
+    builder = Measured::ConversionTableBuilder.new([Measured::Unit.new(:test)], cache: { class: AlwaysTrueCache })
+    AlwaysTrueCache.any_instance.expects(:exist?).returns(false)
+    table = builder.to_h
+    AlwaysTrueCache.any_instance.expects(:write).with(table).returns(123)
+    assert_equal 123, builder.update_cache
   end
 end
