@@ -4,24 +4,19 @@ module Measured::Cache
 
     def initialize(filename)
       @filename = filename
-      @path = File.join(File.dirname(__FILE__), "../../../cache", @filename) if @filename
+      @path = Pathname.new(File.join(File.dirname(__FILE__), "../../../cache", @filename)).cleanpath
     end
 
     def exist?
-      return false unless filename
-
       File.exist?(@path)
     end
 
     def read
       return nil unless exist?
-
       decode(JSON.load(File.read(@path)))
     end
 
     def write(table)
-      return nil unless @path
-
       File.open(@path, "w") do |f|
         f.write("// Do not modify this file directly. Regenerate it with 'rake cache:write'.\n")
         f.write(encode(table).to_json)
