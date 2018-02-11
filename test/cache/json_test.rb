@@ -14,30 +14,24 @@ class Measured::Cache::JsonTest < ActiveSupport::TestCase
   end
 
   test "#exist? returns false if the file does not exist" do
+    File.expects(:exist?).with(@cache.path).returns(false)
     refute_predicate @cache, :exist?
   end
 
   test "#exist? returns true if the file exists" do
-    MemFs.activate do
-      MemFs.touch(@cache.path)
-      assert_predicate @cache, :exist?
-    end
+    File.expects(:exist?).with(@cache.path).returns(true)
+    assert_predicate @cache, :exist?
   end
 
   test "#read returns nil if the file does not exist" do
-    MemFs.activate do
-      assert_nil @cache.read
-    end
+    File.expects(:exist?).with(@cache.path).returns(false)
+    assert_nil @cache.read
   end
 
   test "#read loads the file if it exists" do
-    MemFs.activate do
-      MemFs.touch(@cache.path)
-      File.open(@cache.path, "w") do |f|
-        f.write(@table_json)
-      end
-      assert_equal @table_hash, @cache.read
-    end
+    File.expects(:exist?).with(@cache.path).returns(true)
+    File.expects(:read).with(@cache.path).returns(@table_json)
+    assert_equal @table_hash, @cache.read
   end
 
   test "#write raises not implemented" do

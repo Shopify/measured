@@ -12,14 +12,11 @@ class Measured::Cache::JsonWriterTest < ActiveSupport::TestCase
     @table_json = { "a" => { "b" => { "numerator" => 2, "denominator" => 3 } } }.to_json
     @table_hash = { "a" => { "b" => Rational(2, 3) } }
 
-    # MemFs.activate do
-    #   MemFs.touch(@cache.path)
-    #   result = @cache.write(@table_hash)
-    #   refute_nil result
-    #   assert result > 0
-    #   contents = File.open(@cache.path, "r") { |f| f.read }
-    #   assert_match @table_json, contents
-    #   assert_match "Do not modify this file", contents
-    # end
+    f = stub
+    f.expects(:write).with("// Do not modify this file directly. Regenerate it with 'rake cache:write'.\n")
+    f.expects(:write).with(@table_json)
+
+    File.expects(:open).with(@cache.path, "w").returns(123).yields(f)
+    assert_equal 123, @cache.write(@table_hash)
   end
 end

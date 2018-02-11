@@ -4,7 +4,7 @@ module Measured::Cache
 
     def initialize(filename)
       @filename = filename
-      @path = Pathname.new(File.join(File.dirname(__FILE__), "../../../cache", @filename)).cleanpath.to_s
+      @path = Pathname.new(File.join(File.dirname(__FILE__), "../../../cache", @filename)).cleanpath
     end
 
     def exist?
