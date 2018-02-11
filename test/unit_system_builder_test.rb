@@ -1,20 +1,6 @@
 require "test_helper"
 
 class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
-  class AlwaysTrueCache
-    def exist?
-      true
-    end
-
-    def read
-      {}
-    end
-
-    def write(*)
-      nil
-    end
-  end
-
   test "#unit adds a new unit" do
     measurable = Measured.build do
       unit :m

@@ -9,6 +9,7 @@ ActiveSupport.test_order = :random
 Minitest::Reporters.use! [Minitest::Reporters::ProgressReporter.new(color: true)]
 
 require "support/fake_system"
+require "support/always_true_cache"
 
 class ActiveSupport::TestCase
 

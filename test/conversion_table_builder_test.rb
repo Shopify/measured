@@ -117,11 +117,13 @@ class Measured::ConversionTableBuilderTest < ActiveSupport::TestCase
   end
 
   test "#cached? returns true if there's a cache" do
-    skip
+    builder = Measured::ConversionTableBuilder.new([Measured::Unit.new(:test)], cache: { class: AlwaysTrueCache })
+    assert_predicate builder, :cached?
   end
 
   test "#cached? returns false if there is not a cache" do
-    skip
+    builder = Measured::ConversionTableBuilder.new([Measured::Unit.new(:test)])
+    refute_predicate builder, :cached?
   end
 
   test "#write_cache pushes the generated table into the cache and writes it" do

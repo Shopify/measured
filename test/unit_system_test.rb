@@ -104,7 +104,12 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
     skip
   end
 
-  test "#cached? delegates to the builder" do
-    skip
+  test "#cached? delegates to the builder and is false" do
+    refute_predicate @conversion, :cached?
+  end
+
+  test "#cached? delegates to the builder and is true" do
+    conversion = Measured::UnitSystem.new([@unit_m, @unit_in, @unit_ft], cache: { class: AlwaysTrueCache })
+    assert_predicate conversion, :cached?
   end
 end
