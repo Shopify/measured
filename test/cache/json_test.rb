@@ -40,15 +40,9 @@ class Measured::Cache::JsonTest < ActiveSupport::TestCase
     end
   end
 
-  test "#write writes the file" do
-    MemFs.activate do
-      MemFs.touch(@cache.path)
-      result = @cache.write(@table_hash)
-      refute_nil result
-      assert result > 0
-      contents = File.open(@cache.path, "r") { |f| f.read }
-      assert_match @table_json, contents
-      assert_match "Do not modify this file", contents
+  test "#write raises not implemented" do
+    assert_raises(ArgumentError) do
+      @cache.write({})
     end
   end
 end

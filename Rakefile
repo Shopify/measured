@@ -29,6 +29,10 @@ end
 
 namespace :cache do
   task write: :environment do
+    class Measured::Cache::Json
+      prepend Measured::Cache::JsonWriter
+    end
+
     puts "Updating cache files:"
 
     Measured::Measurable.subclasses.each do |measurable|
