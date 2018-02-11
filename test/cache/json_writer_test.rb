@@ -1,17 +1,17 @@
 require "test_helper"
 
 class Measured::Cache::JsonWriterTest < ActiveSupport::TestCase
-  include ActiveSupport::Testing::Isolation
+  class JsonTestWithWriter < Measured::Cache::Json
+    prepend Measured::Cache::JsonWriter
+  end
 
-  test "#write writes the file" do
-    class Measured::Cache::Json
-      prepend Measured::Cache::JsonWriter
-    end
-
-    @cache = Measured::Cache::Json.new("test.json")
+  setup do
+    @cache = JsonTestWithWriter.new("test.json")
     @table_json = { "a" => { "b" => { "numerator" => 2, "denominator" => 3 } } }.to_json
     @table_hash = { "a" => { "b" => Rational(2, 3) } }
+  end
 
+  test "#write writes the file" do
     f = stub
     f.expects(:write).with("// Do not modify this file directly. Regenerate it with 'rake cache:write'.\n")
     f.expects(:write).with(@table_json)
