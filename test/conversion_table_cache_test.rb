@@ -5,15 +5,15 @@ class Measured::ConversionTableCacheTest < ActiveSupport::TestCase
     skip
   end
 
-  test "#exists? returns fales if no filename" do
+  test "#exist? returns fales if no filename" do
     skip
   end
 
-  test "#exists? returns false if the file does not exist" do
+  test "#exist? returns false if the file does not exist" do
     skip
   end
 
-  test "#exists? returns true if the file not exists" do
+  test "#exist? returns true if the file not exists" do
     skip
   end
 

@@ -7,7 +7,7 @@ class Measured::ConversionTableBuilder
   end
 
   def to_h
-    return @cache.read if @cache.exists?
+    return @cache.read if @cache.exist?
     generate_table
   end
 
@@ -16,7 +16,7 @@ class Measured::ConversionTableBuilder
   end
 
   def cached?
-    @cache.exists?
+    @cache.exist?
   end
 
   private

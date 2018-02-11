@@ -6,14 +6,14 @@ class Measured::ConversionTableCache
     @path = File.join(File.dirname(__FILE__), "../../cache", @filename) if @filename
   end
 
-  def exists?
+  def exist?
     return false unless filename
 
     File.exist?(@path)
   end
 
   def read
-    return nil unless exists?
+    return nil unless exist?
 
     decode(JSON.load(File.read(@path)))
   end
