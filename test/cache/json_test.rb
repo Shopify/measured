@@ -1,6 +1,6 @@
 require "test_helper"
 
-class Measured::ConversionTableCacheTest < ActiveSupport::TestCase
+class Measured::Cache::JsonTest < ActiveSupport::TestCase
   test "#initialize sets the filename" do
     skip
   end

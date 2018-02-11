@@ -1,9 +1,13 @@
 class Measured::ConversionTableBuilder
   attr_reader :units
 
-  def initialize(units, cache_file: nil)
+  def initialize(units, cache: nil)
     @units = units
-    @cache = Measured::ConversionTableCache.new(cache_file)
+    @cache = if cache
+      cache[:class].new(cache[:args])
+    else
+      Measured::Cache::Null.new
+    end
   end
 
   def to_h

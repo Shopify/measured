@@ -1,9 +1,9 @@
 class Measured::UnitSystem
   attr_reader :units
 
-  def initialize(units, cache_file: nil)
+  def initialize(units, cache: nil)
     @units = units.map { |unit| unit.with_unit_system(self) }
-    @conversion_table_builder = Measured::ConversionTableBuilder.new(@units, cache_file: cache_file)
+    @conversion_table_builder = Measured::ConversionTableBuilder.new(@units, cache: cache)
   end
 
   def unit_names_with_aliases

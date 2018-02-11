@@ -6,5 +6,5 @@ Measured::Length = Measured.build do
   unit :yd, value: "3 ft", aliases: [:yard, :yards]
   unit :mi, value: "5280 ft", aliases: [:mile, :miles]
 
-  cache_file "length.json"
+  cache Measured::Cache::Json, "length.json"
 end
