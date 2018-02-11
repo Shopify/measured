@@ -34,13 +34,13 @@ class Measured::ConversionTableBuilder
   end
 
   def find_direct_conversion_cached(to:, from:)
-    @cache ||= {}
-    @cache[to] ||= {}
+    @direct_conversion_cache ||= {}
+    @direct_conversion_cache[to] ||= {}
 
-    if @cache[to].key?(from)
-       @cache[to][from]
+    if @direct_conversion_cache[to].key?(from)
+       @direct_conversion_cache[to][from]
     else
-      @cache[to][from] = find_direct_conversion(to: to, from: from)
+      @direct_conversion_cache[to][from] = find_direct_conversion(to: to, from: from)
     end
   end
 
