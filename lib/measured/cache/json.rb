@@ -29,31 +29,23 @@ module Measured::Cache
     # Instead, the same marhalling technique is rewritten here to prevent changing this behaviour project wide.
     # https://github.com/ruby/ruby/blob/trunk/ext/json/lib/json/add/rational.rb
     def encode(table)
-      encoded = table.dup
-
-      encoded.each do |k1, v1|
+      table.each_with_object(table.dup) do |(k1, v1), accu|
         v1.each do |k2, v2|
           if v2.is_a?(Rational)
-            encoded[k1][k2] = { "numerator" => v2.numerator, "denominator" => v2.denominator }
+            accu[k1][k2] = { "numerator" => v2.numerator, "denominator" => v2.denominator }
           end
         end
       end
-
-      encoded
     end
 
     def decode(table)
-      decoded = table.dup
-
-      decoded.each do |k1, v1|
+      table.each_with_object(table.dup) do |(k1, v1), accu|
         v1.each do |k2, v2|
           if v2.is_a?(Hash)
-            decoded[k1][k2] = Rational(v2["numerator"], v2["denominator"])
+            accu[k1][k2] = Rational(v2["numerator"], v2["denominator"])
           end
         end
       end
-
-      decoded
     end
   end
 end
