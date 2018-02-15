@@ -1,9 +1,9 @@
 class Measured::UnitSystem
   attr_reader :units
 
-  def initialize(units)
+  def initialize(units, cache: nil)
     @units = units.map { |unit| unit.with_unit_system(self) }
-    @conversion_table_builder = Measured::ConversionTableBuilder.new(@units)
+    @conversion_table_builder = Measured::ConversionTableBuilder.new(@units, cache: cache)
   end
 
   def unit_names_with_aliases
@@ -39,6 +39,14 @@ class Measured::UnitSystem
     raise Measured::UnitError, "Cannot find conversion entry from #{from} to #{to}" unless conversion
 
     value.to_r * conversion
+  end
+
+  def update_cache
+    @conversion_table_builder.update_cache
+  end
+
+  def cached?
+    @conversion_table_builder.cached?
   end
 
   protected

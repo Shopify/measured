@@ -22,3 +22,21 @@ task tag: :build do
   system "git tag -a v#{ Measured::VERSION } -m 'Tagging #{ Measured::VERSION }'"
   system "git push --tags"
 end
+
+task :environment do
+  require 'measured'
+end
+
+namespace :cache do
+  task write: :environment do
+    class Measured::Cache::Json
+      prepend Measured::Cache::JsonWriter
+    end
+
+    puts "Updating cache files:"
+
+    Measured::Measurable.subclasses.each do |measurable|
+      puts "	#{measurable} - #{measurable.unit_system.update_cache ? 'ok' : 'skipped'}"
+    end
+  end
+end

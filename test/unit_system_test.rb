@@ -99,4 +99,18 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   test "#convert handles the same unit" do
     assert_equal 2, @conversion.convert(2, from: @unit_in, to: @unit_in)
   end
+
+  test "#update_cache calls the builder" do
+    Measured::ConversionTableBuilder.any_instance.expects(:update_cache)
+    @conversion.update_cache
+  end
+
+  test "#cached? calls the builder and is false" do
+    refute_predicate @conversion, :cached?
+  end
+
+  test "#cached? calls the builder and is true" do
+    conversion = Measured::UnitSystem.new([@unit_m, @unit_in, @unit_ft], cache: { class: AlwaysTrueCache })
+    assert_predicate conversion, :cached?
+  end
 end

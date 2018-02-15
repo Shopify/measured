@@ -8,4 +8,6 @@ Measured::Weight = Measured.build do
   unit :short_ton, value: "2000 lb", aliases: [:short_tons]
   unit :lb, value: "0.45359237 kg", aliases: [:lbs, :pound, :pounds]
   unit :oz, value: "1/16 lb", aliases: [:ounce, :ounces]
+
+  cache Measured::Cache::Json, "weight.json"
 end

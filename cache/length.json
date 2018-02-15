@@ -1,0 +1,2553 @@
+// Do not modify this file directly. Regenerate it with 'rake cache:write'.
+{
+  "m": {
+    "m": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "ym": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "cm": {
+      "numerator": 100,
+      "denominator": 1
+    },
+    "dm": {
+      "numerator": 10,
+      "denominator": 1
+    },
+    "dam": {
+      "numerator": 1,
+      "denominator": 10
+    },
+    "hm": {
+      "numerator": 1,
+      "denominator": 100
+    },
+    "km": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "Mm": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "Gm": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "Tm": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "in": {
+      "numerator": 5000,
+      "denominator": 127
+    },
+    "ft": {
+      "numerator": 1250,
+      "denominator": 381
+    },
+    "yd": {
+      "numerator": 1250,
+      "denominator": 1143
+    },
+    "mi": {
+      "numerator": 125,
+      "denominator": 201168
+    }
+  },
+  "ym": {
+    "ym": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "zm": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "am": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "fm": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "pm": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "nm": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "μm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "mm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "cm": {
+      "numerator": 1,
+      "denominator": 10000000000000000000000
+    },
+    "dm": {
+      "numerator": 1,
+      "denominator": 100000000000000000000000
+    },
+    "dam": {
+      "numerator": 1,
+      "denominator": 10000000000000000000000000
+    },
+    "hm": {
+      "numerator": 1,
+      "denominator": 100000000000000000000000000
+    },
+    "km": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "Mm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000
+    },
+    "Gm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000
+    },
+    "Tm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000000000000
+    },
+    "in": {
+      "numerator": 1,
+      "denominator": 25400000000000000000000
+    },
+    "ft": {
+      "numerator": 1,
+      "denominator": 304800000000000000000000
+    },
+    "yd": {
+      "numerator": 1,
+      "denominator": 914400000000000000000000
+    },
+    "mi": {
+      "numerator": 1,
+      "denominator": 1609344000000000000000000000
+    }
+  },
+  "zm": {
+    "zm": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "ym": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "fm": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "pm": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "nm": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "μm": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "mm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "cm": {
+      "numerator": 1,
+      "denominator": 10000000000000000000
+    },
+    "dm": {
+      "numerator": 1,
+      "denominator": 100000000000000000000
+    },
+    "dam": {
+      "numerator": 1,
+      "denominator": 10000000000000000000000
+    },
+    "hm": {
+      "numerator": 1,
+      "denominator": 100000000000000000000000
+    },
+    "km": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "Mm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "Gm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000
+    },
+    "Tm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000000000
+    },
+    "in": {
+      "numerator": 1,
+      "denominator": 25400000000000000000
+    },
+    "ft": {
+      "numerator": 1,
+      "denominator": 304800000000000000000
+    },
+    "yd": {
+      "numerator": 1,
+      "denominator": 914400000000000000000
+    },
+    "mi": {
+      "numerator": 1,
+      "denominator": 1609344000000000000000000
+    }
+  },
+  "am": {
+    "am": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "ym": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "pm": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "nm": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "μm": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "mm": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "cm": {
+      "numerator": 1,
+      "denominator": 10000000000000000
+    },
+    "dm": {
+      "numerator": 1,
+      "denominator": 100000000000000000
+    },
+    "dam": {
+      "numerator": 1,
+      "denominator": 10000000000000000000
+    },
+    "hm": {
+      "numerator": 1,
+      "denominator": 100000000000000000000
+    },
+    "km": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "Mm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "Gm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "Tm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000000
+    },
+    "in": {
+      "numerator": 1,
+      "denominator": 25400000000000000
+    },
+    "ft": {
+      "numerator": 1,
+      "denominator": 304800000000000000
+    },
+    "yd": {
+      "numerator": 1,
+      "denominator": 914400000000000000
+    },
+    "mi": {
+      "numerator": 1,
+      "denominator": 1609344000000000000000
+    }
+  },
+  "fm": {
+    "fm": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "ym": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "nm": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "μm": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "mm": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "cm": {
+      "numerator": 1,
+      "denominator": 10000000000000
+    },
+    "dm": {
+      "numerator": 1,
+      "denominator": 100000000000000
+    },
+    "dam": {
+      "numerator": 1,
+      "denominator": 10000000000000000
+    },
+    "hm": {
+      "numerator": 1,
+      "denominator": 100000000000000000
+    },
+    "km": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "Mm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "Gm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "Tm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000000
+    },
+    "in": {
+      "numerator": 1,
+      "denominator": 25400000000000
+    },
+    "ft": {
+      "numerator": 1,
+      "denominator": 304800000000000
+    },
+    "yd": {
+      "numerator": 1,
+      "denominator": 914400000000000
+    },
+    "mi": {
+      "numerator": 1,
+      "denominator": 1609344000000000000
+    }
+  },
+  "pm": {
+    "pm": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "ym": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "μm": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "mm": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "cm": {
+      "numerator": 1,
+      "denominator": 10000000000
+    },
+    "dm": {
+      "numerator": 1,
+      "denominator": 100000000000
+    },
+    "dam": {
+      "numerator": 1,
+      "denominator": 10000000000000
+    },
+    "hm": {
+      "numerator": 1,
+      "denominator": 100000000000000
+    },
+    "km": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "Mm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "Gm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "Tm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000000
+    },
+    "in": {
+      "numerator": 1,
+      "denominator": 25400000000
+    },
+    "ft": {
+      "numerator": 1,
+      "denominator": 304800000000
+    },
+    "yd": {
+      "numerator": 1,
+      "denominator": 914400000000
+    },
+    "mi": {
+      "numerator": 1,
+      "denominator": 1609344000000000
+    }
+  },
+  "nm": {
+    "nm": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "ym": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "mm": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "cm": {
+      "numerator": 1,
+      "denominator": 10000000
+    },
+    "dm": {
+      "numerator": 1,
+      "denominator": 100000000
+    },
+    "dam": {
+      "numerator": 1,
+      "denominator": 10000000000
+    },
+    "hm": {
+      "numerator": 1,
+      "denominator": 100000000000
+    },
+    "km": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "Mm": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "Gm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "Tm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000000
+    },
+    "in": {
+      "numerator": 1,
+      "denominator": 25400000
+    },
+    "ft": {
+      "numerator": 1,
+      "denominator": 304800000
+    },
+    "yd": {
+      "numerator": 1,
+      "denominator": 914400000
+    },
+    "mi": {
+      "numerator": 1,
+      "denominator": 1609344000000
+    }
+  },
+  "μm": {
+    "μm": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "ym": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "cm": {
+      "numerator": 1,
+      "denominator": 10000
+    },
+    "dm": {
+      "numerator": 1,
+      "denominator": 100000
+    },
+    "dam": {
+      "numerator": 1,
+      "denominator": 10000000
+    },
+    "hm": {
+      "numerator": 1,
+      "denominator": 100000000
+    },
+    "km": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "Mm": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "Gm": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "Tm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000
+    },
+    "in": {
+      "numerator": 1,
+      "denominator": 25400
+    },
+    "ft": {
+      "numerator": 1,
+      "denominator": 304800
+    },
+    "yd": {
+      "numerator": 1,
+      "denominator": 914400
+    },
+    "mi": {
+      "numerator": 1,
+      "denominator": 1609344000
+    }
+  },
+  "mm": {
+    "mm": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "ym": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "cm": {
+      "numerator": 1,
+      "denominator": 10
+    },
+    "dm": {
+      "numerator": 1,
+      "denominator": 100
+    },
+    "dam": {
+      "numerator": 1,
+      "denominator": 10000
+    },
+    "hm": {
+      "numerator": 1,
+      "denominator": 100000
+    },
+    "km": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "Mm": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "Gm": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "Tm": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "in": {
+      "numerator": 5,
+      "denominator": 127
+    },
+    "ft": {
+      "numerator": 5,
+      "denominator": 1524
+    },
+    "yd": {
+      "numerator": 5,
+      "denominator": 4572
+    },
+    "mi": {
+      "numerator": 1,
+      "denominator": 1609344
+    }
+  },
+  "cm": {
+    "cm": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1,
+      "denominator": 100
+    },
+    "ym": {
+      "numerator": 10000000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 10000000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 10000000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 10000000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 10000000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 10000000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 10000,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 10,
+      "denominator": 1
+    },
+    "dm": {
+      "numerator": 1,
+      "denominator": 10
+    },
+    "dam": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "hm": {
+      "numerator": 1,
+      "denominator": 10000
+    },
+    "km": {
+      "numerator": 1,
+      "denominator": 100000
+    },
+    "Mm": {
+      "numerator": 1,
+      "denominator": 100000000
+    },
+    "Gm": {
+      "numerator": 1,
+      "denominator": 100000000000
+    },
+    "Tm": {
+      "numerator": 1,
+      "denominator": 100000000000000
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 100000000000000000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 100000000000000000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 100000000000000000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 100000000000000000000000000
+    },
+    "in": {
+      "numerator": 50,
+      "denominator": 127
+    },
+    "ft": {
+      "numerator": 25,
+      "denominator": 762
+    },
+    "yd": {
+      "numerator": 25,
+      "denominator": 2286
+    },
+    "mi": {
+      "numerator": 5,
+      "denominator": 804672
+    }
+  },
+  "dm": {
+    "dm": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1,
+      "denominator": 10
+    },
+    "ym": {
+      "numerator": 100000000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 100000000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 100000000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 100000000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 100000000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 100000000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 100000,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 100,
+      "denominator": 1
+    },
+    "cm": {
+      "numerator": 10,
+      "denominator": 1
+    },
+    "dam": {
+      "numerator": 1,
+      "denominator": 100
+    },
+    "hm": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "km": {
+      "numerator": 1,
+      "denominator": 10000
+    },
+    "Mm": {
+      "numerator": 1,
+      "denominator": 10000000
+    },
+    "Gm": {
+      "numerator": 1,
+      "denominator": 10000000000
+    },
+    "Tm": {
+      "numerator": 1,
+      "denominator": 10000000000000
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 10000000000000000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 10000000000000000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 10000000000000000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 10000000000000000000000000
+    },
+    "in": {
+      "numerator": 500,
+      "denominator": 127
+    },
+    "ft": {
+      "numerator": 125,
+      "denominator": 381
+    },
+    "yd": {
+      "numerator": 125,
+      "denominator": 1143
+    },
+    "mi": {
+      "numerator": 25,
+      "denominator": 402336
+    }
+  },
+  "dam": {
+    "dam": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 10,
+      "denominator": 1
+    },
+    "ym": {
+      "numerator": 10000000000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 10000000000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 10000000000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 10000000000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 10000000000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 10000000000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 10000000,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 10000,
+      "denominator": 1
+    },
+    "cm": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "dm": {
+      "numerator": 100,
+      "denominator": 1
+    },
+    "hm": {
+      "numerator": 1,
+      "denominator": 10
+    },
+    "km": {
+      "numerator": 1,
+      "denominator": 100
+    },
+    "Mm": {
+      "numerator": 1,
+      "denominator": 100000
+    },
+    "Gm": {
+      "numerator": 1,
+      "denominator": 100000000
+    },
+    "Tm": {
+      "numerator": 1,
+      "denominator": 100000000000
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 100000000000000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 100000000000000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 100000000000000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 100000000000000000000000
+    },
+    "in": {
+      "numerator": 50000,
+      "denominator": 127
+    },
+    "ft": {
+      "numerator": 12500,
+      "denominator": 381
+    },
+    "yd": {
+      "numerator": 12500,
+      "denominator": 1143
+    },
+    "mi": {
+      "numerator": 625,
+      "denominator": 100584
+    }
+  },
+  "hm": {
+    "hm": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 100,
+      "denominator": 1
+    },
+    "ym": {
+      "numerator": 100000000000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 100000000000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 100000000000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 100000000000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 100000000000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 100000000000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 100000000,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 100000,
+      "denominator": 1
+    },
+    "cm": {
+      "numerator": 10000,
+      "denominator": 1
+    },
+    "dm": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "dam": {
+      "numerator": 10,
+      "denominator": 1
+    },
+    "km": {
+      "numerator": 1,
+      "denominator": 10
+    },
+    "Mm": {
+      "numerator": 1,
+      "denominator": 10000
+    },
+    "Gm": {
+      "numerator": 1,
+      "denominator": 10000000
+    },
+    "Tm": {
+      "numerator": 1,
+      "denominator": 10000000000
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 10000000000000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 10000000000000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 10000000000000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 10000000000000000000000
+    },
+    "in": {
+      "numerator": 500000,
+      "denominator": 127
+    },
+    "ft": {
+      "numerator": 125000,
+      "denominator": 381
+    },
+    "yd": {
+      "numerator": 125000,
+      "denominator": 1143
+    },
+    "mi": {
+      "numerator": 3125,
+      "denominator": 50292
+    }
+  },
+  "km": {
+    "km": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "ym": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "cm": {
+      "numerator": 100000,
+      "denominator": 1
+    },
+    "dm": {
+      "numerator": 10000,
+      "denominator": 1
+    },
+    "dam": {
+      "numerator": 100,
+      "denominator": 1
+    },
+    "hm": {
+      "numerator": 10,
+      "denominator": 1
+    },
+    "Mm": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "Gm": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "Tm": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "in": {
+      "numerator": 5000000,
+      "denominator": 127
+    },
+    "ft": {
+      "numerator": 1250000,
+      "denominator": 381
+    },
+    "yd": {
+      "numerator": 1250000,
+      "denominator": 1143
+    },
+    "mi": {
+      "numerator": 15625,
+      "denominator": 25146
+    }
+  },
+  "Mm": {
+    "Mm": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "ym": {
+      "numerator": 1000000000000000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "cm": {
+      "numerator": 100000000,
+      "denominator": 1
+    },
+    "dm": {
+      "numerator": 10000000,
+      "denominator": 1
+    },
+    "dam": {
+      "numerator": 100000,
+      "denominator": 1
+    },
+    "hm": {
+      "numerator": 10000,
+      "denominator": 1
+    },
+    "km": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "Gm": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "Tm": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "in": {
+      "numerator": 5000000000,
+      "denominator": 127
+    },
+    "ft": {
+      "numerator": 1250000000,
+      "denominator": 381
+    },
+    "yd": {
+      "numerator": 1250000000,
+      "denominator": 1143
+    },
+    "mi": {
+      "numerator": 7812500,
+      "denominator": 12573
+    }
+  },
+  "Gm": {
+    "Gm": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "ym": {
+      "numerator": 1000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 1000000000000000000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "cm": {
+      "numerator": 100000000000,
+      "denominator": 1
+    },
+    "dm": {
+      "numerator": 10000000000,
+      "denominator": 1
+    },
+    "dam": {
+      "numerator": 100000000,
+      "denominator": 1
+    },
+    "hm": {
+      "numerator": 10000000,
+      "denominator": 1
+    },
+    "km": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "Mm": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "Tm": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "in": {
+      "numerator": 5000000000000,
+      "denominator": 127
+    },
+    "ft": {
+      "numerator": 1250000000000,
+      "denominator": 381
+    },
+    "yd": {
+      "numerator": 1250000000000,
+      "denominator": 1143
+    },
+    "mi": {
+      "numerator": 7812500000,
+      "denominator": 12573
+    }
+  },
+  "Tm": {
+    "Tm": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "ym": {
+      "numerator": 1000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 1000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 1000000000000000000000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "cm": {
+      "numerator": 100000000000000,
+      "denominator": 1
+    },
+    "dm": {
+      "numerator": 10000000000000,
+      "denominator": 1
+    },
+    "dam": {
+      "numerator": 100000000000,
+      "denominator": 1
+    },
+    "hm": {
+      "numerator": 10000000000,
+      "denominator": 1
+    },
+    "km": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "Mm": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "Gm": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "Pm": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "in": {
+      "numerator": 5000000000000000,
+      "denominator": 127
+    },
+    "ft": {
+      "numerator": 1250000000000000,
+      "denominator": 381
+    },
+    "yd": {
+      "numerator": 1250000000000000,
+      "denominator": 1143
+    },
+    "mi": {
+      "numerator": 7812500000000,
+      "denominator": 12573
+    }
+  },
+  "Pm": {
+    "Pm": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "ym": {
+      "numerator": 1000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 1000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 1000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 1000000000000000000000000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "cm": {
+      "numerator": 100000000000000000,
+      "denominator": 1
+    },
+    "dm": {
+      "numerator": 10000000000000000,
+      "denominator": 1
+    },
+    "dam": {
+      "numerator": 100000000000000,
+      "denominator": 1
+    },
+    "hm": {
+      "numerator": 10000000000000,
+      "denominator": 1
+    },
+    "km": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "Mm": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "Gm": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "Tm": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "Em": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "in": {
+      "numerator": 5000000000000000000,
+      "denominator": 127
+    },
+    "ft": {
+      "numerator": 1250000000000000000,
+      "denominator": 381
+    },
+    "yd": {
+      "numerator": 1250000000000000000,
+      "denominator": 1143
+    },
+    "mi": {
+      "numerator": 7812500000000000,
+      "denominator": 12573
+    }
+  },
+  "Em": {
+    "Em": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "ym": {
+      "numerator": 1000000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 1000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 1000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 1000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 1000000000000000000000000000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "cm": {
+      "numerator": 100000000000000000000,
+      "denominator": 1
+    },
+    "dm": {
+      "numerator": 10000000000000000000,
+      "denominator": 1
+    },
+    "dam": {
+      "numerator": 100000000000000000,
+      "denominator": 1
+    },
+    "hm": {
+      "numerator": 10000000000000000,
+      "denominator": 1
+    },
+    "km": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "Mm": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "Gm": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "Tm": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "Pm": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "Zm": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "in": {
+      "numerator": 5000000000000000000000,
+      "denominator": 127
+    },
+    "ft": {
+      "numerator": 1250000000000000000000,
+      "denominator": 381
+    },
+    "yd": {
+      "numerator": 1250000000000000000000,
+      "denominator": 1143
+    },
+    "mi": {
+      "numerator": 7812500000000000000,
+      "denominator": 12573
+    }
+  },
+  "Zm": {
+    "Zm": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "ym": {
+      "numerator": 1000000000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 1000000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 1000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 1000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 1000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 1000000000000000000000000000000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "cm": {
+      "numerator": 100000000000000000000000,
+      "denominator": 1
+    },
+    "dm": {
+      "numerator": 10000000000000000000000,
+      "denominator": 1
+    },
+    "dam": {
+      "numerator": 100000000000000000000,
+      "denominator": 1
+    },
+    "hm": {
+      "numerator": 10000000000000000000,
+      "denominator": 1
+    },
+    "km": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "Mm": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "Gm": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "Tm": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "Pm": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "Em": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "in": {
+      "numerator": 5000000000000000000000000,
+      "denominator": 127
+    },
+    "ft": {
+      "numerator": 1250000000000000000000000,
+      "denominator": 381
+    },
+    "yd": {
+      "numerator": 1250000000000000000000000,
+      "denominator": 1143
+    },
+    "mi": {
+      "numerator": 7812500000000000000000,
+      "denominator": 12573
+    }
+  },
+  "Ym": {
+    "Ym": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "ym": {
+      "numerator": 1000000000000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 1000000000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 1000000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 1000000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 1000000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 1000000000000000000000000000000000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 1000000000000000000000000000000,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "cm": {
+      "numerator": 100000000000000000000000000,
+      "denominator": 1
+    },
+    "dm": {
+      "numerator": 10000000000000000000000000,
+      "denominator": 1
+    },
+    "dam": {
+      "numerator": 100000000000000000000000,
+      "denominator": 1
+    },
+    "hm": {
+      "numerator": 10000000000000000000000,
+      "denominator": 1
+    },
+    "km": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "Mm": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "Gm": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "Tm": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "Pm": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "Em": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "Zm": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "in": {
+      "numerator": 5000000000000000000000000000,
+      "denominator": 127
+    },
+    "ft": {
+      "numerator": 1250000000000000000000000000,
+      "denominator": 381
+    },
+    "yd": {
+      "numerator": 1250000000000000000000000000,
+      "denominator": 1143
+    },
+    "mi": {
+      "numerator": 7812500000000000000000000,
+      "denominator": 12573
+    }
+  },
+  "in": {
+    "in": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 127,
+      "denominator": 5000
+    },
+    "ym": {
+      "numerator": 25400000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 25400000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 25400000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 25400000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 25400000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 25400000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 25400,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 127,
+      "denominator": 5
+    },
+    "cm": {
+      "numerator": 127,
+      "denominator": 50
+    },
+    "dm": {
+      "numerator": 127,
+      "denominator": 500
+    },
+    "dam": {
+      "numerator": 127,
+      "denominator": 50000
+    },
+    "hm": {
+      "numerator": 127,
+      "denominator": 500000
+    },
+    "km": {
+      "numerator": 127,
+      "denominator": 5000000
+    },
+    "Mm": {
+      "numerator": 127,
+      "denominator": 5000000000
+    },
+    "Gm": {
+      "numerator": 127,
+      "denominator": 5000000000000
+    },
+    "Tm": {
+      "numerator": 127,
+      "denominator": 5000000000000000
+    },
+    "Pm": {
+      "numerator": 127,
+      "denominator": 5000000000000000000
+    },
+    "Em": {
+      "numerator": 127,
+      "denominator": 5000000000000000000000
+    },
+    "Zm": {
+      "numerator": 127,
+      "denominator": 5000000000000000000000000
+    },
+    "Ym": {
+      "numerator": 127,
+      "denominator": 5000000000000000000000000000
+    },
+    "ft": {
+      "numerator": 1,
+      "denominator": 12
+    },
+    "yd": {
+      "numerator": 1,
+      "denominator": 36
+    },
+    "mi": {
+      "numerator": 1,
+      "denominator": 63360
+    }
+  },
+  "ft": {
+    "ft": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 381,
+      "denominator": 1250
+    },
+    "ym": {
+      "numerator": 304800000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 304800000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 304800000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 304800000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 304800000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 304800000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 304800,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 1524,
+      "denominator": 5
+    },
+    "cm": {
+      "numerator": 762,
+      "denominator": 25
+    },
+    "dm": {
+      "numerator": 381,
+      "denominator": 125
+    },
+    "dam": {
+      "numerator": 381,
+      "denominator": 12500
+    },
+    "hm": {
+      "numerator": 381,
+      "denominator": 125000
+    },
+    "km": {
+      "numerator": 381,
+      "denominator": 1250000
+    },
+    "Mm": {
+      "numerator": 381,
+      "denominator": 1250000000
+    },
+    "Gm": {
+      "numerator": 381,
+      "denominator": 1250000000000
+    },
+    "Tm": {
+      "numerator": 381,
+      "denominator": 1250000000000000
+    },
+    "Pm": {
+      "numerator": 381,
+      "denominator": 1250000000000000000
+    },
+    "Em": {
+      "numerator": 381,
+      "denominator": 1250000000000000000000
+    },
+    "Zm": {
+      "numerator": 381,
+      "denominator": 1250000000000000000000000
+    },
+    "Ym": {
+      "numerator": 381,
+      "denominator": 1250000000000000000000000000
+    },
+    "in": {
+      "numerator": 12,
+      "denominator": 1
+    },
+    "yd": {
+      "numerator": 1,
+      "denominator": 3
+    },
+    "mi": {
+      "numerator": 1,
+      "denominator": 5280
+    }
+  },
+  "yd": {
+    "yd": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 1143,
+      "denominator": 1250
+    },
+    "ym": {
+      "numerator": 914400000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 914400000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 914400000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 914400000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 914400000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 914400000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 914400,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 4572,
+      "denominator": 5
+    },
+    "cm": {
+      "numerator": 2286,
+      "denominator": 25
+    },
+    "dm": {
+      "numerator": 1143,
+      "denominator": 125
+    },
+    "dam": {
+      "numerator": 1143,
+      "denominator": 12500
+    },
+    "hm": {
+      "numerator": 1143,
+      "denominator": 125000
+    },
+    "km": {
+      "numerator": 1143,
+      "denominator": 1250000
+    },
+    "Mm": {
+      "numerator": 1143,
+      "denominator": 1250000000
+    },
+    "Gm": {
+      "numerator": 1143,
+      "denominator": 1250000000000
+    },
+    "Tm": {
+      "numerator": 1143,
+      "denominator": 1250000000000000
+    },
+    "Pm": {
+      "numerator": 1143,
+      "denominator": 1250000000000000000
+    },
+    "Em": {
+      "numerator": 1143,
+      "denominator": 1250000000000000000000
+    },
+    "Zm": {
+      "numerator": 1143,
+      "denominator": 1250000000000000000000000
+    },
+    "Ym": {
+      "numerator": 1143,
+      "denominator": 1250000000000000000000000000
+    },
+    "in": {
+      "numerator": 36,
+      "denominator": 1
+    },
+    "ft": {
+      "numerator": 3,
+      "denominator": 1
+    },
+    "mi": {
+      "numerator": 1,
+      "denominator": 1760
+    }
+  },
+  "mi": {
+    "mi": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "m": {
+      "numerator": 201168,
+      "denominator": 125
+    },
+    "ym": {
+      "numerator": 1609344000000000000000000000,
+      "denominator": 1
+    },
+    "zm": {
+      "numerator": 1609344000000000000000000,
+      "denominator": 1
+    },
+    "am": {
+      "numerator": 1609344000000000000000,
+      "denominator": 1
+    },
+    "fm": {
+      "numerator": 1609344000000000000,
+      "denominator": 1
+    },
+    "pm": {
+      "numerator": 1609344000000000,
+      "denominator": 1
+    },
+    "nm": {
+      "numerator": 1609344000000,
+      "denominator": 1
+    },
+    "μm": {
+      "numerator": 1609344000,
+      "denominator": 1
+    },
+    "mm": {
+      "numerator": 1609344,
+      "denominator": 1
+    },
+    "cm": {
+      "numerator": 804672,
+      "denominator": 5
+    },
+    "dm": {
+      "numerator": 402336,
+      "denominator": 25
+    },
+    "dam": {
+      "numerator": 100584,
+      "denominator": 625
+    },
+    "hm": {
+      "numerator": 50292,
+      "denominator": 3125
+    },
+    "km": {
+      "numerator": 25146,
+      "denominator": 15625
+    },
+    "Mm": {
+      "numerator": 12573,
+      "denominator": 7812500
+    },
+    "Gm": {
+      "numerator": 12573,
+      "denominator": 7812500000
+    },
+    "Tm": {
+      "numerator": 12573,
+      "denominator": 7812500000000
+    },
+    "Pm": {
+      "numerator": 12573,
+      "denominator": 7812500000000000
+    },
+    "Em": {
+      "numerator": 12573,
+      "denominator": 7812500000000000000
+    },
+    "Zm": {
+      "numerator": 12573,
+      "denominator": 7812500000000000000000
+    },
+    "Ym": {
+      "numerator": 12573,
+      "denominator": 7812500000000000000000000
+    },
+    "in": {
+      "numerator": 63360,
+      "denominator": 1
+    },
+    "ft": {
+      "numerator": 5280,
+      "denominator": 1
+    },
+    "yd": {
+      "numerator": 1760,
+      "denominator": 1
+    }
+  }
+}
