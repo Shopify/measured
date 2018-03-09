@@ -143,12 +143,12 @@ Measured::Weight.unit_names_with_aliases
 
 String formatting:
 ```ruby
-weight = Measured::Weight.new("3.14", "grams")
-weight.format("%.1<value>f %<unit>s")
+Measured::Weight.new("3.14", "grams").format("%.1<value>f %<unit>s")
 > "3.1 g"
-
-If no formatting string is passed, it uses `'%.2<value>f %<unit>s'`.
 ```
+
+If no string is passed to the `format` method it defaults to `"%.2<value>f %<unit>s"`.
+
 ## Units and conversions
 
 ### SI units support
@@ -203,7 +203,7 @@ There is support for SI units through the use of `si_unit`. Units declared throu
   * pt, imp_pt, imperial_pint, imp_pts, imperial_pints
   * us_pt, us_pint, us_pints
   * oz, fl_oz, imp_fl_oz, imperial_fluid_ounce, imperial_fluid_ounces
-  * us_oz, us_fl_oz, us_fluid_ounce, us_fluid_ounces 
+  * us_oz, us_fl_oz, us_fluid_ounce, us_fluid_ounces
 
 You can skip these and only define your own units by doing:
 
