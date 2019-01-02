@@ -231,7 +231,7 @@ Measured::Thing = Measured.build do
 
   unit :another_unit,        # Add a second unit to the system
     aliases: [:au],          # All units allow aliases, as long as they are unique
-    value: ["1.5 bu"]        # The conversion rate to another unit
+    value: "1.5 bu"        # The conversion rate to another unit
 end
 ```
 
