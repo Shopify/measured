@@ -2,19 +2,13 @@ language: ruby
 sudo: false
 cache: bundler
 rvm:
-  - 2.1.8
-  - 2.2.4
-  - 2.3.1
-  - 2.4.0
-  - 2.5.0
+  - 2.3.8
+  - 2.4.5
+  - 2.5.3
+  - 2.6.0
 gemfile:
   - Gemfile
-  - gemfiles/activesupport-4.2.gemfile
+  - gemfiles/activesupport-5.0.gemfile
+  - gemfiles/activesupport-5.1.gemfile
 before_script:
   - gem update --system
-matrix:
-  exclude:
-    - gemfile: Gemfile
-      rvm: 2.1.8
-    - gemfile: gemfiles/activesupport-4.2.gemfile
-      rvm: 2.4.0
