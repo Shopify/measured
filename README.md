@@ -1,6 +1,6 @@
 # Measured [![Build Status](https://travis-ci.org/Shopify/measured.svg)](https://travis-ci.org/Shopify/measured) [![Gem Version](https://badge.fury.io/rb/measured.svg)](http://badge.fury.io/rb/measured)
 
-Encapsulates measurements with their units. Provides easy conversion between units.
+Encapsulates measurements with their units. Provides easy conversion between units. Built in support for weight, length, and volume.
 
 Lightweight and easily extensible to include other units and conversions. Conversions done with `Rational` for precision.
 
@@ -246,6 +246,7 @@ All units and classes are namespaced by default, but can be aliased in your appl
 ```ruby
 Weight = Measured::Weight
 Length = Measured::Length
+Volume = Measured::Volume
 ```
 
 ## Alternatives
