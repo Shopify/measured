@@ -261,7 +261,7 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
 
   test "#<=> doesn't compare against zero" do
     assert_nil @magic <=> 0
-    assert_nil @magic <=> BigDecimal.new(0)
+    assert_nil @magic <=> BigDecimal(0)
     assert_nil @magic <=> 0.00
   end
 
@@ -279,7 +279,7 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
   test "#== doesn't compare against zero" do
     arcane_zero = Magic.new(0, :arcane)
     refute_equal arcane_zero, 0
-    refute_equal arcane_zero, BigDecimal.new(0)
+    refute_equal arcane_zero, BigDecimal(0)
     refute_equal arcane_zero, 0.0
   end
 
@@ -295,10 +295,10 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
 
   test "#> and #< should not compare against zero" do
     assert_raises(ArgumentError) { @magic > 0 }
-    assert_raises(ArgumentError) { @magic > BigDecimal.new(0) }
+    assert_raises(ArgumentError) { @magic > BigDecimal(0) }
     assert_raises(ArgumentError) { @magic > 0.00 }
     assert_raises(ArgumentError) { @magic < 0 }
-    assert_raises(ArgumentError) { @magic < BigDecimal.new(0) }
+    assert_raises(ArgumentError) { @magic < BigDecimal(0) }
     assert_raises(ArgumentError) { @magic < 0.00 }
   end
 end
