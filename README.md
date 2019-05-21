@@ -213,7 +213,7 @@ gem 'measured', require: 'measured/base'
 
 ### Shortcut syntax
 
-There is a shortcut initialization syntax for modules inside the `Measured` namespace, similar to `BigDecimal(123)` vs `BigDecimal.new(123)`:
+There is a shortcut initialization syntax for creating instances of measurement classes that can avoid the `.new`:
 
 ```ruby
 Measured::Weight(1, :g)
