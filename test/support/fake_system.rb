@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Magic = Measured.build do
   unit :magic_missile, aliases: [:magic_missiles, "magic missile"]
   unit :fireball, value: "2/3 magic_missile", aliases: [:fire, :fireballs]

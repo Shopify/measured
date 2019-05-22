@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Measured::UnitSystemBuilder
   def initialize
     @units = []
@@ -45,8 +46,8 @@ class Measured::UnitSystemBuilder
     ["P", "peta", 15],
     ["E", "exa", 18],
     ["Z", "zetta", 21],
-    ["Y", "yotta", 24]
-  ]
+    ["Y", "yotta", 24],
+  ].map(&:freeze).freeze
 
   def build_si_units(name, aliases: [], value: nil)
     si_units = [build_unit(name, aliases: aliases, value: value)]

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Measured::Weight = Measured.build do
   si_unit :g, aliases: [:gram, :grams]
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "test_helper"
 
 class Measured::LengthTest < ActiveSupport::TestCase
@@ -142,7 +143,7 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from km to mi" do
-    assert_conversion Measured::Length, "2000 km", "0.1242742384475E4 mi" 
+    assert_conversion Measured::Length, "2000 km", "0.1242742384475E4 mi"
   end
 
   test ".convert_to from km to mm" do
@@ -150,7 +151,7 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from km to yd" do
-    assert_conversion Measured::Length, "2000 km", "0.218722659667542E7 yd" 
+    assert_conversion Measured::Length, "2000 km", "0.218722659667542E7 yd"
   end
 
   test ".convert_to from m to cm" do
@@ -206,7 +207,7 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from mi to mi" do
-    assert_exact_conversion Measured::Length, "2000 mi", "2000 mi" 
+    assert_exact_conversion Measured::Length, "2000 mi", "2000 mi"
   end
 
   test ".convert_to from mi to mm" do
@@ -214,7 +215,7 @@ class Measured::LengthTest < ActiveSupport::TestCase
   end
 
   test ".convert_to from mi to yd" do
-    assert_exact_conversion Measured::Length, "2000 mi", "3520000 yd" 
+    assert_exact_conversion Measured::Length, "2000 mi", "3520000 yd"
   end
 
   test ".convert_to from mm to cm" do

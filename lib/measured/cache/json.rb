@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Measured::Cache
   class Json
     attr_reader :filename, :path

@@ -1,5 +1,6 @@
+# frozen_string_literal: true
 class Measured::Measurable < Numeric
-  DEFAULT_FORMAT_STRING = '%.2<value>f %<unit>s'
+  DEFAULT_FORMAT_STRING = "%.2<value>f %<unit>s"
 
   include Measured::Arithmetic
 

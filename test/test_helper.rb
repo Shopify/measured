@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "pry" unless ENV["CI"]
 require "measured"
 require "minitest/reporters"

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "test_helper"
 
 class Measured::VolumeTest < ActiveSupport::TestCase
@@ -68,7 +69,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   test ".unit_names should be the list of base unit names" do
     expected_units = %w(l m3 ft3 in3 gal us_gal qt us_qt pt us_pt oz us_oz)
     expected_units += Measured::UnitSystemBuilder::SI_PREFIXES.map { |short, _, _| "#{short}l" }
-    assert_equal expected_units.sort, Measured::Volume.unit_names 
+    assert_equal expected_units.sort, Measured::Volume.unit_names
   end
 
   test ".name" do
@@ -95,7 +96,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   test ".convert_to from gal to gal" do
     assert_conversion Measured::Volume, "2000 gal", "2000 gal"
   end
-  
+
   test ".convert_to from us_gal to us_gal" do
     assert_conversion Measured::Volume, "2000 us_gal", "2000 us_gal"
   end
@@ -123,7 +124,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   test ".convert_to from us_oz to us_oz" do
     assert_conversion Measured::Volume, "2000 us_oz", "2000 us_oz"
   end
-  
+
   test ".convert_to from ml to m3" do
     assert_conversion Measured::Volume, "2000 ml", "0.002 m3"
   end
@@ -303,7 +304,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   test ".convert_to from gal to us_oz" do
     assert_conversion Measured::Volume, "2 gal", "307.4431809292 us_oz"
   end
-  
+
   test ".convert_to from us_gal to qt" do
     assert_conversion Measured::Volume, "2 us_gal", "6.661393477 qt"
   end

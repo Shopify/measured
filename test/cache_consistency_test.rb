@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "test_helper"
 
 # In general we do not want to expose the inner workings of the caching and unit systems as part of the API.

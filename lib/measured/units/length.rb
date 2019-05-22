@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Measured::Length = Measured.build do
   si_unit :m, aliases: [:meter, :metre, :meters, :metres]
 
