@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Measured::ConversionTableBuilder
   attr_reader :units
 
@@ -87,5 +88,4 @@ class Measured::ConversionTableBuilder
 
     nil
   end
-
 end

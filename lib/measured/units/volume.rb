@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Measured::Volume = Measured.build do
   si_unit :l, aliases: [:liter, :litre, :liters, :litres]
 

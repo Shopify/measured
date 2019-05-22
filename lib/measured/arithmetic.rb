@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Measured::Arithmetic
   def +(other)
     arithmetic_operation(other, :+)
