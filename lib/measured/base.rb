@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "forwardable"
 require "measured/version"
-require "active_support/all"
+require "fast_blank"
 require "bigdecimal"
 require "json"
 
@@ -26,7 +26,7 @@ module Measured
       class_name = "Measured::#{ method }"
 
       if Measurable.subclasses.map(&:to_s).include?(class_name)
-        klass = class_name.constantize
+        klass = Measured.const_get(method)
 
         Measured.define_singleton_method(method) do |value, unit|
           klass.new(value, unit)

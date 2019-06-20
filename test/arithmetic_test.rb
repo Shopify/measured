@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "test_helper"
 
-class Measured::ArithmeticTest < ActiveSupport::TestCase
+class Measured::ArithmeticTest < Minitest::Test
   setup do
     @two = Magic.new(2, :magic_missile)
     @three = Magic.new(3, :magic_missile)

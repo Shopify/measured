@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "test_helper"
 
-class Measured::ParserTest < ActiveSupport::TestCase
+class Measured::ParserTest < Minitest::Test
   test "#parse raises on nil input" do
     exception = assert_raises(Measured::UnitError) do
       Measured::Parser.parse_string(nil)

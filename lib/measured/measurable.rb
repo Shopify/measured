@@ -7,8 +7,6 @@ class Measured::Measurable < Numeric
   attr_reader :unit, :value
 
   def initialize(value, unit)
-    raise Measured::UnitError, "Unit value cannot be blank" if value.blank?
-
     @unit = unit_from_unit_or_name!(unit)
     @value = case value
     when Float
@@ -18,6 +16,7 @@ class Measured::Measurable < Numeric
     when Integer
       Rational(value)
     else
+      raise Measured::UnitError, "Unit value cannot be blank" if !value || value.blank?
       BigDecimal(value)
     end
   end
@@ -74,7 +73,11 @@ class Measured::Measurable < Numeric
     delegate unit_or_alias?: :unit_system
 
     def name
-      to_s.split("::").last.underscore.humanize.downcase
+      ActiveSupport::Inflector.humanize(
+        ActiveSupport::Inflector.underscore(
+          to_s.split("::").last
+        )
+      ).downcase
     end
 
     def parse(string)

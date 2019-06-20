@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "test_helper"
 
-class Measured::MeasurableTest < ActiveSupport::TestCase
+class Measured::MeasurableTest < Minitest::Test
   setup do
     @arcane = Magic.unit_system.unit_for!(:arcane)
     @fireball = Magic.unit_system.unit_for!(:fireball)
@@ -10,9 +10,9 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
   end
 
   test "#initialize requires two params, the amount and the unit" do
-    assert_nothing_raised do
+    #assert_nothing_raised do
       Magic.new(1, "fireball")
-    end
+    #end
 
     assert_raises ArgumentError do
       Magic.new(1)

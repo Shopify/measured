@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "test_helper"
 
-class Measured::ConversionTableBuilderTest < ActiveSupport::TestCase
+class Measured::ConversionTableBuilderTest < Minitest::Test
   test "#initialize creates a new object with the units" do
     units = [Measured::Unit.new(:test)]
 

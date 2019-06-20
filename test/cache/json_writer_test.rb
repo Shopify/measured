@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "test_helper"
 
-class Measured::Cache::JsonWriterTest < ActiveSupport::TestCase
+class Measured::Cache::JsonWriterTest < Minitest::Test
   class JsonTestWithWriter < Measured::Cache::Json
     prepend Measured::Cache::JsonWriter
   end

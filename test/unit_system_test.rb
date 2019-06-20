@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "test_helper"
 
-class Measured::UnitSystemTest < ActiveSupport::TestCase
+class Measured::UnitSystemTest < Minitest::Test
   setup do
     @unit_fireball = Magic.unit_system.unit_for!(:fireball)
 

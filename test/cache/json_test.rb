@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "test_helper"
 
-class Measured::Cache::JsonTest < ActiveSupport::TestCase
+class Measured::Cache::JsonTest < Minitest::Test
   setup do
     @cache = Measured::Cache::Json.new("test.json")
     @table_json = { "a" => { "b" => { "numerator" => 2, "denominator" => 3 } } }.to_json

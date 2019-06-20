@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "test_helper"
 
-class Measured::VolumeTest < ActiveSupport::TestCase
+class Measured::VolumeTest < Minitest::Test
   setup do
     @volume = Measured::Volume.new(1, 'm3')
   end

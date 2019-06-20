@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "test_helper"
 
-class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
+class Measured::UnitSystemBuilderTest < Minitest::Test
   test "#unit adds a new unit" do
     measurable = Measured.build do
       unit :m

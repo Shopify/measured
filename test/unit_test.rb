@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "test_helper"
 
-class Measured::UnitTest < ActiveSupport::TestCase
+class Measured::UnitTest < Minitest::Test
   setup do
     @unit = Measured::Unit.new(:Pie, value: "10 Cake")
     @unit_with_aliases = Measured::Unit.new(:Pie, aliases: %w(Cake Tart))

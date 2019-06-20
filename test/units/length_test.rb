@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "test_helper"
 
-class Measured::LengthTest < ActiveSupport::TestCase
+class Measured::LengthTest < Minitest::Test
   test ".unit_names_with_aliases should be the expected list of valid units" do
     expected_units = %w(m meter metre meters metres feet foot ft in inch inches mi mile miles yard yards yd)
     expected_units += Measured::UnitSystemBuilder::SI_PREFIXES.flat_map do |short, long, _|

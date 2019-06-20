@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "test_helper"
 
-class Measured::WeightTest < ActiveSupport::TestCase
+class Measured::WeightTest < Minitest::Test
   setup do
     @weight = Measured::Weight.new(1, "g")
   end

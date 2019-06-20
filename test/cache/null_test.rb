@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "test_helper"
 
-class Measured::Cache::NullTest < ActiveSupport::TestCase
+class Measured::Cache::NullTest < Minitest::Test
   setup do
     @cache = Measured::Cache::Null.new
   end

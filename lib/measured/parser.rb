@@ -27,7 +27,7 @@ module Measured::Parser
   /x
 
   def parse_string(string)
-    raise Measured::UnitError, "Cannot parse blank measurement" if string.blank?
+    raise Measured::UnitError, "Cannot parse blank measurement" if !string || string.blank?
 
     result = PARSE_REGEX.match(string)
 
