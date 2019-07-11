@@ -20,6 +20,18 @@ class Measured::Measurable < Numeric
     else
       BigDecimal(value)
     end
+
+    @value_string = begin
+      str = case value
+      when Rational
+        value.denominator == 1 ? value.numerator.to_s : value.to_f.to_s
+      when BigDecimal
+        value.to_s("F")
+      else
+        value.to_f.to_s
+      end
+      str.gsub(/\.0*\Z/, "")
+    end.freeze
   end
 
   def convert_to(new_unit)
@@ -40,18 +52,16 @@ class Measured::Measurable < Numeric
   end
 
   def to_s
-    @to_s ||= "#{value_string} #{unit.name}"
+    "#{@value_string} #{unit.name}"
   end
 
   def humanize
-    @humanize ||= begin
-      unit_string = value == 1 ? unit.name : ActiveSupport::Inflector.pluralize(unit.name)
-      "#{value_string} #{unit_string}"
-    end
+    unit_string = value == 1 ? unit.name : ActiveSupport::Inflector.pluralize(unit.name)
+    "#{@value_string} #{unit_string}"
   end
 
   def inspect
-    @inspect ||= "#<#{self.class}: #{value_string} #{unit.inspect}>"
+    "#<#{self.class}: #{@value_string} #{unit.inspect}>"
   end
 
   def <=>(other)
@@ -86,19 +96,5 @@ class Measured::Measurable < Numeric
 
   def unit_from_unit_or_name!(value)
     value.is_a?(Measured::Unit) ? value : self.class.unit_system.unit_for!(value)
-  end
-
-  def value_string
-    @value_string ||= begin
-      str = case value
-      when Rational
-        value.denominator == 1 ? value.numerator.to_s : value.to_f.to_s
-      when BigDecimal
-        value.to_s("F")
-      else
-        value.to_f.to_s
-      end
-      str.gsub(/\.0*\Z/, "")
-    end
   end
 end

@@ -24,10 +24,9 @@ module Measured
 
     def method_missing(method, *args)
       class_name = "Measured::#{ method }"
+      klass = class_name.safe_constantize
 
-      if Measurable.subclasses.map(&:to_s).include?(class_name)
-        klass = class_name.constantize
-
+      if klass && klass < Measurable
         Measured.define_singleton_method(method) do |value, unit|
           klass.new(value, unit)
         end

@@ -1,18 +1,16 @@
 # frozen_string_literal: true
 class Measured::UnitSystem
-  attr_reader :units
+  attr_reader :units, :unit_names, :unit_names_with_aliases
 
   def initialize(units, cache: nil)
     @units = units.map { |unit| unit.with_unit_system(self) }
+    @unit_names = @units.map(&:name).sort.freeze
+    @unit_names_with_aliases = @units.flat_map(&:names).sort.freeze
+    @unit_name_to_unit = @units.each_with_object({}) do |unit, hash|
+      unit.names.each { |name| hash[name.to_s] = unit }
+    end
     @conversion_table_builder = Measured::ConversionTableBuilder.new(@units, cache: cache)
-  end
-
-  def unit_names_with_aliases
-    @unit_names_with_aliases ||= @units.flat_map(&:names).sort
-  end
-
-  def unit_names
-    @unit_names ||= @units.map(&:name).sort
+    @conversion_table = @conversion_table_builder.to_h.freeze
   end
 
   def unit_or_alias?(name)
@@ -52,14 +50,5 @@ class Measured::UnitSystem
 
   protected
 
-  def conversion_table
-    @conversion_table ||= @conversion_table_builder.to_h
-  end
-
-  def unit_name_to_unit
-    @unit_name_to_unit ||= @units.inject({}) do |hash, unit|
-      unit.names.each { |name| hash[name.to_s] = unit }
-      hash
-    end
-  end
+  attr_reader :unit_name_to_unit, :conversion_table
 end
