@@ -1,3 +1,8 @@
+2.5.1
+----
+
+* Get rid of most memoizations in favor of eager computations.
+
 2.5.0
 -----
 
