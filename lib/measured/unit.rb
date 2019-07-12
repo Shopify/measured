@@ -2,12 +2,15 @@
 class Measured::Unit
   include Comparable
 
-  attr_reader :name, :aliases, :conversion_amount, :conversion_unit, :unit_system
+  attr_reader :name, :names, :aliases, :conversion_amount, :conversion_unit, :unit_system, :inverse_conversion_amount
 
   def initialize(name, aliases: [], value: nil, unit_system: nil)
     @name = name.to_s.freeze
     @aliases = aliases.map(&:to_s).map(&:freeze).freeze
+    @names = ([@name] + @aliases).sort!.freeze
     @conversion_amount, @conversion_unit = parse_value(value) if value
+    @inverse_conversion_amount = (1 / conversion_amount if conversion_amount)
+    @conversion_string = ("#{conversion_amount} #{conversion_unit}" if conversion_amount || conversion_unit)
     @unit_system = unit_system
   end
 
@@ -15,30 +18,24 @@ class Measured::Unit
     self.class.new(
       name,
       aliases: aliases,
-      value: conversion_string,
+      value: @conversion_string,
       unit_system: unit_system
     )
   end
 
-  def names
-    @names ||= ([name] + aliases).sort!.freeze
-  end
-
   def to_s
-    @to_s ||= if conversion_string
-      "#{name} (#{conversion_string})".freeze
+    if @conversion_string
+      "#{name} (#{@conversion_string})".freeze
     else
       name
     end
   end
 
   def inspect
-    @inspect ||= begin
-      pieces = [name]
-      pieces << "(#{aliases.join(", ")})" if aliases.any?
-      pieces << conversion_string if conversion_string
-      "#<#{self.class.name}: #{pieces.join(" ")}>".freeze
-    end
+    pieces = [name]
+    pieces << "(#{aliases.join(", ")})" if aliases.any?
+    pieces << @conversion_string if @conversion_string
+    "#<#{self.class.name}: #{pieces.join(" ")}>".freeze
   end
 
   def <=>(other)
@@ -54,15 +51,7 @@ class Measured::Unit
     end
   end
 
-  def inverse_conversion_amount
-    @inverse_conversion_amount ||= 1 / conversion_amount if conversion_amount
-  end
-
   private
-
-  def conversion_string
-    @conversion_string ||= ("#{conversion_amount} #{conversion_unit}" if conversion_amount || conversion_unit)
-  end
 
   def parse_value(tokens)
     case tokens
