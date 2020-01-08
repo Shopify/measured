@@ -3,7 +3,7 @@ require "pry" unless ENV["CI"]
 require "measured"
 require "minitest/reporters"
 require "minitest/autorun"
-require "mocha/setup"
+require "mocha/minitest"
 
 ActiveSupport.test_order = :random
 
