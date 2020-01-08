@@ -3,7 +3,13 @@ class Measured::UnitSystem
   attr_reader :units, :unit_names, :unit_names_with_aliases
 
   def initialize(units, cache: nil)
-    @units = units.map { |unit| unit.with_unit_system(self) }
+    @units = units.map { |unit| unit.with(unit_system: self) }
+    @units = @units.map do |unit|
+      next unit unless unit.conversion_unit
+      conversion_unit = @units.find { |u| u.names.include?(unit.conversion_unit) }
+      next unit unless conversion_unit
+      unit.with(value: [unit.conversion_amount, conversion_unit.name])
+    end
     @unit_names = @units.map(&:name).sort.freeze
     @unit_names_with_aliases = @units.flat_map(&:names).sort.freeze
     @unit_name_to_unit = @units.each_with_object({}) do |unit, hash|
