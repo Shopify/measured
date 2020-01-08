@@ -39,6 +39,16 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
     assert_equal 'BOLD', measurable.unit_system.unit_for!(:BOLD).name
   end
 
+  test "#unit traverses aliases" do
+    measurable = Measured.build do
+      unit :piece, aliases: [:pieces]
+      unit :dozen, aliases: [:dz], value: "12 pieces"
+    end
+
+    assert_equal 12, measurable.unit_system.units.last.conversion_amount
+    assert_equal "piece", measurable.unit_system.units.last.conversion_unit
+  end
+
   test "#si_unit adds 21 new units" do
     measurable = Measured.build do
       unit :ft

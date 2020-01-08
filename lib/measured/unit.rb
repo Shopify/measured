@@ -14,12 +14,12 @@ class Measured::Unit
     @unit_system = unit_system
   end
 
-  def with_unit_system(unit_system)
+  def with(name: nil, unit_system: nil, aliases: nil, value: nil)
     self.class.new(
-      name,
-      aliases: aliases,
-      value: @conversion_string,
-      unit_system: unit_system
+      name || self.name,
+      aliases: aliases || self.aliases,
+      value: value || @conversion_string,
+      unit_system: unit_system || self.unit_system
     )
   end
 
