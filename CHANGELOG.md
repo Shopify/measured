@@ -1,3 +1,9 @@
+2.5.2
+-----
+
+* Allow unit values to be declared in the unit system through aliases and not just the base unit name.
+* Fix some deprecations in tests and CI.
+
 2.5.1
 ----
 
