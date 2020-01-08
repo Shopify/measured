@@ -11,8 +11,6 @@ gemfile:
   - gemfiles/activesupport-5.0.gemfile
   - gemfiles/activesupport-5.1.gemfile
   - gemfiles/activesupport-6.0.gemfile
-before_script:
-  - gem update --system
 matrix:
   exclude:
     - gemfile: gemfiles/activesupport-6.0.gemfile
