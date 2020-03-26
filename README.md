@@ -273,12 +273,13 @@ Existing alternatives which were considered:
 
 ### Gem: [unitwise](https://github.com/joshwlewis/unitwise)
 * **Pros**
-  * Well written and maintained.
+  * Well written.
   * Conversions done with Unified Code for Units of Measure (UCUM) so highly accurate and reliable.
 * **Cons**
   * Lots of code. Good code, but lots of it.
   * Many modifications to core types.
   * ActiveRecord adapter exists but is written and maintained by a different person/org.
+  * Not actively maintained.
 
 ## Contributing
 
