@@ -67,7 +67,7 @@ class Measured::UnitSystemBuilder
   def check_for_duplicate_unit_names!(unit)
     names = @units.flat_map(&:names)
     if names.any? { |name| unit.names.include?(name) }
-      raise Measured::UnitError, "Unit #{unit.name} has already been added."
+      raise Measured::UnitAlreadyAdded.new(unit.name)
     end
   end
 end

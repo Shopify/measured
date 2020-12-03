@@ -7,6 +7,14 @@ require "json"
 
 module Measured
   class UnitError < StandardError ; end
+  class UnitAlreadyAdded < UnitError
+    attr_reader :unit_name
+
+    def initialize(unit_name)
+      @unit_name = unit_name
+      super("Unit #{unit_name} has already been added.")
+    end
+  end
 
   class << self
     def build(&block)

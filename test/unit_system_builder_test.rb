@@ -12,15 +12,17 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
   end
 
   test "#unit cannot add duplicate unit names" do
-    assert_raises Measured::UnitError do
+    error = assert_raises Measured::UnitAlreadyAdded do
       Measured.build do
         unit :m
         unit :in, aliases: [:inch], value: "0.0254 m"
         unit :in, aliases: [:thing], value: "123 m"
       end
     end
+    assert_equal("in", error.unit_name)
+    assert_equal("Unit in has already been added.", error.message)
 
-    assert_raises Measured::UnitError do
+    assert_raises Measured::UnitAlreadyAdded do
       Measured.build do
         unit :m
         unit :in, aliases: [:inch], value: "0.0254 m"
