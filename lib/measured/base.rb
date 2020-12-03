@@ -6,26 +6,6 @@ require "bigdecimal"
 require "json"
 
 module Measured
-  class UnitError < StandardError ; end
-  class UnitAlreadyAdded < UnitError
-    attr_reader :unit_name
-
-    def initialize(unit_name)
-      super("Unit #{unit_name} has already been added.")
-      @unit_name = unit_name
-    end
-  end
-
-  class MissingConversionPath < UnitError
-    attr_reader :from, :to
-
-    def initialize(from, to)
-      super("Cannot find conversion path from #{from} to #{to}.")
-      @from = from
-      @to = to
-    end
-  end
-
   class << self
     def build(&block)
       builder = UnitSystemBuilder.new
@@ -57,6 +37,9 @@ module Measured
   end
 end
 
+require "measured/unit_error"
+require "measured/unit_already_added"
+require "measured/missing_conversion_path"
 require "measured/arithmetic"
 require "measured/parser"
 require "measured/unit"
