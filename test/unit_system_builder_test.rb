@@ -31,6 +31,19 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
     end
   end
 
+  test "#unit raises when cannot find conversion path" do
+    error = assert_raises Measured::MissingConversionPath do
+      Measured.build do
+        unit :m
+        unit :in, value: "0.0254 m"
+        unit :pallets, value: "5 cases"
+      end
+    end
+    assert_equal("pallets", error.from)
+    assert_equal("m", error.to)
+    assert_equal("Cannot find conversion path from pallets to m.", error.message)
+  end
+
   test "#unit is case sensitive" do
     measurable = Measured.build do
       unit :normal

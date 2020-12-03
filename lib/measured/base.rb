@@ -11,8 +11,18 @@ module Measured
     attr_reader :unit_name
 
     def initialize(unit_name)
-      @unit_name = unit_name
       super("Unit #{unit_name} has already been added.")
+      @unit_name = unit_name
+    end
+  end
+
+  class MissingConversionPath < UnitError
+    attr_reader :from, :to
+
+    def initialize(from, to)
+      super("Cannot find conversion path from #{from} to #{to}.")
+      @from = from
+      @to = to
     end
   end
 
