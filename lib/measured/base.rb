@@ -6,8 +6,6 @@ require "bigdecimal"
 require "json"
 
 module Measured
-  class UnitError < StandardError ; end
-
   class << self
     def build(&block)
       builder = UnitSystemBuilder.new
@@ -39,6 +37,9 @@ module Measured
   end
 end
 
+require "measured/unit_error"
+require "measured/unit_already_added"
+require "measured/missing_conversion_path"
 require "measured/arithmetic"
 require "measured/parser"
 require "measured/unit"

@@ -40,7 +40,7 @@ class Measured::ConversionTableBuilder
   def find_conversion(to:, from:)
     conversion = find_direct_conversion_cached(to: to, from: from) || find_tree_traversal_conversion(to: to, from: from)
 
-    raise Measured::UnitError, "Cannot find conversion path from #{ from } to #{ to }." unless conversion
+    raise Measured::MissingConversionPath.new(from, to) unless conversion
 
     conversion
   end

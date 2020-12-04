@@ -12,21 +12,36 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
   end
 
   test "#unit cannot add duplicate unit names" do
-    assert_raises Measured::UnitError do
+    error = assert_raises Measured::UnitAlreadyAdded do
       Measured.build do
         unit :m
         unit :in, aliases: [:inch], value: "0.0254 m"
         unit :in, aliases: [:thing], value: "123 m"
       end
     end
+    assert_equal("in", error.unit_name)
+    assert_equal("Unit in has already been added.", error.message)
 
-    assert_raises Measured::UnitError do
+    assert_raises Measured::UnitAlreadyAdded do
       Measured.build do
         unit :m
         unit :in, aliases: [:inch], value: "0.0254 m"
         unit :inch, aliases: [:thing], value: "123 m"
       end
     end
+  end
+
+  test "#unit raises when cannot find conversion path" do
+    error = assert_raises Measured::MissingConversionPath do
+      Measured.build do
+        unit :m
+        unit :in, value: "0.0254 m"
+        unit :pallets, value: "5 cases"
+      end
+    end
+    assert_equal("pallets", error.from)
+    assert_equal("m", error.to)
+    assert_equal("Cannot find conversion path from pallets to m.", error.message)
   end
 
   test "#unit is case sensitive" do
