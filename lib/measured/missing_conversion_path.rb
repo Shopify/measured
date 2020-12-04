@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Measured
   class MissingConversionPath < UnitError
     attr_reader :from, :to

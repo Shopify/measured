@@ -1,4 +1,4 @@
-
+# frozen_string_literal: true
 module Measured
   class UnitAlreadyAdded < UnitError
     attr_reader :unit_name
