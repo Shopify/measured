@@ -2,16 +2,11 @@ language: ruby
 sudo: false
 cache: bundler
 rvm:
-  - 2.4.9
   - 2.5.7
   - 2.6.5
-  - 2.7.0
+  - 2.7.2
 gemfile:
   - Gemfile
-  - gemfiles/activesupport-5.0.gemfile
-  - gemfiles/activesupport-5.1.gemfile
+  - gemfiles/activesupport-5.2.gemfile
   - gemfiles/activesupport-6.0.gemfile
-matrix:
-  exclude:
-    - gemfile: gemfiles/activesupport-6.0.gemfile
-      rvm: 2.4.9
+  - gemfiles/activesupport-6.1.gemfile
