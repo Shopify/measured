@@ -1,3 +1,10 @@
+2.6.0
+-----
+
+* Add `Measured::MissingConversionPath` and `Measured::UnitAlreadyAdded` as subclasses of `Measured::UnitError` to handle specific error cases. (@arturopie)
+* Support only ActiveSupport 5.2 and above.
+
+
 2.5.2
 -----
 
