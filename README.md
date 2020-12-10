@@ -1,4 +1,4 @@
-# Measured [![Build Status](https://travis-ci.org/Shopify/measured.svg)](https://travis-ci.org/Shopify/measured) [![Gem Version](https://badge.fury.io/rb/measured.svg)](http://badge.fury.io/rb/measured)
+# Measured [![Build Status](https://github.com/Shopify/measured/workflows/CI/badge.svg)](https://github.com/Shopify/measured/actions?query=workflow%3ACI)
 
 Encapsulates measurements with their units. Provides easy conversion between units. Built in support for weight, length, and volume.
 
