@@ -56,10 +56,6 @@ class Measured::WeightTest < ActiveSupport::TestCase
     assert_equal Measured::Weight.new(2000, :g), Measured::Weight(2, :kg)
   end
 
-  test ".name" do
-    assert_equal "weight", Measured::Weight.name
-  end
-
   test ".convert_to from g to g" do
     assert_exact_conversion Measured::Weight, "2000 g", "2000 g"
   end

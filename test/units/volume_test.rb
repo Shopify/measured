@@ -72,10 +72,6 @@ class Measured::VolumeTest < ActiveSupport::TestCase
     assert_equal expected_units.sort, Measured::Volume.unit_names
   end
 
-  test ".name" do
-    assert_equal "volume", Measured::Volume.name
-  end
-
   test "Measured::Volume() delegates automatically to .new" do
     assert_equal Measured::Volume.new(1, :ml), Measured::Volume(1, :ml)
     assert_equal Measured::Volume.new(2, :fl_oz), Measured::Volume(2, :fl_oz)

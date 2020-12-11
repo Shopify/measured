@@ -83,10 +83,6 @@ class Measured::Measurable < Numeric
     delegate unit_names_with_aliases: :unit_system
     delegate unit_or_alias?: :unit_system
 
-    def name
-      to_s.split("::").last.underscore.humanize.downcase
-    end
-
     def parse(string)
       new(*Measured::Parser.parse_string(string))
     end

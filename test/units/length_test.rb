@@ -17,10 +17,6 @@ class Measured::LengthTest < ActiveSupport::TestCase
     assert_equal expected_units.sort, Measured::Length.unit_names
   end
 
-  test ".name" do
-    assert_equal "length", Measured::Length.name
-  end
-
   test "Measured::Length() delegates automatically to .new" do
     assert_equal Measured::Length.new(1, :in), Measured::Length(1, :in)
     assert_equal Measured::Length.new(200, :mm), Measured::Length(20, :cm)

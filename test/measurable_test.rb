@@ -106,15 +106,6 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     refute Magic.unit_or_alias?("junk")
   end
 
-  test ".name looks at the class name" do
-    module Example
-      VeryComplexThing = Measured.build { unit :foo }
-    end
-
-    assert_equal "magic", Magic.name
-    assert_equal "very complex thing", Example::VeryComplexThing.name
-  end
-
   test ".parse raises on nil input" do
     exception = assert_raises(Measured::UnitError) do
       Magic.parse(nil)
