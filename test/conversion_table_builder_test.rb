@@ -117,6 +117,16 @@ class Measured::ConversionTableBuilderTest < ActiveSupport::TestCase
     end
   end
 
+  test "#to_h raises exception when there are cycles" do
+    unit1 = Measured::Unit.new(:pallets, value: "1 liters")
+    unit2 = Measured::Unit.new(:liters, value: "0.1 cases")
+    unit3 = Measured::Unit.new(:cases, value: "0.1 pallets")
+
+    assert_raises(Measured::CycleDetected) do
+      Measured::ConversionTableBuilder.new([unit1, unit2, unit3]).to_h
+    end
+  end
+
   test "#cached? returns true if there's a cache" do
     builder = Measured::ConversionTableBuilder.new([Measured::Unit.new(:test)], cache: { class: AlwaysTrueCache })
     assert_predicate builder, :cached?
