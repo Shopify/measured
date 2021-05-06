@@ -1,3 +1,10 @@
+2.7.0
+-----
+
+* Raises an exception on cyclic conversions. (@arturopie)
+* Deduplicate strings loaded from the cache.
+* Deduplicate parsed units.
+
 2.6.0
 -----
 
