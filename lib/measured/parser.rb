@@ -33,6 +33,6 @@ module Measured::Parser
 
     raise Measured::UnitError, "Cannot parse measurement from '#{string}'" unless result
 
-    [result.captures[0].to_r, result.captures[1]]
+    [result.captures[0].to_r, -result.captures[1]]
   end
 end
