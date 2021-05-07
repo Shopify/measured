@@ -37,11 +37,17 @@ module Measured::Cache
     end
 
     def decode(table)
-      table.each_with_object(table.dup) do |(k1, v1), accu|
-        v1.each do |k2, v2|
-          if v2.is_a?(Hash)
-            accu[k1][k2] = Rational(v2["numerator"], v2["denominator"])
+      table.transform_values do |value1|
+        if value1.is_a?(Hash)
+          value1.transform_values do |value2|
+            if value2.is_a?(Hash)
+              Rational(value2["numerator"], value2["denominator"])
+            else
+              value2
+            end
           end
+        else
+          value1
         end
       end
     end
