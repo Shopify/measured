@@ -1,6 +1,9 @@
 Unreleased
 -----
 
+2.7.1
+-----
+
 * Fix Ruby 3.0 compatibility
 
 2.7.0
