@@ -43,10 +43,10 @@ class Measured::Measurable < Numeric
     self.class.new(new_value, new_unit)
   end
 
-  def format(format_string=nil)
+  def format(format_string=nil, with_conversion_string: true)
     kwargs = {
       value: self.value,
-      unit: self.unit,
+      unit: self.unit.to_s(with_conversion_string: with_conversion_string),
     }
     (format_string || DEFAULT_FORMAT_STRING) % kwargs
   end
