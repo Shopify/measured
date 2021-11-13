@@ -1,6 +1,8 @@
 Unreleased
 -----
 
+* Add useful numeric methods `zero?`, `nonzero?`, `positive?` and `negative?`
+
 2.8.0
 -----
 
