@@ -8,6 +8,26 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
     @four = Magic.new(4, :magic_missile)
   end
 
+  test 'can check for zero?' do
+    assert_equal true, Magic.new(0, :magic_missile).zero?
+    assert_equal false, Magic.new(1, :magic_missile).zero?
+  end
+
+  test 'can check for nonzero?' do
+    assert_equal Magic.new(10, :magic_missile), Magic.new(10, :magic_missile).nonzero?
+    assert_equal false, Magic.new(0, :magic_missile).nonzero?
+  end
+
+  test 'can check for postive?' do
+    assert_equal true, Magic.new(1, :magic_missile).positive?
+    assert_equal false, Magic.new(-1, :magic_missile).positive?
+  end
+
+  test 'can check for negative?' do
+    assert_equal true, Magic.new(-1, :magic_missile).negative?
+    assert_equal false, Magic.new(1, :magic_missile).negative?
+  end
+
   test "#+ should add together same units" do
     assert_equal Magic.new(5, :magic_missile), @two + @three
     assert_equal Magic.new(5, :magic_missile), @three + @two

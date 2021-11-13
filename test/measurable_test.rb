@@ -246,12 +246,6 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal "#<Magic: 1.234 #<Measured::Unit: magic_missile (magic_missiles, magic missile)>>", Magic.new(1.234, :magic_missile).inspect
   end
 
-  test "#zero? always returns false" do
-    refute_predicate Magic.new(0, :fire), :zero?
-    refute_predicate Magic.new(0.0, :fire), :zero?
-    refute_predicate Magic.new("0.0", :fire), :zero?
-  end
-
   test "#<=> compares regardless of the unit" do
     assert_equal (-1), @magic <=> Magic.new(20, :fire)
     assert_equal 1, @magic <=> Magic.new(9, :magic_missile)

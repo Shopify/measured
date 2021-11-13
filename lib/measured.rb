@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'forwardable'
 require "measured/base"
 
 require "measured/units/length"
