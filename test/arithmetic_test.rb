@@ -8,6 +8,16 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
     @four = Magic.new(4, :magic_missile)
   end
 
+  test 'can check for finite?' do
+    assert Magic.new(0, :magic_missile).finite?
+    refute Magic.new(Float::INFINITY, :magic_missile).finite?
+  end
+
+  test 'can check for infinite?' do
+    assert Magic.new(Float::INFINITY, :magic_missile).infinite?
+    refute Magic.new(0, :magic_missile).infinite?
+  end
+
   test 'can check for zero?' do
     assert Magic.new(0, :magic_missile).zero?
     refute Magic.new(1, :magic_missile).zero?

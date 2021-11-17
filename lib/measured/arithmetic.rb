@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module Measured::Arithmetic
   extend Forwardable
-  def_delegators :@value, :zero?, :positive?, :negative?
+  def_delegators :@value, :zero?, :positive?, :negative?, :finite?, :infinite?
 
   def +(other)
     arithmetic_operation(other, :+)
