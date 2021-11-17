@@ -1,7 +1,7 @@
 Unreleased
 -----
 
-* Add useful numeric methods `zero?`, `nonzero?`, `positive?` and `negative?`
+* Add useful numeric methods `finite?`, `infinite?`, `zero?`, `nonzero?`, `positive?` and `negative?`
 
 2.8.0
 -----
