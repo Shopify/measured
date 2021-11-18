@@ -1,6 +1,8 @@
 Unreleased
 -----
 
+* Add special case for zero coercion to allow direct use of `sum` method
+
 2.8.0
 -----
 

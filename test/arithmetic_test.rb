@@ -8,6 +8,10 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
     @four = Magic.new(4, :magic_missile)
   end
 
+  test "should be able to sum same units" do
+    assert_equal Magic.new(9, :magic_missile), [@two, @three, @four].sum
+  end
+
   test "#+ should add together same units" do
     assert_equal Magic.new(5, :magic_missile), @two + @three
     assert_equal Magic.new(5, :magic_missile), @three + @two
