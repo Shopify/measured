@@ -29,6 +29,7 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
 
   test 'can check for nonzero?' do
     assert_equal Magic.new(10, :magic_missile), Magic.new(10, :magic_missile).nonzero?
+    assert Magic.new(10, :magic_missile).nonzero?
     refute Magic.new(0, :magic_missile).nonzero?
   end
 
