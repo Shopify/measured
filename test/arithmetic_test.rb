@@ -8,6 +8,10 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
     @four = Magic.new(4, :magic_missile)
   end
 
+  test "should be able to sum same units" do
+    assert_equal Magic.new(9, :magic_missile), [@two, @three, @four].sum
+  end
+
   test 'can check for finite?' do
     assert Magic.new(0, :magic_missile).finite?
     refute Magic.new(Float::INFINITY, :magic_missile).finite?

@@ -22,6 +22,8 @@ module Measured::Arithmetic
   def coerce(other)
     if other.is_a?(self.class)
       [other, self]
+    elsif other.is_a?(Numeric) && other.zero?
+      [self.class.new(other, self.unit), self]
     else
       raise TypeError, "Cannot coerce #{other.class} to #{self.class}"
     end
