@@ -12,6 +12,37 @@ class Measured::ArithmeticTest < ActiveSupport::TestCase
     assert_equal Magic.new(9, :magic_missile), [@two, @three, @four].sum
   end
 
+  test 'can check for finite?' do
+    assert Magic.new(0, :magic_missile).finite?
+    refute Magic.new(Float::INFINITY, :magic_missile).finite?
+  end
+
+  test 'can check for infinite?' do
+    assert Magic.new(Float::INFINITY, :magic_missile).infinite?
+    refute Magic.new(0, :magic_missile).infinite?
+  end
+
+  test 'can check for zero?' do
+    assert Magic.new(0, :magic_missile).zero?
+    refute Magic.new(1, :magic_missile).zero?
+  end
+
+  test 'can check for nonzero?' do
+    assert_equal Magic.new(10, :magic_missile), Magic.new(10, :magic_missile).nonzero?
+    assert Magic.new(10, :magic_missile).nonzero?
+    refute Magic.new(0, :magic_missile).nonzero?
+  end
+
+  test 'can check for positive?' do
+    assert Magic.new(1, :magic_missile).positive?
+    refute Magic.new(-1, :magic_missile).positive?
+  end
+
+  test 'can check for negative?' do
+    assert Magic.new(-1, :magic_missile).negative?
+    refute Magic.new(1, :magic_missile).negative?
+  end
+
   test "#+ should add together same units" do
     assert_equal Magic.new(5, :magic_missile), @two + @three
     assert_equal Magic.new(5, :magic_missile), @three + @two

@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 module Measured::Arithmetic
+  extend Forwardable
+  def_delegators :@value, :zero?, :positive?, :negative?, :finite?, :infinite?
+
   def +(other)
     arithmetic_operation(other, :+)
   end
@@ -28,6 +31,10 @@ module Measured::Arithmetic
 
   def to_i
     raise TypeError, "#{self.class} cannot be converted to an integer"
+  end
+
+  def nonzero?
+    value.nonzero? ? self : false
   end
 
   private
