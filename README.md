@@ -149,6 +149,15 @@ Measured::Weight.new("3.14", "grams").format("%.1<value>f %<unit>s")
 
 If no string is passed to the `format` method it defaults to `"%.2<value>f %<unit>s"`.
 
+If the unit isn't the standard SI unit, it will include a conversion string.
+
+```ruby
+Measured::Weight.new("3.14", "kg").format
+> "3.14 kg (1000/1 g)"
+Measured::Weight.new("3.14", "kg").format(with_conversion_string: false)
+> "3.14 kg"
+```
+
 ## Units and conversions
 
 ### SI units support
