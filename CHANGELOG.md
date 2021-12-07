@@ -1,8 +1,9 @@
 Unreleased
 -----
 
-* Add special case for zero coercion to allow direct use of `sum` method
-* Add useful numeric methods `finite?`, `infinite?`, `zero?`, `nonzero?`, `positive?` and `negative?`
+* Allow format without the conversion string. (@saraid)
+* Add special case for zero coercion to allow direct use of `sum` method. (@jmortlock)
+* Add useful numeric methods `finite?`, `infinite?`, `zero?`, `nonzero?`, `positive?` and `negative?`. (@jmortlock)
 
 2.8.0
 -----
