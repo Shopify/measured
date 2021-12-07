@@ -23,8 +23,8 @@ class Measured::Unit
     )
   end
 
-  def to_s
-    if @conversion_string
+  def to_s(with_conversion_string: true)
+    if with_conversion_string && @conversion_string
       "#{name} (#{@conversion_string})".freeze
     else
       name

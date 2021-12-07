@@ -232,6 +232,11 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal "9.34 magic_missile", Magic.new(9.342, :magic_missile).format
   end
 
+  test "#format can drop the conversion amount" do
+    assert_equal "1.00 fireball (2/3 magic_missile)", Magic.new(1, :fireball).format
+    assert_equal "1.00 fireball", Magic.new(1, :fireball).format(with_conversion_string: false)
+  end
+
   test "#humanize outputs the number and the unit properly pluralized" do
     assert_equal "1 fireball", Magic.new("1", :fire).humanize
     assert_equal "10 fireballs", Magic.new(10, :fire).humanize

@@ -43,6 +43,10 @@ class Measured::UnitTest < ActiveSupport::TestCase
     assert_equal "pie (1/2 sweet)", Measured::Unit.new(:pie, aliases: ["cake"], value: "0.5 sweet").to_s
   end
 
+  test "#to_s can drop the conversion amount" do
+    assert_equal "pie", Measured::Unit.new(:pie).to_s(with_conversion_string: false)
+  end
+
   test "#inspect returns an expected string" do
     assert_equal "#<Measured::Unit: pie>", Measured::Unit.new(:pie).inspect
     assert_equal "#<Measured::Unit: pie (cake, semi-sweet)>", Measured::Unit.new(:pie, aliases: ["cake", "semi-sweet"]).inspect
