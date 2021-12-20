@@ -19,6 +19,16 @@ class Measured::VolumeTest < ActiveSupport::TestCase
       liters
       litres
       ft3
+      cm3
+      cubic_centimeter
+      cubic_centimeters
+      cubic_centimetre
+      cubic_centimetres
+      mm3
+      cubic_millimeter
+      cubic_millimeters
+      cubic_millimetre
+      cubic_millimetres
       cubic_foot
       cubic_feet
       in3
@@ -67,7 +77,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   end
 
   test ".unit_names should be the list of base unit names" do
-    expected_units = %w(l m3 ft3 in3 gal us_gal qt us_qt pt us_pt oz us_oz)
+    expected_units = %w(l m3 ft3 in3 gal us_gal qt us_qt pt us_pt oz us_oz mm3 cm3)
     expected_units += Measured::UnitSystemBuilder::SI_PREFIXES.map { |short, _, _| "#{short}l" }
     assert_equal expected_units.sort, Measured::Volume.unit_names
   end
@@ -123,6 +133,102 @@ class Measured::VolumeTest < ActiveSupport::TestCase
 
   test ".convert_to from us_oz to us_oz" do
     assert_conversion Measured::Volume, "2000 us_oz", "2000 us_oz"
+  end
+  
+  test ".convert_to from mm3 to mm3" do
+    assert_conversion Measured::Volume, "20000 mm3", "20000 mm3"
+  end
+
+  test ".convert_to from cm3 to cm3" do
+    assert_conversion Measured::Volume, "20000 cm3", "20000 cm3"
+  end
+
+  test ".convert_to from mm3 to m3" do
+    assert_conversion Measured::Volume, "20000 mm3", "0.00002 m3"
+  end
+
+  test ".convert_to from mm3 to ft3" do
+    assert_conversion Measured::Volume, "20000 mm3", "0.00070629333 ft3"
+  end
+
+  test ".convert_to from mm3 to in3" do
+    assert_conversion Measured::Volume, "20000 mm3", "1.2204749 in3"
+  end
+
+  test ".convert_to from mm3 to gal" do
+    assert_conversion Measured::Volume, "20000 mm3", "0.004399384965981756 gal"
+  end
+
+  test ".convert_to from mm3 to us_gal" do
+    assert_conversion Measured::Volume, "20000 mm3", "0.005283441047162969 us_gal"
+  end
+
+  test ".convert_to from mm3 to qt" do
+    assert_conversion Measured::Volume, "20000 mm3", "0.01759754 qt"
+  end
+
+  test ".convert_to from mm3 to us_qt" do
+    assert_conversion Measured::Volume, "20000 mm3", "0.021133764 us_qt"
+  end
+
+  test ".convert_to from mm3 to pt" do
+    assert_conversion Measured::Volume, "20000 mm3", "0.03519508 pt"
+  end
+
+  test ".convert_to from mm3 to us_pt" do
+    assert_conversion Measured::Volume, "20000 mm3", "0.042267528 us_pt"
+  end
+
+  test ".convert_to from mm3 to oz" do
+    assert_conversion Measured::Volume, "20000 mm3", "0.70390159 oz"
+  end
+
+  test ".convert_to from mm3 to us_oz" do
+    assert_conversion Measured::Volume, "20000 mm3", "0.67628045 us_oz"
+  end
+
+  test ".convert_to from cm3 to m3" do
+    assert_conversion Measured::Volume, "20000 cm3", "0.02 m3"
+  end
+
+  test ".convert_to from cm3 to ft3" do
+    assert_conversion Measured::Volume, "20000 cm3", "0.70629333 ft3"
+  end
+
+  test ".convert_to from cm3 to in3" do
+    assert_conversion Measured::Volume, "20000 cm3", "1220.4748818946457 in3"
+  end
+
+  test ".convert_to from cm3 to gal" do
+    assert_conversion Measured::Volume, "20000 cm3", "4.399384965981756 gal"
+  end
+
+  test ".convert_to from cm3 to us_gal" do
+    assert_conversion Measured::Volume, "20000 cm3", "5.283441047162969 us_gal"
+  end
+
+  test ".convert_to from cm3 to qt" do
+    assert_conversion Measured::Volume, "20000 cm3", "17.59754 qt"
+  end
+
+  test ".convert_to from cm3 to us_qt" do
+    assert_conversion Measured::Volume, "20000 cm3", "21.133764 us_qt"
+  end
+
+  test ".convert_to from cm3 to pt" do
+    assert_conversion Measured::Volume, "20000 cm3", "35.19508 pt"
+  end
+
+  test ".convert_to from cm3 to us_pt" do
+    assert_conversion Measured::Volume, "20000 cm3", "42.267528 us_pt"
+  end
+
+  test ".convert_to from cm3 to oz" do
+    assert_conversion Measured::Volume, "20000 cm3", "703.9015945570809 oz"
+  end
+
+  test ".convert_to from cm3 to us_oz" do
+    assert_conversion Measured::Volume, "20000 cm3", "676.28045403686 us_oz"
   end
 
   test ".convert_to from ml to m3" do
