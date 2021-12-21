@@ -3,6 +3,8 @@ Measured::Volume = Measured.build do
   si_unit :l, aliases: [:liter, :litre, :liters, :litres]
 
   unit :m3, value: "1000 l", aliases: [:cubic_meter, :cubic_metre, :cubic_meters, :cubic_metres]
+  unit :cm3, value: "0.001 l", aliases: [:cubic_centimeter, :cubic_centimetre, :cubic_centimeters, :cubic_centimetres]
+  unit :mm3, value: "0.000001 l", aliases: [:cubic_millimeter, :cubic_millimetre, :cubic_millimeters, :cubic_millimetres]
   unit :in3, value: "0.016387064 l", aliases: [:cubic_inch, :cubic_inches]
   unit :ft3, value: "1728 in3", aliases: [:cubic_foot, :cubic_feet]
   unit :gal, value: "4.54609 l", aliases: [:imp_gal, :imperial_gallon, :imp_gals, :imperial_gallons]

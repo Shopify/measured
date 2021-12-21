@@ -89,6 +89,14 @@
       "numerator": 1,
       "denominator": 1000
     },
+    "cm3": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "mm3": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
     "in3": {
       "numerator": 125000000,
       "denominator": 2048383
@@ -218,6 +226,14 @@
     "m3": {
       "numerator": 1,
       "denominator": 1000000000000000000000000000
+    },
+    "cm3": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "mm3": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
     },
     "in3": {
       "numerator": 1,
@@ -349,6 +365,14 @@
       "numerator": 1,
       "denominator": 1000000000000000000000000
     },
+    "cm3": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "mm3": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
     "in3": {
       "numerator": 1,
       "denominator": 16387064000000000000
@@ -478,6 +502,14 @@
     "m3": {
       "numerator": 1,
       "denominator": 1000000000000000000000
+    },
+    "cm3": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "mm3": {
+      "numerator": 1,
+      "denominator": 1000000000000
     },
     "in3": {
       "numerator": 1,
@@ -609,6 +641,14 @@
       "numerator": 1,
       "denominator": 1000000000000000000
     },
+    "cm3": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "mm3": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
     "in3": {
       "numerator": 1,
       "denominator": 16387064000000
@@ -738,6 +778,14 @@
     "m3": {
       "numerator": 1,
       "denominator": 1000000000000000
+    },
+    "cm3": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "mm3": {
+      "numerator": 1,
+      "denominator": 1000000
     },
     "in3": {
       "numerator": 1,
@@ -869,6 +917,14 @@
       "numerator": 1,
       "denominator": 1000000000000
     },
+    "cm3": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "mm3": {
+      "numerator": 1,
+      "denominator": 1000
+    },
     "in3": {
       "numerator": 1,
       "denominator": 16387064
@@ -998,6 +1054,14 @@
     "m3": {
       "numerator": 1,
       "denominator": 1000000000
+    },
+    "cm3": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "mm3": {
+      "numerator": 1,
+      "denominator": 1
     },
     "in3": {
       "numerator": 125,
@@ -1129,6 +1193,14 @@
       "numerator": 1,
       "denominator": 1000000
     },
+    "cm3": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "mm3": {
+      "numerator": 1000,
+      "denominator": 1
+    },
     "in3": {
       "numerator": 125000,
       "denominator": 2048383
@@ -1258,6 +1330,14 @@
     "m3": {
       "numerator": 1,
       "denominator": 100000
+    },
+    "cm3": {
+      "numerator": 10,
+      "denominator": 1
+    },
+    "mm3": {
+      "numerator": 10000,
+      "denominator": 1
     },
     "in3": {
       "numerator": 1250000,
@@ -1389,6 +1469,14 @@
       "numerator": 1,
       "denominator": 10000
     },
+    "cm3": {
+      "numerator": 100,
+      "denominator": 1
+    },
+    "mm3": {
+      "numerator": 100000,
+      "denominator": 1
+    },
     "in3": {
       "numerator": 12500000,
       "denominator": 2048383
@@ -1518,6 +1606,14 @@
     "m3": {
       "numerator": 1,
       "denominator": 100
+    },
+    "cm3": {
+      "numerator": 10000,
+      "denominator": 1
+    },
+    "mm3": {
+      "numerator": 10000000,
+      "denominator": 1
     },
     "in3": {
       "numerator": 1250000000,
@@ -1649,6 +1745,14 @@
       "numerator": 1,
       "denominator": 10
     },
+    "cm3": {
+      "numerator": 100000,
+      "denominator": 1
+    },
+    "mm3": {
+      "numerator": 100000000,
+      "denominator": 1
+    },
     "in3": {
       "numerator": 12500000000,
       "denominator": 2048383
@@ -1777,6 +1881,14 @@
     },
     "m3": {
       "numerator": 1,
+      "denominator": 1
+    },
+    "cm3": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "mm3": {
+      "numerator": 1000000000,
       "denominator": 1
     },
     "in3": {
@@ -1909,6 +2021,14 @@
       "numerator": 1000,
       "denominator": 1
     },
+    "cm3": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "mm3": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
     "in3": {
       "numerator": 125000000000000,
       "denominator": 2048383
@@ -2037,6 +2157,14 @@
     },
     "m3": {
       "numerator": 1000000,
+      "denominator": 1
+    },
+    "cm3": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "mm3": {
+      "numerator": 1000000000000000,
       "denominator": 1
     },
     "in3": {
@@ -2169,6 +2297,14 @@
       "numerator": 1000000000,
       "denominator": 1
     },
+    "cm3": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "mm3": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
     "in3": {
       "numerator": 125000000000000000000,
       "denominator": 2048383
@@ -2297,6 +2433,14 @@
     },
     "m3": {
       "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "cm3": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "mm3": {
+      "numerator": 1000000000000000000000,
       "denominator": 1
     },
     "in3": {
@@ -2429,6 +2573,14 @@
       "numerator": 1000000000000000,
       "denominator": 1
     },
+    "cm3": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "mm3": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
     "in3": {
       "numerator": 125000000000000000000000000,
       "denominator": 2048383
@@ -2557,6 +2709,14 @@
     },
     "m3": {
       "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "cm3": {
+      "numerator": 1000000000000000000000000,
+      "denominator": 1
+    },
+    "mm3": {
+      "numerator": 1000000000000000000000000000,
       "denominator": 1
     },
     "in3": {
@@ -2689,6 +2849,14 @@
       "numerator": 1000000000000000000000,
       "denominator": 1
     },
+    "cm3": {
+      "numerator": 1000000000000000000000000000,
+      "denominator": 1
+    },
+    "mm3": {
+      "numerator": 1000000000000000000000000000000,
+      "denominator": 1
+    },
     "in3": {
       "numerator": 125000000000000000000000000000000,
       "denominator": 2048383
@@ -2819,6 +2987,14 @@
       "numerator": 1,
       "denominator": 1000000000000000000000
     },
+    "cm3": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "mm3": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
     "in3": {
       "numerator": 125000000000,
       "denominator": 2048383
@@ -2857,6 +3033,282 @@
     },
     "us_oz": {
       "numerator": 16000000000000,
+      "denominator": 473176473
+    }
+  },
+  "cm3": {
+    "cm3": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "yl": {
+      "numerator": 1000000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "cl": {
+      "numerator": 1,
+      "denominator": 10
+    },
+    "dl": {
+      "numerator": 1,
+      "denominator": 100
+    },
+    "dal": {
+      "numerator": 1,
+      "denominator": 10000
+    },
+    "hl": {
+      "numerator": 1,
+      "denominator": 100000
+    },
+    "kl": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "mm3": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "in3": {
+      "numerator": 125000,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 15625,
+      "denominator": 442450728
+    },
+    "gal": {
+      "numerator": 100,
+      "denominator": 454609
+    },
+    "us_gal": {
+      "numerator": 125000,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 400,
+      "denominator": 454609
+    },
+    "us_qt": {
+      "numerator": 500000,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 800,
+      "denominator": 454609
+    },
+    "us_pt": {
+      "numerator": 1000000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 16000,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 16000000,
+      "denominator": 473176473
+    }
+  },
+  "mm3": {
+    "mm3": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "l": {
+      "numerator": 1,
+      "denominator": 1000000
+    },
+    "yl": {
+      "numerator": 1000000000000000000,
+      "denominator": 1
+    },
+    "zl": {
+      "numerator": 1000000000000000,
+      "denominator": 1
+    },
+    "al": {
+      "numerator": 1000000000000,
+      "denominator": 1
+    },
+    "fl": {
+      "numerator": 1000000000,
+      "denominator": 1
+    },
+    "pl": {
+      "numerator": 1000000,
+      "denominator": 1
+    },
+    "nl": {
+      "numerator": 1000,
+      "denominator": 1
+    },
+    "μl": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "ml": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "cl": {
+      "numerator": 1,
+      "denominator": 10000
+    },
+    "dl": {
+      "numerator": 1,
+      "denominator": 100000
+    },
+    "dal": {
+      "numerator": 1,
+      "denominator": 10000000
+    },
+    "hl": {
+      "numerator": 1,
+      "denominator": 100000000
+    },
+    "kl": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "Ml": {
+      "numerator": 1,
+      "denominator": 1000000000000
+    },
+    "Gl": {
+      "numerator": 1,
+      "denominator": 1000000000000000
+    },
+    "Tl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000
+    },
+    "Pl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000
+    },
+    "El": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000
+    },
+    "Zl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000
+    },
+    "Yl": {
+      "numerator": 1,
+      "denominator": 1000000000000000000000000000000
+    },
+    "m3": {
+      "numerator": 1,
+      "denominator": 1000000000
+    },
+    "cm3": {
+      "numerator": 1,
+      "denominator": 1000
+    },
+    "in3": {
+      "numerator": 125,
+      "denominator": 2048383
+    },
+    "ft3": {
+      "numerator": 125,
+      "denominator": 3539605824
+    },
+    "gal": {
+      "numerator": 1,
+      "denominator": 4546090
+    },
+    "us_gal": {
+      "numerator": 125,
+      "denominator": 473176473
+    },
+    "qt": {
+      "numerator": 2,
+      "denominator": 2273045
+    },
+    "us_qt": {
+      "numerator": 500,
+      "denominator": 473176473
+    },
+    "pt": {
+      "numerator": 4,
+      "denominator": 2273045
+    },
+    "us_pt": {
+      "numerator": 1000,
+      "denominator": 473176473
+    },
+    "oz": {
+      "numerator": 16,
+      "denominator": 454609
+    },
+    "us_oz": {
+      "numerator": 16000,
       "denominator": 473176473
     }
   },
@@ -2952,6 +3404,14 @@
     "m3": {
       "numerator": 2048383,
       "denominator": 125000000000
+    },
+    "cm3": {
+      "numerator": 2048383,
+      "denominator": 125000
+    },
+    "mm3": {
+      "numerator": 2048383,
+      "denominator": 125
     },
     "ft3": {
       "numerator": 1,
@@ -3083,6 +3543,14 @@
       "numerator": 55306341,
       "denominator": 1953125000
     },
+    "cm3": {
+      "numerator": 442450728,
+      "denominator": 15625
+    },
+    "mm3": {
+      "numerator": 3539605824,
+      "denominator": 125
+    },
     "in3": {
       "numerator": 1728,
       "denominator": 1
@@ -3212,6 +3680,14 @@
     "m3": {
       "numerator": 454609,
       "denominator": 100000000
+    },
+    "cm3": {
+      "numerator": 454609,
+      "denominator": 100
+    },
+    "mm3": {
+      "numerator": 4546090,
+      "denominator": 1
     },
     "in3": {
       "numerator": 568261250,
@@ -3343,6 +3819,14 @@
       "numerator": 473176473,
       "denominator": 125000000000
     },
+    "cm3": {
+      "numerator": 473176473,
+      "denominator": 125000
+    },
+    "mm3": {
+      "numerator": 473176473,
+      "denominator": 125
+    },
     "in3": {
       "numerator": 231,
       "denominator": 1
@@ -3472,6 +3956,14 @@
     "m3": {
       "numerator": 454609,
       "denominator": 400000000
+    },
+    "cm3": {
+      "numerator": 454609,
+      "denominator": 400
+    },
+    "mm3": {
+      "numerator": 2273045,
+      "denominator": 2
     },
     "in3": {
       "numerator": 284130625,
@@ -3603,6 +4095,14 @@
       "numerator": 473176473,
       "denominator": 500000000000
     },
+    "cm3": {
+      "numerator": 473176473,
+      "denominator": 500000
+    },
+    "mm3": {
+      "numerator": 473176473,
+      "denominator": 500
+    },
     "in3": {
       "numerator": 231,
       "denominator": 4
@@ -3732,6 +4232,14 @@
     "m3": {
       "numerator": 454609,
       "denominator": 800000000
+    },
+    "cm3": {
+      "numerator": 454609,
+      "denominator": 800
+    },
+    "mm3": {
+      "numerator": 2273045,
+      "denominator": 4
     },
     "in3": {
       "numerator": 284130625,
@@ -3863,6 +4371,14 @@
       "numerator": 473176473,
       "denominator": 1000000000000
     },
+    "cm3": {
+      "numerator": 473176473,
+      "denominator": 1000000
+    },
+    "mm3": {
+      "numerator": 473176473,
+      "denominator": 1000
+    },
     "in3": {
       "numerator": 231,
       "denominator": 8
@@ -3993,6 +4509,14 @@
       "numerator": 454609,
       "denominator": 16000000000
     },
+    "cm3": {
+      "numerator": 454609,
+      "denominator": 16000
+    },
+    "mm3": {
+      "numerator": 454609,
+      "denominator": 16
+    },
     "in3": {
       "numerator": 56826125,
       "denominator": 32774128
@@ -4122,6 +4646,14 @@
     "m3": {
       "numerator": 473176473,
       "denominator": 16000000000000
+    },
+    "cm3": {
+      "numerator": 473176473,
+      "denominator": 16000000
+    },
+    "mm3": {
+      "numerator": 473176473,
+      "denominator": 16000
     },
     "in3": {
       "numerator": 231,
