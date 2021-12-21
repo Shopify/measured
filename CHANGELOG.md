@@ -3,6 +3,11 @@ Unreleased
 
 
 
+2.8.2
+-----
+
+* Add cm3 and mm3 to volume. (@fekadeabdejene)
+
 2.8.1
 -----
 
