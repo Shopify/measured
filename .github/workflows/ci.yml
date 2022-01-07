@@ -13,11 +13,17 @@ jobs:
           - '2.6'
           - '2.7'
           - '3.0'
+          - '3.1'
         gemfile:
           - Gemfile
           - gemfiles/activesupport-5.2.gemfile
           - gemfiles/activesupport-6.0.gemfile
           - gemfiles/activesupport-6.1.gemfile
+          - gemfiles/activesupport-7.0.gemfile
+        exclude:
+          - ruby: '2.6'
+            gemfile: gemfiles/activesupport-7.0.gemfile
+
     name: Ruby ${{ matrix.ruby }} ${{ matrix.gemfile }}
     steps:
       - uses: actions/checkout@v1
