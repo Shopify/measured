@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 Measured::Weight = Measured.build do
-  si_unit :g, aliases: [:gram, :grams]
+  si_unit :g, aliases: [:gram, :grams, :gm, :gms]
 
   unit :t, value: "1000 kg", aliases: [:metric_ton, :metric_tons]
   unit :slug, value: "14.593903 kg", aliases: [:slugs]

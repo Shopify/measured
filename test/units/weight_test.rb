@@ -15,6 +15,8 @@ class Measured::WeightTest < ActiveSupport::TestCase
       g
       gram
       grams
+      gm
+      gms
       imperial_ton
       imperial_tons
       lb
@@ -39,7 +41,7 @@ class Measured::WeightTest < ActiveSupport::TestCase
       weight_tons
     )
     expected_units += Measured::UnitSystemBuilder::SI_PREFIXES.flat_map do |short, long, _|
-      ["#{short}g", "#{long}gram", "#{long}grams"]
+      ["#{short}g", "#{long}gram", "#{long}grams", "#{long}gm", "#{long}gms"]
     end
 
     assert_equal expected_units.sort, Measured::Weight.unit_names_with_aliases
