@@ -17,6 +17,8 @@ class Measured::Measurable < Numeric
       value
     when Integer
       Rational(value)
+    when String
+      /\d+\/\d+/.match?(value) ? Rational(value) : BigDecimal(value)
     else
       BigDecimal(value)
     end
