@@ -41,6 +41,10 @@ class Measured::MeasurableTest < ActiveSupport::TestCase
     assert_equal BigDecimal("9.1234572342342"), Magic.new("9.1234572342342", :fire).value
   end
 
+  test "#initialize converts strings to Rational if they follow Rational pattern" do
+    assert_equal Rational(1, 3), Magic.new("1/3", :fire).value
+  end
+
   test "#initialize converts to the base unit" do
     assert_equal @fireball, Magic.new(1, :fire).unit
   end
