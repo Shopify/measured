@@ -2,6 +2,19 @@
 require "test_helper"
 
 class Measured::DynamicConversionTableBuilderTest < ActiveSupport::TestCase
+  test "#initialize raises when cache is not null" do
+    invalid_cache_arguments = { class: Measured::Cache::Json, args: ["volume.json"] }
+    valid_cache_arguments = { class: Measured::Cache::Null, args: [] }
+
+    assert_raises Measured::CacheError do
+      Measured::DynamicConversionTableBuilder.new([], cache: invalid_cache_arguments)
+    end
+
+    assert_nothing_raised do
+      Measured::DynamicConversionTableBuilder.new([], cache: valid_cache_arguments)
+    end
+  end
+
   test "#to_h returns expected nested hashes in an indrect path" do
     conversion_table = Measured::DynamicConversionTableBuilder.new([
       Measured::Unit.new(:mm),

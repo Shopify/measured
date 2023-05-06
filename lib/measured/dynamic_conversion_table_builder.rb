@@ -7,6 +7,13 @@ module Measured
 
     def after_initialize
       @units.map!(&:to_dynamic)
+      validate_cache
+    end
+
+    def validate_cache
+      return if @cache.is_a?(Measured::Cache::Null)
+
+      raise CacheError, "Dynamic unit systems cannot be cached"
     end
 
     def generate_table

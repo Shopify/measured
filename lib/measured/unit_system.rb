@@ -19,7 +19,6 @@ class Measured::UnitSystem
     table_builder = Measured::ConversionTableBuilder
     if @units.any?(&:dynamic?)
       table_builder = Measured::DynamicConversionTableBuilder
-      cache = nil
     end
 
     @conversion_table_builder = table_builder.new(@units, cache: cache)

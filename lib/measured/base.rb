@@ -38,6 +38,7 @@ module Measured
 end
 
 require "measured/unit_error"
+require "measured/cache/cache_error"
 require "measured/cycle_detected"
 require "measured/unit_already_added"
 require "measured/missing_conversion_path"
