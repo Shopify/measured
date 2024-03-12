@@ -32,7 +32,7 @@ class Measured::Measurable < Numeric
       else
         value.to_f.to_s
       end
-      str.gsub(/\.0*\Z/, "")
+      /\.0*\Z/.match?(str) ? str.gsub(/\.0*\Z/, "") : str
     end.freeze
   end
 
