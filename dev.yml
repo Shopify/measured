@@ -1,8 +1,7 @@
 name: measured
 
 up:
-  - ruby:
-      version: 3.0.2
+  - ruby
   - bundler
 
 commands:
