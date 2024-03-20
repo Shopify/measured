@@ -114,4 +114,15 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
     conversion = Measured::UnitSystem.new([@unit_m, @unit_in, @unit_ft], cache: { class: AlwaysTrueCache })
     assert_predicate conversion, :cached?
   end
+
+  test "#initialize raises when caching dynamic unit system" do
+    assert_raises Measured::CacheError do
+      Measured.build do
+        unit :base_unit
+        unit :unit, value: [{conversion: ->(x) {x}, reverse_conversion: ->(x) {x}, description: '1 base unit'}, "base_unit"]
+
+        cache Measured::Cache::Json, "length.json"
+      end
+    end
+  end
 end
