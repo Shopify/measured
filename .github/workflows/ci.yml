@@ -15,9 +15,14 @@ jobs:
           - '3.2'
         gemfile:
           - Gemfile
-          - gemfiles/activesupport-6.0.gemfile
-          - gemfiles/activesupport-6.1.gemfile
-          - gemfiles/activesupport-7.0.gemfile
+          - gemfiles/rails-6.0.gemfile
+          - gemfiles/rails-6.1.gemfile
+          - gemfiles/rails-7.0.gemfile
+          - gemfiles/rails-edge.gemfile
+        exclude:
+          # Rails Edge only supports Ruby >= 3.1
+          - ruby: '3.0'
+            gemfile: gemfiles/rails-edge.gemfile
 
     name: Ruby ${{ matrix.ruby }} ${{ matrix.gemfile }}
     steps:
