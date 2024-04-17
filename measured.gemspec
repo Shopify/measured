@@ -36,6 +36,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "mocha", ">= 1.4.0"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "combustion"
-  spec.add_development_dependency "sqlite3"
+  spec.add_development_dependency "sqlite3", "~> 1.4"
   spec.add_development_dependency "tapioca"
 end
