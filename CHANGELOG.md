@@ -3,6 +3,14 @@ Unreleased
 
 
 
+3.0.0
+-----
+
+* Merge functionality of `measured-rails` into this gem. From this version on, this gem is able to automatically integrate with Active Record out of the box. (@paracycle)
+* Add `:gm` and `:gms` as aliases to weight. (@kushagra-03)
+* Adds support for initializing `Measured` objects with a rational value from string. (@dvisockas)
+* Make `Measured` initialization faster by avoiding string substitution in certain cases. (@bitwise-aiden)
+
 2.8.2
 -----
 
