@@ -1,7 +1,7 @@
 # typed: strict
 # frozen_string_literal: true
 
-return unless defined?(::Measured::Rails::ActiveRecord)
+return unless defined?(::Measured::Rails)
 
 module Tapioca
   module Dsl
@@ -88,16 +88,18 @@ module Tapioca
         sig { params(model: RBI::Scope).void }
         def populate_measured_methods(model)
           constant.measured_fields.each do |field, attrs|
-            klass = attrs[:class].to_s
+            class_name = qualified_name_of(attrs[:class])
+
+            next unless class_name
 
             model.create_method(
               field.to_s,
-              return_type: as_nilable_type(klass)
+              return_type: as_nilable_type(class_name)
             )
 
             model.create_method(
               "#{field}=",
-              parameters: [create_param("value", type: as_nilable_type(klass))],
+              parameters: [create_param("value", type: as_nilable_type(class_name))],
               return_type: "void"
             )
           end
