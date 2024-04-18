@@ -4,7 +4,7 @@ Encapsulates measurements with their units. Provides easy conversion between uni
 
 Lightweight and easily extensible to include other units and conversions. Conversions done with `Rational` for precision.
 
-The adapter to integrate `measured` with Ruby on Rails is in a separate [`measured-rails`](https://github.com/Shopify/measured-rails) gem.
+Since version 3.0.0, the adapter to integrate `measured` with Ruby on Rails is also a part of this gem. If you had been using [`measured-rails`](https://github.com/Shopify/measured-rails) for that functionality, you should now remove `measured-rails` from your gem file.
 
 ## Installation
 
