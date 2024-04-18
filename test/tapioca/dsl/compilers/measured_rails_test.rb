@@ -72,22 +72,22 @@ module Tapioca
               include GeneratedMeasuredRailsMethods
 
               module GeneratedMeasuredRailsMethods
-                sig { returns(T.nilable(Measured::Weight)) }
+                sig { returns(T.nilable(::Measured::Weight)) }
                 def minimum_weight; end
 
-                sig { params(value: T.nilable(Measured::Weight)).void }
+                sig { params(value: T.nilable(::Measured::Weight)).void }
                 def minimum_weight=(value); end
 
-                sig { returns(T.nilable(Measured::Length)) }
+                sig { returns(T.nilable(::Measured::Length)) }
                 def total_length; end
 
-                sig { params(value: T.nilable(Measured::Length)).void }
+                sig { params(value: T.nilable(::Measured::Length)).void }
                 def total_length=(value); end
 
-                sig { returns(T.nilable(Measured::Volume)) }
+                sig { returns(T.nilable(::Measured::Volume)) }
                 def total_volume; end
 
-                sig { params(value: T.nilable(Measured::Volume)).void }
+                sig { params(value: T.nilable(::Measured::Volume)).void }
                 def total_volume=(value); end
               end
             end
@@ -125,10 +125,10 @@ module Tapioca
               include GeneratedMeasuredRailsMethods
 
               module GeneratedMeasuredRailsMethods
-                sig { returns(T.nilable(Measured::Weight)) }
+                sig { returns(T.nilable(::Measured::Weight)) }
                 def minimum_weight; end
 
-                sig { params(value: T.nilable(Measured::Weight)).void }
+                sig { params(value: T.nilable(::Measured::Weight)).void }
                 def minimum_weight=(value); end
               end
             end
@@ -166,10 +166,10 @@ module Tapioca
               include GeneratedMeasuredRailsMethods
 
               module GeneratedMeasuredRailsMethods
-                sig { returns(T.nilable(Measured::Length)) }
+                sig { returns(T.nilable(::Measured::Length)) }
                 def total_length; end
 
-                sig { params(value: T.nilable(Measured::Length)).void }
+                sig { params(value: T.nilable(::Measured::Length)).void }
                 def total_length=(value); end
               end
             end
@@ -203,10 +203,10 @@ module Tapioca
               include GeneratedMeasuredRailsMethods
 
               module GeneratedMeasuredRailsMethods
-                sig { returns(T.nilable(Measured::Volume)) }
+                sig { returns(T.nilable(::Measured::Volume)) }
                 def total_volume; end
 
-                sig { params(value: T.nilable(Measured::Volume)).void }
+                sig { params(value: T.nilable(::Measured::Volume)).void }
                 def total_volume=(value); end
               end
             end
