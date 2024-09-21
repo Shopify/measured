@@ -25,6 +25,11 @@ class Measured::WeightTest < ActiveSupport::TestCase
       long_tons
       metric_ton
       metric_tons
+      tonne
+      tonnes
+      q
+      quintal
+      quintals
       newton
       newtons
       ounce
@@ -48,7 +53,7 @@ class Measured::WeightTest < ActiveSupport::TestCase
   end
 
   test ".unit_names should be the list of base unit names" do
-    expected_units = %w(N g lb long_ton oz short_ton slug t)
+    expected_units = %w(N g lb long_ton oz short_ton slug t q)
     expected_units += Measured::UnitSystemBuilder::SI_PREFIXES.map { |short, _, _| "#{short}g" }
     assert_equal expected_units.sort, Measured::Weight.unit_names
   end
@@ -98,6 +103,10 @@ class Measured::WeightTest < ActiveSupport::TestCase
     assert_exact_conversion Measured::Weight, "2000 g", "0.002 t"
   end
 
+  test ".convert_to from g to q" do
+    assert_exact_conversion Measured::Weight, "2000 g", "0.02 q"
+  end
+
   test ".convert_to from kg to g" do
     assert_exact_conversion Measured::Weight, "2000 kg", "2000000 g"
   end
@@ -132,6 +141,10 @@ class Measured::WeightTest < ActiveSupport::TestCase
 
   test ".convert_to from kg to t" do
     assert_exact_conversion Measured::Weight, "2000 kg", "2 t"
+  end
+
+  test ".convert_to from kg to q" do
+    assert_exact_conversion Measured::Weight, "2000 kg", "20 q"
   end
 
   test ".convert_to from lb to g" do
@@ -170,6 +183,10 @@ class Measured::WeightTest < ActiveSupport::TestCase
     assert_conversion Measured::Weight, "2000 lb", "0.90718474 t"
   end
 
+  test ".convert_to from lb to q" do
+    assert_conversion Measured::Weight, "2000 lb", "9.0718474 q"
+  end
+
   test ".convert_to from oz to g" do
     assert_conversion Measured::Weight, "2000 oz", "56699.04625 g"
   end
@@ -204,6 +221,10 @@ class Measured::WeightTest < ActiveSupport::TestCase
 
   test ".convert_to from oz to t" do
     assert_conversion Measured::Weight, "2000 oz", "0.05669904625 t"
+  end
+
+  test ".convert_to from oz to q" do
+    assert_conversion Measured::Weight, "2000 oz", "0.5669904625 q"
   end
 
   test ".convert_to from slug to g" do
@@ -242,6 +263,10 @@ class Measured::WeightTest < ActiveSupport::TestCase
     assert_conversion Measured::Weight, "2000 slug", "29.187806 t"
   end
 
+  test ".convert_to from slug to q" do
+    assert_conversion Measured::Weight, "2000 slug", "291.87806 q"
+  end
+
   test ".convert_to from short_ton to g" do
     assert_conversion Measured::Weight, "2000 short_ton", "1814369480 g"
   end
@@ -276,6 +301,10 @@ class Measured::WeightTest < ActiveSupport::TestCase
 
   test ".convert_to from short_ton to t" do
     assert_conversion Measured::Weight, "2000 short_ton", "1814.36948 t"
+  end
+
+  test ".convert_to from short_ton to q" do
+    assert_conversion Measured::Weight, "2000 short_ton", "18143.6948 q"
   end
 
   test ".convert_to from long_ton to g" do
@@ -314,6 +343,10 @@ class Measured::WeightTest < ActiveSupport::TestCase
     assert_conversion Measured::Weight, "2000 long_ton", "2032.0938176 t"
   end
 
+  test ".convert_to from long_ton to q" do
+    assert_conversion Measured::Weight, "2000 long_ton", "20320.938176 q"
+  end
+
   test ".convert_to from N to g" do
     assert_conversion Measured::Weight, "2000 N", "203943.24259558567 g"
   end
@@ -350,6 +383,10 @@ class Measured::WeightTest < ActiveSupport::TestCase
     assert_conversion Measured::Weight, "2000 N", "0.2039432425955857 t"
   end
 
+  test ".convert_to from N to q" do
+    assert_conversion Measured::Weight, "2000 N", "2.039432425955857 q"
+  end
+
   test ".convert_to from t to g" do
     assert_exact_conversion Measured::Weight, "2000 t", "2000000000 g"
   end
@@ -376,5 +413,41 @@ class Measured::WeightTest < ActiveSupport::TestCase
 
   test ".convert_to from t to t" do
     assert_conversion Measured::Weight, "2000 t", "2000 t"
+  end
+
+  test ".convert_to from t to q" do
+    assert_conversion Measured::Weight, "2000 t", "20000 q"
+  end
+
+  test ".convert_to from q to g" do
+    assert_exact_conversion Measured::Weight, "2000 q", "200000000 g"
+  end
+
+  test ".convert_to from q to kg" do
+    assert_exact_conversion Measured::Weight, "2000 q", "200000 kg"
+  end
+
+  test ".convert_to from q to lb" do
+    assert_conversion Measured::Weight, "2000 q", "440924.5243697552 lb"
+  end
+
+  test ".convert_to from q to oz" do
+    assert_conversion Measured::Weight, "2000 q", "7054792.389916082 oz"
+  end
+
+  test ".convert_to from q to slug" do
+    assert_conversion Measured::Weight, "2000 q", "13704.35311239221 slug"
+  end
+
+  test ".convert_to from q to short_ton" do
+    assert_conversion Measured::Weight, "2000 q", "220.4622621848 short_ton"
+  end
+
+  test ".convert_to from q to t" do
+    assert_conversion Measured::Weight, "2000 q", "200 t"
+  end
+
+  test ".convert_to from q to q" do
+    assert_conversion Measured::Weight, "2000 q", "2000 q"
   end
 end
