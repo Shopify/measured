@@ -10,18 +10,18 @@ jobs:
     strategy:
       matrix:
         ruby:
-          - '3.0'
           - '3.1'
           - '3.2'
+          - '3.3'
         gemfile:
           - Gemfile
-          - gemfiles/rails-6.0.gemfile
-          - gemfiles/rails-6.1.gemfile
           - gemfiles/rails-7.0.gemfile
+          - gemfiles/rails-7.1.gemfile
           - gemfiles/rails-edge.gemfile
         exclude:
-          # Rails Edge only supports Ruby >= 3.1
-          - ruby: '3.0'
+          - ruby: '3.1'
+            gemfile: gemfiles/rails-edge.gemfile
+          - ruby: '3.2'
             gemfile: gemfiles/rails-edge.gemfile
 
     name: Ruby ${{ matrix.ruby }} ${{ matrix.gemfile }}
