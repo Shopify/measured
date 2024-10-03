@@ -2,6 +2,11 @@ Unreleased
 -----
 
 
+3.1.0
+-----
+* Drop support for Rails 6 and Ruby 3.0.
+* Add qunitals. Add aliases for UK ton/tonne. (@ragarwal6397)
+
 
 3.0.0
 -----
