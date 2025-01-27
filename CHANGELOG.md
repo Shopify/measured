@@ -1,6 +1,9 @@
 Unreleased
 -----
 
+3.2.0
+-----
+* Make the ActiveRecord validation errors have the correct type. (@alexcarruthers)
 
 3.1.0
 -----
