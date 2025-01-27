@@ -39,6 +39,12 @@ class Measured::Rails::ValidationTest < ActiveSupport::TestCase
     assert_equal ["Length is not a valid unit"], thing.errors.full_messages
   end
 
+  test "validation sets error codes when unit is invalid" do
+    thing.length_unit = "junk"
+    refute thing.valid?
+    assert thing.errors.of_kind?(:length, :invalid)
+  end
+
   test "validation can override the message with a static string" do
     thing.length_message_unit = "junk"
     refute thing.valid?
@@ -179,6 +185,28 @@ class Measured::Rails::ValidationTest < ActiveSupport::TestCase
 
     thing.length_numericality_equality = Measured::Length.new(101, :cm)
     refute thing.valid?
+  end
+
+  test "validation for numericality puts the proper error types" do
+    thing.length_numericality_inclusive_value = 5
+    refute thing.valid?
+    assert thing.errors.of_kind?(:length_numericality_inclusive, :greater_than_or_equal_to)
+
+    thing.length_numericality_inclusive_value = 25
+    refute thing.valid?
+    assert thing.errors.of_kind?(:length_numericality_inclusive, :less_than_or_equal_to)
+
+    thing.length_numericality_exclusive_value = 2
+    refute thing.valid?
+    assert thing.errors.of_kind?(:length_numericality_exclusive, :greater_than)
+
+    thing.length_numericality_exclusive_value = 550
+    refute thing.valid?
+    assert thing.errors.of_kind?(:length_numericality_exclusive, :less_than)
+
+    thing.length_numericality_equality_value = 200
+    refute thing.valid?
+    assert thing.errors.of_kind?(:length_numericality_equality, :equal_to)
   end
 
   test "validation for numericality handles a nil unit but a valid value" do
