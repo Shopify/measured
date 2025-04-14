@@ -13,7 +13,7 @@ Measured::Volume = Measured.build do
   unit :us_qt, value: "0.25 us_gal", aliases: [:us_quart, :us_quarts]
   unit :pt, value: "0.125 gal", aliases: [:imp_pt, :imperial_pint, :imp_pts, :imperial_pints]
   unit :us_pt, value: "0.125 us_gal", aliases: [:us_pint, :us_pints]
-  unit :oz, value: "0.00625 gal", aliases: [:fl_oz, :imp_fl_oz, :imperial_fluid_ounce, :imperial_fluid_ounces]
+  unit :oz, value: "0.00625 gal", aliases: [:floz, :fl_oz, :imp_fl_oz, :imperial_fluid_ounce, :imperial_fluid_ounces]
   unit :us_oz, value: "0.0078125 us_gal", aliases: [:us_fl_oz, :us_fluid_ounce, :us_fluid_ounces]
 
   cache Measured::Cache::Json, "volume.json"

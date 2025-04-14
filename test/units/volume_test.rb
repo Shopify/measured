@@ -60,6 +60,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
       us_pint
       us_pints
       oz
+      floz
       fl_oz
       imp_fl_oz
       imperial_fluid_ounce
@@ -134,7 +135,7 @@ class Measured::VolumeTest < ActiveSupport::TestCase
   test ".convert_to from us_oz to us_oz" do
     assert_conversion Measured::Volume, "2000 us_oz", "2000 us_oz"
   end
-  
+
   test ".convert_to from mm3 to mm3" do
     assert_conversion Measured::Volume, "20000 mm3", "20000 mm3"
   end

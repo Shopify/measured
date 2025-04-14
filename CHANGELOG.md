@@ -1,6 +1,10 @@
 Unreleased
 -----
 
+3.2.1
+-----
+* Add an alias for `floz` to fluid ounces. (@h4sohail)
+
 3.2.0
 -----
 * Make the ActiveRecord validation errors have the correct type. (@alexcarruthers)
