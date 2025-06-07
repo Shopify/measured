@@ -88,3 +88,60 @@ class Measured::UnitTest < ActiveSupport::TestCase
     assert_nil Measured::Unit.new(:pie).inverse_conversion_amount
   end
 end
+
+class Measured::DyanmicUnitTest < ActiveSupport::TestCase
+  setup do
+    @unit = Measured::Unit.new(:Pie, value: [
+      {
+        conversion: ->(x) { x * Rational(10, 1) },
+        reverse_conversion: ->(x) { x * Rational(1,10) },
+        description: 'some description'
+      },
+      'Cake'
+    ])
+  end
+
+  test "#initialize converts the name to a string" do
+    assert_equal "Pie", @unit.name
+  end
+
+  test "#initialize parses out the unit and the number part" do
+    assert_equal 10, @unit.conversion_amount.call(1)
+    assert_equal "Cake", @unit.conversion_unit
+  end
+
+  test "#to_s returns an expected string" do
+    assert_equal "Pie (some description)", @unit.to_s
+    assert_equal "Pie", @unit.to_s(with_conversion_string: false)
+  end
+
+  test "#inspect returns an expected string" do
+    assert_equal "#<Measured::Unit: Pie some description>", @unit.inspect
+  end
+
+  test "#<=> compares non-Unit classes against name" do
+    assert_equal 1, @unit <=> "Pap"
+    assert_equal (-1), @unit <=> "Pop"
+  end
+
+  test "#<=> is 0 for Unit instances that should be equivalent" do
+    assert_equal 0, @unit <=> Measured::Unit.new(:Pie, value: "10 cake")
+    assert_equal 0, @unit <=> Measured::Unit.new("Pie", value: "10 cake")
+    assert_equal 0, @unit <=> Measured::Unit.new("Pie", value: [10, :cake])
+  end
+
+  test "#<=> is -1 for units with names that come after Pie lexicographically" do
+    assert_equal (-1), @unit <=> Measured::Unit.new(:Pigs, value: "10 bacon")
+    assert_equal (-1), @unit <=> Measured::Unit.new("Pig", aliases: %w(Pigs), value: "10 bacon")
+  end
+
+  test "#<=> compares #conversion_amount when unit names the same" do
+    assert_equal (-1), @unit <=> Measured::Unit.new(:Pie, value: [11, :pancake])
+    assert_equal 0, @unit <=> Measured::Unit.new(:Pie, value: [10, :foo])
+    assert_equal 1, @unit <=> Measured::Unit.new(:Pie, value: [9, :pancake])
+  end
+
+  test "#inverse_conversion_amount returns 1/amount" do
+    assert_equal Rational(1, 10), @unit.inverse_conversion_amount.call(1)
+  end
+end
