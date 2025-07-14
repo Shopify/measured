@@ -14,6 +14,24 @@ class Measured::Cache::JsonTest < ActiveSupport::TestCase
     refute_match "../", @cache.path.to_s
   end
 
+  test "#initialize accepts valid cache filenames for Measured::Measurable.subclasses, and test file" do
+    valid_files = %w[length.json weight.json volume.json test.json]
+    valid_files.each do |filename|
+      assert_nothing_raised do
+        Measured::Cache::Json.new(filename)
+      end
+    end
+  end
+
+  test "#initialize rejects invalid cache filenames" do
+    invalid_files = ["volum.json", "../volume.json", "other.txt"]
+    invalid_files.each do |filename|
+      assert_raises ArgumentError do
+        Measured::Cache::Json.new(filename)
+      end
+    end
+  end
+
   test "#exist? returns false if the file does not exist" do
     File.expects(:exist?).with(@cache.path).returns(false)
     refute_predicate @cache, :exist?
