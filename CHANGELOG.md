@@ -1,6 +1,10 @@
 Unreleased
 -----
 
+3.2.1
+-----
+* Restrict Measured::Cache::Json initializer to valid filenames. (@caseyshop)
+
 3.2.0
 -----
 * Make the ActiveRecord validation errors have the correct type. (@alexcarruthers)
