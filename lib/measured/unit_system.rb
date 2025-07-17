@@ -15,7 +15,13 @@ class Measured::UnitSystem
     @unit_name_to_unit = @units.each_with_object({}) do |unit, hash|
       unit.names.each { |name| hash[name.to_s] = unit }
     end
-    @conversion_table_builder = Measured::ConversionTableBuilder.new(@units, cache: cache)
+
+    table_builder = Measured::ConversionTableBuilder
+    if @units.any?(&:dynamic?)
+      table_builder = Measured::DynamicConversionTableBuilder
+    end
+
+    @conversion_table_builder = table_builder.new(@units, cache: cache)
     @conversion_table = @conversion_table_builder.to_h.freeze
   end
 
@@ -42,8 +48,12 @@ class Measured::UnitSystem
     conversion = conversion_table.fetch(from.name, {})[to.name]
 
     raise Measured::UnitError, "Cannot find conversion entry from #{from} to #{to}" unless conversion
-
-    value.to_r * conversion
+    case conversion
+    when Proc
+      conversion.call(value).to_r
+    else
+      value.to_r * conversion
+    end
   end
 
   def update_cache

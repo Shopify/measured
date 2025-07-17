@@ -6,6 +6,7 @@ class Measured::ConversionTableBuilder
     @units = units
     cache ||= { class: Measured::Cache::Null }
     @cache = cache[:class].new(*cache[:args])
+    after_initialize
   end
 
   def to_h
@@ -22,6 +23,9 @@ class Measured::ConversionTableBuilder
   end
 
   private
+
+  # Used for DynamicConversionTableBuilder
+  def after_initialize; end
 
   def generate_table
     validate_no_cycles
