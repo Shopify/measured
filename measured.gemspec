@@ -37,5 +37,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry"
   spec.add_development_dependency "combustion"
   spec.add_development_dependency "sqlite3", "> 1.4"
-  spec.add_development_dependency "tapioca"
+  spec.add_development_dependency "tapioca", ">= 0.17.0"
 end
