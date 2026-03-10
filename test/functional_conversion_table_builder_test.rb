@@ -44,7 +44,7 @@ class Measured::FunctionalConversionTableBuilderTest < ActiveSupport::TestCase
       Measured::Unit.new(:K, value: [
         {
           forward: ->(k) { k - BigDecimal("273.15") },
-          backward: ->(c) { c + BigDecimal("273.15") },
+          backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15",
         }, "C"
       ]),
     ]).to_h
@@ -59,13 +59,13 @@ class Measured::FunctionalConversionTableBuilderTest < ActiveSupport::TestCase
       Measured::Unit.new(:K, value: [
         {
           forward: ->(k) { k - BigDecimal("273.15") },
-          backward: ->(c) { c + BigDecimal("273.15") },
+          backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15",
         }, "C"
       ]),
       Measured::Unit.new(:F, value: [
         {
           forward: ->(f) { (f - 32) * Rational(5, 9) },
-          backward: ->(c) { c * Rational(9, 5) + 32 },
+          backward: ->(c) { c * Rational(9, 5) + 32 }, description: "celsius * 9/5 + 32",
         }, "C"
       ]),
     ]).to_h
@@ -87,7 +87,7 @@ class Measured::FunctionalConversionTableBuilderTest < ActiveSupport::TestCase
       Measured::Unit.new(:cm, value: [
         {
           forward: ->(cm) { Rational(10, 1) * cm },
-          backward: ->(mm) { mm * Rational(1, 10) },
+          backward: ->(mm) { mm * Rational(1, 10) }, description: "10 mm",
         }, "mm"
       ]),
       Measured::Unit.new(:dm, value: "10 cm"),
@@ -131,9 +131,9 @@ class Measured::FunctionalConversionTableBuilderTest < ActiveSupport::TestCase
   end
 
   test "#to_h raises on cycles" do
-    unit1 = Measured::Unit.new(:a, value: [{ forward: ->(x) { x }, backward: ->(x) { x } }, "b"])
-    unit2 = Measured::Unit.new(:b, value: [{ forward: ->(x) { x }, backward: ->(x) { x } }, "c"])
-    unit3 = Measured::Unit.new(:c, value: [{ forward: ->(x) { x }, backward: ->(x) { x } }, "a"])
+    unit1 = Measured::Unit.new(:a, value: [{ forward: ->(x) { x }, backward: ->(x) { x }, description: "identity" }, "b"])
+    unit2 = Measured::Unit.new(:b, value: [{ forward: ->(x) { x }, backward: ->(x) { x }, description: "identity" }, "c"])
+    unit3 = Measured::Unit.new(:c, value: [{ forward: ->(x) { x }, backward: ->(x) { x }, description: "identity" }, "a"])
 
     assert_raises Measured::CycleDetected do
       Measured::FunctionalConversionTableBuilder.new([unit1, unit2, unit3]).to_h
@@ -144,15 +144,15 @@ class Measured::FunctionalConversionTableBuilderTest < ActiveSupport::TestCase
     table = Measured::FunctionalConversionTableBuilder.new([
       Measured::Unit.new(:A),
       Measured::Unit.new(:B, value: [
-        { forward: ->(b) { b * 2 }, backward: ->(a) { a / 2 } },
+        { forward: ->(b) { b * 2 }, backward: ->(a) { a / 2 }, description: "2 A" },
         "A"
       ]),
       Measured::Unit.new(:C, value: [
-        { forward: ->(c) { c * 3 }, backward: ->(b) { b / 3 } },
+        { forward: ->(c) { c * 3 }, backward: ->(b) { b / 3 }, description: "3 B" },
         "B"
       ]),
       Measured::Unit.new(:D, value: [
-        { forward: ->(d) { d * 5 }, backward: ->(c) { c / 5 } },
+        { forward: ->(d) { d * 5 }, backward: ->(c) { c / 5 }, description: "5 C" },
         "C"
       ]),
     ]).to_h

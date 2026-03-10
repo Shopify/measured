@@ -95,6 +95,7 @@ class Measured::FunctionalUnitTest < ActiveSupport::TestCase
       {
         forward: ->(x) { x * Rational(10, 1) },
         backward: ->(x) { x * Rational(1, 10) },
+        description: "10 Cake",
       },
       'Cake'
     ])
@@ -130,8 +131,8 @@ class Measured::FunctionalUnitTest < ActiveSupport::TestCase
     assert_equal "Pie (10 Cake)", unit.to_s
   end
 
-  test "#to_s returns just name when no description" do
-    assert_equal "Pie", @unit.to_s
+  test "#to_s includes description" do
+    assert_equal "Pie (10 Cake)", @unit.to_s
   end
 
   test "#with preserves functional conversion" do
@@ -159,8 +160,8 @@ class Measured::FunctionalUnitTest < ActiveSupport::TestCase
     assert_equal "#<Measured::Unit: Pie (Tart) 10 Cake>", unit.inspect
   end
 
-  test "#inspect omits conversion string when no description" do
-    assert_equal "#<Measured::Unit: Pie>", @unit.inspect
+  test "#inspect includes description" do
+    assert_equal "#<Measured::Unit: Pie 10 Cake>", @unit.inspect
   end
 
   test "#to_s with_conversion_string: false returns just name for functional units" do
@@ -193,7 +194,7 @@ class Measured::FunctionalUnitTest < ActiveSupport::TestCase
 
   test "#inverse_conversion_amount is distinct from conversion_amount" do
     unit = Measured::Unit.new(:K, value: [
-      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") } },
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
       "C"
     ])
     assert_equal BigDecimal("-272.15"), unit.conversion_amount.call(1)
@@ -202,11 +203,11 @@ class Measured::FunctionalUnitTest < ActiveSupport::TestCase
 
   test "#<=> compares two functional units with different procs" do
     small = Measured::Unit.new(:Pie, value: [
-      { forward: ->(x) { x * Rational(2, 1) }, backward: ->(x) { x * Rational(1, 2) } },
+      { forward: ->(x) { x * Rational(2, 1) }, backward: ->(x) { x * Rational(1, 2) }, description: "2 Cake" },
       "Cake"
     ])
     large = Measured::Unit.new(:Pie, value: [
-      { forward: ->(x) { x * Rational(100, 1) }, backward: ->(x) { x * Rational(1, 100) } },
+      { forward: ->(x) { x * Rational(100, 1) }, backward: ->(x) { x * Rational(1, 100) }, description: "100 Cake" },
       "Cake"
     ])
     assert_equal(-1, small <=> large)

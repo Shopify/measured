@@ -118,7 +118,7 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   test "#initialize uses FunctionalConversionTableBuilder when functional units present" do
     c = Measured::Unit.new(:C)
     k = Measured::Unit.new(:K, value: [
-      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") } },
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
       "C"
     ])
     system = Measured::UnitSystem.new([c, k])
@@ -134,7 +134,7 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
     assert_raises Measured::CacheError do
       Measured.build do
         unit :base_unit
-        unit :other, value: [{ forward: ->(x) { x }, backward: ->(x) { x } }, "base_unit"]
+        unit :other, value: [{ forward: ->(x) { x }, backward: ->(x) { x }, description: "identity" }, "base_unit"]
         cache Measured::Cache::Json, "test.json"
       end
     end
@@ -143,7 +143,7 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   test "functional system #unit_names returns sorted unit names" do
     c = Measured::Unit.new(:C)
     k = Measured::Unit.new(:K, value: [
-      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") } },
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
       "C"
     ])
     system = Measured::UnitSystem.new([c, k])
@@ -153,7 +153,7 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   test "functional system #unit_names_with_aliases includes aliases" do
     c = Measured::Unit.new(:C, aliases: [:celsius])
     k = Measured::Unit.new(:K, aliases: [:kelvin], value: [
-      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") } },
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
       "C"
     ])
     system = Measured::UnitSystem.new([c, k])
@@ -163,7 +163,7 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   test "functional system #unit_for resolves aliases" do
     c = Measured::Unit.new(:C, aliases: [:celsius])
     k = Measured::Unit.new(:K, aliases: [:kelvin], value: [
-      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") } },
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
       "C"
     ])
     system = Measured::UnitSystem.new([c, k])
@@ -174,7 +174,7 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   test "functional system #convert raises for unknown unit" do
     c = Measured::Unit.new(:C)
     k = Measured::Unit.new(:K, value: [
-      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") } },
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
       "C"
     ])
     system = Measured::UnitSystem.new([c, k])
@@ -188,7 +188,7 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   test "functional system #convert handles the same unit" do
     c = Measured::Unit.new(:C)
     k = Measured::Unit.new(:K, value: [
-      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") } },
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
       "C"
     ])
     system = Measured::UnitSystem.new([c, k])
@@ -213,7 +213,7 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   test "functional system #cached? returns false" do
     c = Measured::Unit.new(:C)
     k = Measured::Unit.new(:K, value: [
-      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") } },
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
       "C"
     ])
     system = Measured::UnitSystem.new([c, k])
@@ -223,7 +223,7 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   test "#functional? returns true for systems with functional units" do
     c = Measured::Unit.new(:C)
     k = Measured::Unit.new(:K, value: [
-      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") } },
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
       "C"
     ])
     system = Measured::UnitSystem.new([c, k])
@@ -237,7 +237,7 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
   test "functional system #convert propagates exceptions from procs" do
     c = Measured::Unit.new(:C)
     k = Measured::Unit.new(:K, value: [
-      { forward: ->(k) { raise ArgumentError, "invalid value" }, backward: ->(c) { c + BigDecimal("273.15") } },
+      { forward: ->(k) { raise ArgumentError, "invalid value" }, backward: ->(c) { c + BigDecimal("273.15") }, description: "raises" },
       "C"
     ])
     system = Measured::UnitSystem.new([c, k])

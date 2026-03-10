@@ -101,7 +101,7 @@ class Measured::Unit
     opts = tokens[0]
     forward = opts.fetch(:forward)
     backward = opts.fetch(:backward)
-    @description = opts[:description]
+    @description = opts.fetch(:description) { raise Measured::UnitError, "description is required for functional conversions" }
     @raw_value = tokens
     @inverse_conversion_amount = backward
 
