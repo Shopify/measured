@@ -4,7 +4,7 @@ require "pry" unless ENV["CI"]
 require "combustion"
 Combustion.path = "test/internal"
 Combustion.initialize! :active_record, :active_model
-require "measured"
+require "measured/all"
 require "minitest/reporters"
 require "minitest/autorun"
 require "mocha/minitest"
