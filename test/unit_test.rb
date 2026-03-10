@@ -88,3 +88,129 @@ class Measured::UnitTest < ActiveSupport::TestCase
     assert_nil Measured::Unit.new(:pie).inverse_conversion_amount
   end
 end
+
+class Measured::FunctionalUnitTest < ActiveSupport::TestCase
+  setup do
+    @unit = Measured::Unit.new(:Pie, value: [
+      {
+        forward: ->(x) { x * Rational(10, 1) },
+        backward: ->(x) { x * Rational(1, 10) },
+      },
+      'Cake'
+    ])
+  end
+
+  test "#initialize sets conversion_unit" do
+    assert_equal "Cake", @unit.conversion_unit
+  end
+
+  test "#conversion_amount is a Proc" do
+    assert_instance_of Proc, @unit.conversion_amount
+    assert_equal Rational(10, 1), @unit.conversion_amount.call(1)
+  end
+
+  test "#inverse_conversion_amount is a Proc" do
+    assert_instance_of Proc, @unit.inverse_conversion_amount
+    assert_equal Rational(1, 10), @unit.inverse_conversion_amount.call(1)
+  end
+
+  test "#functional? returns true" do
+    assert_predicate @unit, :functional?
+  end
+
+  test "#functional? returns false for static units" do
+    refute_predicate Measured::Unit.new(:Pie, value: "10 Cake"), :functional?
+  end
+
+  test "#to_s returns name with description when provided" do
+    unit = Measured::Unit.new(:Pie, value: [
+      { forward: ->(x) { x * 10 }, backward: ->(x) { x / 10 }, description: "10 Cake" },
+      'Cake'
+    ])
+    assert_equal "Pie (10 Cake)", unit.to_s
+  end
+
+  test "#to_s returns just name when no description" do
+    assert_equal "Pie", @unit.to_s
+  end
+
+  test "#with preserves functional conversion" do
+    new_unit = @unit.with(unit_system: :fake)
+    assert_instance_of Proc, new_unit.conversion_amount
+    assert_equal Rational(10, 1), new_unit.conversion_amount.call(1)
+    assert_equal :fake, new_unit.unit_system
+  end
+
+  test "#<=> compares functional units by evaluating at 1" do
+    assert_equal 0, @unit <=> Measured::Unit.new(:Pie, value: [10, :foo])
+    assert_equal(-1, @unit <=> Measured::Unit.new(:Pie, value: [11, :foo]))
+    assert_equal 1, @unit <=> Measured::Unit.new(:Pie, value: [9, :foo])
+  end
+
+  test "#functional? returns false for base units with no value" do
+    refute_predicate Measured::Unit.new(:Pie), :functional?
+  end
+
+  test "#inspect includes description when provided" do
+    unit = Measured::Unit.new(:Pie, aliases: ["Tart"], value: [
+      { forward: ->(x) { x * 10 }, backward: ->(x) { x / 10 }, description: "10 Cake" },
+      'Cake'
+    ])
+    assert_equal "#<Measured::Unit: Pie (Tart) 10 Cake>", unit.inspect
+  end
+
+  test "#inspect omits conversion string when no description" do
+    assert_equal "#<Measured::Unit: Pie>", @unit.inspect
+  end
+
+  test "#to_s with_conversion_string: false returns just name for functional units" do
+    assert_equal "Pie", @unit.to_s(with_conversion_string: false)
+  end
+
+  test "#initialize raises KeyError when :forward is missing" do
+    assert_raises KeyError do
+      Measured::Unit.new(:Pie, value: [{ backward: ->(x) { x } }, 'Cake'])
+    end
+  end
+
+  test "#initialize raises KeyError when :backward is missing" do
+    assert_raises KeyError do
+      Measured::Unit.new(:Pie, value: [{ forward: ->(x) { x } }, 'Cake'])
+    end
+  end
+
+  test "#with with explicit value override replaces functional conversion" do
+    new_unit = @unit.with(value: "5 Cake")
+    refute_predicate new_unit, :functional?
+    assert_equal Rational(5, 1), new_unit.conversion_amount
+  end
+
+  test "#inverse_conversion_amount stores the backward proc" do
+    assert_instance_of Proc, @unit.inverse_conversion_amount
+    assert_equal Rational(1, 10), @unit.inverse_conversion_amount.call(1)
+    assert_equal Rational(5, 10), @unit.inverse_conversion_amount.call(5)
+  end
+
+  test "#inverse_conversion_amount is distinct from conversion_amount" do
+    unit = Measured::Unit.new(:K, value: [
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") } },
+      "C"
+    ])
+    assert_equal BigDecimal("-272.15"), unit.conversion_amount.call(1)
+    assert_equal BigDecimal("274.15"), unit.inverse_conversion_amount.call(1)
+  end
+
+  test "#<=> compares two functional units with different procs" do
+    small = Measured::Unit.new(:Pie, value: [
+      { forward: ->(x) { x * Rational(2, 1) }, backward: ->(x) { x * Rational(1, 2) } },
+      "Cake"
+    ])
+    large = Measured::Unit.new(:Pie, value: [
+      { forward: ->(x) { x * Rational(100, 1) }, backward: ->(x) { x * Rational(1, 100) } },
+      "Cake"
+    ])
+    assert_equal(-1, small <=> large)
+    assert_equal 1, large <=> small
+    assert_equal 0, small <=> small
+  end
+end
