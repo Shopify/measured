@@ -62,7 +62,7 @@ jobs:
             core.setOutput("ci_state", ci_state)
       - name: Send Slack notification if auto-merge failed
         if: ${{ steps.check_ci_failure.outputs.ci_state == 'false' }}
-        uses: ruby/action-slack@b6882ea6ef8f556f9f9af9ec1220d3f1ced74acf # v3.0.0
+        uses: ruby/action-slack@54175162371f1f7c8eb94d7c8644ee2479fcd375 # v3.2.2
         with:
           payload: |
             {
