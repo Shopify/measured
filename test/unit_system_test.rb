@@ -114,4 +114,136 @@ class Measured::UnitSystemTest < ActiveSupport::TestCase
     conversion = Measured::UnitSystem.new([@unit_m, @unit_in, @unit_ft], cache: { class: AlwaysTrueCache })
     assert_predicate conversion, :cached?
   end
+
+  test "#initialize uses FunctionalConversionTableBuilder when functional units present" do
+    c = Measured::Unit.new(:C)
+    k = Measured::Unit.new(:K, value: [
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
+      "C"
+    ])
+    system = Measured::UnitSystem.new([c, k])
+
+    c_unit = system.unit_for!(:C)
+    k_unit = system.unit_for!(:K)
+
+    assert_equal BigDecimal("0"), system.convert(BigDecimal("273.15"), from: k_unit, to: c_unit)
+    assert_equal BigDecimal("273.15"), system.convert(BigDecimal("0"), from: c_unit, to: k_unit)
+  end
+
+  test "#initialize raises when caching functional unit system" do
+    assert_raises Measured::CacheError do
+      Measured.build do
+        unit :base_unit
+        unit :other, value: [{ forward: ->(x) { x }, backward: ->(x) { x }, description: "identity" }, "base_unit"]
+        cache Measured::Cache::Json, "test.json"
+      end
+    end
+  end
+
+  test "functional system #unit_names returns sorted unit names" do
+    c = Measured::Unit.new(:C)
+    k = Measured::Unit.new(:K, value: [
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
+      "C"
+    ])
+    system = Measured::UnitSystem.new([c, k])
+    assert_equal %w(C K), system.unit_names
+  end
+
+  test "functional system #unit_names_with_aliases includes aliases" do
+    c = Measured::Unit.new(:C, aliases: [:celsius])
+    k = Measured::Unit.new(:K, aliases: [:kelvin], value: [
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
+      "C"
+    ])
+    system = Measured::UnitSystem.new([c, k])
+    assert_equal %w(C K celsius kelvin), system.unit_names_with_aliases
+  end
+
+  test "functional system #unit_for resolves aliases" do
+    c = Measured::Unit.new(:C, aliases: [:celsius])
+    k = Measured::Unit.new(:K, aliases: [:kelvin], value: [
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
+      "C"
+    ])
+    system = Measured::UnitSystem.new([c, k])
+    assert_equal "K", system.unit_for(:kelvin).name
+    assert_equal "C", system.unit_for(:celsius).name
+  end
+
+  test "functional system #convert raises for unknown unit" do
+    c = Measured::Unit.new(:C)
+    k = Measured::Unit.new(:K, value: [
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
+      "C"
+    ])
+    system = Measured::UnitSystem.new([c, k])
+    unit_bad = Measured::Unit.new(:doesnt_exist)
+
+    assert_raises Measured::UnitError do
+      system.convert(1, from: system.unit_for!(:C), to: unit_bad)
+    end
+  end
+
+  test "functional system #convert handles the same unit" do
+    c = Measured::Unit.new(:C)
+    k = Measured::Unit.new(:K, value: [
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
+      "C"
+    ])
+    system = Measured::UnitSystem.new([c, k])
+    c_unit = system.unit_for!(:C)
+
+    assert_equal BigDecimal("100"), system.convert(BigDecimal("100"), from: c_unit, to: c_unit)
+  end
+
+  test "functional system preserves description through unit reconstruction" do
+    c = Measured::Unit.new(:C)
+    k = Measured::Unit.new(:K, value: [
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
+      "C"
+    ])
+    system = Measured::UnitSystem.new([c, k])
+    k_unit = system.unit_for!(:K)
+
+    assert_equal "celsius + 273.15", k_unit.description
+    assert_equal "K (celsius + 273.15)", k_unit.to_s
+  end
+
+  test "functional system #cached? returns false" do
+    c = Measured::Unit.new(:C)
+    k = Measured::Unit.new(:K, value: [
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
+      "C"
+    ])
+    system = Measured::UnitSystem.new([c, k])
+    refute_predicate system, :cached?
+  end
+
+  test "#functional? returns true for systems with functional units" do
+    c = Measured::Unit.new(:C)
+    k = Measured::Unit.new(:K, value: [
+      { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
+      "C"
+    ])
+    system = Measured::UnitSystem.new([c, k])
+    assert_predicate system, :functional?
+  end
+
+  test "#functional? returns false for static systems" do
+    refute_predicate @conversion, :functional?
+  end
+
+  test "functional system #convert propagates exceptions from procs" do
+    c = Measured::Unit.new(:C)
+    k = Measured::Unit.new(:K, value: [
+      { forward: ->(k) { raise ArgumentError, "invalid value" }, backward: ->(c) { c + BigDecimal("273.15") }, description: "raises" },
+      "C"
+    ])
+    system = Measured::UnitSystem.new([c, k])
+
+    assert_raises ArgumentError do
+      system.convert(BigDecimal("0"), from: system.unit_for!(:K), to: system.unit_for!(:C))
+    end
+  end
 end

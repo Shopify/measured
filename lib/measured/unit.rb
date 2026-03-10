@@ -2,15 +2,15 @@
 class Measured::Unit
   include Comparable
 
-  attr_reader :name, :names, :aliases, :conversion_amount, :conversion_unit, :unit_system, :inverse_conversion_amount
+  attr_reader :name, :names, :aliases, :conversion_amount, :conversion_unit, :unit_system, :inverse_conversion_amount, :description
 
   def initialize(name, aliases: [], value: nil, unit_system: nil)
     @name = name.to_s.freeze
     @aliases = aliases.map(&:to_s).map(&:freeze).freeze
     @names = ([@name] + @aliases).sort!.freeze
     @conversion_amount, @conversion_unit = parse_value(value) if value
-    @inverse_conversion_amount = (1 / conversion_amount if conversion_amount)
-    @conversion_string = ("#{conversion_amount} #{conversion_unit}" if conversion_amount || conversion_unit)
+    @inverse_conversion_amount ||= compute_inverse(@conversion_amount)
+    @conversion_string = build_conversion_string
     @unit_system = unit_system
   end
 
@@ -18,9 +18,13 @@ class Measured::Unit
     self.class.new(
       name || self.name,
       aliases: aliases || self.aliases,
-      value: value || @conversion_string,
+      value: value || @raw_value,
       unit_system: unit_system || self.unit_system
     )
+  end
+
+  def functional?
+    @conversion_amount.is_a?(Proc)
   end
 
   def to_s(with_conversion_string: true)
@@ -44,7 +48,7 @@ class Measured::Unit
       if names_comparison != 0
         names_comparison
       else
-        conversion_amount <=> other.conversion_amount
+        comparable_amount(conversion_amount) <=> comparable_amount(other.conversion_amount)
       end
     else
       name <=> other
@@ -53,16 +57,54 @@ class Measured::Unit
 
   private
 
+  def comparable_amount(amount)
+    amount.is_a?(Proc) ? amount.call(Rational(1)) : amount
+  end
+
+  def compute_inverse(amount)
+    return nil unless amount
+
+    1 / amount
+  end
+
+  def build_conversion_string
+    return nil unless @conversion_amount || @conversion_unit
+
+    if @conversion_amount.is_a?(Proc)
+      @description
+    else
+      "#{@conversion_amount} #{@conversion_unit}"
+    end
+  end
+
   def parse_value(tokens)
     case tokens
     when String
-      tokens = Measured::Parser.parse_string(tokens)
+      parsed = Measured::Parser.parse_string(tokens)
+      @raw_value = tokens
+      [parsed[0].to_r, parsed[1].freeze]
     when Array
       raise Measured::UnitError, "Cannot parse [number, unit] formatted tokens from #{tokens}." unless tokens.size == 2
+
+      if tokens[0].is_a?(Hash)
+        parse_functional_value(tokens)
+      else
+        @raw_value = tokens
+        [tokens[0].to_r, tokens[1].to_s.freeze]
+      end
     else
       raise Measured::UnitError, "Unit must be defined as string or array, but received #{tokens}"
     end
+  end
 
-    [tokens[0].to_r, tokens[1].freeze]
+  def parse_functional_value(tokens)
+    opts = tokens[0]
+    forward = opts.fetch(:forward)
+    backward = opts.fetch(:backward)
+    @description = opts.fetch(:description) { raise Measured::UnitError, "description is required for functional conversions" }
+    @raw_value = tokens
+    @inverse_conversion_amount = backward
+
+    [forward, tokens[1].to_s.freeze]
   end
 end
