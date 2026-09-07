@@ -15,7 +15,10 @@ module Measured::Cache
 
     def read
       return unless exist?
-      decode(JSON.load(File.read(@path), nil, freeze: true))
+      # The cache files written by Measured::Cache::JsonWriter start with a `//` comment line, which is not
+      # valid JSON. json < 3.0 accepted comments by default, json >= 3.0 requires opting in. The option is
+      # ignored by json < 2.20, where comments are accepted anyway.
+      decode(JSON.load(File.read(@path), nil, freeze: true, allow_comments: true))
     end
 
     def write(table)
