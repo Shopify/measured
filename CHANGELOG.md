@@ -1,4 +1,6 @@
 Unreleased
+
+3.2.2
 -----
 * Fix loading the JSON conversion table cache under json 3.0, which no longer accepts comments by default. (@bonjourjules)
 
