@@ -1,5 +1,5 @@
 name: measured
-
+nix: true
 up:
   - ruby
   - bundler
