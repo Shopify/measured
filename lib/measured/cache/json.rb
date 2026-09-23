@@ -15,7 +15,8 @@ module Measured::Cache
 
     def read
       return unless exist?
-      decode(JSON.load(File.read(@path), nil, freeze: true))
+
+      decode(JSON.load(File.read(@path), nil, freeze: true, allow_comments: true))
     end
 
     def write(table)

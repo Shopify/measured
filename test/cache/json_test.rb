@@ -53,6 +53,13 @@ class Measured::Cache::JsonTest < ActiveSupport::TestCase
     assert_equal @table_hash, @cache.read
   end
 
+  test "#read loads a file that starts with the comment header written by the writer" do
+    commented_json = "// Do not modify this file directly. Regenerate it with 'rake cache:write'.\n#{@table_json}"
+    File.expects(:exist?).with(@cache.path).returns(true)
+    File.expects(:read).with(@cache.path).returns(commented_json)
+    assert_equal @table_hash, @cache.read
+  end
+
   test "#write raises not implemented" do
     assert_raises(ArgumentError) do
       @cache.write({})
