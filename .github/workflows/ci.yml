@@ -10,16 +10,14 @@ jobs:
     strategy:
       matrix:
         ruby:
-          - '3.2'
           - '3.3'
+          - '3.4'
+          - '4.0'
         gemfile:
           - Gemfile
           - gemfiles/rails-7.0.gemfile
           - gemfiles/rails-7.1.gemfile
           - gemfiles/rails-edge.gemfile
-        exclude:
-          - ruby: '3.2'
-            gemfile: gemfiles/rails-edge.gemfile
 
     name: Ruby ${{ matrix.ruby }} ${{ matrix.gemfile }}
     steps:
