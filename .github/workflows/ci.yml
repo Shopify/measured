@@ -21,12 +21,14 @@ jobs:
 
     name: Ruby ${{ matrix.ruby }} ${{ matrix.gemfile }}
     steps:
-      - uses: actions/checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e # v1.2.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
       - name: Set up Ruby ${{ matrix.ruby }}
-        uses: ruby/setup-ruby@e34163cd15f4bb403dcd72d98e295997e6a55798 # v1.238.0
+        uses: ruby/setup-ruby@bec3f19a76460dbe12f60def7d1a77585f07516c # v1.322.0
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
+
       - name: Run tests
         run: |
           bundle exec rake
