@@ -136,6 +136,75 @@ class Measured::UnitSystemBuilderTest < ActiveSupport::TestCase
     assert_equal "lb", measurable.unit_system.unit_for!(:long_ton).conversion_unit
   end
 
+  test "#unit accepts convert_to:, forward:, backward:, description: kwargs for functional conversions" do
+    measurable = Measured.build do
+      unit :C
+      unit :K, convert_to: "C",
+        forward: ->(k) { k - BigDecimal("273.15") },
+        backward: ->(c) { c + BigDecimal("273.15") },
+        description: "celsius + 273.15"
+    end
+
+    assert_equal 2, measurable.unit_names.count
+    k_unit = measurable.unit_system.unit_for!(:K)
+    assert k_unit.functional?
+    assert_equal "C", k_unit.conversion_unit
+  end
+
+  test "#unit accepts description: kwarg for functional conversions" do
+    measurable = Measured.build do
+      unit :C
+      unit :K, convert_to: "C",
+        forward: ->(k) { k - BigDecimal("273.15") },
+        backward: ->(c) { c + BigDecimal("273.15") },
+        description: "celsius + 273.15"
+    end
+
+    k_unit = measurable.unit_system.unit_for!(:K)
+    assert_equal "celsius + 273.15", k_unit.description
+  end
+
+  test "#unit raises when convert_to: is given without forward: and backward:" do
+    assert_raises Measured::UnitError do
+      Measured.build do
+        unit :C
+        unit :K, convert_to: "C", forward: ->(k) { k }
+      end
+    end
+
+    assert_raises Measured::UnitError do
+      Measured.build do
+        unit :C
+        unit :K, convert_to: "C", backward: ->(c) { c }
+      end
+    end
+  end
+
+  test "#unit raises when convert_to: is given without description:" do
+    assert_raises Measured::UnitError do
+      Measured.build do
+        unit :C
+        unit :K, convert_to: "C",
+          forward: ->(k) { k - BigDecimal("273.15") },
+          backward: ->(c) { c + BigDecimal("273.15") }
+      end
+    end
+  end
+
+  test "#unit still accepts value: with hash format for functional conversions" do
+    measurable = Measured.build do
+      unit :C
+      unit :K, value: [
+        { forward: ->(k) { k - BigDecimal("273.15") }, backward: ->(c) { c + BigDecimal("273.15") }, description: "celsius + 273.15" },
+        "C"
+      ]
+    end
+
+    assert_equal 2, measurable.unit_names.count
+    k_unit = measurable.unit_system.unit_for!(:K)
+    assert k_unit.functional?
+  end
+
   test "#cache sets no cache by default" do
     measurable = Measured.build do
       unit :m

@@ -8,14 +8,23 @@ class Measured::UnitSystem
       next unit unless unit.conversion_unit
       conversion_unit = @units.find { |u| u.names.include?(unit.conversion_unit) }
       next unit unless conversion_unit
-      unit.with(value: [unit.conversion_amount, conversion_unit.name])
+      if unit.functional?
+        unit.with(value: [
+          { forward: unit.conversion_amount, backward: unit.inverse_conversion_amount, description: unit.description },
+          conversion_unit.name
+        ])
+      else
+        unit.with(value: [unit.conversion_amount, conversion_unit.name])
+      end
     end
     @unit_names = @units.map(&:name).sort.freeze
     @unit_names_with_aliases = @units.flat_map(&:names).sort.freeze
     @unit_name_to_unit = @units.each_with_object({}) do |unit, hash|
       unit.names.each { |name| hash[name.to_s] = unit }
     end
-    @conversion_table_builder = Measured::ConversionTableBuilder.new(@units, cache: cache)
+
+    builder_class = @units.any?(&:functional?) ? Measured::FunctionalConversionTableBuilder : Measured::ConversionTableBuilder
+    @conversion_table_builder = builder_class.new(@units, cache: cache)
     @conversion_table = @conversion_table_builder.to_h.freeze
   end
 
@@ -43,7 +52,15 @@ class Measured::UnitSystem
 
     raise Measured::UnitError, "Cannot find conversion entry from #{from} to #{to}" unless conversion
 
-    value.to_r * conversion
+    if conversion.is_a?(Proc)
+      conversion.call(value.to_r)
+    else
+      value.to_r * conversion
+    end
+  end
+
+  def functional?
+    @units.any?(&:functional?)
   end
 
   def update_cache

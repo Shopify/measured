@@ -5,7 +5,8 @@ class Measured::UnitSystemBuilder
     @cache = nil
   end
 
-  def unit(unit_name, aliases: [], value: nil)
+  def unit(unit_name, aliases: [], value: nil, convert_to: nil, forward: nil, backward: nil, description: nil)
+    value = build_functional_value(convert_to: convert_to, forward: forward, backward: backward, description: description) || value
     @units << build_unit(unit_name, aliases: aliases, value: value)
     nil
   end
@@ -62,6 +63,20 @@ class Measured::UnitSystemBuilder
     unit = Measured::Unit.new(name, aliases: aliases, value: value)
     check_for_duplicate_unit_names!(unit)
     unit
+  end
+
+  def build_functional_value(convert_to:, forward:, backward:, description:)
+    return nil unless convert_to
+
+    unless forward && backward
+      raise Measured::UnitError, "forward: and backward: are required when convert_to: is specified"
+    end
+
+    unless description
+      raise Measured::UnitError, "description: is required when convert_to: is specified"
+    end
+
+    [{ forward: forward, backward: backward, description: description }, convert_to]
   end
 
   def check_for_duplicate_unit_names!(unit)
