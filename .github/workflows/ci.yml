@@ -12,10 +12,12 @@ jobs:
         ruby:
           - '3.2'
           - '3.3'
+          - '3.4'
+          - '4.0'
         gemfile:
           - Gemfile
-          - gemfiles/rails-7.0.gemfile
-          - gemfiles/rails-7.1.gemfile
+          - gemfiles/rails-7.2.gemfile
+          - gemfiles/rails-8.0.gemfile
           - gemfiles/rails-edge.gemfile
         exclude:
           - ruby: '3.2'
@@ -23,9 +25,9 @@ jobs:
 
     name: Ruby ${{ matrix.ruby }} ${{ matrix.gemfile }}
     steps:
-      - uses: actions/checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e # v1.2.0
+      - uses: actions/checkout@v4
       - name: Set up Ruby ${{ matrix.ruby }}
-        uses: ruby/setup-ruby@e34163cd15f4bb403dcd72d98e295997e6a55798 # v1.238.0
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
